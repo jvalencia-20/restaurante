@@ -21,6 +21,8 @@ export const ConteCarrusel = styled.div`
 `;
 
 export const Contenedor = styled.div`
-  height: 34em;
+  display: flex;
+  height: 40em;
+  width: 70em;
   border-radius: 1em;
 `;

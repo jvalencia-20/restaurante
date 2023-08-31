@@ -11,6 +11,7 @@ import {dirname, extname, join} from 'path';
 import { fileURLToPath } from "url";
 import express from "express";
 import jwt from 'jsonwebtoken';
+import {pool} from '../db.js'
 
 const SECRET = "secreto"
 
@@ -143,5 +144,23 @@ router.get('/domicilios', getDomicilios); //ruta para obtener todos los domicili
 router.get('/domicilio/:id', getDomicilio); //ruta para obtener un domicilio por id
 router.delete('/quitar/:id', deleteDomicilio); //ruta para eliminar domicilio
 router.patch('/modificar/:id', updateDomicilio); //ruta para actualizar un domicilio
+
+router.get('mesa/:id', async (req, res) => {
+    try {
+        const mesaId = parseInt(req.params.id);;
+        
+        const query = `
+            SELECT * FROM mesa
+            WHERE id_mesa = ?
+        `;
+        
+        const [rows] = await pool.query(query, [mesaId]);
+        res.json(rows);
+        console.log(rows);
+    } catch (error) {
+        console.error('Error fetching mesa data:', error);
+        res.status(500).json({ error: error.message });
+    }
+});
 
 export default router

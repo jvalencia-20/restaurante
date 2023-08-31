@@ -3,6 +3,7 @@ import {Link} from "react-router-dom"
 import { Container, Box, Box2, Salir, Salir2 } from "./styled";
 import mesa from "../Img/mesa.png";
 import {  BsBoxArrowLeft } from "@react-icons/all-files/bs/BsBoxArrowLeft";
+import { PUBLIC } from "../router/path";
 
 
 export const Reserva = () => {
@@ -25,7 +26,7 @@ export const Reserva = () => {
     return (
         <>
             <Salir> 
-                <Link to="/principal">
+                <Link to={PUBLIC}>
                     <Salir2><BsBoxArrowLeft style={{color:"white"}}></BsBoxArrowLeft></Salir2>
                 </Link>                
             </Salir>

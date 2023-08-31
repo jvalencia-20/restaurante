@@ -15,6 +15,7 @@ import AuthContextProvider from "./context/AuthContext";
 import PublicRoute from "./rout/PublicRoute";
 import PrivateRoute from "./rout/PrivateRoute";
 import Logout from "./login/logout";
+import VistaMesa from "./vista-mesa/principal"
 import { LOGOUT, PRIVATE, PUBLIC } from "./router/path";
 
 export const Principal = () => {
@@ -35,18 +36,15 @@ export const Principal = () => {
                         {/* <Route path="/ordenes" element={<Carrito pedido={JSON.parse(localStorage.getItem('pedido')) || []} />} /> */}
                         <Route path="/domicilio" element={<Domicilio/>}></Route>
                         <Route path="/reserva" element={<Reserva/>}></Route>
+                        <Route path= "/mesa" element={<VistaMesa/>}></Route>
                         <Route path="/login" element={<Logini/>}></Route>
                     </Route>
 
                     <Route path={PRIVATE} element={<PrivateRoute/>}>
-                        
                         <Route path="/private/register" element={<Crearcuenta/>}></Route>
                         <Route index element={<Dashboard/>}></Route>
                         <Route path={LOGOUT} element={<Logout/>}/>
                     </Route>
-                    
-                    
-                    
                 </Routes>
             </BrowserRouter>
         </AuthContextProvider>

@@ -1,93 +1,84 @@
 import React, { useState } from "react";
-import { Container, Box, Box2 } from "./styled";
+import { Container, Box } from "./styled";
+import { useNavigate } from "react-router-dom";
+import { useDataState } from "./data.context/data.state.context";
 import mesa from "../Img/mesa.png";
+import Factura from "../vista-factura/principal";
+import mesaFunctions from "./mesa.services/mesa.services";
 
-export const Mesa = () => {
+const VistaMesa = () => {
+    const navigate = useNavigate();
     const Mesa = [
-        { imagen: mesa, nombre: "Mesa 1" },
-        { imagen: mesa, nombre: "Mesa 2" },
-        { imagen: mesa, nombre: "Mesa 3" },
-        { imagen: mesa, nombre: "Mesa 4" },
-        { imagen: mesa, nombre: "Mesa 5" },
-        { imagen: mesa, nombre: "Mesa 6" },
-        { imagen: mesa, nombre: "Mesa 7" },
-        { imagen: mesa, nombre: "Mesa 8" },
+      { imagen: mesa, nombre: "Mesa 1" },
+      { imagen: mesa, nombre: "Mesa 2" },
+      { imagen: mesa, nombre: "Mesa 3" },
+      { imagen: mesa, nombre: "Mesa 4" },
+      { imagen: mesa, nombre: "Mesa 5" },
+      { imagen: mesa, nombre: "Mesa 6" },
+      { imagen: mesa, nombre: "Mesa 7" },
+      { imagen: mesa, nombre: "Mesa 8" },
     ];
-    const [selectedTableIndex, setSelectedTableIndex] = useState(null);
+    const { mesaData, setMesaData } = useDataState();
+    const [selectedTableIndex, setSelectedTableIndex] = useState(-1);
+    const [showFactura, setShowFactura] = useState(false);
     const [reservas, setReservas] = useState(Array(Mesa.length).fill({ Producto: "", Cantidad: "", Total: 0 }));
     const [mesaOcupada, setMesaOcupada] = useState(Array(Mesa.length).fill(false));
-    const handleTableClick = (index) => {
-        setSelectedTableIndex(index);
+  
+    const handleTableClick = (mesaNumber) => {
+      if (!mesaOcupada[mesaNumber - 1]) {
+        setSelectedTableIndex(mesaNumber - 1); 
+        sendReservationData(mesaNumber, reservas);
+      }
     };
-    const handleReservationChange = (field, value) => {
-        const updatedReservas = [...reservas];
-        updatedReservas[selectedTableIndex][field] = value;
-        setReservas(updatedReservas);
-        const allFieldsEmpty = !value && !updatedReservas[selectedTableIndex].Producto && !updatedReservas[selectedTableIndex].Cantidad && !updatedReservas[selectedTableIndex].Total;
-        const updatedMesaOcupada = [...mesaOcupada];
-        updatedMesaOcupada[selectedTableIndex] = !allFieldsEmpty;
-        setMesaOcupada(updatedMesaOcupada);
-    };
-    const handleTotalChange = (Total) => {
-        const updatedReservas = [...reservas];
-        updatedReservas[selectedTableIndex].Total = Total;
-        setReservas(updatedReservas);
-        const allFieldsEmpty = !Total && !updatedReservas[selectedTableIndex].Producto && !updatedReservas[selectedTableIndex].Cantidad && !updatedReservas[selectedTableIndex].Total;
-        const updatedMesaOcupada = [...mesaOcupada];
-        updatedMesaOcupada[selectedTableIndex] = !allFieldsEmpty;
-        setMesaOcupada(updatedMesaOcupada);
-    };
+  
+    const sendReservationData = async (mesaNumber, reservas) => {
+      try {
+          console.log("Sending reservation data:", mesaNumber, reservas);
+          const mesaDataResponse = await mesaFunctions.getMesa(mesaNumber);
+          setMesaData([...mesaDataResponse, { id_mesa: mesaNumber, reservas }]);
+          navigate("/factura");
+      } catch (error) {
+          console.error("Error sending reservation data:", error);      
+      }
+  };
+  
     return (
-        <>
-            <Container>
-                {Mesa.map((p, index) => (
-                    <React.Fragment key={index}>
-                        <Box
-                            style={{
-                                backgroundImage: `url(${p.imagen})`,
-                                backgroundSize: "cover",
-                                position: "relative",
-                            }}
-                            onClick={() => handleTableClick(index)}
-                        >
-                            {selectedTableIndex === index && (
-                                <div style={{ position: "absolute", bottom: "10px", left: "10px", color: "white" }}>
-                                    <input
-                                        type="text"
-                                        placeholder="Producto"
-                                        value={reservas[index].plato}
-                                        onChange={(e) => handleReservationChange("Producto", e.target.value)}
-                                    />
-                                    <input
-                                        type="text"
-                                        placeholder="Cantidad"
-                                        value={reservas[index].bebida}
-                                        onChange={(e) => handleReservationChange("Cantidad", e.target.value)}
-                                    />
-                                    <input
-                                        type="number"
-                                        placeholder="Total"
-                                        value={reservas[index].Total}
-                                        onChange={(e) => {
-                                            handleReservationChange("total", e.target.value);
-                                            handleTotalChange(e.target.value);
-                                        }}
-                                    />
-                                </div>
-                            )}
-                        </Box>
-                        <Box2>
-                            {p.nombre}
-                            {mesaOcupada[index] ? (
-                                <span style={{ color: "red" }}> Ocupada</span>
-                            ) : (
-                                <span style={{ color: "green" }}> Disponible</span>
-                            )}
-                            <button style={{width:"7rem",height:"2rem",fontSize:"15px",background:"none",color:"white"}}>Total pedido</button>
-                        </Box2>
-                    </React.Fragment>
-                ))}
-            </Container>
-        </>
+      <>
+        <Container>
+          {Mesa.slice(1).map((p, index) => (
+            <React.Fragment key={index}>
+              <Box
+                style={{
+                  backgroundImage: `url(${p.imagen})`,
+                  backgroundSize: "cover",
+                  position: "relative",
+                  cursor: "pointer",
+                }}
+                onClick={() => handleTableClick(index + 1)} 
+              >
+                <span style={{ position: "absolute", top: "10px", left: "10px", color: "white" }}>
+                  Mesa {index + 1}
+                </span>
+              </Box>
+            </React.Fragment>
+          ))}
+          <Box
+            style={{
+              backgroundImage: `url(${Mesa[7].imagen})`, 
+              backgroundSize: "cover",
+              position: "relative",
+              cursor: "pointer"
+            }}
+            onClick={() => handleTableClick(8)} 
+          >
+            <span style={{ position: "absolute", top: "10px", left: "10px", color: "white" }}>
+              Mesa 8
+            </span>
+          </Box>
+        </Container>
+        {showFactura && <Factura mesa={selectedTableIndex + 1} reservas={reservas} />}
+      </>
     );
-};
+  };
+  
+export default VistaMesa

@@ -5,6 +5,7 @@ import { HiOutlineShoppingCart, } from "react-icons/hi"
 import { Container3, Minibox2, Button, Notificacion, Box1 } from "./styled";
 import Carrito from "../orden/principal";
 import { Link } from "react-router-dom";
+import {PUBLIC} from "../router/path"
 
 const Hearder = () => {
   const [activo,setActivo] = useState(false)
@@ -41,7 +42,7 @@ useEffect(()=>{
             <h1 style={{cursor:"pointer"}}>Informacion</h1>
           </Button>            
         </Link>
-        <Link to="/principal" style={{textDecoration:"none"}}>
+        <Link to={PUBLIC} style={{textDecoration:"none"}}>
           <Button>
             <h1 style={{cursor:"pointer"}}>Menu</h1>
           </Button> 
@@ -49,6 +50,11 @@ useEffect(()=>{
         <Link to="/reserva" style={{textDecoration:"none"}}>
           <Button>
             <h1 style={{cursor:"pointer"}}>Reserva</h1>
+          </Button> 
+        </Link> 
+        <Link to="/mesa" style={{textDecoration:"none"}}>
+          <Button>
+            <h1 style={{cursor:"pointer"}}>mesa</h1>
           </Button> 
         </Link> 
         {activo && <Carrito/>}
