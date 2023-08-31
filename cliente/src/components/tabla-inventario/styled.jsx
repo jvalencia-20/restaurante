@@ -16,7 +16,7 @@ export const CajaTitulo = styled.div`
     background-color: #0073ff;
     text-align: center;
     border-radius: 5px;
-h2 {
+    h2 {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 `;

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:3002/api/mesa"; 
+const baseUrl = "http://localhost:3002/api"; 
 
 const fetchAllMesaData = async () => {
     try {
@@ -15,7 +15,7 @@ const fetchAllMesaData = async () => {
 
 const fetchMesaDataById = async (id) => {
     try {
-        const response = await axios.get(`${baseUrl}/${id}`);
+        const response = await axios.get(`${baseUrl}/mesa/${id}`);
         console.log(`Mesa data for ID ${id}:`, response.data); 
         return response.data;
     } catch (error) {
@@ -23,6 +23,8 @@ const fetchMesaDataById = async (id) => {
         throw error;
     }
 };
+
+
 
 const mesaFunctions = {
     getAllMesa: fetchAllMesaData,

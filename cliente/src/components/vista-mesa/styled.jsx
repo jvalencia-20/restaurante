@@ -47,7 +47,7 @@ export const Salir2 = styled.button`
     }
 `;
 
-export const Box = styled.div`
+export const Box = styled.button`
     width: 20rem;
     height: 20rem;
     margin: 5px;
@@ -58,9 +58,16 @@ export const Box = styled.div`
     justify-content: center;
     align-items: center;
     position: relative;
+    transition: background-color 0.3s, border-color 0.5s, transform 0.3s; 
+
     @media (max-width: 768px) {
         width: calc(60% - 10px);
         height: 15rem;
+    }
+
+    &:hover {
+        background-color: transparent; 
+        border: 2px solid #ffd700; 
     }
 `;
 

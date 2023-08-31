@@ -6,6 +6,7 @@ import {getPedidos,getPedido,createPedido,deletePedido,updatePedido} from "../co
 import { createPlato,deletePlato,updatePlato, obtenerPlato, Compra, agregarPedido, Bebidas, obtenerBebida, PlatosSancocho, PlatosCorriente, informacion } from "../controllers/platos.controllers.js";
 import { getReserva,getReservas,createReservation,deleteReservation,updateReservation } from "../controllers/reserva.controllers.js";
 import { createDomicilio,getDomicilios,getDomicilio, deleteDomicilio, updateDomicilio } from "../controllers/domicilios.controllers.js";
+import { getMesa } from "../controllers/mesa.controller.js";
 import multer from 'multer';
 import {dirname, extname, join} from 'path';
 import { fileURLToPath } from "url";
@@ -140,20 +141,6 @@ router.get('/domicilio/:id', getDomicilio); //ruta para obtener un domicilio por
 router.delete('/quitar/:id', deleteDomicilio); //ruta para eliminar domicilio
 router.patch('/modificar/:id', updateDomicilio); //ruta para actualizar un domicilio
 
-router.get('mesa/:id', async (req, res) => {
-    try {
-        const mesaId = parseInt(req.params.id);;
-        const query = `
-            SELECT * FROM mesa
-            WHERE id_mesa = ?
-        `;
-        const [rows] = await pool.query(query, [mesaId]);
-        res.json(rows);
-        console.log(rows);
-    } catch (error) {
-        console.error('Error fetching mesa data:', error);
-        res.status(500).json({ error: error.message });
-    }
-});
+router.get('/mesa/:id', getMesa);
 
 export default router

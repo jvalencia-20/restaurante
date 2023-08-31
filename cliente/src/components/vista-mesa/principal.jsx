@@ -37,6 +37,7 @@ const VistaMesa = () => {
           const mesaDataResponse = await mesaFunctions.getMesa(mesaNumber);
           setMesaData([...mesaDataResponse, { id_mesa: mesaNumber, reservas }]);
           navigate("/factura");
+          console.log("Longitud de mesaData:", mesaDataResponse.length);
       } catch (error) {
           console.error("Error sending reservation data:", error);      
       }
@@ -69,7 +70,8 @@ const VistaMesa = () => {
               position: "relative",
               cursor: "pointer"
             }}
-            onClick={() => handleTableClick(8)}> 
+            onClick={() => handleTableClick(8)} 
+          >
             <span style={{ position: "absolute", top: "10px", left: "10px", color: "white" }}>
               Mesa 8
             </span>
