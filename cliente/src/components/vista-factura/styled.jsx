@@ -7,7 +7,7 @@ export const Background = styled.div`
     align-items: center;
     justify-content: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-`
+`;
 
 export const ContPrincipal = styled.div`
     border: solid 1px;
@@ -18,12 +18,9 @@ export const ContPrincipal = styled.div`
     @media (min-width: 768px) {
         width: 50%;
     }
-`
-
-
+`;
 
 export const ContFactura = styled.div`
-    /* border: solid 1px; */
     height: 22rem;
     margin-bottom: 20px;
     padding-top: 20px;
@@ -38,7 +35,6 @@ export const ContFactura = styled.div`
             margin-top: 20px;
         }
     }
-
     th, td {
         padding: 10px; 
         text-align: center;
@@ -46,18 +42,16 @@ export const ContFactura = styled.div`
             padding: 10px; 
         }
     }
-
     th {
         background-color: #f2f2f2;
     }
-
     tbody tr {
         margin-bottom: 10px;
         @media (min-width: 768px) {
             margin-bottom: 10px;
         }
     }
-`
+`;
 
 export const ResPrecios = styled.div`
     padding: 20px;
@@ -68,11 +62,12 @@ export const ResPrecios = styled.div`
         max-height: initial;
         font-size: 20px;
     }
-`
+`;
+
 export const ContBoton = styled.div`
     display: flex;
     justify-content: center;
-`
+`;
 
 export const BotonImprimir = styled.button`
     color: #fffafa;
@@ -84,4 +79,4 @@ export const BotonImprimir = styled.button`
     &:hover{
         background-color: #1f52e0;
     }
-`
+`;

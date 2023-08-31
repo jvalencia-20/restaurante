@@ -4,17 +4,13 @@ import Axios from "axios"
 
 import tablap from "../Img/bandeja.png"
 
-
 import { Container, Box1, Box2,Box3, Container2, Container3, Minibox1,} from "./Styled"
 
-
 export const Fisica = () => {
-
 const [sancocho, setSancocho] = useState([])
 const [corriente, setCorriente] = useState([])
 const [bebida, setBebida] = useState([])
 const [notificacion, setNotificacion] = useState("")
-
 const platosSancocho = () => {
     Axios.get("http://localhost:3002/api/platosSancocho").then((response)=>{
         setSancocho(response.data)
@@ -23,7 +19,6 @@ const platosSancocho = () => {
     .catch(error => {
     })
 }
-
 const platosCorriente = () => {
     Axios.get("http://localhost:3002/api/platosCorriente").then((response)=>{
         setCorriente(response.data)
@@ -32,7 +27,6 @@ const platosCorriente = () => {
     .catch(error => {
     })
 }
-
 const bebidas = () => {
     Axios.get("http://localhost:3002/api/bebidas").then((response) => {
         setBebida(response.data)
@@ -41,7 +35,6 @@ const bebidas = () => {
     .catch(error => {
     })
 }
-
 const Compra = () => {
     Axios.get("http://localhost:3002/api/compras")
         .then((response) => {     
@@ -56,7 +49,6 @@ const Compra = () => {
         console.error("Error al eliminar el producto:", error);
         }); 
 }
-
 useEffect(()=>{
     platosSancocho()
     platosCorriente()

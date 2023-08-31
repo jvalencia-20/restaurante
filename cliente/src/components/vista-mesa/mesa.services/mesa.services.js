@@ -24,8 +24,6 @@ const fetchMesaDataById = async (id) => {
     }
 };
 
-
-
 const mesaFunctions = {
     getAllMesa: fetchAllMesaData,
     getMesa: fetchMesaDataById,

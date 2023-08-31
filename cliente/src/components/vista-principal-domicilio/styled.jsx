@@ -468,4 +468,3 @@ export const Minibox4 = styled.div`
         margin-top: 2rem;
     }
 `;
-

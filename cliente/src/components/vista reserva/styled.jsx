@@ -28,8 +28,6 @@ export const Salir2 = styled.button`
     background-color: transparent;
     text-align: center;
     font-size: 25px;
-    /* margin-bottom: 50em; */
-    /* border: none; */
     height: 3em;
     width: 3em;
 `;

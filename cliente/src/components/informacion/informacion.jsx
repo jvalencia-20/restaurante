@@ -9,15 +9,12 @@ const Informacion = () => {
   const [informacion, setInformacion] = useState([]);
   const [total, setTotal] = useState(0);
   const [currentImage, setCurrentImage] = useState(0);
-
   const nextImage = () => {
     setCurrentImage((currentImage + 1) % total);
   };
-
   const prevImage = () => {
     setCurrentImage((currentImage - 1 + total) % total);
   };
-
   useEffect(() => {
     Axios.get("http://localhost:3002/api/informacion")
       .then((response) => {
@@ -28,13 +25,10 @@ const Informacion = () => {
         console.error(error);
       });
   }, []);
-
   setTimeout(() => {
   nextImage();
   }, 2000);
 
-
-  
   return (
     <>
       <Container>
@@ -44,19 +38,18 @@ const Informacion = () => {
           <div style={{textAlign:"center" }}>
             {informacion.map((infor, index) => (
               <Contenedor
-                key={index}
-                style={{
-                  backgroundImage: `url(http://localhost:3002/${infor.imagen})`,
-                  backgroundSize: "cover",
-                  backgroundRepeat: "no-repeat",
-                  display: index === currentImage ? "block" : "none"
-                }}
-              >
-                <h1>{infor.Titulo}</h1>
-                <h3>{infor.Informacion}</h3>
-                <h3>{infor.noticia}</h3>
+                  key={index}
+                  style={{
+                    backgroundImage: `url(http://localhost:3002/${infor.imagen})`,
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                    display: index === currentImage ? "block" : "none"
+                  }}>
+                  <h1>{infor.Titulo}</h1>
+                  <h3>{infor.Informacion}</h3>
+                  <h3>{infor.noticia}</h3>
               </Contenedor>
-            ))}
+                ))}
           </div>
           <button onClick={nextImage}>Siguiente</button>
         </ConteCarrusel>

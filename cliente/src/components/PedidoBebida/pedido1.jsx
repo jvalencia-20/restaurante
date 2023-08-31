@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import Axios from "axios"
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { Background, Platos, ConImg, Contenido, ImgPlato, Titulo, NomPlato, Aumentar, Botones, Agregar, Plato, Container, Adicional, Ingredientes, Logito, Infor, CajaImg, Opacidas } from "./style"
+import { Background, Platos, ConImg, Contenido, ImgPlato, Titulo, NomPlato, Aumentar, Botones, Agregar, Plato, Container, Adicional, Logito, Infor, CajaImg } from "./style"
 import logito from "../Img/LOgo3.png"
+import { PUBLIC } from "../router/path";
 
 const PedidosBe = () => {
   const [bebida, setBebida] = useState({});
@@ -81,8 +82,8 @@ console.log(id,'🥗😒')
                   >+</Botones>
                 </Aumentar>
                 <Aumentar>
-                  <Link to="/principal"> <Agregar onClick={() => agregarPedido()}>Agregar a Pedido</Agregar></Link>
-                  <Link to="/principal"> <Agregar>Volver a Menu</Agregar></Link>
+                  <Link to={PUBLIC}> <Agregar onClick={() => agregarPedido()}>Agregar a Pedido</Agregar></Link>
+                  <Link to={PUBLIC}> <Agregar>Volver a Menu</Agregar></Link>
                 </Aumentar>
                 <Aumentar>
                   <Contenido>Total: ${precios}</Contenido>
@@ -101,7 +102,8 @@ console.log(id,'🥗😒')
                   </Contenido> 
                 </Adicional>
                 <Contenido style={{marginLeft:"48px"}}>Desea adicionar o elminar algo al plato </Contenido>
-                  <input type="text" style={{padding:"10px 10px",background:"transparent",width:"27rem", borderRadius:"5px", border:"2px solid #000"}}></input>              </Plato>
+                  <input type="text" style={{padding:"10px 10px",background:"transparent",width:"27rem", borderRadius:"5px", border:"2px solid #000"}}></input>
+              </Plato>
             </Container>             
         </Platos>                  
       </Background>

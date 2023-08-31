@@ -1,10 +1,8 @@
 import React,{useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import Axios from "axios"
-// import Carrito from "../orden/principal"
 
 import tablap from "../Img/bandeja.png"
-
 
 import { Container,  Box2,Box3, Container2, Minibox1, } from "./styled"
 import Hearder from "../Header/header";
@@ -12,11 +10,9 @@ import Footer from "../Footer/principal";
 
 
 export const PrincipalConnect = () => {
-
 const [sancocho, setSancocho] = useState([])
 const [corriente, setCorriente] = useState([])
 const [bebida, setBebida] = useState([])
-
 const platosSancocho = () => {
     Axios.get("http://localhost:3002/api/platosSancocho").then((response)=>{
         setSancocho(response.data)
@@ -25,7 +21,6 @@ const platosSancocho = () => {
     .catch(error => {
     })
 }
-
 const platosCorriente = () => {
     Axios.get("http://localhost:3002/api/platosCorriente").then((response)=>{
         setCorriente(response.data)
@@ -34,7 +29,6 @@ const platosCorriente = () => {
     .catch(error => {
     })
 }
-
 const bebidas = () => {
     Axios.get("http://localhost:3002/api/bebidas").then((response) => {
         setBebida(response.data)
@@ -43,15 +37,11 @@ const bebidas = () => {
     .catch(error => {
     })
 }
-
-
-
 useEffect(()=>{
     platosSancocho()
     platosCorriente()
     bebidas()
 },[])
-
 
 return(
 <Container>

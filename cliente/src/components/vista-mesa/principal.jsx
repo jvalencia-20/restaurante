@@ -69,8 +69,7 @@ const VistaMesa = () => {
               position: "relative",
               cursor: "pointer"
             }}
-            onClick={() => handleTableClick(8)} 
-          >
+            onClick={() => handleTableClick(8)}> 
             <span style={{ position: "absolute", top: "10px", left: "10px", color: "white" }}>
               Mesa 8
             </span>

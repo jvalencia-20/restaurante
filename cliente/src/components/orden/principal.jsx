@@ -59,16 +59,16 @@ const eliminarProducto = (id_plato) => {
 return (
     <>
     <Container>
-            <Titulo>Orden</Titulo>
-        <ConTitulos>
-            <Titulos>Nombre</Titulos>
-            <Titulos>Cantidad</Titulos>
-            <Titulos>Precio</Titulos>
-            <Titulos>Mesa</Titulos>
-            <Titulos>Eliminar</Titulos>
-        </ConTitulos>
-        {
-            compras.map((compra, index) => {
+                <Titulo>Orden</Titulo>
+            <ConTitulos>
+                <Titulos>Nombre</Titulos>
+                <Titulos>Cantidad</Titulos>
+                <Titulos>Precio</Titulos>
+                <Titulos>Mesa</Titulos>
+                <Titulos>Eliminar</Titulos>
+            </ConTitulos>
+                {
+                compras.map((compra, index) => {
                 return (
                 <ConTitulos key={compra.id_plato}>
                 <Titulos>{compra.nombre_plato}</Titulos>
@@ -77,9 +77,9 @@ return (
                 <Titulos>{compra.mesa}</Titulos>
                 <Eliminar onClick={() => eliminarProducto(compra.id_plato)}>X</Eliminar>             
             </ConTitulos>
-        )
-    })
-    }
+                )
+                })
+                }
         <ConTitulos>
             <Titulos>Total: ${totalPrecio}</Titulos>
             <Pedir onClick={enviarOrden}>Enviar Order</Pedir>

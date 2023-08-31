@@ -6,7 +6,6 @@ export const useDataState = () => useContext(DataStateContext);
 
 export const DataProvider = ({ children }) => {
     const [mesaData, setMesaData] = useState([]); 
-
     return (
         <DataStateContext.Provider value={{ mesaData, setMesaData }}>
             {children}

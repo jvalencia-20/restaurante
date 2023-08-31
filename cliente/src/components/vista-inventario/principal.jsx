@@ -33,7 +33,7 @@ const inventarioDatos = [
 export const Inventario = () => {
 return (
     <AppContainer>
-    <TablaInventario campos={inventarioCampos} datos={inventarioDatos} />
+        <TablaInventario campos={inventarioCampos} datos={inventarioDatos} />
     </AppContainer>
     );
 };

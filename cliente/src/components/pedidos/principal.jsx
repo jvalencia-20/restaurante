@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { Background, Platos, ConImg, Contenido, ImgPlato, Titulo, NomPlato, Aumentar, Botones, Agregar, Plato, Container, Adicional, Logito, Infor, CajaImg } from "./styled"
 import logito from "../Img/LOgo3.png"
+import { PUBLIC } from "../router/path";
 
 const Pedidos = () => {
     const [plato, setPlato] = useState({});
@@ -80,8 +81,8 @@ return (
                         >+</Botones>
                     </Aumentar>
                     <Aumentar>
-                            <Link to="/principal"><Agregar onClick={() => agregarPedido()}>Agregar a Pedido</Agregar></Link>
-                            <Link to="/principal"><Agregar>Volver a Menu</Agregar></Link>
+                            <Link to={PUBLIC}><Agregar onClick={() => agregarPedido()}>Agregar a Pedido</Agregar></Link>
+                            <Link to={PUBLIC}><Agregar>Volver a Menu</Agregar></Link>
                     </Aumentar>
                     <Aumentar>
                         <Contenido>Total: ${precios}</Contenido>

@@ -19,7 +19,6 @@ import VistaMesa from "./vista-mesa/principal"
 import { LOGOUT, PRIVATE, PUBLIC } from "./router/path";
 
 export const Principal = () => {
-    
     return(
     <>  
         <AuthContextProvider>
@@ -39,7 +38,6 @@ export const Principal = () => {
                         <Route path= "/mesa" element={<VistaMesa/>}></Route>
                         <Route path="/login" element={<Logini/>}></Route>
                     </Route>
-
                     <Route path={PRIVATE} element={<PrivateRoute/>}>
                         <Route path="/private/register" element={<Crearcuenta/>}></Route>
                         <Route index element={<Dashboard/>}></Route>

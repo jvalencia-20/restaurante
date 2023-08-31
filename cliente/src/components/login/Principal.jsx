@@ -10,7 +10,6 @@ const Logini = () => {
   const [body,setBody] = useState({usuario:'',password:''})
   const navigate = useNavigate()
   const {login} = useAuthContext()
-
   const inputchange = ({target})=>{
     const {name,value} = target
     setBody({
