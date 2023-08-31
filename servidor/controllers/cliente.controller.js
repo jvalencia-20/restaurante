@@ -34,42 +34,34 @@ export const getCliente1 = async (req, res) => {
 export const createCliente = async (req, res) => {
     try {
         const { nombre_cliente, correo, password, confirmar_password } = req.body;
-
         if (!password) {
             return res.status(409).send('contraseña requerida.');
         }
-
         if (!nombre_cliente) {
             return res.status(409).send('Nombre de usuario requerido.');
         }
-
         if (!correo) {
             return res.status(409).send('Correo requerido.');
         }
-
         if (password !== confirmar_password){
             return res.status(409).send('Las contraseñas deben coincidir.');
     }
 
-        // Verificar si ya existe un usuario con el mismo correo y nombre
+// Verificar si ya existe un usuario con el mismo correo y nombre
         const checkExistingUserQuery = 'SELECT * FROM cliente WHERE nombre_cliente = ? OR correo = ?';
         const checkExistingUserValues = [nombre_cliente, correo];
         const [existingUser] = await pool.query(checkExistingUserQuery, checkExistingUserValues);
-
         if (existingUser.length > 0) {
             return res.status(409).send('Nombre de usuario o correo ya existente.');
         }
-
         const saltRounds = 10;
         const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-        // Insertar el nuevo cliente en la base de datos
+// Insertar el nuevo cliente en la base de datos
         const insertQuery = 'INSERT INTO cliente (nombre_cliente, correo, password) VALUES (?, ?, ?)';
         const insertValues = [nombre_cliente, correo, hashedPassword];
-
         const [result] = await pool.query(insertQuery, insertValues);
-
-        res.status(201).json({
+    res.status(201).json({
             id_cliente: result.insertId,
             nombre_cliente,
             correo
@@ -83,7 +75,6 @@ export const confirmar = async (req, res) => {
     try {
     const { usuario, password } = req.body;
     console.log(req.body);
-
     const [rows] = await pool.query(
         'SELECT * FROM cliente WHERE nombre_cliente = ? ', [usuario]
     );

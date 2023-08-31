@@ -18,20 +18,16 @@ const SECRET = "secreto"
 function verificarToken(req, res, next){
     const token = req.headers.authorization;
     console.log(token,"token en backend")
-
     if (!token){
         return res.status(401).json({mensaje: "Acceso no autorizado: Se necesita un Token "})
     }
-
     jwt.verify(token, SECRET, (error, usuario) => {
         if (error) {
             console.log("error aqui")
             return res.status(401).json({mensaje: "Acceso no autorizado: Token no válido."});
             
         }
-
         req.usuario = usuario;
-
         next();
     });
 }
@@ -92,8 +88,6 @@ router.delete('/eliminacion/:id', deletePedido);//ruta para eliminar un pedido
 
 //Tabla plato
 
-// router.get('/platos', getPlatos);//ruta para traer todos los platos 
-// router.get('/plato/:id',getPlato);//ruta para traer platos por id
 router.post('/crearplato', upload.single("imagen"), async (req, res) => {
     try {
         console.log(req.file, "aqui llega el upload");
@@ -101,7 +95,6 @@ router.post('/crearplato', upload.single("imagen"), async (req, res) => {
         const { nombre_plato, descripcion, precio, tipo_plato } = req.body;
         const imagen = req.file.filename;
         console.log(req.file.patch,"aqui esta el path uwu")
-        // Llamar a la función createPlato con los datos y la ruta de la imagen
         const result = await createPlato(nombre_plato, descripcion, precio, imagen, tipo_plato);
         console.log(imagen, "imagen path desde rutas")
         res.status(200).json({
@@ -128,6 +121,7 @@ router.get('/compras',Compra)
 router.delete('/agrega_comida/:id_plato', deletePlatoCarrito)
 
 //informacion
+
 router.get('/informacion', informacion)
 
 //Tabla reserva
@@ -139,6 +133,7 @@ router.delete('/delete/:id', deleteReservation);//ruta para eliminar una reserva
 router.patch('/update/:id', updateReservation);//ruta para actualizar una reservacion
 
 //Tabla de domicilios
+
 router.post('/domicilio', createDomicilio); //ruta para crear domicilios
 router.get('/domicilios', getDomicilios); //ruta para obtener todos los domicilios
 router.get('/domicilio/:id', getDomicilio); //ruta para obtener un domicilio por id
@@ -148,12 +143,10 @@ router.patch('/modificar/:id', updateDomicilio); //ruta para actualizar un domic
 router.get('mesa/:id', async (req, res) => {
     try {
         const mesaId = parseInt(req.params.id);;
-        
         const query = `
             SELECT * FROM mesa
             WHERE id_mesa = ?
         `;
-        
         const [rows] = await pool.query(query, [mesaId]);
         res.json(rows);
         console.log(rows);

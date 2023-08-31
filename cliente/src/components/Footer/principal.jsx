@@ -1,7 +1,6 @@
 import React from "react";
 import { Container4, Minibox3, Minibox4 } from "./styled";
 import {BsFacebook} from "react-icons/bs"
-import {BsYoutube} from "react-icons/bs"
 import {FaInstagramSquare} from "react-icons/fa"
 import logo1 from "../Img/LOgo3.png"
 
@@ -24,10 +23,9 @@ return (
                 <Minibox3>
                     <h2 style={{WebkitTextStroke:"1.1px black",fontWeight:"bold",textShadow:"5px 5px 5px black",filter: "drop-shadow(-0px 0px 0px black)", fontSize:"29px"}}>Siguenos</h2>
                     <div style={{justifyContent:"space-evenly",width:"9rem",display:"flex"}}>
-                    <a href="https://m.facebook.com/login/?locale=es_ES" target="_blank" rel="noreferrer"><BsFacebook style={{fontSize:"30PX",color:"#0011ff", backgroundColor:"white", borderRadius:"14px"}}></BsFacebook></a>
-                    <a href="https://www.instagram.com/" target="_blank" rel="noreferrer"><FaInstagramSquare style={{fontSize:"32px", color:"hsl(285, 90%, 50%)",borderRadius:"80px",background:"white"}}></FaInstagramSquare></a>
-                    <a href="https://www.youtube.com/@lacocinadejorgerausch" target="_blank" rel="noreferrer"><BsYoutube style={{fontSize:"32px", color:"hsl(0, 89.80392156862744%, 50%)",background:"none"}}></BsYoutube></a>
-                    </div>          
+                        <a href="https://m.facebook.com/login/?locale=es_ES" target="_blank" rel="noreferrer"><BsFacebook style={{fontSize:"30PX",color:"#0011ff", backgroundColor:"white", borderRadius:"14px"}}></BsFacebook></a>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noreferrer"><FaInstagramSquare style={{fontSize:"32px", color:"hsl(285, 90%, 50%)",borderRadius:"80px",background:"white"}}></FaInstagramSquare></a>
+                    </div>
                 </Minibox3>
         </Container4>
     </>

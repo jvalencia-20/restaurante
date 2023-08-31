@@ -26,13 +26,11 @@ export const Principal = () => {
                 <Routes>
                     <Route path={PUBLIC} element={<PublicRoute />}>
                         <Route  index element={<PrincipalConnect />}/>   
-                        {/* <Route path="/bebida" element={<Bebidas/>}></Route> */}
                         <Route path="/pedido/:id" element={<Pedidos />}></Route>
                         <Route path="/pedidoBebida/:id" element={<PedidosBe/>}></Route>
                         <Route path="/ordenes" element={<Carrito />}></Route>
                         <Route path="/Hearder" element={<Hearder/>}></Route>
                         <Route path="/informacion" element={<Informacion/>}></Route>
-                        {/* <Route path="/ordenes" element={<Carrito pedido={JSON.parse(localStorage.getItem('pedido')) || []} />} /> */}
                         <Route path="/domicilio" element={<Domicilio/>}></Route>
                         <Route path="/reserva" element={<Reserva/>}></Route>
                         <Route path= "/mesa" element={<VistaMesa/>}></Route>

@@ -75,9 +75,7 @@ export const PlatosSancocho = async (req, res) => {
     const sancocho = "sancocho"
     try {
         const [rows] = await pool.query('SELECT * FROM plato WHERE tipo_plato = ?',[sancocho])
-        // res.json(rows[0])
         res.send(rows)
-        // console.log(rows)
     } catch (error) {
         res.status(500).json({error: error.message})
     }
@@ -87,9 +85,7 @@ export const PlatosCorriente = async (req, res) => {
     const corriente = "corriente"
     try {
         const [rows] = await pool.query('SELECT * FROM plato WHERE tipo_plato = ?',[corriente])
-        // res.json(rows[0])
         res.send(rows)
-        // console.log(rows)
     } catch (error) {
         res.status(500).json({error: error.message})
     }
@@ -155,9 +151,7 @@ export const updatePlato = async(req,res) => {
 export const informacion = async (req, res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM informacion')
-        // res.json(rows[0])
         res.send(rows)
-        // console.log(rows)
     } catch (error) {
         res.status(500).json({error: error.message})
     }

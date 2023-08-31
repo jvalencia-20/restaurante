@@ -71,8 +71,7 @@ export const updateDomicilio = async(req,res) => {
             return res.status(404).json({message: 'Elemento no existente'});
         }
         const [rows] = await pool.query('SELECT * FROM domicilios WHERE id_domicilio = ?' , [id]);
-        res.status(200).json({message: 'Domicilio actualizado'});
-        //res.json(rows[0])
+        res.status(200).json({message: 'Domicilio actualizado'})
     } catch (error) {
         console.error('Ups error al actualizar:', error);
         res.status(500).json({message: 'Error Interno'});

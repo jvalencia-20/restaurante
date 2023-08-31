@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 import Axios from "axios"
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { Background, Platos, ConImg, Contenido, ImgPlato, Titulo, NomPlato, Aumentar, Botones, Agregar, Plato, Container, Adicional, Logito, Infor, CajaImg } from "./styled"
+import { Background, Platos, ConImg, Contenido, ImgPlato, Titulo, NomPlato, Aumentar, Botones, Agregar, Plato, Container, Logito, CajaImg } from "./styled"
 import logito from "../Img/LOgo3.png"
+import Hearder from "../Header/header";
+import Footer from "../Footer/principal";
 import { PUBLIC } from "../router/path";
 
 const Pedidos = () => {
     const [plato, setPlato] = useState({});
-    const [cedula, setCedula] = useState()
     const [contar, setContar] = useState(1)
     const nombrePlato = plato.nombre_plato
     const precioUnitarios = plato.precio
@@ -27,38 +28,40 @@ const Pedidos = () => {
     setPrecios(precios - precioUnitarios)
     }
     }
+    const obtenerPlato = async () => {
+        try {
+            const response = await Axios.get(`http://localhost:3002/api/plato/${id}`);
+            setPlato(response.data);
+            setPrecios(response.data.precio)
+            console.log(response.data,'😊😊😊😊'); 
+        } catch (error) {
+            console.error(error,'😒😒');
+        }
+    }
     const agregarPedido = () => {
     Axios.post("http://localhost:3002/api/agregarpedido", {
         nombre_plato: nombrePlato,
         cantidad: contar,
         precio: precios,
-        cedula: cedula,
-    }).then(()=>{
-        alert("plato agregado")
+    }).then((response)=>{
+        console.log("Respuesta del servidor:", response.data);
+        obtenerPlato()
     })
+    
     .catch(error => {
         alert("problemas con el plato: " + error.message);
     });
     }
-const { id } = useParams();
-console.log(id,'🥗')
-const obtenerPlato = async () => {
-    try {
-        const response = await Axios.get(`http://localhost:3002/api/plato/${id}`);
-        setPlato(response.data);
-        setPrecios(response.data.precio)
-      console.log(response.data,'😊😊😊😊'); // Agrega esta línea
-    } catch (error) {
-        console.error(error,'😒😒');
-    }
-}
-useEffect(() => {
+    const { id } = useParams();
+    console.log(id,'🥗')
+    useEffect(() => {
     obtenerPlato();
 }, []);
 
 return (
 <>
     <Background>
+        <Hearder/>
         <Platos>
             <Titulo>
                 <NomPlato>{plato.nombre_plato}</NomPlato>
@@ -69,8 +72,10 @@ return (
                     <CajaImg>
                         <ImgPlato src={"http://localhost:3002/" + plato.imagen} style={{filter: "drop-shadow(-3px 10px 6px black)"}}></ImgPlato>  
                     </CajaImg>
-                        <Contenido style={{marginLeft:"2em", marginRight:"2em", textAlign:"center"}}>Descripcion: {plato.descripcion}</Contenido>            
-                        <Contenido>Precio: ${plato.precio}</Contenido>
+                    <Contenido>Precio: ${plato.precio}</Contenido>
+                </ConImg>
+                <Plato>
+                    <Contenido style={{marginLeft:"2em", marginRight:"2em", textAlign:"center"}}>Descripcion: {plato.descripcion}</Contenido>            
                     <Aumentar>
                         <Botones
                             onClick={restar}
@@ -81,30 +86,16 @@ return (
                         >+</Botones>
                     </Aumentar>
                     <Aumentar>
-                            <Link to={PUBLIC}><Agregar onClick={() => agregarPedido()}>Agregar a Pedido</Agregar></Link>
+                            <Agregar onClick={() => agregarPedido()}>Agregar a Pedido</Agregar>
                             <Link to={PUBLIC}><Agregar>Volver a Menu</Agregar></Link>
                     </Aumentar>
                     <Aumentar>
                         <Contenido>Total: ${precios}</Contenido>
                     </Aumentar>
-                </ConImg>
-                <Plato>
-                    <Adicional style={{margin:"2em"}}>
-                        <Contenido>Numero de mesa:
-                            <Infor
-                            type="number"
-                            name="numero de mesa"
-                            placeholder="Numero de Cedula"
-                            value={cedula}
-                            onChange={(e) => setCedula(e.target.value)}
-                            ></Infor>
-                        </Contenido>
-                    </Adicional>
-                    <Contenido style={{marginLeft:"48px"}}>Desea adicionar o elminar algo al plato: </Contenido>
-                    <input type="text" style={{padding:"10px 10px",background:"transparent",width:"27rem", borderRadius:"5px", border:"2px solid #000"}}></input>
                 </Plato>
             </Container>             
         </Platos>
+        <Footer/>
     </Background>
 </>
 )

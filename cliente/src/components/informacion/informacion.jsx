@@ -27,7 +27,7 @@ const Informacion = () => {
   }, []);
   setTimeout(() => {
   nextImage();
-  }, 2000);
+  }, 4000);
 
   return (
     <>

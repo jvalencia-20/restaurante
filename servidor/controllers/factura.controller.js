@@ -1,6 +1,5 @@
 import {pool} from "../db.js"
 
-
 //Se seleccionan todos los registros
 export const getAllFactura = async (req, res) => {
     try {

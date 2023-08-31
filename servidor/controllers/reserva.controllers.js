@@ -24,8 +24,6 @@ export const getReserva = async(req,res)=> {
 export const createReservation = async (req,res)=> {
     try {
         const {id_reserva, mesa,id_cliente, hora_reserva} = req.body;
-        
-        //consulta de insercion 
         const query = "INSERT INTO reserva (id_reserva, mesa, id_cliente, hora_reserva) VALUES(?,?,?,?)";
         const values = [id_reserva, mesa,id_cliente, hora_reserva];
         //console.log(values);
@@ -63,10 +61,8 @@ export const updateReservation = async (req, res) => {
     try {
         const { id } = req.params;
         const { mesa, hora_reserva } = req.body;
-        //console.log("valores recibidos:", id, mesa,hora_reserva);
         const query = "UPDATE reserva SET mesa = ? , hora_reserva= ? WHERE id_reserva = ?";
         const values = [mesa,hora_reserva, id];
-        //console.log(values);
         const [result]= await pool.query(query, values);
         if (result.affectedRows === 0) {
             return res.status(404).json({
