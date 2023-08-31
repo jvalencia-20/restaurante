@@ -25,7 +25,7 @@ export const getAdmin1 = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 }
-
+//hola
 //Se crea un registro
 export const createAdmin = async (req, res) => {
     try {
