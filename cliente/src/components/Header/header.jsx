@@ -52,11 +52,6 @@ useEffect(()=>{
             <h1 style={{cursor:"pointer"}}>Reserva</h1>
           </Button> 
         </Link> 
-        <Link to="/mesa" style={{textDecoration:"none"}}>
-          <Button>
-            <h1 style={{cursor:"pointer"}}>mesa</h1>
-          </Button> 
-        </Link> 
         {activo && <Carrito/>}
       </Minibox2>
     </Container3>

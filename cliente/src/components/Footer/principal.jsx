@@ -16,7 +16,7 @@ return (
                 </Minibox3>
                 <Minibox3>
                     <h2 style={{WebkitTextStroke:"1.1px black",fontWeight:"bold",textShadow:"5px 5px 5px black",filter: "drop-shadow(-0px 0px 0px black)", fontSize:"29px"}}>Contactanos</h2>
-                    <a href="https://web.whatsapp.com/" target="_blank" rel="noreferrer" style={{textDecoration:"none"}}><span style={{fontSize:"20px", color:"white", textDecoration:"none"}}>320 5847516</span></a>
+                    <span style={{fontSize:"20px", color:"white", textDecoration:"none"}}>320 5847516</span>
                     <span></span>
                     <span></span>          
                 </Minibox3>

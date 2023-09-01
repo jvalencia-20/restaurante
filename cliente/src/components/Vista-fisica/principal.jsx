@@ -10,7 +10,7 @@ export const Fisica = () => {
 const [sancocho, setSancocho] = useState([])
 const [corriente, setCorriente] = useState([])
 const [bebida, setBebida] = useState([])
-const [notificacion, setNotificacion] = useState("")
+const [, setNotificacion] = useState("")
 const platosSancocho = () => {
     Axios.get("http://localhost:3002/api/platosSancocho").then((response)=>{
         setSancocho(response.data)
@@ -55,8 +55,6 @@ useEffect(()=>{
     bebidas()
     Compra()
 },[])
-
-const [activo,setactivo] = useState(false)
 
 return(
 <Container>

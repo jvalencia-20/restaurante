@@ -8,7 +8,6 @@ import { Container,  Box2,Box3, Container2, Minibox1, } from "./styled"
 import Hearder from "../Header/header";
 import Footer from "../Footer/principal";
 
-
 export const PrincipalConnect = () => {
 const [sancocho, setSancocho] = useState([])
 const [corriente, setCorriente] = useState([])

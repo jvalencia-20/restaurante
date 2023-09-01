@@ -2,7 +2,6 @@ import styled from "styled-components";
 import Tabla from "../Img/letrero.jpg"
 
 export const Container3 = styled.div`
-    /* background-color: aqua; */
     width: 100%;
     height: 20rem;                                                 
     display: flex;
