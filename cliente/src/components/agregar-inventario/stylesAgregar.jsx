@@ -1,8 +1,8 @@
 import styled from "styled-components"
-import Fondo from "../Img/Restauran.jpg"
+
 
 export const Background = styled.div`
-  background-image: url(${Fondo});
+  
   background-size: cover;
   height: 100%;
   width: 100%;
@@ -18,12 +18,13 @@ export const Background = styled.div`
 `;
 
 export const Login = styled.form`
-  /* background-color: #080808dc; */
-  background-color: rgba(05, 05, 05, .5);  
-  backdrop-filter: blur(5px);
+  background-color: #087debdc;
+  /* background-color: rgba(05, 05, 05, .5);   */
+  /* backdrop-filter: blur(5px); */
   height: 95%;
   width: 30em;
   border-radius: 1em;
+  
   box-shadow: 10px 10px 10px  black;
   display: flex;
   flex-direction: column;
@@ -56,7 +57,7 @@ export const Titulo = styled.h1`
 `;
 
 export const Logotipo = styled.img`
-  background-color: #434649c5;
+  background-color: #0b5aeec5;
   height: 30em;
   width: 40em;
   box-shadow: 2px 1px 10px black;

@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { getAdmin, getAdmin1, createAdmin, updateAdmin, deleteAdmin } from "../controllers/admin.controllers.js";
-import { getCliente, getCliente1, createCliente, updateCliente, deleteCliente, confirmar, deletePlatoCarrito } from "../controllers/cliente.controller.js";
+import { getCliente, getCliente1, createCliente, updateCliente, deleteCliente, confirmar, deletePlatoCarrito, createProducto } from "../controllers/cliente.controller.js";
 import { getEmpleado,getEmpleados,createEmpleado,deleteEmpleado,updateEmpleado } from "../controllers/empleado.controllers.js";
 import {getPedidos,getPedido,createPedido,deletePedido,updatePedido} from "../controllers/pedido.controllers.js";
 import { createPlato,deletePlato,updatePlato, obtenerPlato, Compra, agregarPedido, Bebidas, obtenerBebida, PlatosSancocho, PlatosCorriente, informacion } from "../controllers/platos.controllers.js";
@@ -70,6 +70,10 @@ router.post('/createcliente', verificarToken, createCliente) //Ruta para crear u
 router.post('/login', confirmar)
 router.patch('/cliente/:id', updateCliente) //Ruta para actualizar
 router.delete('/cliente/:id', deleteCliente) //Ruta para eliminar uno
+
+//tabla inventario producto.
+
+router.post('/createproducto', verificarToken, createProducto)
 
 //Tabla empleado
 

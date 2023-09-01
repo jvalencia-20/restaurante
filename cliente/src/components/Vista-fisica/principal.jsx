@@ -73,7 +73,7 @@ return(
                     <h4 style={{margin:"0",marginTop:"3rem",fontSize:"20px", cursor:"pointer"}}> {comida.nombre_plato} </h4>
                     <h4 style={{margin:"0",fontSize:"20px", cursor:"pointer"}}> {comida.precio} </h4>
                 </div>
-            </Minibox1>                            
+            </Minibox1>                           
             </Link>
             )}
         </Box2>

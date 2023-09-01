@@ -71,6 +71,51 @@ export const createCliente = async (req, res) => {
     }
 };
 
+export const createProducto = async (req, res) => {
+    try {
+        const { nombre_producto, categoria, presentacion, unidad, precio } = req.body;
+
+        console.log(req.body,"aqui esta el body")
+
+        if (!nombre_producto) {
+            return res.status(409).send('nombre de producto requerido.');
+        }
+
+        if (!categoria) {
+            return res.status(409).send('categoria requerida.');
+        }
+
+        if (!presentacion) {
+            return res.status(409).send('presentacion requerida.');
+        }
+
+        if (!unidad){
+            return res.status(409).send('unidad requerida.');
+    }
+
+    
+    if (!precio){
+        return res.status(409).send('precio requerido.');
+}
+
+      
+
+        // Insertar el nuevo cliente en la base de datos
+        const insertQuery = 'INSERT INTO inventario_producto (nombre_producto, categoria, presentacion, unidad, precio) VALUES (?, ?, ?, ?, ?)';
+        const insertValues = [nombre_producto, categoria, presentacion, unidad, precio];
+
+        const [result] = await pool.query(insertQuery, insertValues);
+
+        res.status(201).json({
+            id_producto: result.insertId,
+            nombre_producto,
+            
+        });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
 export const confirmar = async (req, res) => {
     try {
     const { usuario, password } = req.body;

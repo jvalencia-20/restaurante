@@ -13,6 +13,8 @@ const Crearcuenta = () => {
   const [confirmarContraseña, setconfirmarContraseña] = useState("")
   const [hola, setHola] = useState(false)
   const { token } = useAuthContext();
+  
+
   const agregarusuario = (e) => {
     e.preventDefault()
     console.log(token, "token en crear usuario")
@@ -52,6 +54,7 @@ const Crearcuenta = () => {
               case 'Las contraseñas deben coincidir.':
                 console.log("Verifique que las contraseñas sean iguales.");
                 break;
+          
             default:
               console.log("Error en el registro.");
               break;
@@ -86,7 +89,7 @@ const Crearcuenta = () => {
   return (
     <>
       <Background>
-      <Logotipo src={logo}></Logotipo>
+      {/* <Logotipo src={logo}></Logotipo> */}
         <Login>
           <ConTitulo>
             <Titulo>Donde entras por una Bandeja y sales con una Paisa</Titulo>
