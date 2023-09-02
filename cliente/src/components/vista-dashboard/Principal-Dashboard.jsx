@@ -21,16 +21,16 @@ return (
                     <Link to="/private"><Boton>🏠Inicio</Boton></Link>
                     <Link to="/private/dashboard"><Boton>🍝Agregar Plato</Boton></Link> 
                     <Link to="/private/register"><Boton>👤Crear Usuario</Boton></Link>
-                    <Link to="/private/crearProducto"><Boton>📦Agregar Producto</Boton></Link>       
+                    <Link to="/private/crearProducto"><Boton>📦Agregar Producto</Boton></Link>    
+                    <Link to="/private/inventario"><Boton>📚 inventario</Boton></Link>
         </CajaNav>      
-        <ContainerMain >
-            <Outlet />
-        </ContainerMain >
+        <ContainerMain>
+            <Outlet/>
+        </ContainerMain>
         <ContainerMenu>Aqui ira algo</ContainerMenu>
         <ContainerFooter><h1>Footer</h1></ContainerFooter>
     </Container> 
 </Body>
-
 );
 }
 

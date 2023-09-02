@@ -76,7 +76,7 @@ const agregarproducto = (e) => {
 
 
 const redireccionarALogin = () => {
-    navigate("/private");
+    navigate("/private/inventario");
 };
 
 
@@ -112,7 +112,7 @@ return (
             <Name>Presentacion</Name>
             <Infor
             type="text"
-            name="contraseña"
+            name="presentacion"
             placeholder="Presentacion"
             autoComplete="off"
             value={presentacion}

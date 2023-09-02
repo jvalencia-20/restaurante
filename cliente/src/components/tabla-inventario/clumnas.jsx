@@ -1,7 +1,23 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import  Axios  from 'axios';
 import {Container,CajaElementos, CajaTitulo, CajaProductos, CamposInf,FilaDatosContainer,Celda,} from './styled'; 
 
 function FilaDatos({ datos }) {
+    const [inventario,setInventario] = useState([])
+    const Buscar = () => {
+    Axios.get("http://localhost:3002/api/traerproducto").then((response)=>{
+        setInventario(response.data)
+        console.log(response.data)
+    })
+    .catch(error => {
+    })
+}
+
+    // console.log(inventario)
+
+useEffect(()=>{
+    Buscar()
+},[])
 return (
     <FilaDatosContainer>
         {datos.map((dato, index) => (
@@ -12,6 +28,7 @@ return (
 }
 
 function TablaInventario({ campos, datos }) {
+
     return (
     <Container>
         <CajaElementos>

@@ -22,6 +22,7 @@ import { Fisica } from "./Vista-fisica/principal";
 import { LOGOUT, PRIVATE, PUBLIC } from "./router/path";
 import PrincipalDashboard from "./vista-dashboard/Principal-Dashboard";
 import CrearProducto from "./agregar-inventario/agregarInventario";
+import { Inventario } from "./vista-inventario/principal";
 
 
 export const Principal = () => {
@@ -51,6 +52,7 @@ export const Principal = () => {
                                 <Route path="register" element={<Crearcuenta />} /> {/* Ruta de registro */}
                                 <Route path="dashboard" element={<Dashboard />} />
                                 <Route path="crearProducto" element={<CrearProducto />} />
+                                <Route path="inventario" element= {<Inventario/>}/>
                             </Route>
                             <Route path={LOGOUT} element={<Logout/>}/>
                             {/* <Route path="/private/fisica" element={<Fisica/>}></Route> */}

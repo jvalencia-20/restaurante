@@ -7,21 +7,26 @@ export const Body = styled.div`
     display: flex;
     justify-content: center;
     text-align: center;
+    
 `
 
 export const Container = styled.div`
-    width: 97%;
-    height: 97vh;
+    width: 90%;
+    height: 100%;
     border-radius: 5px;
     display: grid;
     gap: 15px;
-    
+    /* background-color: red; */
+    /* overflow-y: scroll;
+    overflow-x: hidden; */
+    position: relative;
+    right: 5%;
     grid-template:
     
         
         "header" 100px
         "navbar1" 50px
-        "main1" 79%
+        "main1" 135vh
         "sidebar1" 180px
         "footer1"100px  
     ;
@@ -29,7 +34,7 @@ export const Container = styled.div`
 
 
     @media  screen and (min-width: 800px ) {
-
+        right: 2%;
     grid-template:
         
         "header header"  100px
@@ -42,7 +47,7 @@ export const Container = styled.div`
     }
     
     @media  screen and (min-width: 1000px ) {
-    
+        right: auto;
     grid-template:
         
         "header  header header"   100px
@@ -85,7 +90,7 @@ export const ContainerHeader = styled.div`
     height: 100%;
     box-shadow: -1px 1px 7px 0px rgba(0, 0, 0, 0.75);
     border-radius: 5px;
-   
+
     grid-area: header;
 
 
