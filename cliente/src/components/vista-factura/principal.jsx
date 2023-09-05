@@ -18,7 +18,6 @@ const Factura = ({ mesa }) => {
     const [total, setTotal] = useState(0);
     const [filteredReservas, setFilteredReservas] = useState([]);
     const { mesaData } = useDataState();
-
     useEffect(() => {
         setFilteredReservas(mesaData);
         calculateTotal(); 
@@ -28,7 +27,6 @@ const Factura = ({ mesa }) => {
     mesaFunctions.getAllMesa(mesa)
         .then(response => {
             console.log('Response from mesaFunctions:', response);
-
             const convertedResponse = response.map(item => ({
                 ...item,
                 precio: parseFloat(item.precio),
@@ -40,28 +38,22 @@ const Factura = ({ mesa }) => {
         })
         .catch(error => console.error('Error fetching data:', error));
 }, [mesa]);
-    
 
 const calculateTotal = () => {
     const pedidosConProductos = mesaData.filter(item => item.producto && item.cantidad && item.precio);
-
     const subtotalAmount = pedidosConProductos.reduce((accumulator, pedido) => {
         const pedidoTotal = parseFloat(pedido.precio) * pedido.cantidad;
         return accumulator + pedidoTotal;
     }, 0);
-
     const impuestoAmount = subtotalAmount * 0.08;
     const totalAmount = subtotalAmount + impuestoAmount;
-
     setSubtotal(subtotalAmount);
     setImpuesto(impuestoAmount);
     setTotal(totalAmount);
 };
-
 const handlePrintClick = () => {
     window.print(); 
 };
-
 
     return (
         <Background>

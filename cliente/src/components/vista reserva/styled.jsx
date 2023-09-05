@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import piso from "../Img/piso.jpeg"
 
-
 export const Container = styled.div`
     height: 97vh;
     display: flex;

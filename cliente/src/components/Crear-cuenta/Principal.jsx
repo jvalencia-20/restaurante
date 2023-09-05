@@ -13,8 +13,6 @@ const Crearcuenta = () => {
   const [confirmarContraseña, setconfirmarContraseña] = useState("")
   const [hola, setHola] = useState(false)
   const { token } = useAuthContext();
-  
-
   const agregarusuario = (e) => {
     e.preventDefault()
     console.log(token, "token en crear usuario")
@@ -54,7 +52,6 @@ const Crearcuenta = () => {
               case 'Las contraseñas deben coincidir.':
                 console.log("Verifique que las contraseñas sean iguales.");
                 break;
-          
             default:
               console.log("Error en el registro.");
               break;

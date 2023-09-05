@@ -73,7 +73,7 @@ router.delete('/cliente/:id', deleteCliente) //Ruta para eliminar uno
 
 //tabla inventario producto.
 
-router.get('/traerproducto', traerProducto)
+router.get('/traerproducto',verificarToken, traerProducto)
 router.post('/createproducto', verificarToken, createProducto)
 
 //Tabla empleado

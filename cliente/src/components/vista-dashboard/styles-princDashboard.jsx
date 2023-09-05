@@ -1,14 +1,12 @@
 import styled from "styled-components"
 
-
 export const Body = styled.div`
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     text-align: center;
-    
-`
+`;
 
 export const Container = styled.div`
     width: 90%;
@@ -16,26 +14,18 @@ export const Container = styled.div`
     border-radius: 5px;
     display: grid;
     gap: 15px;
-    /* background-color: red; */
-    /* overflow-y: scroll;
-    overflow-x: hidden; */
     position: relative;
     right: 5%;
     grid-template:
-    
-        
-        "header" 100px
-        "navbar1" 50px
-        "main1" 135vh
-        "sidebar1" 180px
-        "footer1"100px  
+    "header" 100px
+    "navbar1" 50px
+    "main1" 135vh
+    "sidebar1" 180px
+    "footer1"100px  
     ;
-
-
-
     @media  screen and (min-width: 800px ) {
         right: 2%;
-    grid-template:
+        grid-template:
         
         "header header"  100px
         "navbar1 navbar1" 50px
@@ -45,7 +35,6 @@ export const Container = styled.div`
     ;
     transition: 1s ease
     }
-    
     @media  screen and (min-width: 1000px ) {
         right: auto;
     grid-template:
@@ -54,19 +43,10 @@ export const Container = styled.div`
         "navbar1 main1    sidebar1" auto
         "footer1 footer1 footer1"  100px /
         200px     auto       200px
-
     ;
     transition-duration: 1s ease
     }
-
-    
-
-    
-    
-    
-`
-
-
+`;
 
 export const Header = styled.div`
     background-color: white;
@@ -78,8 +58,7 @@ export const Header = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-`
+`;
 
 export const ContainerHeader = styled.div`
     background-color: white;
@@ -90,11 +69,8 @@ export const ContainerHeader = styled.div`
     height: 100%;
     box-shadow: -1px 1px 7px 0px rgba(0, 0, 0, 0.75);
     border-radius: 5px;
-
     grid-area: header;
-
-
-`
+`;
 
 export const CajaNav = styled.div`
     background-color: white;
@@ -104,10 +80,8 @@ export const CajaNav = styled.div`
     border-radius: 5px;
     @media  screen and (min-width: 1000px ) {
         flex-direction: column
-
     }
-    
-`
+`;
 
 export const ContainerMain = styled.div`
     background-color: white;
@@ -117,27 +91,29 @@ export const ContainerMain = styled.div`
     box-shadow: -1px 1px 7px 0px rgba(0, 0, 0, 0.75);
     border-radius: 5px;
     overflow: scroll;
-`
+`;
+
 export const ContainerMenu = styled.div`
     background-color: white;
     grid-area: sidebar1;
     box-shadow: -1px 1px 7px 0px rgba(0, 0, 0, 0.75);
     border-radius: 5px;
-`
+`;
+
 export const ContainerFooter = styled.div`
     background-color: white;
     grid-area: footer1;
     box-shadow: -1px 1px 7px 0px rgba(0, 0, 0, 0.75);
     border-radius: 5px;
-`
+`;
+
 export const CajaLogo = styled.div`
     height: 40px;
     width: 30rem;
     display: flex;
     align-items: center;
-    
+`;
 
-`
 export const Boton = styled.button`
     height: 100%;
     width:120px;
@@ -158,4 +134,3 @@ export const Boton = styled.button`
     text-shadow:  0 0 10PX orange,0 0 40PX orange, 0 0 80PX orange;
     }
 `;
-

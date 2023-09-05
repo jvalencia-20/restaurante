@@ -5,7 +5,6 @@ import {Body, Container, Header, ContainerHeader, Boton, CajaNav, CajaLogo, Cont
 import { LOGOUT } from "../router/path";
 function PrincipalDashboard() {
 return (
-
 <Body>
     <Container>
         <ContainerHeader>    

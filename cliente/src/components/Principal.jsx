@@ -11,7 +11,6 @@ import Pedidos from "./pedidos/principal";
 import PedidosBe from "./PedidoBebida/pedido1"
 import Carrito from "./orden/principal";
 import { Dashboard } from "./dashboard/dashboardj";
-import Hearder from "./Header/header";
 import Informacion from "./informacion/informacion";
 import PublicRoute from "./rout/PublicRoute";
 import PrivateRoute from "./rout/PrivateRoute";
@@ -23,6 +22,7 @@ import { LOGOUT, PRIVATE, PUBLIC } from "./router/path";
 import PrincipalDashboard from "./vista-dashboard/Principal-Dashboard";
 import CrearProducto from "./agregar-inventario/agregarInventario";
 import { Inventario } from "./vista-inventario/principal";
+import Todo from "./Todo/todo";
 
 
 export const Principal = () => {
@@ -32,30 +32,32 @@ export const Principal = () => {
             <DataProvider>
                 <BrowserRouter>
                     <Routes>
-                        <Route path={PUBLIC} element={<PublicRoute />}>
-                            <Route index element={<PrincipalConnect />}/>   
-                            <Route path="/pedido/:id" element={<Pedidos />}></Route>
-                            <Route path="/pedidoBebida/:id" element={<PedidosBe/>}></Route>
-                            <Route path="/ordenes" element={<Carrito />}></Route>
-                            <Route path="/Hearder" element={<Hearder/>}></Route>
-                            <Route path="/informacion" element={<Informacion/>}></Route>
-                            <Route path="/domicilio" element={<Domicilio/>}></Route>
-                            <Route path="/reserva" element={<Reserva/>}></Route>
-                            <Route path= "/mesa" element={<VistaMesa/>}></Route>
-                            <Route path="/factura" element={<Factura />} />
-                            <Route path="/login" element={<Logini/>}></Route>
-                        </Route>
-                        <Route path={PRIVATE} element={<PrivateRoute/>}>
-                            
-                        <Route element={<PrincipalDashboard />}>
-                            <Route index /> 
-                                <Route path="register" element={<Crearcuenta />} /> {/* Ruta de registro */}
-                                <Route path="dashboard" element={<Dashboard />} />
-                                <Route path="crearProducto" element={<CrearProducto />} />
-                                <Route path="inventario" element= {<Inventario/>}/>
+                        <Route path={PUBLIC} element = {<PublicRoute />}>
+                            <Route element = {<Todo/>}> 
+                            <Route index />
+                                <Route path="/menu" element = {<PrincipalConnect/>}/>
+                                <Route path="/pedido/:id" element = {<Pedidos />}></Route>
+                                <Route path="/pedidoBebida/:id" element = {<PedidosBe/>}></Route>
+                                <Route path="/informacion" element = {<Informacion/>}></Route>
                             </Route>
-                            <Route path={LOGOUT} element={<Logout/>}/>
-                            {/* <Route path="/private/fisica" element={<Fisica/>}></Route> */}
+                            <Route path="/ordenes" element = {<Carrito />}></Route>
+                            <Route path="/domicilio" element = {<Domicilio/>}></Route>
+                            <Route path="/reserva" element = {<Reserva/>}></Route>
+                            <Route path= "/mesa" element = {<VistaMesa/>}></Route>
+                            <Route path="/factura" element = {<Factura />} />
+                            <Route path="/login" element = {<Logini/>}></Route>
+                            
+                        </Route>
+                        <Route path={PRIVATE} element = {<PrivateRoute/>}>
+                        <Route element = {<PrincipalDashboard />}>
+                            <Route index /> 
+                                <Route path="register" element = {<Crearcuenta />} />
+                                <Route path="dashboard" element = {<Dashboard />} />
+                                <Route path="crearProducto" element = {<CrearProducto />} />
+                                <Route path="inventario" element = {<Inventario/>}/>
+                            </Route>
+                            <Route path={LOGOUT} element = {<Logout/>}/>
+                            <Route path="fisica" element = {<Fisica/>}/>
                         </Route>   
                     </Routes>
                 </BrowserRouter>

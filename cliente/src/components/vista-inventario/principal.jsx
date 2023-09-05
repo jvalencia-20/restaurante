@@ -1,66 +1,51 @@
-import React,{useEffect,useState} from "react";
-import {AppContainer} from "./styled"
-import TablaInventario from '../tabla-inventario/clumnas';
-import  Axios  from "axios";
-
-const inventarioCampos = [
-    "Id",
-    "Nombre",
-    "Presentacion",
-    "Categoria",
-    "Unidad",
-    "Precio"
-];
-
-const inventarioDatos = [
-    ["", "", "", "", "", ""],
-    ["", "", "", "", "", ""],
-    ["", "", "", "", "", ""],
-    ["", "", "", "", "", ""],
-    ["", "", "", "", "", ""],
-    ["", "", "", "", "", ""],
-    ["", "", "", "", "", ""],
-    ["", "", "", "", "", ""],
-    ["", "", "", "", "", ""],
-    ["", "", "", "", "", ""],
-    ["", "", "", "", "", ""],
-    ["", "", "", "", "", ""],
-    ["", "", "", "", "", ""],
-    ["", "", "", "", "", ""],
-    ["", "", "", "", "", ""],
-    ["", "", "", "", "", ""],
-];
+import React ,{useState, useEffect}from "react";
+import { Container, Container2, Box3, Box, Box2 } from "./styled";
+import Axios from "axios";
+import { useAuthContext} from "../context/AuthContext"
 
 export const Inventario = () => {
-    const [inventario,setInventario] = useState([])
-// useEffect(() => {
-//     Axios.get("http://localhost:3002/api/traerproducto")
-//     .then((response) => {
-//         console.log("Response from API:",response.data)
-//         setInventario(response.data)
-//         console.log(inventario)
-//     }).catch((error) => {
-//         console.error("Error fetching data:", error)
-//     })
-// }, [])
-// const Buscar = () => {
-//     Axios.get("http://localhost:3002/api/traerproducto").then((response)=>{
-//         setInventario(response.data)
-//         console.log(response.data)
-//     })
-//     .catch(error => {
-//     })
-// }
+const {token} = useAuthContext()
+const [inventario,setInventario] = useState([])
+const Buscar = () => {
+Axios.get("http://localhost:3002/api/traerproducto",{
+    headers: {
+        Authorization:token
+    }
+    
+}).then((response)=>{
+    setInventario(response.data)
+    console.log(response.data)
+})
+.catch(error => {
+})
+}
 
-// console.log(inventario)
-
-// useEffect(()=>{
-//     Buscar()
-// },[])
+useEffect(()=>{
+Buscar()
+},[])
 
 return (
-    <AppContainer>
-        <TablaInventario campos={inventarioCampos} datos={inventarioDatos} />
-    </AppContainer>
-    );
+    <>
+    <Container>
+        <Container2>
+            <Box3>
+                <Box>Nombre</Box>
+                <Box>Presentacion</Box>
+                <Box>Categoria</Box>
+                <Box>Unidad</Box>
+                <Box>Precio</Box>
+            </Box3>
+            {inventario.map((p, index) => (
+            <Box3 key={index}>
+                <Box2>{p.nombre_producto}</Box2>
+                <Box2>{p.presentacion}</Box2>
+                <Box2>{p.categoria}</Box2>
+                <Box2>{p.unidad}</Box2>
+                <Box2>{p.precio}</Box2>
+            </Box3>
+        ))}
+        </Container2>
+        </Container>
+    </>
+);
 };

@@ -5,7 +5,6 @@ import mesa from "../Img/mesa.png";
 import {  BsBoxArrowLeft } from "@react-icons/all-files/bs/BsBoxArrowLeft";
 import { PUBLIC } from "../router/path";
 
-
 export const Reserva = () => {
     const Mesa = [
         { imagen: mesa, nombre: "Mesa 1" },

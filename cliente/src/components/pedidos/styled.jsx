@@ -1,10 +1,7 @@
 import styled from "styled-components";
-import Cocina from "../Img/Ordenes.jpg"
 import FondoComida from "../Img/fondoComida.jpg"
 
 export const Background = styled.div`
-    background-image: url(${Cocina});
-    background-size: cover;
     height: 100%;
     width: 100%;
     display: flex;
@@ -12,6 +9,7 @@ export const Background = styled.div`
     justify-content: center;
     flex-wrap: wrap;
 `;
+
 
 export const Platos = styled.div`
     background-color: #878787ae;
@@ -53,13 +51,12 @@ export const Logito = styled.img`
     height: 5em;
 `;
 
-export const NomPlato = styled.h1`
-`;
+export const NomPlato = styled.h1``;
 
-export const Contenido = styled.h3`
-`;
+export const Contenido = styled.h3``;
 
 export const ConImg = styled.div`
+    /* background-color: aqua; */
     height: 30em;
     width: 30em;
     display: flex;
@@ -85,7 +82,7 @@ export const CajaImg = styled.div`
         width: 95%;
         height: auto;
     }
-`;
+`
 
 export const ImgPlato = styled.img`
     border-radius: 15px;
@@ -129,6 +126,7 @@ export const Agregar = styled.button`
 `;
 
 export const Plato = styled.div`
+    /* background-color: blue; */
     height: 30em;
     width: 23em;
     display: flex;
@@ -150,6 +148,7 @@ export const Infor = styled.input`
     width: 15em;
     height: 2em;
     border: 2px solid #000;
+    /* margin-left: 1em; */
     margin-top: 2em;
     background-color: transparent;
     border-radius: 5px;

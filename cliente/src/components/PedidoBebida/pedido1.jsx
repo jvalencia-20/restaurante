@@ -2,20 +2,24 @@ import { useState, useEffect } from "react";
 import Axios from "axios"
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { Background, Platos, ConImg, Contenido, ImgPlato, Titulo, NomPlato, Aumentar, Botones, Agregar, Plato, Container, Adicional, Logito, Infor, CajaImg } from "./style"
+import { Background, Platos, ConImg, Contenido, ImgPlato, Titulo, NomPlato, Aumentar, Botones, Agregar, Plato, Container,Logito, CajaImg } from "./style"
 import logito from "../Img/LOgo3.png"
-import { PUBLIC } from "../router/path";
 
 const PedidosBe = () => {
+
   const [bebida, setBebida] = useState({});
   console.log(bebida)
+
   const [contar, setContar] = useState(1)
   const nombrePlato = bebida.nombre_bebida
   const precioUnitarios = bebida.precio
-  const [mesa, setMesa] = useState()
+
   const [precios, setPrecios] = useState([])
+
   console.log(precios,'😊')
   console.log(precioUnitarios)
+
+
   const suma = () => {
     if(contar < 20){
       setContar(contar + 1)
@@ -28,21 +32,45 @@ const PedidosBe = () => {
       setPrecios(precios - precioUnitarios)
     }
   }
-  const agregarPedido = () => {
-    Axios.post("http://localhost:3002/api/agregarpedido", {
-      nombre_plato: nombrePlato,
-      cantidad: contar,
-      precio: precios,
-      mesa: mesa,
-    }).then(()=>{
-      alert("plato agregado")
-    })
-    .catch(error => {
-      alert("problemas con el plato: " + error.message);
-    });
-  }
-const { id } = useParams();
-console.log(id,'🥗😒')
+
+  // const agregarPedido = () => {
+  //   Axios.post("http://localhost:3002/api/agregarpedido", {
+  //     nombre_plato: nombrePlato,
+  //     cantidad: contar,
+  //     precio: precios,
+  //   }).then(()=>{
+  //     // alert("plato agregado")
+  //   })
+  //   .catch(error => {
+  //     alert("problemas con el plato: " + error.message);
+  //   });
+  // }
+
+
+  //localstorage
+
+  const agrega = () => { //copia los platos que ya tiene y agrega uno nuevo
+    const nuevoPlato = { nombre_plato: nombrePlato, cantidad: contar, precio: precios }; 
+    setPlatos([...platos, nuevoPlato]);
+    
+  };
+  
+  const [platos, setPlatos] = useState(() => { //para almacenar los platos
+    const platoLocalStorage = JSON.parse(localStorage.getItem("platico"));
+    return Array.isArray(platoLocalStorage) && platoLocalStorage.length > 0
+      ? platoLocalStorage
+      : [];
+  });
+
+  useEffect(() => { //ejecuta el localstorage para que almacene los plato primero los convierte en string con el stringify
+    localStorage.setItem("platico", JSON.stringify(platos));
+  }, [platos]);
+
+  const { id } = useParams();
+
+
+  console.log(id,'🥗😒')
+
   const obtenerBebida = async () => {
     try {
         const response = await Axios.get(`http://localhost:3002/api/bebida/${id}`);
@@ -53,10 +81,12 @@ console.log(id,'🥗😒')
         console.error(error,'😒😒🥗🥗');
     }
   }
+
   useEffect(() => {
       obtenerBebida();
   }, []);
-  
+
+
   return (
     <>
       <Background>
@@ -70,8 +100,10 @@ console.log(id,'🥗😒')
                 <CajaImg>
                   <ImgPlato src={"http://localhost:3002/" + bebida.imagen} style={{filter: "drop-shadow(-3px 10px 6px black)"}}></ImgPlato> 
                 </CajaImg>
-                <Contenido style={{marginLeft:"2em", marginRight:"2em", textAlign:"center"}}>Descripcion: {bebida.descripcion}</Contenido>             
                 <Contenido>Precio: ${bebida.precio}</Contenido>
+              </ConImg>
+              <Plato>
+                <Contenido style={{marginLeft:"2em", marginRight:"2em", textAlign:"center"}}>Descripcion: {bebida.descripcion}</Contenido>             
                 <Aumentar>
                   <Botones
                   onClick={restar}
@@ -82,30 +114,16 @@ console.log(id,'🥗😒')
                   >+</Botones>
                 </Aumentar>
                 <Aumentar>
-                  <Link to={PUBLIC}> <Agregar onClick={() => agregarPedido()}>Agregar a Pedido</Agregar></Link>
-                  <Link to={PUBLIC}> <Agregar>Volver a Menu</Agregar></Link>
+                  {/* <Agregar onClick={() => agregarPedido()}>Agregar a Pedido</Agregar> */}
+                  <Agregar onClick={() => agrega()}>Agregar a Pedido</Agregar>
+                  <Link to="/todo/principal"> <Agregar>Volver a Menu</Agregar></Link>
                 </Aumentar>
                 <Aumentar>
                   <Contenido>Total: ${precios}</Contenido>
                 </Aumentar>
-              </ConImg>
-              <Plato>
-                <Adicional style={{marginTop:"2em"}}>
-                  <Contenido>Numero de Mesa: 
-                    <Infor
-                    type="number"
-                    name="numero de mesa"
-                    placeholder="Numero de mesa"
-                    value={mesa}
-                    onChange={(e) => setMesa(e.target.value)}
-                    ></Infor>
-                  </Contenido> 
-                </Adicional>
-                <Contenido style={{marginLeft:"48px"}}>Desea adicionar o elminar algo al plato </Contenido>
-                  <input type="text" style={{padding:"10px 10px",background:"transparent",width:"27rem", borderRadius:"5px", border:"2px solid #000"}}></input>
-              </Plato>
+                </Plato>
             </Container>             
-        </Platos>                  
+        </Platos>
       </Background>
     </>
   )

@@ -1,21 +1,20 @@
 import styled from "styled-components";
-import Cocina from "../Img/Ordenes.jpg"
 import FondoComida from "../Img/fondoComida.jpg"
 
 
 export const Background = styled.div`
-  background-image: url(${Cocina});
-  background-size: cover;
-  height: 100vh;
+  height: 100%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 `;
 
 export const Platos = styled.div`
   /* background-color: #ffc4fa; */
-  height: 50em;
-  width: 60em;
+  height: 35em;
+  width: 55em;
   box-shadow: 10px 10px 10px black;
   border-radius: 20px;
   display: flex;
@@ -61,7 +60,7 @@ export const Contenido = styled.h3`
 `;
 
 export const ConImg = styled.div`
-  height: 42em;
+  height: 30em;
   width: 30em;
   display: flex;
   flex-direction: column;
@@ -86,7 +85,7 @@ export const CajaImg = styled.div`
     width: 95%;
     height: auto;
   }
-`;
+`
 
 export const ImgPlato = styled.img`
   border-radius: 15px;
@@ -130,8 +129,12 @@ export const Agregar = styled.button`
 `;
 
 export const Plato = styled.div`
-  height: 42em;
-  width: 30em;
+  height: 30em;
+  width: 23em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly
 `;
 
 export const Adicional = styled.div`

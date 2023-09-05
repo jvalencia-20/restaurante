@@ -88,7 +88,7 @@ return (
     {/* <Logotipo src={logo}></Logotipo> */}
         <Login>
         <ConTitulo>
-            <Titulo>Donde entras por una Bandeja y sales con una Paisa</Titulo>
+            <Titulo>Agregar un nuevo producto</Titulo>
         </ConTitulo>
         <ConInfor>
             <Name>Nombre del Producto</Name>
@@ -100,6 +100,15 @@ return (
             value={nombreProducto}
             onChange={ev => setNombreProducto(ev.target.value)}
             ></Infor>
+                <Name>Presentacion</Name>
+            <Infor
+            type="text"
+            name="presentacion"
+            placeholder="Presentacion"
+            autoComplete="off"
+            value={presentacion}
+            onChange={ev => setPresentacion(ev.target.value)}
+            ></Infor>
             <Name>Categoria</Name>
             <Infor
             type="text"
@@ -108,15 +117,6 @@ return (
             autoComplete="off"
             value={categoria}
             onChange={ev => setCategoria(ev.target.value)}
-            ></Infor>
-            <Name>Presentacion</Name>
-            <Infor
-            type="text"
-            name="presentacion"
-            placeholder="Presentacion"
-            autoComplete="off"
-            value={presentacion}
-            onChange={ev => setPresentacion(ev.target.value)}
             ></Infor>
             <Name>Unidad</Name>
             <Infor
@@ -137,7 +137,6 @@ return (
             onChange={ev => setPrecio(ev.target.value)}
             ></Infor>
             <Entrar onClick={agregarproducto}>Agregar</Entrar>
-            <Link style={{textDecoration:"none", color:"black"}} to="/login"><ReContraseña>Ya tengo cuenta</ReContraseña></Link>
         </ConInfor>
         </Login>
     </Background>
