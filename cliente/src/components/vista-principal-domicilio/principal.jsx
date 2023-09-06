@@ -20,6 +20,7 @@ const platosSancocho = () => {
     .catch(error => {
     })
 }
+
 //trae los platos corrientes de la tabla platos
 const platosCorriente = () => {
     Axios.get("http://localhost:3002/api/platosCorriente").then((response)=>{
@@ -29,6 +30,7 @@ const platosCorriente = () => {
     .catch(error => {
     })
 }
+
 //trae las bebidas de la tabla bebida
 const bebidas = () => {
     Axios.get("http://localhost:3002/api/bebidas").then((response) => {
@@ -46,14 +48,13 @@ useEffect(()=>{
     bebidas()
 },[])
 
-
 return(
 <Container>
     <Container2>
         <h1 style={{WebkitTextStroke:"1.1px black",fontWeight:"bold",textShadow:"5px 5px 5px black", color:"#ffffff", marginLeft:"3em", filter: "drop-shadow(-10px 25px 15px black)"}}>SANCOCHOS</h1>
         <Box2>
             {sancocho.map((comida, index)=>
-            <Link to={`/pedido/${comida.id_plato}`} key={index} style={{textDecoration:"none"}} > {/* recibimos el id por medio de react-router*/}
+            <Link to={`/pedido/${comida.id_plato}`} key={index} style={{textDecoration:"none"}} > 
             <Minibox1  key={index} >
                 <img 
                 src={"http://localhost:3002/" + comida.imagen} alt={comida.nombre_plato} style={{width:"15rem", filter: "drop-shadow(-15px 15px 10px black)", cursor:"pointer"}}></img>

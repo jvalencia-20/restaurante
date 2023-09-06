@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import fondoPedido from "../Img/domicilio.jpg"
+import fondoPedido from "../Img/repartidor.jpeg"
 
 export const Container = styled.div`
     height: 97vh;
@@ -65,7 +65,6 @@ export const Box2 = styled.div`
 `;
 
 export const Box3 = styled.div`
-    /* background-color: aqua; */
     width: 23rem;
     height: 20rem;
     display: flex;
@@ -85,7 +84,6 @@ export const Box3 = styled.div`
 `;
 
 export const Box4 = styled.div`
-    /* background-color: bisque; */
     width: 25rem;
     height: 20rem;
     display: flex;

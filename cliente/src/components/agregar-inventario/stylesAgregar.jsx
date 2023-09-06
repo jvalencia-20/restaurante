@@ -18,12 +18,9 @@ export const Background = styled.div`
 
 export const Login = styled.form`
   background-color: #087debdc;
-  /* background-color: rgba(05, 05, 05, .5);   */
-  /* backdrop-filter: blur(5px); */
   height: 95%;
   width: 30em;
   border-radius: 1em;
-  
   box-shadow: 10px 10px 10px  black;
   display: flex;
   flex-direction: column;
@@ -40,7 +37,6 @@ export const ConTitulo = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: green; */
 `;
 
 export const Titulo = styled.h1`
@@ -76,7 +72,6 @@ export const ConInfor = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* background-color: aqua; */
   @media screen and ( max-width: 90vh){   
     height: 70%;
     width: 20em; 

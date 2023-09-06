@@ -1,69 +1,27 @@
 import React  from "react"
 import {Outlet, useNavigate} from "react-router-dom"
-//Header
-// import Axios from "axios"
 import { useState, useEffect } from "react";
 import { HiOutlineShoppingCart, } from "react-icons/hi"
 import { Container3, Minibox2, Button, Notificacion, Box1, Background } from "./styled";
 import Carrito from "../orden/principal";
 import { Link } from "react-router-dom";
-//Footer
 import { Container4, Minibox3, Minibox4 } from "./styled";
 import {BsFacebook} from "react-icons/bs"
 import {BsYoutube} from "react-icons/bs"
 import {FaInstagramSquare} from "react-icons/fa"
 import logo1 from "../Img/LOgo3.png"
-//imagenes
-// import Cocina from "../Img/Ordenes.jpg"
 import fondo from "../Img/FondoInfor.jpg"
 
-
-
-
-
 const Todo = () => {
-  //Header
-  //carrito
   const [activo, setActivo] = useState(false)
   const [notificacion, setNotificacion] = useState(0)
   const [platos, setPlatos] = useState([])
   const navigate = useNavigate()
-
-//   const Compra = () => {
-//     Axios.get("http://localhost:3002/api/compras")
-//         .then((response) => {     
-//         if (response.data.length > 0){
-//             setNotificacion(response.data.length)
-//         } else {
-//             setNotificacion(0)
-//         }
-//         Compra();
-//         })
-//         .catch(error => {
-//         console.error("Error al eliminar el producto:", error);
-//         }); 
-// }
-// useEffect(()=>{
-//   Compra()
-// },[])
-
-//localstorage
-// useEffect(() => {
-//   const plato = JSON.parse(localStorage.getItem("platico"));
-//   if (Array.isArray(plato)) {
-//     const total = plato.length
-//     setNotificacion(total);
-//   }
-// }, []);
-
-
-useEffect(() => {
+  useEffect(() => {
   setNotificacion(platos.length)
   const platoLocalStorage = JSON.parse(localStorage.getItem("platico"));
   setPlatos(platoLocalStorage);
 }, [platos])
-
-
 useEffect(()=>{
   navigate("/menu") 
 },[])

@@ -2,14 +2,15 @@ import { useState, useEffect } from "react";
 import Axios from "axios"
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { Background, Platos, ConImg, Contenido, ImgPlato, Titulo, NomPlato, Aumentar, Botones, Agregar, Plato, Container, Logito, CajaImg } from "./styled"
+import { Background, Platos, ConImg, Contenido, ImgPlato, Titulo, NomPlato, Aumentar, Botones, Agregar, Plato, Container,Logito, CajaImg } from "./styled"
 import logito from "../Img/LOgo3.png"
 
-const Pedidos = () => {
-    const [plato, setPlato] = useState({});
+const BebidaFisica = () => {
+    const [bebida, setBebida] = useState({});
+    console.log(bebida)
     const [contar, setContar] = useState(1)
-    const nombrePlato = plato.nombre_plato
-    const precioUnitarios = plato.precio
+    const nombrePlato = bebida.nombre_bebida
+    const precioUnitarios = bebida.precio
     const [precios, setPrecios] = useState([])
     console.log(precios,'😊')
     console.log(precioUnitarios)
@@ -21,19 +22,9 @@ const Pedidos = () => {
     }
     const restar = () => {
     if(contar > 1 ){
-    setContar(contar - 1)
-    setPrecios(precios - precioUnitarios)
+        setContar(contar - 1)
+        setPrecios(precios - precioUnitarios)
     }
-    }
-    const obtenerPlato = async () => {
-        try {
-            const response = await Axios.get(`http://localhost:3002/api/plato/${id}`);
-            setPlato(response.data);
-            setPrecios(response.data.precio)
-            console.log(response.data,'😊😊😊😊'); 
-        } catch (error) {
-            console.error(error,'😒😒');
-        }
     }
     const agrega = () => { 
     const nuevoPlato = { nombre_plato: nombrePlato, cantidad: contar, precio: precios }; 
@@ -42,47 +33,57 @@ const Pedidos = () => {
     const [platos, setPlatos] = useState(() => { 
     const platoLocalStorage = JSON.parse(localStorage.getItem("platico"));
     return Array.isArray(platoLocalStorage) && platoLocalStorage.length > 0
-        ? platoLocalStorage
-        : [];
+    ? platoLocalStorage
+    : [];
     });
     useEffect(() => { 
     localStorage.setItem("platico", JSON.stringify(platos));
     }, [platos]);
-const { id } = useParams();
-console.log(id,'🥗')
-useEffect(() => {
-    obtenerPlato();
-}, []);
+    const { id } = useParams();
+    console.log(id,'🥗😒')
+    const obtenerBebida = async () => {
+    try {
+        const response = await Axios.get(`http://localhost:3002/api/bebida/${id}`);
+        setBebida(response.data);
+        setPrecios(response.data.precio)
+        console.log(response.data,'😊😊😊😊'); 
+    } catch (error) {
+        console.error(error,'😒😒🥗🥗');
+    }
+    }
+    useEffect(() => {
+    obtenerBebida();
+    }, []);
 
 return (
-<>
+    <>
     <Background>
-        <Platos>
+        <Platos style={{backgroundColor: bebida.colores}}>
             <Titulo>
-                <NomPlato>{plato.nombre_plato}</NomPlato>
+                <NomPlato>{bebida.nombre_bebida}</NomPlato>
                 <Logito src={logito}></Logito>
             </Titulo>
             <Container>
                 <ConImg>
                     <CajaImg>
-                        <ImgPlato src={"http://localhost:3002/" + plato.imagen} style={{filter: "drop-shadow(-3px 10px 6px black)"}}></ImgPlato>  
+                        <ImgPlato src={"http://localhost:3002/" + bebida.imagen} style={{filter: "drop-shadow(-3px 10px 6px black)"}}></ImgPlato> 
                     </CajaImg>
-                    <Contenido>Precio: ${plato.precio}</Contenido>
+                    <Contenido>Precio: ${bebida.precio}</Contenido>
                 </ConImg>
                 <Plato>
-                    <Contenido style={{marginLeft:"2em", marginRight:"2em", textAlign:"center"}}>Descripcion: {plato.descripcion}</Contenido>            
+                    <Contenido style={{marginLeft:"2em", marginRight:"2em", textAlign:"center"}}>Descripcion: {bebida.descripcion}</Contenido>             
                     <Aumentar>
                         <Botones
                             onClick={restar}
                         >-</Botones>
-                            <Contenido>{contar}</Contenido>
+                        <Contenido>{contar}</Contenido>
                         <Botones
                             onClick={suma}
                         >+</Botones>
                     </Aumentar>
                     <Aumentar>
                         <Agregar onClick={() => agrega()}>Agregar a Pedido</Agregar>
-                        <Link to="/menu"><Agregar>Volver a Menu</Agregar></Link>
+                        <Link to="/private/todofisica/fisica"> <Agregar>Volver a Menu</Agregar></Link>
                     </Aumentar>
                     <Aumentar>
                         <Contenido>Total: ${precios}</Contenido>
@@ -91,8 +92,8 @@ return (
             </Container>             
         </Platos>
     </Background>
-</>
+    </>
 )
 }
 
-export default Pedidos
+export default BebidaFisica

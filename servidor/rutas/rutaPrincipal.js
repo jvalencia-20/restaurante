@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getAdmin, getAdmin1, createAdmin, updateAdmin, deleteAdmin } from "../controllers/admin.controllers.js";
+// import { getAdmin, getAdmin1, createAdmin, updateAdmin, deleteAdmin } from "../controllers/admin.controllers.js";
 import { getCliente, getCliente1, createCliente, updateCliente, deleteCliente, confirmar, deletePlatoCarrito, createProducto, traerProducto } from "../controllers/cliente.controller.js";
 import { getEmpleado,getEmpleados,createEmpleado,deleteEmpleado,updateEmpleado } from "../controllers/empleado.controllers.js";
 import {getPedidos,getPedido,createPedido,deletePedido,updatePedido} from "../controllers/pedido.controllers.js";
@@ -56,11 +56,11 @@ const expressApp = express();
 
 //Tabla admin
 
-router.get('/admin', getAdmin) //Ruta para obtener todos
-router.get('/admin/:id', getAdmin1) //Ruta para obtener uno
-router.post('/admin', createAdmin) //Ruta para crear uno
-router.patch('/admin/:id', updateAdmin) //Ruta para actualizar
-router.delete('/admin/:id', deleteAdmin) //Ruta para eliminar uno
+// router.get('/admin', getAdmin) //Ruta para obtener todos
+// router.get('/admin/:id', getAdmin1) //Ruta para obtener uno
+// router.post('/admin', createAdmin) //Ruta para crear uno
+// router.patch('/admin/:id', updateAdmin) //Ruta para actualizar
+// router.delete('/admin/:id', deleteAdmin) //Ruta para eliminar uno
 
 //Tabla cliente
 

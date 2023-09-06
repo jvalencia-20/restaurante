@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import Fondo2 from "../Img/FondoMenu.jpg"
+
 import Tabla from "../Img/letrero.jpg"
 
 import { keyframes } from 'styled-components';
@@ -18,7 +18,6 @@ const sinkAnimation = keyframes`
 
 export const Container = styled.div`
     height: 100%;                                                               
-    background-image: url(${Fondo2});
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;

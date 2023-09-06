@@ -7,34 +7,16 @@ import {  BsBoxArrowLeft } from "@react-icons/all-files/bs/BsBoxArrowLeft";
 
 
 export const Domicilio = () => {
-
     const [nombre, setNombre] = useState()
     const [direccion, setDireccion] = useState()
-    
     //localstorage
     const [plato, setPlatos] = useState([])
-
     useEffect(() => { //mantiene en ejecucion lo que esta en el localstorage
       const plato = JSON.parse(localStorage.getItem("platico")); //llega en string pero con el parse lo convierte de nuevo en un array de objetos
       if (Array.isArray(plato)) {
         setPlatos(plato);
       }
     }, []);
-
-    //sacamos los platos
-    // const [nombrePlato, setNombrePlato] = useState([]) 
-    // console.log(nombrePlato);
-    // const [contar, setContar] = useState([]) 
-    // console.log(contar);
-    // const [precios, setPrecios] = useState([])
-    // console.log(precios);
-
-    // plato.map((platos, index) =>{
-    //     return (
-    //         setNombrePlato([])
-    //     )
-    // })
-
     //agregar
     const agregarPedido = () => {
         plato.forEach((platoItem) => { //iteramos los item que estan en el localstarage
@@ -52,7 +34,6 @@ export const Domicilio = () => {
                 alert("Problemas con el plato: " + error.message);
               });
           });
-        
           // Opcional: Limpiar el estado plato después de enviar los datos
           setPlatos([]);
         };

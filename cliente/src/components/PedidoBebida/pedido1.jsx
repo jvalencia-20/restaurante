@@ -6,20 +6,14 @@ import { Background, Platos, ConImg, Contenido, ImgPlato, Titulo, NomPlato, Aume
 import logito from "../Img/LOgo3.png"
 
 const PedidosBe = () => {
-
   const [bebida, setBebida] = useState({});
   console.log(bebida)
-
   const [contar, setContar] = useState(1)
   const nombrePlato = bebida.nombre_bebida
   const precioUnitarios = bebida.precio
-
   const [precios, setPrecios] = useState([])
-
   console.log(precios,'😊')
   console.log(precioUnitarios)
-
-
   const suma = () => {
     if(contar < 20){
       setContar(contar + 1)
@@ -32,60 +26,35 @@ const PedidosBe = () => {
       setPrecios(precios - precioUnitarios)
     }
   }
-
-  // const agregarPedido = () => {
-  //   Axios.post("http://localhost:3002/api/agregarpedido", {
-  //     nombre_plato: nombrePlato,
-  //     cantidad: contar,
-  //     precio: precios,
-  //   }).then(()=>{
-  //     // alert("plato agregado")
-  //   })
-  //   .catch(error => {
-  //     alert("problemas con el plato: " + error.message);
-  //   });
-  // }
-
-
-  //localstorage
-
-  const agrega = () => { //copia los platos que ya tiene y agrega uno nuevo
+  const agrega = () => { 
     const nuevoPlato = { nombre_plato: nombrePlato, cantidad: contar, precio: precios }; 
     setPlatos([...platos, nuevoPlato]);
-    
   };
   
-  const [platos, setPlatos] = useState(() => { //para almacenar los platos
+  const [platos, setPlatos] = useState(() => { 
     const platoLocalStorage = JSON.parse(localStorage.getItem("platico"));
     return Array.isArray(platoLocalStorage) && platoLocalStorage.length > 0
       ? platoLocalStorage
       : [];
   });
-
-  useEffect(() => { //ejecuta el localstorage para que almacene los plato primero los convierte en string con el stringify
+  useEffect(() => { 
     localStorage.setItem("platico", JSON.stringify(platos));
   }, [platos]);
-
   const { id } = useParams();
-
-
   console.log(id,'🥗😒')
-
   const obtenerBebida = async () => {
     try {
         const response = await Axios.get(`http://localhost:3002/api/bebida/${id}`);
         setBebida(response.data);
         setPrecios(response.data.precio)
-        console.log(response.data,'😊😊😊😊'); // Agrega esta línea
+        console.log(response.data,'😊😊😊😊'); 
     } catch (error) {
         console.error(error,'😒😒🥗🥗');
     }
   }
-
   useEffect(() => {
       obtenerBebida();
   }, []);
-
 
   return (
     <>
@@ -114,9 +83,8 @@ const PedidosBe = () => {
                   >+</Botones>
                 </Aumentar>
                 <Aumentar>
-                  {/* <Agregar onClick={() => agregarPedido()}>Agregar a Pedido</Agregar> */}
                   <Agregar onClick={() => agrega()}>Agregar a Pedido</Agregar>
-                  <Link to="/todo/principal"> <Agregar>Volver a Menu</Agregar></Link>
+                  <Link to="/menu"> <Agregar>Volver a Menu</Agregar></Link>
                 </Aumentar>
                 <Aumentar>
                   <Contenido>Total: ${precios}</Contenido>

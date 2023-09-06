@@ -22,8 +22,11 @@ import { LOGOUT, PRIVATE, PUBLIC } from "./router/path";
 import PrincipalDashboard from "./vista-dashboard/Principal-Dashboard";
 import CrearProducto from "./agregar-inventario/agregarInventario";
 import { Inventario } from "./vista-inventario/principal";
-import Todo from "./Todo/todo";
+import PedidoFisica from "./pedido-fisico/principal";
+import BebidaFisica from "./bebida-fisica/principal";
+import TodoFisica from "./Todo-fisica/todo";
 
+import Todo from "./Todo/todo";
 
 export const Principal = () => {
     return(
@@ -35,29 +38,33 @@ export const Principal = () => {
                         <Route path={PUBLIC} element = {<PublicRoute />}>
                             <Route element = {<Todo/>}> 
                             <Route index />
-                                <Route path="/menu" element = {<PrincipalConnect/>}/>
-                                <Route path="/pedido/:id" element = {<Pedidos />}></Route>
-                                <Route path="/pedidoBebida/:id" element = {<PedidosBe/>}></Route>
-                                <Route path="/informacion" element = {<Informacion/>}></Route>
+                                    <Route path="/menu" element = {<PrincipalConnect/>}/>
+                                    <Route path="/pedido/:id" element = {<Pedidos />}></Route>
+                                    <Route path="/pedidoBebida/:id" element = {<PedidosBe/>}></Route>
+                                    <Route path="/informacion" element = {<Informacion/>}></Route>
                             </Route>
-                            <Route path="/ordenes" element = {<Carrito />}></Route>
-                            <Route path="/domicilio" element = {<Domicilio/>}></Route>
-                            <Route path="/reserva" element = {<Reserva/>}></Route>
-                            <Route path= "/mesa" element = {<VistaMesa/>}></Route>
-                            <Route path="/factura" element = {<Factura />} />
-                            <Route path="/login" element = {<Logini/>}></Route>
-                            
-                        </Route>
-                        <Route path={PRIVATE} element = {<PrivateRoute/>}>
-                        <Route element = {<PrincipalDashboard />}>
+                                <Route path="/ordenes" element = {<Carrito />}></Route>
+                                <Route path="/domicilio" element = {<Domicilio/>}></Route>
+                                <Route path="/reserva" element = {<Reserva/>}></Route>
+                                <Route path= "/mesa" element = {<VistaMesa/>}></Route>
+                                <Route path="/factura" element = {<Factura />}/>
+                                <Route path="/login" element = {<Logini/>}></Route>
+                            </Route>
+                                <Route path={PRIVATE} element = {<PrivateRoute/>}>
+                                <Route element = {<PrincipalDashboard />}>
                             <Route index /> 
                                 <Route path="register" element = {<Crearcuenta />} />
                                 <Route path="dashboard" element = {<Dashboard />} />
                                 <Route path="crearProducto" element = {<CrearProducto />} />
                                 <Route path="inventario" element = {<Inventario/>}/>
+                                
                             </Route>
                             <Route path={LOGOUT} element = {<Logout/>}/>
-                            <Route path="fisica" element = {<Fisica/>}/>
+                            <Route path="todofisica" element={<TodoFisica/>}>
+                                <Route path="fisica" element={<Fisica/>} />
+                                <Route path="pedidofisica/:id" element={<PedidoFisica/>} />
+                                <Route path="bebidafisica/:id" element={<BebidaFisica/>} />
+                            </Route>
                         </Route>   
                     </Routes>
                 </BrowserRouter>

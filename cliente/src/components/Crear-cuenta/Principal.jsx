@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Axios from "axios"
-import { Background, ConInfor, ConTitulo, Entrar, Infor, Login, Logotipo, Name, ReContraseña, Titulo } from "./Styled";
-import logo from "../Img/LOgo.png"
+import { Background, ConInfor, ConTitulo, Entrar, Infor, Login, Name, ReContraseña, Titulo } from "./Styled";
 import {Link, useNavigate} from  "react-router-dom"
 import { useAuthContext } from "../context/AuthContext";
 
@@ -11,13 +10,12 @@ const Crearcuenta = () => {
   const [correo, setCorreo] = useState("")
   const [contraseña, setContaseña] = useState("")
   const [confirmarContraseña, setconfirmarContraseña] = useState("")
-  const [hola, setHola] = useState(false)
   const { token } = useAuthContext();
   const agregarusuario = (e) => {
     e.preventDefault()
     console.log(token, "token en crear usuario")
     Axios.post("http://localhost:3002/api/createcliente", {
-      nombre_cliente: usuario,
+      nombre: usuario,
       correo: correo,
       password: contraseña,
       confirmar_password:confirmarContraseña
@@ -64,24 +62,9 @@ const Crearcuenta = () => {
       }
     });
   }
-
-
-  
-  // const control = () => {
-  //   if(usuario.length > 0 && correo.length > 0 && contraseña.length > 0 && confirmarContraseña.length > 0 && contraseña === confirmarContraseña ){
-  //     agregarusuario()
-  //     // navigate("/login")
-  //   }else{
-  //     alert("Debe llenar todos los campos y verifique que la contraseña sea la misma")
-  //   }
-  // }
-
   const redireccionarALogin = () => {
     navigate("/login");
   };
-
-
-
 
   return (
     <>

@@ -1,24 +1,25 @@
 import styled from "styled-components";
 import FondoComida from "../Img/fondoComida.jpg"
 
+
 export const Background = styled.div`
-    height: 100%;
-    width: 100%;
+    height: 50rem;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    border: solid;
 `;
 
 export const Platos = styled.div`
-    background-color: #878787ae;
     height: 35em;
     width: 55em;
     box-shadow: 10px 10px 10px black;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    backdrop-filter: blur(2px); 
+    background-color: #878787ae;
     @media screen and (max-width: 768px) {
     height: auto;
     width: 90%;
@@ -79,8 +80,8 @@ export const CajaImg = styled.div`
     height: 20em;
     width: 25em;
     @media screen and (max-width: 768px) {
-        width: 95%;
-        height: auto;
+    width: 95%;
+    height: auto;
     }
 `;
 
@@ -119,9 +120,9 @@ export const Agregar = styled.button`
     height: 2em;
     width: 10em;
     background-color: transparent;
-    border: 2px solid #000;
     margin-left: 15px;
     margin-right: 15px;
+    border: 2px solid #000;
     border-radius: 0.5em;
 `;
 
@@ -131,7 +132,7 @@ export const Plato = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-evenly
 `;
 
 export const Adicional = styled.div`
@@ -144,14 +145,20 @@ export const Adicional = styled.div`
 `;
 
 export const Infor = styled.input`
-    width: 15em;
+    width: 10em;
     height: 2em;
     border: 2px solid #000;
-    margin-top: 2em;
+    margin-left: 1em;
     background-color: transparent;
     border-radius: 5px;
     @media screen and ( max-width: 90vh){   
     height: 2em;
     width: 20em; 
     }
+`;
+
+export const Ingredientes = styled.input`
+    margin-top: 23px;
+    height: 17px;
+    width: 17px;
 `;

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import {Body, Container, Header, ContainerHeader, Boton, CajaNav, CajaLogo, ContainerMain, ContainerMenu, ContainerFooter} from "./styles-princDashboard"
 import { LOGOUT } from "../router/path";
+
 function PrincipalDashboard() {
 return (
 <Body>

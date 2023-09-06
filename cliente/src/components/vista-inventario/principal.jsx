@@ -19,7 +19,6 @@ Axios.get("http://localhost:3002/api/traerproducto",{
 .catch(error => {
 })
 }
-
 useEffect(()=>{
 Buscar()
 },[])

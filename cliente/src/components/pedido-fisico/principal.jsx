@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { Background, Platos, ConImg, Contenido, ImgPlato, Titulo, NomPlato, Aumentar, Botones, Agregar, Plato, Container, Logito, CajaImg } from "./styled"
 import logito from "../Img/LOgo3.png"
 
-const Pedidos = () => {
+const PedidoFisica = () => {
     const [plato, setPlato] = useState({});
     const [contar, setContar] = useState(1)
     const nombrePlato = plato.nombre_plato
@@ -82,7 +82,7 @@ return (
                     </Aumentar>
                     <Aumentar>
                         <Agregar onClick={() => agrega()}>Agregar a Pedido</Agregar>
-                        <Link to="/menu"><Agregar>Volver a Menu</Agregar></Link>
+                        <Link to="/private/todofisica/fisica"><Agregar>Volver a Menu</Agregar></Link>
                     </Aumentar>
                     <Aumentar>
                         <Contenido>Total: ${precios}</Contenido>
@@ -95,4 +95,4 @@ return (
 )
 }
 
-export default Pedidos
+export default PedidoFisica

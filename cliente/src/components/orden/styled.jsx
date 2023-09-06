@@ -2,10 +2,6 @@ import styled from "styled-components"
 import fondo from "../Img/orden123.jpg"
 import fondo2 from "../Img/picar.png"
 
-// export const Fondo = styled.div`
-//   background-color: yellowgreen;
-//   height: 100vh;
-// `
 export const Container = styled.div`
     backdrop-filter: blur(8px); 
     background-image: url(${fondo});
@@ -21,27 +17,22 @@ export const Container = styled.div`
     z-index: 1;
     margin-bottom: -4em;
     margin-left: 33em;
-  /* top: 0; */
     bottom: 0;
     left: 0;
-  /* right: 0; */
     filter: drop-shadow(10px 20px 15px black);
     box-shadow: -10px 0px 10px black;
 `;
 
 export const Titulo = styled.h1`
-  /* background-color: yellow; */
     height: 2em;
     width: 15em;
     margin: 0;
     border-radius: 1em 1em 0 0;
     text-align: center;
     filter: drop-shadow(7px 10px 10px black);
-  /* border: 1px solid black; */
 `;
 
 export const ConTitulos = styled.div`
-  /* background-color: yellow; */
     background-image: url(${fondo2});
     background-size: cover;
     background-position: center;
@@ -49,7 +40,6 @@ export const ConTitulos = styled.div`
     width: 30em;
     margin: 0;
     text-align: center;
-  /* border: 1px solid black; */
     filter: drop-shadow(7px 10px 10px black);
     display: flex;
     justify-content: space-evenly;
@@ -60,12 +50,11 @@ export const Conten = styled.div`
     overflow-y: scroll;
     overflow-x: hidden;
     &::-webkit-scrollbar-thumb {
-    background: #000000; /* Color del pulgar */
+    background: #000000; 
     border-radius: 10px;
     }
     &::-webkit-scrollbar {
         background: transparent;
-        /* border: 1px solid black;  */
         border-radius: 10px;
     }
 `
@@ -74,7 +63,6 @@ export const Titulos = styled.h3`
 `;
 
 export const Eliminar = styled.button`
-  /* background-color: #ffffff; */
     height: 4em;
     width: 4em;
     border-radius: 2em;

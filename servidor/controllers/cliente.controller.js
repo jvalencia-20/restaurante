@@ -7,7 +7,7 @@ const SECRET = "secreto"
 //Se seleccionan todos los registros
 export const getCliente = async (req, res) => {
     try {
-        const [rows] = await pool.query('SELECT * FROM cliente')
+        const [rows] = await pool.query('SELECT * FROM admin')
         res.json(rows)
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -18,7 +18,7 @@ export const getCliente = async (req, res) => {
 export const getCliente1 = async (req, res) => {
     try {
         const { id } = req.params
-        const [rows] = await pool.query('SELECT * FROM cliente WHERE id_cliente = ?', [id])
+        const [rows] = await pool.query('SELECT * FROM admin WHERE id_admin = ?', [id])
         if (rows.length <= 0) {
             return res.status(404).json({
                 message: 'No encontrado'
@@ -33,11 +33,11 @@ export const getCliente1 = async (req, res) => {
 //Se crea un registro
 export const createCliente = async (req, res) => {
     try {
-        const { nombre_cliente, correo, password, confirmar_password } = req.body;
+        const { nombre, correo, password, confirmar_password } = req.body;
         if (!password) {
             return res.status(409).send('contraseña requerida.');
         }
-        if (!nombre_cliente) {
+        if (!nombre) {
             return res.status(409).send('Nombre de usuario requerido.');
         }
         if (!correo) {
@@ -48,8 +48,8 @@ export const createCliente = async (req, res) => {
     }
 
 // Verificar si ya existe un usuario con el mismo correo y nombre
-        const checkExistingUserQuery = 'SELECT * FROM cliente WHERE nombre_cliente = ? OR correo = ?';
-        const checkExistingUserValues = [nombre_cliente, correo];
+        const checkExistingUserQuery = 'SELECT * FROM admin WHERE nombre = ? OR correo = ?';
+        const checkExistingUserValues = [nombre, correo];
         const [existingUser] = await pool.query(checkExistingUserQuery, checkExistingUserValues);
         if (existingUser.length > 0) {
             return res.status(409).send('Nombre de usuario o correo ya existente.');
@@ -58,12 +58,12 @@ export const createCliente = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, saltRounds);
 
 // Insertar el nuevo cliente en la base de datos
-        const insertQuery = 'INSERT INTO cliente (nombre_cliente, correo, password) VALUES (?, ?, ?)';
-        const insertValues = [nombre_cliente, correo, hashedPassword];
+        const insertQuery = 'INSERT INTO admin (nombre, correo, password) VALUES (?, ?, ?)';
+        const insertValues = [nombre, correo, hashedPassword];
         const [result] = await pool.query(insertQuery, insertValues);
     res.status(201).json({
-            id_cliente: result.insertId,
-            nombre_cliente,
+            id_admin: result.insertId,
+            nombre,
             correo
         });
     } catch (error) {
@@ -119,12 +119,12 @@ export const confirmar = async (req, res) => {
     const { usuario, password } = req.body;
     console.log(req.body);
     const [rows] = await pool.query(
-        'SELECT * FROM cliente WHERE nombre_cliente = ? ', [usuario]
+        'SELECT * FROM admin WHERE nombre = ? ', [usuario]
     );
     if (rows.length > 0) {
         console.log(rows[0],"❤️❤️❤️")
         const compassword = await bcrypt.compare(password, rows[0].password);
-        const accesToken = jwt.sign({id: rows[0].id_cliente}, SECRET, {
+        const accesToken = jwt.sign({id: rows[0].id_admin}, SECRET, {
             expiresIn: "1h",
         });
         if(compassword){
@@ -160,14 +160,14 @@ export const deletePlatoCarrito = async (req, res) => {
 export const updateCliente = async (req, res) => {
     try {
         const { id } = req.params;
-        const {nombre_cliente, correo, password} = req.body
-        const [result] = await pool.query('UPDATE cliente SET nombre_cliente = IFNULL(?, nombre_cliente), correo = IFNULL(?, correo), password = IFNULL(?, password) WHERE id_cliente = ?', [nombre_cliente, correo, password, id])
+        const {nombre, correo, password} = req.body
+        const [result] = await pool.query('UPDATE admin SET nombre = IFNULL(?, nombre), correo = IFNULL(?, correo), password = IFNULL(?, password) WHERE id_cliente = ?', [nombre, correo, password, id])
         if (result.affectedRows === 0) {
             return res.status(404).json({
             message: 'No encontrado'
         });
         }
-        const [rows] = await pool.query('SELECT * FROM cliente WHERE id_cliente = ?', [id])
+        const [rows] = await pool.query('SELECT * FROM admin WHERE id_admin = ?', [id])
         res.json(rows[0])
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -177,7 +177,7 @@ export const updateCliente = async (req, res) => {
 //Se elimina un registro
 export const deleteCliente = async (req, res) => {
     try {
-        const [result] = await pool.query('DELETE FROM cliente WHERE id_cliente = ?', [req.params.id])
+        const [result] = await pool.query('DELETE FROM admin WHERE id_admin = ?', [req.params.id])
         if (result.affectedRows <= 0) {
             return res.status(404).json({
             message: 'No encontrado'

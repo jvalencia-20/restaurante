@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import FondoComida from "../Img/fondoComida.jpg"
 
-
 export const Background = styled.div`
   height: 100%;
   width: 100%;
@@ -12,7 +11,6 @@ export const Background = styled.div`
 `;
 
 export const Platos = styled.div`
-  /* background-color: #ffc4fa; */
   height: 35em;
   width: 55em;
   box-shadow: 10px 10px 10px black;
@@ -28,7 +26,6 @@ export const Platos = styled.div`
 `;
 
 export const Titulo = styled.div`
-  /* background-color: azure; */
   width: 60em;
   height: 4em;
   display: flex;

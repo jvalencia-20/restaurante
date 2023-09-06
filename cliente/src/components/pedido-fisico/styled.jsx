@@ -2,11 +2,11 @@ import styled from "styled-components";
 import FondoComida from "../Img/fondoComida.jpg"
 
 export const Background = styled.div`
-    height: 100%;
-    width: 100%;
+    height: 50rem;
+    width: 60rem;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
 `;
 
@@ -39,7 +39,7 @@ export const Titulo = styled.div`
 export const Container = styled.div`
     display: flex;
     height: 50em;
-    width: 70em;
+    width: 60em;
     @media screen and (max-width: 98vh){
     height: 50em;
     width: 40em;

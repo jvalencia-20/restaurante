@@ -1,8 +1,7 @@
 import { useState } from "react";
 import Axios from "axios";
-import { Background, ConInfor, ConTitulo, Entrar, Infor, Login, Name, ReContraseña, Titulo, Logotipo } from "./styled";
+import { Background, ConInfor, ConTitulo, Entrar, Infor, Login, Name, Titulo, Logotipo } from "./styled";
 import logo from "../Img/LOgo.png"
-import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom";
 import {useAuthContext} from "../context/AuthContext"
 
@@ -58,7 +57,6 @@ const Logini = () => {
                 onChange={inputchange}>
               </Infor>
               <Entrar onClick={verificar} style={{filter: "drop-shadow(-15px 15px 10px black)"}}>Entrar</Entrar>
-              <Link to="/" style={{textDecoration:"none",filter: "drop-shadow(-15px 15px 10px black)"}}><ReContraseña>Registrate aqui</ReContraseña></Link>
           </ConInfor>
         </Login>
       </Background>

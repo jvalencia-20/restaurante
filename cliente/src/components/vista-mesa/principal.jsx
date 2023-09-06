@@ -23,14 +23,12 @@ const VistaMesa = () => {
     const [showFactura, setShowFactura] = useState(false);
     const [reservas, setReservas] = useState(Array(Mesa.length).fill({ Producto: "", Cantidad: "", Total: 0 }));
     const [mesaOcupada, setMesaOcupada] = useState(Array(Mesa.length).fill(false));
-  
     const handleTableClick = (mesaNumber) => {
       if (!mesaOcupada[mesaNumber - 1]) {
         setSelectedTableIndex(mesaNumber - 1); 
         sendReservationData(mesaNumber, reservas);
       }
     };
-  
     const sendReservationData = async (mesaNumber, reservas) => {
       try {
           console.log("Sending reservation data:", mesaNumber, reservas);
@@ -42,8 +40,8 @@ const VistaMesa = () => {
           console.error("Error sending reservation data:", error);      
       }
   };
-  
-    return (
+
+  return (
       <>
         <Container>
           {Mesa.slice(1).map((p, index) => (
@@ -81,5 +79,6 @@ const VistaMesa = () => {
       </>
     );
   };
-  
+
+
 export default VistaMesa

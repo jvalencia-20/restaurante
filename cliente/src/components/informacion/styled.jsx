@@ -9,15 +9,14 @@ export const Container = styled.div`
 `;
 
 export const ConteCarrusel = styled.div`
-  /* background-color: yellowgreen; */
   width: 100%;
   height: 45em;
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
+
 export const Contenedor = styled.div`
-  /* background-color: yellow; */
   height: 40em;
   width: 70em;
   color: #ffff;
@@ -25,4 +24,4 @@ export const Contenedor = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;

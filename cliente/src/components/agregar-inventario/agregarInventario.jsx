@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Axios from "axios"
-import { Background, ConInfor, ConTitulo, Entrar, Infor, Login,  Name, ReContraseña, Titulo } from "./stylesAgregar";
+import { Background, ConInfor, ConTitulo, Entrar, Infor, Login,  Name, Titulo } from "./stylesAgregar";
 
-import {Link, useNavigate} from  "react-router-dom"
+import { useNavigate } from  "react-router-dom"
 import { useAuthContext } from "../context/AuthContext";
 
 const CrearProducto = () => {
@@ -14,8 +14,6 @@ const [unidad, setUnidad] = useState("")
 const [precio, setPrecio] = useState("")
 
 const { token } = useAuthContext();
-
-
 
 const agregarproducto = (e) => {
     e.preventDefault()
@@ -57,7 +55,6 @@ const agregarproducto = (e) => {
             case 'Las contraseñas deben coincidir.':
                 console.log("Verifique que las contraseñas sean iguales.");
                 break;
-        
             default:
             console.log("Error en el registro.");
             break;
