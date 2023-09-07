@@ -202,167 +202,126 @@ export const Box3 = styled.div`
     }
     &::-webkit-scrollbar {
         background: transparent;
-        /* border: 1px solid black;  */
         border-radius: 10px;
     }
     @media screen and (max-width: 115rem){
-        /* flex-direction: column; */
         width: 114rem;
     }
     @media screen and (max-width: 114rem){
-        /* flex-direction: column; */
         width: 113rem;
     }
     @media screen and (max-width: 113rem){
-        /* flex-direction: column; */
         width: 109rem;
     }
     @media screen and (max-width: 112rem){
-        /* flex-direction: column; */
         width: 107rem;
     }
     @media screen and (max-width: 111rem){
-        /* flex-direction: column; */
         width: 105rem;
     }
     @media screen and (max-width: 110rem){
-        /* flex-direction: column; */
         width: 103rem;
     }
     @media screen and (max-width: 109rem){
-        /* flex-direction: column; */
         width: 101rem;
     }
     @media screen and (max-width: 108rem){
-        /* flex-direction: column; */
         width: 99rem;
     }
     @media screen and (max-width: 107rem){
-        /* flex-direction: column; */
         width: 97rem;
     }
     @media screen and (max-width: 106rem){
-        /* flex-direction: column; */
         width: 95rem;
     }
     @media screen and (max-width: 105rem){
-        /* flex-direction: column; */
         width: 93rem;
     }
     @media screen and (max-width: 104rem){
-        /* flex-direction: column; */
         width: 91rem;
     }
     @media screen and (max-width: 103rem){
-        /* flex-direction: column; */
         width: 89rem;
     }
     @media screen and (max-width: 102rem){
-        /* flex-direction: column; */
         width: 87rem;
     }
     @media screen and (max-width: 101rem){
-        /* flex-direction: column; */
         width: 85rem;
     }
     @media screen and (max-width: 100rem){
-        /* flex-direction: column; */
         width: 83rem;
     }
     @media screen and (max-width: 99rem){
-        /* flex-direction: column; */
         width: 81rem;
     }
     @media screen and (max-width: 98rem){
-        /* flex-direction: column; */
         width: 79rem;
     }
     @media screen and (max-width: 97rem){
-        /* flex-direction: column; */
         width: 75rem;
     }
     @media screen and (max-width: 96rem){
-        /* flex-direction: column; */
         width: 73rem;
     }
     @media screen and (max-width: 95rem){
-        /* flex-direction: column; */
         width: 71rem;
     }
     @media screen and (max-width: 94rem){
-        /* flex-direction: column; */
         width: 69rem;
     }
     @media screen and (max-width: 93rem){
-        /* flex-direction: column; */
         width: 67rem;
     }
     @media screen and (max-width: 92rem){
-        /* flex-direction: column; */
         width: 65rem;
     }
     @media screen and (max-width: 91rem){
-        /* flex-direction: column; */
         width: 63rem;
     }
     @media screen and (max-width: 90rem){
-        /* flex-direction: column; */
         width: 61rem;
     }
     @media screen and (max-width: 88rem){
-        /* flex-direction: column; */
         width: 59rem;
     }
     @media screen and (max-width: 87rem){
-        /* flex-direction: column; */
         width: 55rem;
     }
     @media screen and (max-width: 85rem){
-        /* flex-direction: column; */
         width: 51rem;
     }
     @media screen and (max-width: 81rem){
-        /* flex-direction: column; */
         width: 49rem;
     }
     @media screen and (max-width: 79rem){
-        /* flex-direction: column; */
         width: 48rem;
     }
     @media screen and (max-width: 77rem){
-        /* flex-direction: column; */
         width: 46rem;
     }
     @media screen and (max-width: 76rem){
-        /* flex-direction: column; */
         width: 44rem;
     }
     @media screen and (max-width: 75rem){
-        /* flex-direction: column; */
         width: 41rem;
     }
     @media screen and (max-width: 73rem){
-        /* flex-direction: column; */
         width: 38rem;
     }  
     @media screen and (max-width: 70rem){
-        /* flex-direction: column; */
         width: 35rem;
     }  
     @media screen and (max-width: 68rem){
-        /* flex-direction: column; */
         width: 32rem;
     }  
     @media screen and (max-width: 65rem){
-        /* flex-direction: column; */
         width: 29rem;
     }  
     @media screen and (max-width: 62rem){
-        /* flex-direction: column; */
         width: 25rem;
     }  
     @media screen and (max-width: 59rem){
-        /* flex-direction: column; */
         width: 22rem;
     }  
 `;
@@ -424,23 +383,18 @@ export const Minibox2 = styled.div`
     align-items: center;
     justify-content: space-evenly;
     @media screen and (max-width: 112rem){
-        /* flex-direction: column; */
         width: 70rem;
     }
     @media screen and (max-width: 70rem){
-        /* flex-direction: column; */
         width: 60rem;
     }
     @media screen and (max-width: 50rem){
-        /* flex-direction: column; */
         width: 50rem;
     }
     @media screen and (max-width: 40rem){
-        /* flex-direction: column; */
         width: 40rem;
     }
     @media screen and (max-width: 30rem){
-        /* flex-direction: column; */
         width: 23rem;
         margin-top: 1em;
         flex-direction: column;

@@ -32,7 +32,6 @@ const agregarproducto = (e) => {
 .then(({data})=>{
     
     console.log(data,"estoy aqui en data")
-    alert("producto registrado")
     redireccionarALogin()
     })
     .catch(error => {

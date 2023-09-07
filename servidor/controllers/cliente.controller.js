@@ -99,7 +99,8 @@ export const createProducto = async (req, res) => {
     }
     if (!precio){
         return res.status(409).send('precio requerido.');
-}
+    }
+
         // Insertar el nuevo cliente en la base de datos
         const insertQuery = 'INSERT INTO inventario (nombre_producto, categoria, presentacion, unidad, precio) VALUES (?, ?, ?, ?, ?)';
         const insertValues = [nombre_producto, categoria, presentacion, unidad, precio];

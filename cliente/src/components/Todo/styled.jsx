@@ -99,6 +99,7 @@ export const Box1 = styled.div`
     margin-right: 3rem;
 }
 `;
+
 export const Notificacion = styled.h4`
     background-color: red;
     border-radius: 2em;

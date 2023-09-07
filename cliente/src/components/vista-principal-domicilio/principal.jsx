@@ -4,9 +4,7 @@ import Axios from "axios"
 import tablap from "../Img/bandeja.png"
 import { Container,  Box2,Box3, Container2, Minibox1 } from "./styled"
 
-
 export const PrincipalConnect = () => {
-
 const [sancocho, setSancocho] = useState([])
 const [corriente, setCorriente] = useState([])
 const [bebida, setBebida] = useState([])

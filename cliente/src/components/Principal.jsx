@@ -25,6 +25,9 @@ import { Inventario } from "./vista-inventario/principal";
 import PedidoFisica from "./pedido-fisico/principal";
 import BebidaFisica from "./bebida-fisica/principal";
 import TodoFisica from "./Todo-fisica/todo";
+import CarritoFisica from "./orden-fisica/principal";
+
+
 
 import Todo from "./Todo/todo";
 
@@ -39,7 +42,7 @@ export const Principal = () => {
                             <Route element = {<Todo/>}> 
                             <Route index />
                                     <Route path="/menu" element = {<PrincipalConnect/>}/>
-                                    <Route path="/pedido/:id" element = {<Pedidos />}></Route>
+                                    <Route path="/pedido/:id" element = {<Pedidos />}></Route> 
                                     <Route path="/pedidoBebida/:id" element = {<PedidosBe/>}></Route>
                                     <Route path="/informacion" element = {<Informacion/>}></Route>
                             </Route>
@@ -64,6 +67,7 @@ export const Principal = () => {
                                 <Route path="fisica" element={<Fisica/>} />
                                 <Route path="pedidofisica/:id" element={<PedidoFisica/>} />
                                 <Route path="bebidafisica/:id" element={<BebidaFisica/>} />
+                                <Route path="carritofisica" element = {<CarritoFisica/>} />
                             </Route>
                         </Route>   
                     </Routes>

@@ -112,7 +112,6 @@ const Crearcuenta = () => {
             onChange={ev => setconfirmarContraseña(ev.target.value)}
             ></Infor>
             <Entrar onClick={agregarusuario}>Registrate</Entrar>
-            <Link style={{textDecoration:"none", color:"black"}} to="/login"><ReContraseña>Ya tengo cuenta</ReContraseña></Link>
           </ConInfor>
         </Login>
       </Background>
