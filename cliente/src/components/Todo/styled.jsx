@@ -19,7 +19,6 @@ export const Container3 = styled.div`
     @media screen and (max-width: 100rem) {
         flex-direction: column;
     }
-    
 `;
 
 export const Minibox2 = styled.div`
@@ -101,7 +100,7 @@ export const Box1 = styled.div`
 `;
 
 export const Notificacion = styled.h4`
-    background-color: red;
+    background-color: yellow;
     border-radius: 2em;
     width: 25px;
     height: 25px;

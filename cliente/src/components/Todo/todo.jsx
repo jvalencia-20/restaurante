@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { Container4, Minibox3, Minibox4 } from "./styled";
 import {BsFacebook} from "react-icons/bs"
 import {FaInstagramSquare} from "react-icons/fa"
+import { Loader, Placeholder } from 'rsuite';
 import logo1 from "../Img/LOgo3.png"
 import fondo from "../Img/FondoInfor.jpg"
 

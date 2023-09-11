@@ -26,9 +26,8 @@ import PedidoFisica from "./pedido-fisico/principal";
 import BebidaFisica from "./bebida-fisica/principal";
 import TodoFisica from "./Todo-fisica/todo";
 import CarritoFisica from "./orden-fisica/principal";
-
-
-
+import { Imprimir } from "./imprimir-pedido/principal";
+import SelectFactura from "./select-factura/factura";
 import Todo from "./Todo/todo";
 
 export const Principal = () => {
@@ -41,16 +40,17 @@ export const Principal = () => {
                         <Route path={PUBLIC} element = {<PublicRoute />}>
                             <Route element = {<Todo/>}> 
                             <Route index />
-                                    <Route path="/menu" element = {<PrincipalConnect/>}/>
-                                    <Route path="/pedido/:id" element = {<Pedidos />}></Route> 
-                                    <Route path="/pedidoBebida/:id" element = {<PedidosBe/>}></Route>
-                                    <Route path="/informacion" element = {<Informacion/>}></Route>
+                                <Route path="/menu" element = {<PrincipalConnect/>}/>
+                                <Route path="/pedido/:id" element = {<Pedidos />}></Route> 
+                                <Route path="/pedidoBebida/:id" element = {<PedidosBe/>}></Route>
+                                <Route path="/informacion" element = {<Informacion/>}></Route>
                             </Route>
                                 <Route path="/ordenes" element = {<Carrito />}></Route>
                                 <Route path="/domicilio" element = {<Domicilio/>}></Route>
                                 <Route path="/reserva" element = {<Reserva/>}></Route>
+                                <Route path="/selectfactura" element = {<SelectFactura/>}></Route>
                                 <Route path= "/mesa" element = {<VistaMesa/>}></Route>
-                                <Route path="/factura" element = {<Factura />}/>
+                                <Route path="/factura/:di" element = {<Factura />}/>
                                 <Route path="/login" element = {<Logini/>}></Route>
                             </Route>
                                 <Route path={PRIVATE} element = {<PrivateRoute/>}>
@@ -60,7 +60,6 @@ export const Principal = () => {
                                 <Route path="dashboard" element = {<Dashboard />} />
                                 <Route path="crearProducto" element = {<CrearProducto />} />
                                 <Route path="inventario" element = {<Inventario/>}/>
-                                
                             </Route>
                             <Route path={LOGOUT} element = {<Logout/>}/>
                             <Route path="todofisica" element={<TodoFisica/>}>

@@ -11,7 +11,6 @@ import {dirname, extname, join} from 'path';
 import { fileURLToPath } from "url";
 import express from "express";
 import jwt from 'jsonwebtoken';
-import {pool} from '../db.js'
 
 const SECRET = "secreto"
 
@@ -133,7 +132,7 @@ router.patch('/update/:id', updateReservation);//ruta para actualizar una reserv
 
 router.post('/domicilio', createDomicilio); //ruta para crear domicilios
 router.get('/domicilios', getDomicilios); //ruta para obtener todos los domicilios
-router.get('/domicilio/:id', getDomicilio); //ruta para obtener un domicilio por id
+router.get('/domicilio/:di', getDomicilio); //ruta para obtener un domicilio por id
 router.delete('/quitar/:id', deleteDomicilio); //ruta para eliminar domicilio
 router.patch('/modificar/:id', updateDomicilio); //ruta para actualizar un domicilio
 

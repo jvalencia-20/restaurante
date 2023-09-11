@@ -1,25 +1,30 @@
 import {pool} from '../db.js'
 
-//logica para crear un domicilio
-export const createDomicilio = async(req,res) => {
+export const createDomicilio = async (req, res) => {
     try {
-        const {id_domicilios, nombre_cliente,direccion} = req.body;
-        const query = 'INSERT INTO domicilios(id_domicilio, nombre_cliente, direccion) VALUES(?,?,?)';
-        const values = [id_domicilios,nombre_cliente,direccion];
-        await pool.query(query,values);
-        res.status(200).json({
-            message: 'domicilio hecho con exito 🎉'
-        });
+        const {id_domicilio, nombre_cliente,direccion,nombre_plato, cantidad, precio, hora_entrega} = req.body;
+        console.log(req.body,"❤️❤️")
+        const [rows] = await pool.query('INSERT INTO domicilio (id_domicilio, nombre_cliente, direccion, nombre_plato, cantidad, precio, hora_entrega) VALUES(?,?,?,?,?,?,?)',[id_domicilio, nombre_cliente, direccion, nombre_plato, cantidad,precio, hora_entrega]);
+        res.send({
+            id_domicilio: rows.insertId,
+            nombre_cliente,
+            direccion,
+            nombre_plato,
+            cantidad, 
+            precio,
+            hora_entrega,
+        })
+        console.log(rows,'❤️❤️❤️')
     } catch (error) {
-        console.error('Ups error al crear domicilio');
-        res.status(500).json({error: 'Error Interno'})
+        res.status(500).json({ error: error.message });   
     }
 }
 
 //logica para obtener todos los domicilios
+
 export const getDomicilios = async(req,res) => {
     try {
-        const [rows] = await pool.query('SELECT * FROM domicilios')
+        const [rows] = await pool.query('SELECT nombre_cliente, direccion, hora_entrega FROM `domicilio` GROUP BY direccion ORDER BY hora_entrega')
         res.json(rows)
     } catch (error) {
         console.error('Ups error al obtener los domicilios:', error);
@@ -27,28 +32,22 @@ export const getDomicilios = async(req,res) => {
     }
 }
 
-//logica para obtener domicilios por id
-export const getDomicilio = async(req,res) => {
+export const getDomicilio = async (req, res) => {
     try {
-        const [rows] = await pool.query('SELECT * FROM domicilios WHERE id_domicilio = ?', [req.params.id]);
-        if (rows.length <= 0) {
-            return res.status(404).json({
-                message: 'domicilio no encontrado..'
-            });
-        }
-        res.json(rows[0])
-        
+        const { di } = req.params;
+        console.log(di,'🖼️🖼️');
+        const [rows] = await pool.query('SELECT nombre_plato, nombre_cliente, SUM(precio) AS precio, direccion, SUM(cantidad) AS cantidad FROM domicilio WHERE direccion = ? GROUP BY nombre_plato', [di]);
+            res.send(rows)
     } catch (error) {
-        console.log('Ups error al obtener domicilio:', error);
-        res.status(500).json({error: 'Error Interno'});
+        res.status(500).json({ error: error.message });
     }
-}
+};
 
 //eliminar domicilio
+
 export const deleteDomicilio = async(req,res) => {
     try {
-        const [result] = await pool.query('DELETE FROM domicilios WHERE id_domicilio = ?', [req.params.id]);
-        
+        const [result] = await pool.query('DELETE FROM domicilios WHERE id_domicilio = ?', [req.params.id]);       
         if (result.affectedRows <= 0) {
             return res.status(404).json({message: 'El domicilio no se encuentra 😓'});
         }
@@ -60,6 +59,7 @@ export const deleteDomicilio = async(req,res) => {
 }
 
 //logica para actualizar un domicilio
+
 export const updateDomicilio = async(req,res) => {
     try {
         const {id} =req.params;
@@ -71,7 +71,8 @@ export const updateDomicilio = async(req,res) => {
             return res.status(404).json({message: 'Elemento no existente'});
         }
         const [rows] = await pool.query('SELECT * FROM domicilios WHERE id_domicilio = ?' , [id]);
-        res.status(200).json({message: 'Domicilio actualizado'})
+        res.status(200).json({message: 'Domicilio actualizado'});
+        //res.json(rows[0])
     } catch (error) {
         console.error('Ups error al actualizar:', error);
         res.status(500).json({message: 'Error Interno'});

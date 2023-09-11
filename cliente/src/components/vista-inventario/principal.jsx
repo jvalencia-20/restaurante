@@ -11,7 +11,6 @@ Axios.get("http://localhost:3002/api/traerproducto",{
     headers: {
         Authorization:token
     }
-    
 }).then((response)=>{
     setInventario(response.data)
     console.log(response.data)
@@ -24,7 +23,7 @@ Buscar()
 },[])
 
 return (
-    <>
+<>
     <Container>
         <Container2>
             <Box3>
@@ -42,9 +41,9 @@ return (
                 <Box2>{p.unidad}</Box2>
                 <Box2>{p.precio}</Box2>
             </Box3>
-        ))}
+            ))}
         </Container2>
-        </Container>
-    </>
+    </Container>
+</>
 );
 };

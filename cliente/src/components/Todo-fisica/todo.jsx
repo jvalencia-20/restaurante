@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { HiOutlineShoppingCart, } from "react-icons/hi"
 import { Container, Minibox2, Button, Notificacion, Box1, Background } from "./styled";
 import { Link } from "react-router-dom";
-import logo1 from "../Img/LOgo3.png"
 import fondo from "../Img/FondoInfor.jpg"
 import CarritoFisica from "../orden-fisica/principal";
 
@@ -14,12 +13,11 @@ const TodoFisica = () => {
     const [platos, setPlatos] = useState([])
     const navigate = useNavigate()
 
-//     useEffect(() => {
-//     setNotificacion(platos.length)
-//     const platoLocalStorage = JSON.parse(localStorage.getItem("platico"));
-//     setPlatos(platoLocalStorage);
-// }, [])
-
+// useEffect(() => {
+// setNotificacion(platos.length)
+// const platoLocalStorage = JSON.parse(localStorage.getItem("platico"));
+// setPlatos(platoLocalStorage);
+// }, [platos])
 useEffect(()=>{
     navigate("/private/todofisica/fisica") 
 },[])
@@ -34,6 +32,12 @@ return (
                     <Notificacion style={{fontSize:"22px", filter:"drop-shadow(-1px 10px 5px black)"}}>{notificacion}</Notificacion>
                 </Button>
                 {activo  && <CarritoFisica/> }
+                <Link to="/private/todofisica/fisica" style={{textDecoration:"none"}}>
+                    <Button><h1 style={{cursor:"pointer"}}>Domicilio</h1></Button> 
+                </Link>
+                <Link to="/private/todofisica/fisica" style={{textDecoration:"none"}}>
+                    <Button><h1 style={{cursor:"pointer"}}>Mesa</h1></Button> 
+                </Link>
             </Minibox2>
         </Container>
         <div >

@@ -8,7 +8,6 @@ export const Background = styled.div`
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    border: solid;
 `;
 
 export const Platos = styled.div`

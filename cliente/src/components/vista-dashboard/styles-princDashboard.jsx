@@ -26,7 +26,6 @@ export const Container = styled.div`
     @media  screen and (min-width: 800px ) {
         right: 2%;
         grid-template:
-        
         "header header"  100px
         "navbar1 navbar1" 50px
         "sidebar1 main1" 80%
@@ -37,8 +36,7 @@ export const Container = styled.div`
     }
     @media  screen and (min-width: 1000px ) {
         right: auto;
-    grid-template:
-        
+        grid-template:
         "header  header header"   100px
         "navbar1 main1    sidebar1" auto
         "footer1 footer1 footer1"  100px /
