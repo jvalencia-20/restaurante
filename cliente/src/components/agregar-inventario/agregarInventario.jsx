@@ -17,7 +17,6 @@ const { token } = useAuthContext();
 
 const agregarproducto = (e) => {
     e.preventDefault()
-    console.log(token, "token en crear usuario")
     Axios.post("http://localhost:3002/api/createproducto", {
     nombre_producto: nombreProducto,
     categoria: categoria,
@@ -30,8 +29,6 @@ const agregarproducto = (e) => {
 }  
 })
 .then(({data})=>{
-    
-    console.log(data,"estoy aqui en data")
     redireccionarALogin()
     })
     .catch(error => {
@@ -40,23 +37,17 @@ const agregarproducto = (e) => {
         const errorMessage = error.response.data;
         switch (errorMessage) {
             case 'contraseña requerida.':
-            console.log("Contraseña requerida.");
-            break;
+                break;
             case 'Nombre de usuario requerido.':
-            console.log("Nombre de usuario requerido.");
-            break;
+                break;
             case 'Correo requerido.':
-            console.log("Correo requerido.");
-            break;
+                break;
             case 'Nombre de usuario o correo ya existente.':
-            console.log("Nombre de usuario o correo ya existente.");
-            break;
+                break;
             case 'Las contraseñas deben coincidir.':
-                console.log("Verifique que las contraseñas sean iguales.");
                 break;
             default:
-            console.log("Error en el registro.");
-            break;
+                break;
         }
         } else {
         alert("Ocurrió un error en el registro.");
@@ -66,22 +57,13 @@ const agregarproducto = (e) => {
     }
     });
 }
-
-
-
-
-
 const redireccionarALogin = () => {
     navigate("/private/inventario");
 };
 
-
-
-
 return (
     <>
     <Background>
-    {/* <Logotipo src={logo}></Logotipo> */}
         <Login>
         <ConTitulo>
             <Titulo>Agregar un nuevo producto</Titulo>

@@ -15,7 +15,6 @@ export const getEmpleado = async(req,res) => {
         }
         res.json(rows[0])
     } catch (error) {
-        console.log('error al obtener empleado:', error);
         res.status(500).json({error: 'Error del servidor'});
     }
 } 
@@ -26,13 +25,11 @@ export const createEmpleado = async(req,res) => {
         const{id_empleado, nombre_empleado, ocupacion, turno} = req.body;
         const query = "INSERT INTO empleado(id_empleado, nombre_empleado, ocupacion, turno) VALUES(?,?,?,?)";
         const values =[id_empleado,nombre_empleado, ocupacion,turno];
-        console.log(values);
         await pool.query(query,values);
         res.status(200).json({
             message: 'Creacion exitosa'
         })
     } catch (error) {
-        console.error('Error al crear empleado:', error);
         res.status(500).json({error: 'Error en el server'});
     }
 }
@@ -50,7 +47,6 @@ export const deleteEmpleado = async(req,res) => {
             message: 'eliminacion exitosa 🎉'
         })
     } catch (error) {
-        console.error('Error al eliminar empleado:', error);
         res.status(500).json({message: 'Error en el server'});
     }
 }
@@ -73,7 +69,6 @@ export const updateEmpleado = async(req,res) => {
         const [rows] = await pool.query('SELECT * FROM empleado WHERE id_empleado = ?', [id]);
         res.json(rows[0])
     } catch (error) {
-        console.error('Ups error al actualizar el empleado:', error);
         res.status(500).json({message: 'Error en el servidor'});
     }
 

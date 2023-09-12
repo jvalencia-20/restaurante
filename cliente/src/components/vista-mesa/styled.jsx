@@ -1,19 +1,13 @@
 import styled from "styled-components";
 import piso from "../Img/piso.jpeg"
 
-export const Container = styled.div`
-    min-height: 100vh;
-    height: 100vh;
+export const Container = styled.div`    
+    height: 95vh;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
-    background-image: url(${piso});
-    background-repeat: no-repeat;
-    background-size: 100vw 100vh;
-    background-position: center top;
-    background-attachment: fixed;
     overflow-y: auto;
     @media (max-width: 768px) {
         flex-direction: row;
@@ -59,28 +53,44 @@ export const Box = styled.button`
     align-items: center;
     position: relative;
     transition: background-color 0.3s, border-color 0.5s, transform 0.3s; 
+
     @media (max-width: 768px) {
         width: calc(60% - 10px);
         height: 15rem;
     }
+
     &:hover {
         background-color: transparent; 
         border: 2px solid #ffd700; 
     }
 `;
 
-export const Box2 = styled.div`
-    width: 20rem;
-    height: 6rem;
-    margin: 5px;
+export const ButtonContainer = styled.div`
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    color: #ffffff;
-    font-size: 25px;
-    font-weight: bold;
-    @media (max-width: 768px) {
-        width: calc(50% - 10px);
-    }
+    margin-top: -50px;
+
+@media (max-width: 768px) {
+    margin-top: -30px; 
+}
+`;
+
+export const Button = styled.button`
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s, border-color 0.5s, transform 0.3s;
+
+&:hover {
+    background-color: #00d;
+}
+
+@media (max-width: 768px) {
+    font-size: 14px; 
+    padding: 8px 16px; 
+}
 `;

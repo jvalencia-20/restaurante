@@ -3,9 +3,7 @@ import {pool} from "../db.js"
 export const Bebidas = async (req, res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM bebida')
-        // res.json(rows[0])
         res.send(rows)
-        // console.log(rows)
     } catch (error) {
         res.status(500).json({error: error.message})
     }
@@ -14,7 +12,6 @@ export const Bebidas = async (req, res) => {
 export const agregarPedido = async (req, res) => {
     try {
         const {id_plato, nombre_plato, cantidad, precio} = req.body;
-        console.log(req.body,"❤️❤️")
         const [rows] = await pool.query('INSERT INTO agrega_comida (id_plato, nombre_plato, cantidad, precio) VALUES(?,?,?,?)',[id_plato, nombre_plato, cantidad, precio]);
         res.send({
             id_plato: rows.insertId,
@@ -22,7 +19,6 @@ export const agregarPedido = async (req, res) => {
             cantidad,
             precio,
         })
-        console.log(rows,'❤️❤️❤️')
     } catch (error) {
         res.status(500).json({ error: error.message });   
     }
@@ -47,7 +43,6 @@ export const obtenerPlato = async (req, res) => {
 export const obtenerBebida = async (req, res) => {
     try {
         const { id } = req.params;
-        // console.log(req.params.id, '😒😒')
         const [rows] = await pool.query('SELECT * FROM bebida WHERE id_bebida = ?', [id]);
         if (rows.length === 0) {
             res.status(404).json({ error: 'Plato no encontrado' });
@@ -62,9 +57,7 @@ export const obtenerBebida = async (req, res) => {
 export const Compra = async (req, res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM agrega_comida')
-        // res.json(rows[0])
         res.send(rows)
-        // console.log(rows)
     } catch (error) {
         res.status(500).json({error: error.message})
     }
@@ -92,11 +85,9 @@ export const PlatosCorriente = async (req, res) => {
 }
 
 export const createPlato = async (nombre_plato, descripcion, precio, imagePath, tipo_plato) => {
-    console.log(imagePath, "imagen aqui")
     try {
         const query = "INSERT INTO plato (nombre_plato, descripcion, precio, imagen, tipo_plato) VALUES (?, ?, ?, ?, ?)";
         const values = [nombre_plato, descripcion, precio, imagePath, tipo_plato];
-        console.log(values,"values aqui")
         const [rows] = await pool.query(query, values);
         return rows;
     } catch (error) {
@@ -119,7 +110,25 @@ export const deletePlato = async(req,res) => {
         });
         
     } catch (error) {
-        console.error('Error al eliminar plato:', error);
+        res.status(500).json({message:"Error de servidor"});
+    }
+}
+
+export const deleteBebida = async(req,res) => {
+    try {
+        const [result] = await pool.query('DELETE FROM bebida WHERE id_bebida = ?' ,[req.params.id]);
+        if (result.affectedRows <= 0) {
+            return res.status(404).json({
+                message: 'bebida no existente o nulo '
+            
+            });
+        }
+        res.status(200).json({
+            message: 'Bebida eliminada'
+        });
+        
+    } catch (error) {
+        console.error('Error al eliminar bebida:', error);
         res.status(500).json({message:"Error de servidor"});
     }
 }
@@ -129,10 +138,8 @@ export const updatePlato = async(req,res) => {
     try {
         const {id} = req.params;
         const {nombre_plato, descripcion, precio, imagen} = req.body;
-        console.log("valores recibidos:", id, nombre_plato,descripcion, precio, imagen);
         const query = "UPDATE plato SET nombre_plato = ? , descripcion = ? , precio = ? , imagen = ? WHERE id_plato = ?";
         const values = [nombre_plato, descripcion, precio, imagen, id];
-        console.log(values);
         const [result] = await pool.query(query,values);
         if (result.affectedRows === 0) {
             return res.status(404).json({
@@ -142,7 +149,6 @@ export const updatePlato = async(req,res) => {
         const [rows] = await pool.query('SELECT * FROM plato WHERE id_plato = ?', [id])
         res.json(rows[0])
     } catch (error) {
-        console.error("Ups error al actualizar:", error);
         res.status(500).json({ message: "Error en el servidor" });
         
     }
@@ -156,3 +162,26 @@ export const informacion = async (req, res) => {
         res.status(500).json({error: error.message})
     }
 }
+
+export const getAllPlatos = async (req, res) => {
+    try {
+        const [rows] = await pool.query('SELECT * FROM plato')
+        res.send(rows)
+    } catch (error) {
+        res.status(500).json({error: error.message})
+    }
+}
+
+export const createBebida = async (nombre_bebida, descripcion, precio, imagePath, colores) => {
+    console.log(imagePath, "imagen aqui")
+    try {
+        const query = "INSERT INTO bebida (nombre_bebida, descripcion, precio, imagen,  colores) VALUES (?, ?, ?, ?, ?)";
+        const values = [nombre_bebida, descripcion, precio, imagePath, colores];
+        console.log(values,"values aqui")
+        const [rows] = await pool.query(query, values);
+
+        return rows;
+    } catch (error) {
+        throw error;
+    }
+};

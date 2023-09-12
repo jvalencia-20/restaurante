@@ -20,7 +20,6 @@ const Informacion = () => {
         setTotal(response.data.length);
       })
       .catch(error => {
-        console.error(error);
       });
   }, []);
   setTimeout(() => {

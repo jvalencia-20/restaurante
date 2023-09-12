@@ -35,8 +35,11 @@ return (
                 <Link to="/private/todofisica/fisica" style={{textDecoration:"none"}}>
                     <Button><h1 style={{cursor:"pointer"}}>Domicilio</h1></Button> 
                 </Link>
-                <Link to="/private/todofisica/fisica" style={{textDecoration:"none"}}>
+                <Link to="/private/todofisica/mesa" style={{textDecoration:"none"}}>
                     <Button><h1 style={{cursor:"pointer"}}>Mesa</h1></Button> 
+                </Link>
+                <Link to="/private/todofisica/recibir-orden" style={{textDecoration:"none"}}>
+                    <Button><h1 style={{cursor:"pointer"}}>Recibir orden</h1></Button> 
                 </Link>
             </Minibox2>
         </Container>

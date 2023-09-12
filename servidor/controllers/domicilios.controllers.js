@@ -3,7 +3,6 @@ import {pool} from '../db.js'
 export const createDomicilio = async (req, res) => {
     try {
         const {id_domicilio, nombre_cliente,direccion,nombre_plato, cantidad, precio, hora_entrega} = req.body;
-        console.log(req.body,"❤️❤️")
         const [rows] = await pool.query('INSERT INTO domicilio (id_domicilio, nombre_cliente, direccion, nombre_plato, cantidad, precio, hora_entrega) VALUES(?,?,?,?,?,?,?)',[id_domicilio, nombre_cliente, direccion, nombre_plato, cantidad,precio, hora_entrega]);
         res.send({
             id_domicilio: rows.insertId,
@@ -14,7 +13,6 @@ export const createDomicilio = async (req, res) => {
             precio,
             hora_entrega,
         })
-        console.log(rows,'❤️❤️❤️')
     } catch (error) {
         res.status(500).json({ error: error.message });   
     }
@@ -27,7 +25,6 @@ export const getDomicilios = async(req,res) => {
         const [rows] = await pool.query('SELECT nombre_cliente, direccion, hora_entrega FROM `domicilio` GROUP BY direccion ORDER BY hora_entrega')
         res.json(rows)
     } catch (error) {
-        console.error('Ups error al obtener los domicilios:', error);
         res.status(500).json({error: 'Error Interno'})
     }
 }
@@ -35,7 +32,6 @@ export const getDomicilios = async(req,res) => {
 export const getDomicilio = async (req, res) => {
     try {
         const { di } = req.params;
-        console.log(di,'🖼️🖼️');
         const [rows] = await pool.query('SELECT nombre_plato, nombre_cliente, SUM(precio) AS precio, direccion, SUM(cantidad) AS cantidad FROM domicilio WHERE direccion = ? GROUP BY nombre_plato', [di]);
             res.send(rows)
     } catch (error) {
@@ -53,7 +49,6 @@ export const deleteDomicilio = async(req,res) => {
         }
         res.status(200).json({message: 'domicilio eliminado ✅'});
     } catch (error) {
-        console.error('Ups error al eliminar domicilio:', error);
         res.status(500).json({message: 'Error Interno'});
     }
 }
@@ -74,7 +69,6 @@ export const updateDomicilio = async(req,res) => {
         res.status(200).json({message: 'Domicilio actualizado'});
         //res.json(rows[0])
     } catch (error) {
-        console.error('Ups error al actualizar:', error);
         res.status(500).json({message: 'Error Interno'});
     }
 }

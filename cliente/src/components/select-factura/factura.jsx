@@ -9,7 +9,6 @@ const SelectFactura = () => {
     const Domicilios = () => {
     Axios.get("http://localhost:3002/api/domicilios").then((response) => {
         setFactura(response.data)
-        console.log(response.data)
     })
     .catch(error => {
     })
@@ -21,7 +20,6 @@ const SelectFactura = () => {
     const parametro = direccion;
     const parametroCodificado = encodeURIComponent(parametro); //Cuando creas una URL, ciertos caracteres, como espacios, signos de puntuación y otros caracteres especiales, deben codificarse para que sean interpretados correctamente por los servidores web y los navegadores. encodeURIComponent realiza esta codificación al reemplazar caracteres no seguros en la URL con su equivalente codificado en URL
     navigate(`/factura/${parametroCodificado}`)
-    console.log(direccion,'😁😁');
     }
 
 return (

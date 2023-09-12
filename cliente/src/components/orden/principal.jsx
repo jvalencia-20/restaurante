@@ -1,4 +1,4 @@
-// import Axios from "axios"
+
 import { useEffect, useState } from "react"
 import { Container, Titulo, ConTitulos, Titulos, Eliminar, Pedir, Conten } from "./styled"
 import { Link } from "react-router-dom";
@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 const Carrito = () => {
     const [totalPrecio, setTotalPrecio] = useState(0);
     const [plato, setPlatos] = useState([])
-
     useEffect(() => {
     const plato = JSON.parse(localStorage.getItem("platico"));
     const platoLocalStorage = JSON.parse(localStorage.getItem("platico"));

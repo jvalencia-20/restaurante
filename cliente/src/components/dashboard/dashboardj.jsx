@@ -1,9 +1,11 @@
-import { Pagina, Background, Receta, Hoja1, Hoja2, ConInfor, Infor, InforImg, Name, Entrar, Div, SpanImg, LabelImg, ContentImg, ImgPlato, Nota } from "./stylesDashboard"
-import { Sticker, Sticker2 } from "./stylesDashboard";
+import { Pagina, Background, Receta, Hoja1, Hoja2, ConInfor, Infor, InforImg, Name, Entrar, Div, SpanImg, LabelImg, ContentImg, ImgPlato, Nota, DivPrincipal} from "./stylesDashboard"
+import { Sticker } from "./stylesDashboard";
 import React, { useState } from 'react';
 import Axios from "axios";
-import { LOGOUT } from "../router/path";
-import {  Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../context/AuthContext";
+// import { LOGOUT } from "../router/path";
+// import {  Link } from "react-router-dom";
 
 export const Dashboard = () => {
     const [selectedImage, setSelectedImage] = useState(null);
@@ -12,6 +14,9 @@ export const Dashboard = () => {
     const [precio, setPrecio] = useState("")
     const [imgEnv, setImgEnv] = useState("")
     const [tipoPlato, setTipoPlato] = useState("")
+    const navigate = useNavigate()
+    const { token } = useAuthContext();
+
     const handleImageChange = (event) => {
         const file = event.target.files[0];
         if (file) {
@@ -46,12 +51,14 @@ console.log("Valor del campo 'tipo_plato':", datos.get('tipo_plato'));
 
 const config = {
     headers: {
-        'Content-Type': 'multipart/form-data'
+        'Content-Type': 'multipart/form-data',
+        Authorization: token
     }
     };
     Axios.post("http://localhost:3002/api/crearplato", datos, config)
     .then(({ data }) => {
     console.log(data, "estoy aqui");
+    navigate("/private/traerPlato")
     })
     .catch((error) => {
         console.log(error);
@@ -61,11 +68,10 @@ const config = {
     <Pagina>
         <Background>
             <Receta>
+                <DivPrincipal>
+                
                 <Hoja1>
-                    <h1 style={{margin:"0%"}}>Crea una receta nueva.</h1>
-                    <Sticker2></Sticker2>
-                    <ConInfor>
-                        <Div>
+                <Div>
                             <Name>Ingrese el nombre del plato:</Name>
                             <Infor
                                 type="text"
@@ -87,7 +93,7 @@ const config = {
                                 cols="40"
                                 value={descripcion}
                                 onChange={ev => setDescripcion(ev.target.value)}
-                                style={{ border: "1px solid black", height: "80px", width: "150px", borderRadius: "2%" }}>
+                                style={{  height: "80px", width: "150px", borderRadius: "8px" }}>
                             </Infor>
                         </Div>
                         <Div>
@@ -111,12 +117,11 @@ const config = {
                                 value={tipoPlato}
                                 onChange={ev => setTipoPlato(ev.target.value)}>  
                             </Infor>
-                        </Div>                
-                    </ConInfor>
+                        </Div>   
                 </Hoja1>
                 <Hoja2>
                     <ConInfor style={{height:"480px"}}>
-                        <div style={{ height:"100px", width:"100%", display: "flex"}}>
+                        <div style={{ height:"100px", width:"100%", display:"flex", justifyContent: "center"}}>
                             <LabelImg className="btn btn-warning">
                                 <SpanImg> </SpanImg>
                                 <InforImg
@@ -132,11 +137,13 @@ const config = {
                             </ContentImg>
                         <div style={{display: "flex"}}>
                         <Entrar onClick={agregarplato}></Entrar>
-                        <button><Link to={LOGOUT}>Cerrar sesión</Link></button>
+                        
                         <Sticker></Sticker>
                         </div>
                     </ConInfor>
+
                 </Hoja2>
+                </DivPrincipal>
             </Receta>
         </Background>
     </Pagina>

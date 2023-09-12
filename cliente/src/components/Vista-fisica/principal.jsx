@@ -14,7 +14,6 @@ const [, setNotificacion] = useState("")
 const platosSancocho = () => {
     Axios.get("http://localhost:3002/api/platosSancocho").then((response)=>{
         setSancocho(response.data)
-        console.log(response.data)
     })
     .catch(error => {
     })
@@ -22,7 +21,6 @@ const platosSancocho = () => {
 const platosCorriente = () => {
     Axios.get("http://localhost:3002/api/platosCorriente").then((response)=>{
         setCorriente(response.data)
-        console.log(response.data)
     })
     .catch(error => {
     })
@@ -30,7 +28,6 @@ const platosCorriente = () => {
 const bebidas = () => {
     Axios.get("http://localhost:3002/api/bebidas").then((response) => {
         setBebida(response.data)
-        console.log(response.data)
     })
     .catch(error => {
     })
@@ -46,7 +43,6 @@ const Compra = () => {
         Compra();
         })
         .catch(error => {
-        console.error("Error al eliminar el producto:", error);
         }); 
 }
 useEffect(()=>{

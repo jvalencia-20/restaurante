@@ -7,7 +7,7 @@ const SECRET = "secreto"
 //Se seleccionan todos los registros
 export const getCliente = async (req, res) => {
     try {
-        const [rows] = await pool.query('SELECT * FROM admin')
+        const [rows] = await pool.query('SELECT nombre, correo  FROM admin')
         res.json(rows)
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -118,12 +118,10 @@ export const createProducto = async (req, res) => {
 export const confirmar = async (req, res) => {
     try {
     const { usuario, password } = req.body;
-    console.log(req.body);
     const [rows] = await pool.query(
         'SELECT * FROM admin WHERE nombre = ? ', [usuario]
     );
     if (rows.length > 0) {
-        console.log(rows[0],"❤️❤️❤️")
         const compassword = await bcrypt.compare(password, rows[0].password);
         const accesToken = jwt.sign({id: rows[0].id_admin}, SECRET, {
             expiresIn: "1h",

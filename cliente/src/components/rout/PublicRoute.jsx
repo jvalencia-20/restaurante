@@ -4,7 +4,6 @@ import { PRIVATE } from '../router/path';
 
 export default function PublicRoute() {
   const { token } = useAuthContext();
-  console.log(token);
   if (!token) {
     // Si no hay token, permite el acceso al contenido público
     return <Outlet />;

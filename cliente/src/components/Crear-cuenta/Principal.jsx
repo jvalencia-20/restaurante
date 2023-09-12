@@ -13,7 +13,6 @@ const Crearcuenta = () => {
   const { token } = useAuthContext();
   const agregarusuario = (e) => {
     e.preventDefault()
-    console.log(token, "token en crear usuario")
     Axios.post("http://localhost:3002/api/createcliente", {
       nombre: usuario,
       correo: correo,
@@ -25,8 +24,6 @@ const Crearcuenta = () => {
   }  
   })
   .then(({data})=>{
-      
-      console.log(data,"estoy aqui")
       alert("usuario registrado")
       redireccionarALogin()
     })
@@ -36,22 +33,16 @@ const Crearcuenta = () => {
           const errorMessage = error.response.data;
           switch (errorMessage) {
             case 'contraseña requerida.':
-              console.log("Contraseña requerida.");
               break;
             case 'Nombre de usuario requerido.':
-              console.log("Nombre de usuario requerido.");
               break;
             case 'Correo requerido.':
-              console.log("Correo requerido.");
               break;
             case 'Nombre de usuario o correo ya existente.':
-              console.log("Nombre de usuario o correo ya existente.");
               break;
               case 'Las contraseñas deben coincidir.':
-                console.log("Verifique que las contraseñas sean iguales.");
                 break;
             default:
-              console.log("Error en el registro.");
               break;
           }
         } else {
@@ -69,7 +60,6 @@ const Crearcuenta = () => {
   return (
     <>
       <Background>
-      {/* <Logotipo src={logo}></Logotipo> */}
         <Login>
           <ConTitulo>
             <Titulo>Donde entras por una Bandeja y sales con una Paisa</Titulo>

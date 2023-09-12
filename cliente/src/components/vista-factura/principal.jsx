@@ -1,86 +1,115 @@
 import React, { useState, useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
-import  Axios  from "axios";
-import { useParams } from "react-router-dom";
-import {Background,ContPrincipal,ContFactura,ResPrecios,ContBoton,BotonImprimir} from "./styled";
+import { useNavigate } from "react-router-dom";
+import {
+    Background,
+    ContPrincipal,
+    ContFactura,
+    ResPrecios,
+    ContBoton,
+    BotonImprimir,
+} from "./styled";
+import mesaFunctions from "../vista-mesa/mesa.services/mesa.services";
+import { useDataState }  from "../vista-mesa/data.context/data.state.context";
+import axios from "axios";
+import moment from "moment"
 
 const Factura = ({ mesa }) => {
-    // const navigate = useNavigate()
-
-    const [subtotal, setSubtotal] = useState(0);  
+    const navigate = useNavigate()
+    const [subtotal, setSubtotal] = useState(0);
     const [impuesto, setImpuesto] = useState(0);
     const [total, setTotal] = useState(0);
     const [filteredReservas, setFilteredReservas] = useState([]);
-    const [nombre, setNombre] = useState()
-    console.log(nombre,'🥗🥗😒');
+    const [borrarFactura, setBorrarFactura] = useState(false);
+    const { mesaData } = useDataState();
+    const mesaSeleccionada = mesa ?? mesaData[0]?.id_mesa;
 
-    const calculateTotal = (platos) => {
-    console.log("Calculando totales...");
-
-    const pedidosConProductos = platos.filter(item => item.nombre_plato && item.cantidad && item.precio);
-    console.warn(pedidosConProductos,'❤️❤️');
-    setNombre(pedidosConProductos[0].nombre_cliente)
-    console.log(pedidosConProductos[0].nombre_cliente,'😒😒🥗');
-    const subtotalAmount = pedidosConProductos.reduce((accumulator, pedido) => {
-        const pedidoTotal = parseFloat(pedido.precio) ;
-        return accumulator + pedidoTotal;
-    }, 0); 
-  
-    const impuestoAmount = subtotalAmount * 0.08;
-    const totalAmount = subtotalAmount + impuestoAmount;
-    setSubtotal(subtotalAmount);
-    setImpuesto(impuestoAmount);
-    setTotal(totalAmount); 
-    }; 
-
-    const handlePrintClick = () => { 
-        window.print();  
+    useEffect(() => {
+        setFilteredReservas(mesaData);
+        calculateTotal(); 
+    }, [mesaData]);
+    useEffect(() => {
+        mesaFunctions.getAllMesa(mesa)
+            .then(response => {
+                const convertedResponse = response.map(item => ({
+                    ...item,
+                    precio: parseFloat(item.precio),
+                    cantidad: parseInt(item.cantidad), 
+                }));
+                setFilteredReservas(convertedResponse);
+                calculateTotal();
+            })
+    }, [mesa]);
+    const calculateTotal = () => {
+        const pedidosConProductos = mesaData.filter(item => item.producto && item.cantidad && item.precio);
+        const subtotalAmount = pedidosConProductos.reduce((accumulator, pedido) => {
+            const pedidoTotal = parseFloat(pedido.precio) * pedido.cantidad;
+            return accumulator + pedidoTotal;
+        }, 0);
+        const impuestoAmount = subtotalAmount * 0.08;
+        const totalAmount = subtotalAmount + impuestoAmount;
+        setSubtotal(subtotalAmount);
+        setImpuesto(impuestoAmount);
+        setTotal(totalAmount);
     };
-
-
-    // cambio 
-
-    const Domicilios = () => {
-        const parametro = di;
-        const parametroCodificado = encodeURIComponent(parametro); //Cuando creas una URL, ciertos caracteres, como espacios, signos de puntuación y otros caracteres especiales, deben codificarse para que sean interpretados correctamente por los servidores web y los navegadores. encodeURIComponent realiza esta codificación al reemplazar caracteres no seguros en la URL con su equivalente codificado en URL
-        Axios.get(`http://localhost:3002/api/domicilio/${parametroCodificado}`).then((response) => {
-            setFilteredReservas(response.data)
-            calculateTotal(response.data)
-            // console.log(response.data,'🚪🚪📝')
-        })
-        .catch(error => {
-        })
-    }
-
-
-    useEffect(()=>{
-    Domicilios()
-    },[])
-
-    const { di } = useParams(); 
-    console.log(di,'🥗')
-;
+    const handleIrRegistroFact = async () => {
+        try {
+            const fecha_factura = moment().format('DD/MM/YYYY, HH:mm:ss a'); 
+            const productos = mesaData.map((pedido) => ({
+                producto: pedido.producto,
+                cantidad: pedido.cantidad,
+                precio: pedido.precio,
+                fecha_factura, 
+            }));
+            const facturaData = {
+                id_mesa: mesaSeleccionada,
+                productos,
+                fecha_factura,
+            };
+            const response = await axios.post('http://localhost:3002/api/registro', facturaData);
+            if (response.status === 200) {
+                setBorrarFactura(true);
+            } else {
+            }
+        } catch (error) {
+        }
+    };
+    useEffect(() => {
+        if (borrarFactura) {
+            axios.delete(`http://localhost:3002/api/orden/${mesaSeleccionada}`)
+                .then((deleteOrdenResponse) => {
+                    if (deleteOrdenResponse.status === 204) {
+                        navigate('/private/todofisica/registro-fact');
+                    } else {
+                    }
+                })
+                .catch((deleteError) => {
+                });
+        }
+    }, [borrarFactura]);
+    const handlePrintClick = () => {
+        window.print(); 
+    };
 
     return (
         <Background>
             <ContPrincipal>
-                <h1 style={{ textAlign: "center" }}>Factura Domicilio {mesa}</h1>
-                {/* <BotonImprimir style={{marginLeft: "20px"}} onClick={() => navigate('/mesa')}>Regresar</BotonImprimir> */}
+                <h1 style={{ textAlign: "center",color:"white" }}>Factura de Mesa {mesaSeleccionada}</h1>
+                <BotonImprimir style={{marginLeft: "20px"}} onClick={() => navigate('/private/todofisica/mesa')}>Regresar</BotonImprimir>
                 <ContFactura>
                     <table>
                         <thead>
                             <tr>
-                                <th>PRODUCTO</th>
-                                <th>CANTIDAD</th>
-                                <th>PRECIO</th>
+                                <th style={{backgroundColor:"transparent",color:"white"}}>PRODUCTO</th>
+                                <th style={{backgroundColor:"transparent",color:"white"}}>CANTIDAD</th>
+                                <th style={{backgroundColor:"transparent",color:"white"}}>PRECIO</th>
                             </tr>
                         </thead>
                         <tbody>
                             {filteredReservas.map((pedido, index) => (
                                 <tr key={index}>
-                                    <td>{pedido.nombre_plato}</td>
-                                    <td>{pedido.cantidad}</td>
-                                    <td>{pedido.precio}</td>
+                                    <td style={{color:"white"}}>{pedido.producto}</td>
+                                    <td style={{color:"white"}}>{pedido.cantidad}</td>
+                                    <td style={{color:"white"}}>{pedido.precio}</td>
                                 </tr>
                             ))}
                         </tbody>
@@ -88,17 +117,16 @@ const Factura = ({ mesa }) => {
                 </ContFactura>
                 <ResPrecios>
                     <div style={{ marginTop: '20px', textAlign: 'right' }}>
-                        <p style={{ fontWeight: 'bolder', fontSize: 'x-large', fontStyle: 'italic', margin: '0' }}>Cliente: {nombre}</p>
-                        <p style={{ fontWeight: 'bolder', fontSize: 'x-large', fontStyle: 'italic', margin: '0' }}>Subtotal: $ {subtotal}</p>
-                        <p style={{ fontWeight: 'bolder', fontSize: 'large', fontStyle: 'italic', margin: '0' }}>Impuesto al consumo (8%): $ {impuesto}</p>
-                        <p style={{ fontWeight: 'bolder', fontSize: 'x-large', fontStyle: 'italic', margin: '0' }}>Total: $ {total}</p>
+                        <p style={{ fontWeight: 'bolder', fontSize: 'x-large', fontStyle: 'italic', margin: '0' , color:"white"}}>Subtotal: $ {subtotal}</p>
                     </div>
                 </ResPrecios>
                 <ContBoton>
-                    <BotonImprimir onClick={handlePrintClick}>Imprimir factura</BotonImprimir>  
-                </ContBoton> 
+                    <BotonImprimir onClick={handlePrintClick}>Imprimir factura</BotonImprimir>
+                    <BotonImprimir onClick={handleIrRegistroFact}>Ir a registro de facturas</BotonImprimir>
+                </ContBoton>
             </ContPrincipal>
         </Background>
+        
     );
 };
 

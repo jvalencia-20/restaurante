@@ -13,7 +13,6 @@ Axios.get("http://localhost:3002/api/traerproducto",{
     }
 }).then((response)=>{
     setInventario(response.data)
-    console.log(response.data)
 })
 .catch(error => {
 })

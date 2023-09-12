@@ -29,7 +29,6 @@ export const getPosFactura1 = async (req, res) => {
 export const createPosFactura = async (req, res) => {
     try {
         const { nombre_plato, cantidad, precio, mesa } = req.body;
-        console.log("Datos recibidos en createPosFactura:", nombre_plato, cantidad, precio, mesa);
         const query = 'INSERT INTO `pos-factura` (nombre_plato, cantidad, precio, mesa, fecha_fact) VALUES (?, ?, ?, ?, NOW())';
         const [rows] = await pool.query(query, [nombre_plato, cantidad, precio, mesa]);
         const id_plato = rows.insertId;
@@ -42,7 +41,6 @@ export const createPosFactura = async (req, res) => {
             fecha_fact: new Date().toISOString(),
         });
     } catch (error) {
-        console.error("Error en createPosFactura:", error);
         res.status(500).json({ error: error.message });
     }
 };

@@ -8,7 +8,6 @@ const location = useLocation()
 
 useEffect(() => {
 if ( token) {
-    console.log("me ejecute")
     logout();
 }
 }, [location.pathname, token, logout]);

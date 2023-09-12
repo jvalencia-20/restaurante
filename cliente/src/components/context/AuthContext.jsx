@@ -10,19 +10,14 @@ export default function AuthContextProvider({ children }) {
   const [token, setToken] = useState( window.localStorage.getItem("token") || null);
   const login = useCallback(function (newToken) {
     if (newToken) {
-      console.log(newToken, "hice login con newtoken");
       window.localStorage.setItem("token", newToken);
       // window.sessionStorage.setItem(MY_AUTH_TOKEN, newToken);
       setToken(newToken);
     }
   }, []);
   const logout = useCallback(function () {
-    console.log("hice logout")
     window.localStorage.removeItem( "token");  setToken(null);
-    console.log(token, "aqui el token borrao")
   }, []);
-  
-  console.log(token, "este es el token actualizao")
   const value = useMemo(
     () => ({
       login,

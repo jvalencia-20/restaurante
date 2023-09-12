@@ -7,13 +7,10 @@ import logito from "../Img/LOgo3.png"
 
 const BebidaFisica = () => {
     const [bebida, setBebida] = useState({});
-    console.log(bebida)
     const [contar, setContar] = useState(1)
     const nombrePlato = bebida.nombre_bebida
     const precioUnitarios = bebida.precio
     const [precios, setPrecios] = useState([])
-    console.log(precios,'😊')
-    console.log(precioUnitarios)
     const suma = () => {
     if(contar < 20){
         setContar(contar + 1)
@@ -40,15 +37,12 @@ const BebidaFisica = () => {
     localStorage.setItem("platico", JSON.stringify(platos));
     }, [platos]);
     const { id } = useParams();
-    console.log(id,'🥗😒')
     const obtenerBebida = async () => {
     try {
         const response = await Axios.get(`http://localhost:3002/api/bebida/${id}`);
         setBebida(response.data);
-        setPrecios(response.data.precio)
-        console.log(response.data,'😊😊😊😊'); 
+        setPrecios(response.data.precio) 
     } catch (error) {
-        console.error(error,'😒😒🥗🥗');
     }
     }
     useEffect(() => {

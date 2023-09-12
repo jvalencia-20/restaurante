@@ -2,15 +2,17 @@ import { Router } from "express";
 import { getCliente, getCliente1, createCliente, updateCliente, deleteCliente, confirmar, deletePlatoCarrito, createProducto, traerProducto } from "../controllers/cliente.controller.js";
 import { getEmpleado,getEmpleados,createEmpleado,deleteEmpleado,updateEmpleado } from "../controllers/empleado.controllers.js";
 import {getPedidos,getPedido,createPedido,deletePedido,updatePedido} from "../controllers/pedido.controllers.js";
-import { createPlato,deletePlato,updatePlato, obtenerPlato, Compra, agregarPedido, Bebidas, obtenerBebida, PlatosSancocho, PlatosCorriente, informacion } from "../controllers/platos.controllers.js";
+import { createPlato,createBebida, deletePlato,updatePlato, obtenerPlato, Compra, agregarPedido, Bebidas, obtenerBebida, PlatosSancocho, PlatosCorriente, informacion } from "../controllers/platos.controllers.js";
 import { getReserva,getReservas,createReservation,deleteReservation,updateReservation } from "../controllers/reserva.controllers.js";
 import { createDomicilio,getDomicilios,getDomicilio, deleteDomicilio, updateDomicilio } from "../controllers/domicilios.controllers.js";
-import { getMesa } from "../controllers/mesa.controller.js";
+import { getMesa, createMesa, deleteOrdenPorMesa } from "../controllers/mesa.controller.js";
 import multer from 'multer';
 import {dirname, extname, join} from 'path';
 import { fileURLToPath } from "url";
 import express from "express";
 import jwt from 'jsonwebtoken';
+import { getAllRegistros, getRegistro, getRegistroPorMesa, createNew, updateRegistro, delete1, deleteAllRegistro, getRegistrosPorMesaYFecha } from "../controllers/factura_reg.controllers.js"
+import { getAllPlatos } from "../controllers/platos.controllers.js";
 
 const SECRET = "secreto"
 
@@ -103,6 +105,8 @@ router.post('/crearplato', upload.single("imagen"), async (req, res) => {
     }
 });
 
+router.get('/allPlatos', getAllPlatos)
+
 expressApp.use('/public', express.static(join(CURRENT_DIR,'../uploads')))
 
 router.post('/agregarpedido', agregarPedido)
@@ -137,5 +141,39 @@ router.delete('/quitar/:id', deleteDomicilio); //ruta para eliminar domicilio
 router.patch('/modificar/:id', updateDomicilio); //ruta para actualizar un domicilio
 
 router.get('/mesa/:id', getMesa);
+router.post('/crear-mesa', createMesa)
+router.delete('/orden/:id_mesa', deleteOrdenPorMesa);
+
+router.get('/registro', getAllRegistros)
+router.get('/registro/:id', getRegistro)
+router.get('/registro/:id_mesa', getRegistroPorMesa)
+router.get("/registro/por-mesa-y-fecha/:mesa/:fecha", getRegistrosPorMesaYFecha);
+router.post('/registro', createNew)
+router.patch('/registro/:id', updateRegistro)
+router.delete('/registro/:id', delete1)
+router.delete('/delete', deleteAllRegistro)
+
+router.post('/crearbebida', verificarToken, upload.single("imagen"), async (req, res) => {
+    try {
+        console.log(req.file, "aqui llega el upload");
+        console.log(req.body, "aqui llega la bebida");  
+        const { nombre_bebida, descripcion, precio, colores } = req.body;
+        const imagen = req.file.filename;
+        console.log(imagen, "aqui esta la prueba")
+
+        console.log(req.file.patch,"aqui esta el path uwu")
+
+        // Llamar a la función createPlato con los datos y la ruta de la imagen
+        const result = await createBebida(nombre_bebida, descripcion, precio, imagen, colores);
+        console.log(imagen, "imagen path desde rutas")
+        res.status(200).json({
+            message: 'Creación exitosa 🎉',
+            result
+        });
+    } catch (error) {
+        console.error("Error al crear plato", error);
+        res.status(500).json({ error: 'Error en el servidor' });
+    }
+});
 
 export default router

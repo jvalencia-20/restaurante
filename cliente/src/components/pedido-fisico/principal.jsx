@@ -11,8 +11,6 @@ const PedidoFisica = () => {
     const nombrePlato = plato.nombre_plato
     const precioUnitarios = plato.precio
     const [precios, setPrecios] = useState([])
-    console.log(precios,'😊')
-    console.log(precioUnitarios)
     const suma = () => {
     if(contar < 20){
         setContar(contar + 1)
@@ -30,9 +28,7 @@ const PedidoFisica = () => {
             const response = await Axios.get(`http://localhost:3002/api/plato/${id}`);
             setPlato(response.data);
             setPrecios(response.data.precio)
-            console.log(response.data,'😊😊😊😊'); 
         } catch (error) {
-            console.error(error,'😒😒');
         }
     }
     const agrega = () => { 
@@ -49,7 +45,6 @@ const PedidoFisica = () => {
     localStorage.setItem("platico", JSON.stringify(platos));
     }, [platos]);
 const { id } = useParams();
-console.log(id,'🥗')
 useEffect(() => {
     obtenerPlato();
 }, []);

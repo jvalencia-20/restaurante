@@ -11,8 +11,7 @@ const currency = 'COP';// defecto
 const textToHash = `${apiKey}~${merchantId}~${referenceCode}~${amount}~${currency}`;
 
 // Creamos el hash MD5
-const hash = CryptoJS.MD5(textToHash).toString();
-console.log(hash); 
+const hash = CryptoJS.MD5(textToHash).toString(); 
     return(
     <div>
         <form method="post" action="https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/">

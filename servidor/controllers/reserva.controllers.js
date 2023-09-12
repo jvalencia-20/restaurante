@@ -15,7 +15,6 @@ export const getReserva = async(req,res)=> {
         }
         res.json(rows[0]);
     } catch (error) {
-        console.error('Error al obtener las reservas:', error);
         res.status(500).json({error: 'Error en el server ❌'})
     }
 }
@@ -26,13 +25,11 @@ export const createReservation = async (req,res)=> {
         const {id_reserva, mesa,id_cliente, hora_reserva} = req.body;
         const query = "INSERT INTO reserva (id_reserva, mesa, id_cliente, hora_reserva) VALUES(?,?,?,?)";
         const values = [id_reserva, mesa,id_cliente, hora_reserva];
-        //console.log(values);
         await pool.query(query, values);
         res.status(200).json({
             message: "Creacion exitosa 🎉"
         });
     } catch (error) {
-        console.error("error al insertar reservacion", error);
         res.status(500).json({error:'Error en el server'});
         
     }
@@ -51,7 +48,6 @@ export const deleteReservation = async(req,res)=> {
             message: 'Reserva eliminada correctamente 🎉'
         });
     } catch (error) {
-        console.error('Error al eliminar la reservacion:', error);
         res.status(500).json({message:"Error de servidor"});
     }
 }
@@ -73,7 +69,6 @@ export const updateReservation = async (req, res) => {
         res.json(rows[0]);
         
     } catch (error) {
-        console.error("Ups al actualizar:", error);
         
         res.status(500).json({ message: "Error en el server" });
     }

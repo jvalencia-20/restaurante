@@ -20,12 +20,10 @@ const Logini = () => {
     e.preventDefault()
     Axios.post("http://localhost:3002/api/login",body)
     .then(({data})=>{
-      console.log(data)
       login(data)
       navigate("/private")
     })
     .catch(({response})=>{
-      console.log(response.data)
       alert("usuario o contraseña incorrectos")
     })
   }     

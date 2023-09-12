@@ -1,8 +1,9 @@
 import styled from "styled-components"
 
 export const Background = styled.div`
-    background-color: #f7f1f1dd;
-    height: 100vh;
+    background-color: transparent;
+    height: 90vh;
+    width: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -11,6 +12,8 @@ export const Background = styled.div`
 
 export const ContPrincipal = styled.div`
     border: solid 1px;
+    background-color: rgba(05, 05, 05, .5);  
+    backdrop-filter: blur(5px);
     width: 60%;
     height: 80%;
     box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.26);

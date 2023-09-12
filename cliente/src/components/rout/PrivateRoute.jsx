@@ -4,7 +4,6 @@ import { PUBLIC, LOGIN } from '../router/path';
 
 export default function PrivateRoute() {
   const { token } = useAuthContext();
-  console.log(token)
   if (!token) {
     // Si no hay token, redirigir al usuario a la ruta pública
     return <Navigate to={LOGIN} />;

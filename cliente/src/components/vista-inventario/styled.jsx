@@ -4,6 +4,9 @@ export const Container = styled.div`
     height: 100vh;
     justify-content: center;
     align-items: center;
+    
+    position: relative;
+    top: 9%;
 `;
 
 export const Container2 = styled.div`
