@@ -61,7 +61,6 @@ export const createNew = async (req, res) => {
     }
 }
 
-
 //Se actualiza registro
 export const updateRegistro = async (req, res) => {
     try {

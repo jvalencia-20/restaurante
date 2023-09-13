@@ -4,8 +4,6 @@ import React, { useState } from 'react';
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../context/AuthContext";
-// import { LOGOUT } from "../router/path";
-// import {  Link } from "react-router-dom";
 
 export const Dashboard = () => {
     const [selectedImage, setSelectedImage] = useState(null);
@@ -16,7 +14,6 @@ export const Dashboard = () => {
     const [tipoPlato, setTipoPlato] = useState("")
     const navigate = useNavigate()
     const { token } = useAuthContext();
-
     const handleImageChange = (event) => {
         const file = event.target.files[0];
         if (file) {
@@ -24,11 +21,6 @@ export const Dashboard = () => {
             setImgEnv(file);
         }
     };
-        console.log(nombrePlato);
-        console.log(descripcion)
-        console.log(precio)
-        console.log(selectedImage) 
-        console.log(tipoPlato)
 
 const agregarplato = (e) => {
 e.preventDefault()
@@ -41,14 +33,6 @@ datos.append("precio", precio)
 datos.append("imagen", imgEnv)
 datos.append("tipo_plato", tipoPlato)
 
-console.log("Datos enviados:", datos);
-
-console.log("Valor del campo 'nombre_plato':", datos.get('nombre_plato'));
-console.log("Valor del campo 'descripcion':", datos.get('descripcion'));
-console.log("Valor del campo 'precio':", datos.get('precio'));
-console.log("Valor del campo 'imagen':", datos.get('imagen'));
-console.log("Valor del campo 'tipo_plato':", datos.get('tipo_plato'));
-
 const config = {
     headers: {
         'Content-Type': 'multipart/form-data',
@@ -56,22 +40,20 @@ const config = {
     }
     };
     Axios.post("http://localhost:3002/api/crearplato", datos, config)
-    .then(({ data }) => {
-    console.log(data, "estoy aqui");
+    .then(({ data }) => {;
     navigate("/private/traerPlato")
     })
     .catch((error) => {
-        console.log(error);
     });
 }
+
     return(
     <Pagina>
         <Background>
             <Receta>
                 <DivPrincipal>
-                
-                <Hoja1>
-                <Div>
+                    <Hoja1>
+                        <Div>
                             <Name>Ingrese el nombre del plato:</Name>
                             <Infor
                                 type="text"
@@ -105,7 +87,7 @@ const config = {
                                 autoComplete="off"
                                 value={precio}
                                 onChange={ev => setPrecio(ev.target.value)}>
-                                </Infor>
+                            </Infor>
                         </Div>   
                         <Div>
                             <Name>Ingrese el tipo de plato:</Name>
@@ -118,31 +100,29 @@ const config = {
                                 onChange={ev => setTipoPlato(ev.target.value)}>  
                             </Infor>
                         </Div>   
-                </Hoja1>
-                <Hoja2>
-                    <ConInfor style={{height:"480px"}}>
-                        <div style={{ height:"100px", width:"100%", display:"flex", justifyContent: "center"}}>
-                            <LabelImg className="btn btn-warning">
-                                <SpanImg> </SpanImg>
-                                <InforImg
-                                    hidden 
-                                    type="file"
-                                    onChange={handleImageChange}>
-                                </InforImg>
-                            </LabelImg>
-                            <Nota></Nota>
-                        </div>
-                            <ContentImg>
-                                {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}
-                            </ContentImg>
-                        <div style={{display: "flex"}}>
-                        <Entrar onClick={agregarplato}></Entrar>
-                        
-                        <Sticker></Sticker>
-                        </div>
-                    </ConInfor>
-
-                </Hoja2>
+                    </Hoja1>
+                        <Hoja2>
+                            <ConInfor style={{height:"480px"}}>
+                                <div style={{ height:"100px", width:"100%", display:"flex", justifyContent: "center"}}>
+                                    <LabelImg className="btn btn-warning">
+                                        <SpanImg> </SpanImg>
+                                        <InforImg
+                                            hidden 
+                                            type="file"
+                                            onChange={handleImageChange}>
+                                        </InforImg>
+                                    </LabelImg>
+                                    <Nota></Nota>
+                                </div>
+                                    <ContentImg>
+                                        {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}
+                                    </ContentImg>
+                                <div style={{display: "flex"}}>
+                                    <Entrar onClick={agregarplato}></Entrar>
+                                    <Sticker></Sticker>
+                                </div>
+                            </ConInfor>
+                        </Hoja2>
                 </DivPrincipal>
             </Receta>
         </Background>

@@ -96,7 +96,7 @@ export const Box1 = styled.div`
     height: 8rem;
     width: 19.7rem;
     margin-right: 3rem;
-}
+    }
 `;
 
 export const Notificacion = styled.h4`

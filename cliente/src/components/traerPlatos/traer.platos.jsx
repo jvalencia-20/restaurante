@@ -4,28 +4,28 @@ import React, { useState, useEffect } from 'react';
 import Axios from "axios";
 import { useAuthContext } from "../context/AuthContext";
 
-export const TraerBebidas = () => {
-    const [bebida, setBebida] = useState([])
+
+export const TraerPlatos = () => {
+    const [plato, setPlato] = useState([])
     const {token} = useAuthContext()
-    //mapeo de platos desde la db
-    const Bebidas = () => {
-        Axios.get("http://localhost:3002/api/bebidas", {
+    const Platos = () => {
+        Axios.get("http://localhost:3002/api/allPlatos", {
             headers: {
                 Authorization: token
             } 
         }).then((response) => {
-            setBebida(response.data)
+            setPlato(response.data)
         })
         .catch(error => {
         });
     }
     useEffect(() => {
-        Bebidas()
+        Platos()
     },)
-    const eliminarProducto = (id_bebida) => {
-        Axios.delete(`http://localhost:3002/api/eliminarbebida/${id_bebida}`)
+    const eliminarProducto = (id_plato) => {
+        Axios.delete(`http://localhost:3002/api/elimina/${id_plato}`)
             .then((response) => {
-            Bebidas()
+            Platos()
             ;
             })
             .catch(error => {
@@ -39,18 +39,18 @@ export const TraerBebidas = () => {
                 <DivPrincipal >
                     <div style={{position: "relative", top:"9%"}}>
                         {
-                        bebida.map((val, index)=>(    
+                        plato.map((val, index)=>(    
                             <Contendiv key={index}>
                                 <DivFilas>
-                                    <div style={{width: "100px"}} >{val.nombre_bebida}</div>
+                                    <div style={{width: "100px"}} >{val.nombre_plato}</div>
                                     <ContentImg>
-                                        <ImgPlato src={"http://localhost:3002/" + val.imagen} alt={val.nombre_bebida}></ImgPlato>
+                                        <ImgPlato src={"http://localhost:3002/" + val.imagen} alt={val.nombre_plato}></ImgPlato>
                                     </ContentImg>
-                                    <Borrar onClick={() => eliminarProducto(val.id_bebida)}/>
+                                    <Borrar onClick={() => eliminarProducto(val.id_plato)}/>
                                 </DivFilas>
                             </Contendiv>
                             ))
-                        }
+                            }
                     </div>
                 </DivPrincipal>
             </Receta>

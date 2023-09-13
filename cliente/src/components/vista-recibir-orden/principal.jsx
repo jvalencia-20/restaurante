@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-    Background,
-    ContPrincipal,
-    ContFactura,
-    ResPrecios,
-    ContBoton,
-    BotonImprimir,
-} from "./styled";
+import {Background, ContPrincipal, ContFactura, ResPrecios, ContBoton, BotonImprimir} from "./styled";
 import Axios from "axios";
 
 const RecibirOrden = () => {
@@ -82,7 +75,7 @@ const RecibirOrden = () => {
             const selectedPlato = platos.find((plato) => plato.id_plato == platoSeleccionado);
             if (selectedPlato) {
                 const cantidadPlatoPedido = cantidadPlato;
-            const nuevaListaProductos = [...productosSeleccionados, {
+                const nuevaListaProductos = [...productosSeleccionados, {
                 nombre: selectedPlato.nombre_plato,
                 cantidad: cantidadPlatoPedido, 
                 precio: selectedPlato.precio * cantidadPlatoPedido,
@@ -151,7 +144,7 @@ const RecibirOrden = () => {
         };
         Axios.post("http://localhost:3002/api/crear-mesa", pedido)
             .then((response) => {
-                navigate("/mesa");
+                navigate("/private/todofisica/mesa");
             })
             .catch((error) => {
         });

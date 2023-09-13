@@ -51,7 +51,7 @@ export const createNew = async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
-}
+};
 
 //Se actualiza registro
 export const updateFactura = async (req, res) => {

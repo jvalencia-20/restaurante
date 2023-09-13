@@ -22,6 +22,7 @@ export const Receta = styled.div`
     border-radius: 8px;
 `;
 
+
 export const ContentImg = styled.div`
     height: 230px;
     width: 220px;
@@ -57,8 +58,9 @@ export const DivPrincipal = styled.div`
     overflow-y: auto;
     ::-webkit-scrollbar {
     display: none;
-}
+    }
     @media  screen and (max-width: 670px ) {
+        /* height: 120% */
     }
     @media  screen and (min-width: 1020px ) {
     height: 60%;

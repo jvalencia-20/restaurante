@@ -2,7 +2,7 @@ import { Router } from "express";
 import { getCliente, getCliente1, createCliente, updateCliente, deleteCliente, confirmar, deletePlatoCarrito, createProducto, traerProducto } from "../controllers/cliente.controller.js";
 import { getEmpleado,getEmpleados,createEmpleado,deleteEmpleado,updateEmpleado } from "../controllers/empleado.controllers.js";
 import {getPedidos,getPedido,createPedido,deletePedido,updatePedido} from "../controllers/pedido.controllers.js";
-import { createPlato,createBebida, deletePlato,updatePlato, obtenerPlato, Compra, agregarPedido, Bebidas, obtenerBebida, PlatosSancocho, PlatosCorriente, informacion } from "../controllers/platos.controllers.js";
+import { createPlato,createBebida, deletePlato,updatePlato, obtenerPlato, Compra, agregarPedido, Bebidas, obtenerBebida, PlatosSancocho, PlatosCorriente, informacion, deleteBebida } from "../controllers/platos.controllers.js";
 import { getReserva,getReservas,createReservation,deleteReservation,updateReservation } from "../controllers/reserva.controllers.js";
 import { createDomicilio,getDomicilios,getDomicilio, deleteDomicilio, updateDomicilio } from "../controllers/domicilios.controllers.js";
 import { getMesa, createMesa, deleteOrdenPorMesa } from "../controllers/mesa.controller.js";
@@ -75,6 +75,7 @@ router.get('/empleado/:id', getEmpleado);//ruta para obtener un empleado por id
 router.post('/creacion',createEmpleado);//ruta para crear un empleado
 router.delete('/eliminar/:id',deleteEmpleado);//ruta para eliminar un empleado
 router.patch('/actualizar/:id', updateEmpleado);//ruta para actualizar empleado
+router.delete('/eliminarbebida/:id', deleteBebida)
 
 //Tabla pedido
 

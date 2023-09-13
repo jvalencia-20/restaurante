@@ -179,7 +179,6 @@ export const createBebida = async (nombre_bebida, descripcion, precio, imagePath
         const values = [nombre_bebida, descripcion, precio, imagePath, colores];
         console.log(values,"values aqui")
         const [rows] = await pool.query(query, values);
-
         return rows;
     } catch (error) {
         throw error;

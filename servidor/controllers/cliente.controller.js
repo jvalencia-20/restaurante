@@ -96,10 +96,10 @@ export const createProducto = async (req, res) => {
         }
         if (!unidad){
             return res.status(409).send('unidad requerida.');
-    }
-    if (!precio){
-        return res.status(409).send('precio requerido.');
-    }
+        }
+        if (!precio){
+            return res.status(409).send('precio requerido.');
+        }
 
         // Insertar el nuevo cliente en la base de datos
         const insertQuery = 'INSERT INTO inventario (nombre_producto, categoria, presentacion, unidad, precio) VALUES (?, ?, ?, ?, ?)';
@@ -108,7 +108,6 @@ export const createProducto = async (req, res) => {
         res.status(201).json({
             id_producto: result.insertId,
             nombre_producto,
-            
         });
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -121,7 +120,7 @@ export const confirmar = async (req, res) => {
     const [rows] = await pool.query(
         'SELECT * FROM admin WHERE nombre = ? ', [usuario]
     );
-    if (rows.length > 0) {
+        if (rows.length > 0) {
         const compassword = await bcrypt.compare(password, rows[0].password);
         const accesToken = jwt.sign({id: rows[0].id_admin}, SECRET, {
             expiresIn: "1h",
@@ -133,12 +132,12 @@ export const confirmar = async (req, res) => {
         }else{
             res.status(400).send("el usuario no existe⭐")
         }
-    } else {
-        res.status(400).send("El usuario no existe ❤️❤️❤️❤️❤️❤️");
-    }
-    } catch (error) {
-    res.status(500).json({ error: "Error del servidor" });
-    }
+        } else {
+            res.status(400).send("El usuario no existe ❤️❤️❤️❤️❤️❤️");
+        }
+        } catch (error) {
+        res.status(500).json({ error: "Error del servidor" });
+        }
 };
 
 export const deletePlatoCarrito = async (req, res) => {

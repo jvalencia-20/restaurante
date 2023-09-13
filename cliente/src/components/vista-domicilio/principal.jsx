@@ -20,9 +20,7 @@ export const Domicilio = () => {
         alert("Por favor, completa todos los campos.");
         return;
     }
-    console.log("Enviando pedido...");
     plato.forEach((platoItem) => {
-        console.log("Enviando plato:", platoItem.nombre_plato);
         Axios.post("http://localhost:3002/api/domicilio", {
         nombre_plato: platoItem.nombre_plato,
         cantidad: platoItem.cantidad,
@@ -32,18 +30,15 @@ export const Domicilio = () => {
         hora_entrega: hora,
         })
         .then(() => {
-            console.log("Pedido enviado con éxito:", platoItem.nombre_plato);
             const platosEnLocalStorage = JSON.parse(localStorage.getItem("platico"));
             const nuevosPlatos = platosEnLocalStorage.filter((item) => item.nombre_plato !== platoItem.nombre_plato);
             localStorage.setItem("platico", JSON.stringify(nuevosPlatos));
             setPlatos(nuevosPlatos);
         })
         .catch((error) => {
-            console.error("Error al enviar pedido:", error.message);
             alert("Problemas con el plato: " + error.message);
         });
     });
-    console.log("Limpiando estado de platos...");
     setPlatos([]);
 };
 

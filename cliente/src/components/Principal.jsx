@@ -32,6 +32,7 @@ import RecibirOrden from "./vista-recibir-orden/principal";
 import RegistroFactura from "./vista-registros-fact/principal";
 import { DashboardBebida } from "./dashboardBebida/dashboard.bebida";
 import { ListarClientes } from "./traer.cliente/traerCliente";
+import { TraerPlatos } from "./traerPlatos/traer.platos";
 import { TraerBebidas } from "./traer.Bebidas/traerBebida";
 
 import Todo from "./Todo/todo";
@@ -65,22 +66,22 @@ export const Principal = () => {
                                 <Route path="register" element = {<Crearcuenta />} />
                                 <Route path="dashboard" element = {<Dashboard />} />
                                 <Route path="crearProducto" element = {<CrearProducto />} />
-                                <Route path="crearBebida" element={<DashboardBebida />} />
+                                <Route path="crearBebida" element= {<DashboardBebida />} />
                                 <Route path="inventario" element = {<Inventario/>}/>
-                                <Route path="traerCliente" element={<ListarClientes />}></Route>
-                                <Route path="traerBebida" element={<TraerBebidas />}></Route>
-
+                                <Route path="traerCliente" element= {<ListarClientes />}></Route>
+                                <Route path="traerBebida" element= {<TraerBebidas />}></Route>
+                                <Route path="traerPlato" element = {<TraerPlatos/>}></Route>
                             </Route>
                             <Route path={LOGOUT} element = {<Logout/>}/>
-                            <Route path="todofisica" element={<TodoFisica/>}>
-                                <Route path="fisica" element={<Fisica/>} />
-                                <Route path="pedidofisica/:id" element={<PedidoFisica/>} />
-                                <Route path="bebidafisica/:id" element={<BebidaFisica/>} />
+                            <Route path="todofisica" element = {<TodoFisica/>}>
+                                <Route path="fisica" element = {<Fisica/>} />
+                                <Route path="pedidofisica/:id" element = {<PedidoFisica/>} />
+                                <Route path="bebidafisica/:id" element = {<BebidaFisica/>} />
                                 <Route path="carritofisica" element = {<CarritoFisica/>} />
-                                <Route path= "mesa" element={<VistaMesa/>}></Route>
-                                <Route path="factura" element={<Factura />} />
-                                <Route path="recibir-orden" element={<RecibirOrden />}></Route>
-                                <Route path="registro-fact" element={<RegistroFactura/>}></Route>
+                                <Route path= "mesa" element = {<VistaMesa/>}></Route>
+                                <Route path="factura" element = {<Factura />} />
+                                <Route path="recibir-orden" element = {<RecibirOrden />}></Route>
+                                <Route path="registro-fact" element = {<RegistroFactura/>}></Route>
                             </Route>
                         </Route>   
                     </Routes>

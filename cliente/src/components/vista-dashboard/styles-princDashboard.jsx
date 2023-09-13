@@ -7,14 +7,10 @@ export const Body = styled.div`
     display: flex;
     justify-content: center;
     text-align: center;
-    
     @media  screen and (min-width: 1000px ) {
         overflow: auto;
-        
-
     }
-    
-`
+`;
 
 export const Container = styled.div`
     width: 90%;
@@ -22,79 +18,39 @@ export const Container = styled.div`
     border-radius: 5px;
     display: grid;
     gap: 15px;
-    /* background-color: red; */
-    /* overflow-y: scroll;
-    overflow-x: hidden; */
     position: relative;
     right: 5%;
     grid-template:
-    
-        
         "header" 100px
         "navbar1" 50px
         "main1" 294vh
         "sidebar1" 400px
-         
     ;
-/* 
-    @media  screen and (max-height: 450px ) {
-    height: 160%;
-    box-shadow: none;
-    right: auto;
-    width: 97%;
-    grid-template:
-        
-        "header" 100px
-        "navbar1" 50px
-        "main1" 295vh
-        "sidebar1" 400px        
-        
-        
-        200px auto
-
-    } */
-
     @media  screen and (min-width: 300px ) {
-    /* height: 160%;
-    box-shadow: none; */
     right: auto;
     width: 97%;
-    
-
     grid-template:
-        
         "header" 100px
         "navbar1" 50px
         "main1" 195vh
         "sidebar1" 400px        
-        
-        
-        
-
     }
-
     @media  screen and (min-width: 600px ) {
     right: auto;
     width: 97%;
     grid-template:
-        
         "header" 100px
         "navbar1" 50px
         "main1" 15vh
         "sidebar1" 180px        
-        
-        
         200px auto
     ;
     transition: 1s ease
     }
-
     @media  screen and (min-width: 700px ) {
     width: 97%;
     right: 2%;
     grid-template:
-        
-                
         "header header" 100px
         "navbar1 navbar1" 50px
         "sidebar1 main1" auto
@@ -103,7 +59,6 @@ export const Container = styled.div`
     ;
     transition: 1s ease
     }
-    
     @media  screen and (min-width: 1000px ) {
     width: 97%;
     right: auto;
@@ -113,34 +68,22 @@ export const Container = styled.div`
         "navbar1 main1    sidebar1" auto
     /
         200px     auto       200px
-
     ;
     transition-duration: 1s ease
     }
-
-    
-
-    
-    
-    
-`
-
-
+`;
 
 export const Header = styled.div`
     background-color: white;
     width: 100%;
     height: 80%;
-    /* box-shadow: -1px 1px 7px 0px rgba(0, 0, 0, 0.75); */
     border-radius: 5px;
     margin-top: 2px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 6px;
-
-
-`
+`;
 
 export const ContainerHeader = styled.div`
     background-color: white;
@@ -151,11 +94,8 @@ export const ContainerHeader = styled.div`
     height: 100%;
     box-shadow: -1px 1px 7px 0px rgba(0, 0, 0, 0.75);
     border-radius: 5px;
-    
     grid-area: header;
-
-
-`
+`;
 
 export const CajaNav = styled.div`
     background-color: white;
@@ -165,21 +105,18 @@ export const CajaNav = styled.div`
     border-radius: 5px;
     @media  screen and (min-width: 1000px ) {
         flex-direction: column
-
     }
-    
-`
+`;
 
 export const ContainerMain = styled.div`
-    
     display: flex;
     justify-content: center;
     align-items: center;
     grid-area: main1;
-    /* box-shadow: -1px 1px 7px 0px rgba(0, 0, 0, 0.75); */
     border-radius: 5px;
     overflow: scroll;
-`
+`;
+
 export const ContainerMenu = styled.div`
     background-color: white;
     grid-area: sidebar1;
@@ -189,21 +126,22 @@ export const ContainerMenu = styled.div`
     flex-direction: column;
     align-items: center;
     overflow-y: scroll;
-`
+`;
+
 export const ContainerFooter = styled.div`
     background-color: white;
     grid-area: footer1;
     box-shadow: -1px 1px 7px 0px rgba(0, 0, 0, 0.75);
     border-radius: 5px;
-`
+`;
+
 export const CajaLogo = styled.div`
     height: 40px;
     width: 30rem;
     display: flex;
     align-items: center;
-    
+`;
 
-`
 export const Boton = styled.button`
     height: 100%;
     width:120px;
@@ -225,4 +163,3 @@ export const Boton = styled.button`
     }
     
 `;
-

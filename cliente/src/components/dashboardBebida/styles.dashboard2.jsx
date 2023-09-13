@@ -7,27 +7,20 @@ import guardar from "../Img/save.png"
 export const Pagina = styled.div`
     height: 100vh;
     width: 100%;
-    
 `;
 
 export const Background = styled.div`
     height: 100%;
     width: 100%;
-    
-    
 `;
 
 export const Receta = styled.div`
     height: 100%;
     width: 100%;
-    /* background-color: red; */
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   border-radius: 8px;
-
-
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
 `;
 
 export const Hoja1 = styled.form`
@@ -38,16 +31,6 @@ export const Hoja1 = styled.form`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* @media  screen and (min-width: 1170px ) {
-    height: 100%;
-    
-
-    }
-    @media  screen and (min-width: 1250px ) {
-    height: 100%;
-    
-
-    } */
 `;
 
 export const Hoja2 = styled.form`
@@ -57,28 +40,22 @@ export const Hoja2 = styled.form`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-color: gray; */
     @media  screen and (min-width: 1250px ) {
     height: 50%;
-    
-
     }
 `;
 
 export const ConInfor = styled.div`
     height: 100%;
     width: 100%;
-    /* background-color: blue; */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     color: #ffffff94;
-
 `;
 
 export const Div = styled.div`
-
 `;
 
 export const Name = styled.div`
@@ -86,10 +63,10 @@ export const Name = styled.div`
 `;
 
 export const Infor = styled.input`
-background-color: transparent;
-color: white;
-border-radius: 8px;
-height: 30px;
+    background-color: transparent;
+    color: white;
+    border-radius: 8px;
+    height: 30px;
 `;
 
 export const Infor2 = styled.input`
@@ -103,9 +80,6 @@ export const Entrar = styled.div`
     background-repeat: no-repeat;
     background-size: 90%;
     background-position: center;
-    /* background-color: red; */
-
-
 `;
 
 export const InforImg = styled.input`
@@ -114,13 +88,11 @@ export const InforImg = styled.input`
 `;
 
 export const SpanImg = styled.span`
-
 `;
 
 export const LabelImg = styled.label`
-     height: 80px;
+    height: 80px;
     width: 85px;
-    /* background-color: red; */
     background-repeat: no-repeat;
     background-size: 89%;
     background-position: center;
@@ -131,7 +103,6 @@ export const LabelImg = styled.label`
 export const ContentImg = styled.div`
     height: 300px;
     width: 250px;
-    
     background-image: url(${nota});
     background-repeat: no-repeat;
     background-size: 97%;
@@ -140,7 +111,6 @@ export const ContentImg = styled.div`
     align-items: center;
     justify-content: center;
     @media  screen and (max-height: 600px ) {
-    
     height: 210px;
     width: 150px;
     }
@@ -155,7 +125,6 @@ export const ImgPlato = styled.img`
     left: 3%;
     top: -2%;
     @media  screen and (max-height: 600px ) {
-    
     height: 100px;
     width: 95px;
     left: 4%;
@@ -163,15 +132,12 @@ export const ImgPlato = styled.img`
 `;
 
 export const Nota = styled.div`
-
 `;
 
 export const Sticker = styled.div`
- 
 `;
 
 export const Sticker2 = styled.div`
-
 `;
 
 export const DivPrincipal = styled.div`
@@ -186,22 +152,17 @@ export const DivPrincipal = styled.div`
     border-radius: 8px;
     box-shadow: 8px 12px 9px 10px rgba(0, 0, 0, 0.75);
     position: relative;
-
     @media  screen and (max-width: 670px ) {
         height: 120%
     }
-
     @media  screen and (min-width: 1020px ) {
     flex-direction: row;
     justify-content: center;
     height: 60%;
     width: 80%;
     }
-
     @media  screen and (max-height: 450px ) {
     height: 200%;
     box-shadow: none;
-    
     }
-
 `;

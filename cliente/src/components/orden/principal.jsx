@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react"
 import { Container, Titulo, ConTitulos, Titulos, Eliminar, Pedir, Conten } from "./styled"
 import { Link } from "react-router-dom";
@@ -23,11 +22,13 @@ const platoLocalStorage = JSON.parse(localStorage.getItem("platico"));
     platoLocalStorage.splice(index, 1);
     localStorage.setItem("platico", JSON.stringify(platoLocalStorage));
     setPlatos(platoLocalStorage);
+    const total = platoLocalStorage.reduce((acumulador, compra) => acumulador + compra.precio, 0);
+    setTotalPrecio(total)
 }
 }
 
 return (
-    <>
+<>
     <Container>
         <Titulo>Orden</Titulo>
         <ConTitulos>
@@ -54,7 +55,7 @@ return (
             <Link to="/domicilio"><Pedir>Pedir Order</Pedir></Link>
         </ConTitulos>
     </Container>
-    </>
+</>
     )
 }
 

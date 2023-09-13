@@ -39,8 +39,7 @@ const Informacion = () => {
                   backgroundSize: "cover",
                   backgroundRepeat: "no-repeat",
                   display: index === currentImage ? "block" : "none",
-                }}
-              >
+                }}>
                 <h1 style={{fontSize:"5em",filter: "drop-shadow(-5px 5px 1px #000000)"}}>{infor.Titulo}</h1>
                 <h2 style={{fontSize:"2em",filter: "drop-shadow(-5px 5px 1px #000000)"}}>{infor.Informacion}</h2>
                 <h3 style={{fontSize:"1.5em",filter: "drop-shadow(-5px 5px 1px #000000)"}}>{infor.noticia}</h3>

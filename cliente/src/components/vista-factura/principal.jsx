@@ -9,23 +9,20 @@ import {
     BotonImprimir,
 } from "./styled";
 import mesaFunctions from "../vista-mesa/mesa.services/mesa.services";
-import { useDataState }  from "../vista-mesa/data.context/data.state.context";
+import { useDataState } from "../vista-mesa/data.context/data.state.context";
 import axios from "axios";
-import moment from "moment"
+import moment from 'moment';
 
 const Factura = ({ mesa }) => {
     const navigate = useNavigate()
-    const [subtotal, setSubtotal] = useState(0);
-    const [impuesto, setImpuesto] = useState(0);
     const [total, setTotal] = useState(0);
     const [filteredReservas, setFilteredReservas] = useState([]);
     const [borrarFactura, setBorrarFactura] = useState(false);
     const { mesaData } = useDataState();
     const mesaSeleccionada = mesa ?? mesaData[0]?.id_mesa;
-
     useEffect(() => {
         setFilteredReservas(mesaData);
-        calculateTotal(); 
+        calculateTotal();
     }, [mesaData]);
     useEffect(() => {
         mesaFunctions.getAllMesa(mesa)
@@ -33,7 +30,7 @@ const Factura = ({ mesa }) => {
                 const convertedResponse = response.map(item => ({
                     ...item,
                     precio: parseFloat(item.precio),
-                    cantidad: parseInt(item.cantidad), 
+                    cantidad: parseInt(item.cantidad),
                 }));
                 setFilteredReservas(convertedResponse);
                 calculateTotal();
@@ -41,24 +38,20 @@ const Factura = ({ mesa }) => {
     }, [mesa]);
     const calculateTotal = () => {
         const pedidosConProductos = mesaData.filter(item => item.producto && item.cantidad && item.precio);
-        const subtotalAmount = pedidosConProductos.reduce((accumulator, pedido) => {
+        const totalAmount = pedidosConProductos.reduce((accumulator, pedido) => {
             const pedidoTotal = parseFloat(pedido.precio) * pedido.cantidad;
             return accumulator + pedidoTotal;
         }, 0);
-        const impuestoAmount = subtotalAmount * 0.08;
-        const totalAmount = subtotalAmount + impuestoAmount;
-        setSubtotal(subtotalAmount);
-        setImpuesto(impuestoAmount);
         setTotal(totalAmount);
     };
     const handleIrRegistroFact = async () => {
         try {
-            const fecha_factura = moment().format('DD/MM/YYYY, HH:mm:ss a'); 
+            const fecha_factura = moment().format('DD/MM/YYYY, HH:mm:ss a');
             const productos = mesaData.map((pedido) => ({
                 producto: pedido.producto,
                 cantidad: pedido.cantidad,
                 precio: pedido.precio,
-                fecha_factura, 
+                fecha_factura,
             }));
             const facturaData = {
                 id_mesa: mesaSeleccionada,
@@ -87,29 +80,29 @@ const Factura = ({ mesa }) => {
         }
     }, [borrarFactura]);
     const handlePrintClick = () => {
-        window.print(); 
+        window.print();
     };
 
     return (
         <Background>
             <ContPrincipal>
-                <h1 style={{ textAlign: "center",color:"white" }}>Factura de Mesa {mesaSeleccionada}</h1>
+                <h1 style={{ textAlign: "center" }}>Factura de Mesa {mesaSeleccionada}</h1>
                 <BotonImprimir style={{marginLeft: "20px"}} onClick={() => navigate('/private/todofisica/mesa')}>Regresar</BotonImprimir>
                 <ContFactura>
                     <table>
                         <thead>
                             <tr>
-                                <th style={{backgroundColor:"transparent",color:"white"}}>PRODUCTO</th>
-                                <th style={{backgroundColor:"transparent",color:"white"}}>CANTIDAD</th>
-                                <th style={{backgroundColor:"transparent",color:"white"}}>PRECIO</th>
+                                <th>PRODUCTO</th>
+                                <th>CANTIDAD</th>
+                                <th>PRECIO</th>
                             </tr>
                         </thead>
                         <tbody>
                             {filteredReservas.map((pedido, index) => (
                                 <tr key={index}>
-                                    <td style={{color:"white"}}>{pedido.producto}</td>
-                                    <td style={{color:"white"}}>{pedido.cantidad}</td>
-                                    <td style={{color:"white"}}>{pedido.precio}</td>
+                                    <td>{pedido.producto}</td>
+                                    <td>{pedido.cantidad}</td>
+                                    <td>{pedido.precio}</td>
                                 </tr>
                             ))}
                         </tbody>
@@ -117,7 +110,7 @@ const Factura = ({ mesa }) => {
                 </ContFactura>
                 <ResPrecios>
                     <div style={{ marginTop: '20px', textAlign: 'right' }}>
-                        <p style={{ fontWeight: 'bolder', fontSize: 'x-large', fontStyle: 'italic', margin: '0' , color:"white"}}>Subtotal: $ {subtotal}</p>
+                        <p style={{ fontWeight: 'bolder', fontSize: 'x-large', fontStyle: 'italic', margin: '0' }}>Total: $ {total.toFixed(2)}</p>
                     </div>
                 </ResPrecios>
                 <ContBoton>
@@ -126,7 +119,6 @@ const Factura = ({ mesa }) => {
                 </ContBoton>
             </ContPrincipal>
         </Background>
-        
     );
 };
 
