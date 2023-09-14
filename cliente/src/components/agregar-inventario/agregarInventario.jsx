@@ -48,14 +48,14 @@ const agregarproducto = (e) => {
                 break;
             default:
                 break;
-        }
-        } else {
-        alert("Ocurrió un error en el registro.");
-        }
-    } else {
-        alert("Ocurrió un error en la solicitud.");
-    }
-    });
+            }
+            } else {
+            alert("Ocurrió un error en el registro.");
+            }
+            } else {
+            alert("Ocurrió un error en la solicitud.");
+            }
+            });
 }
 const redireccionarALogin = () => {
     navigate("/private/inventario");
@@ -65,57 +65,57 @@ return (
     <>
     <Background>
         <Login>
-        <ConTitulo>
-            <Titulo>Agregar un nuevo producto</Titulo>
-        </ConTitulo>
-        <ConInfor>
-            <Name>Nombre del Producto</Name>
-            <Infor
-            type="text"
-            name="nombreProducto"
-            placeholder="nombre del producto"
-            autoComplete="off"
-            value={nombreProducto}
-            onChange={ev => setNombreProducto(ev.target.value)}
-            ></Infor>
-                <Name>Presentacion</Name>
-            <Infor
-            type="text"
-            name="presentacion"
-            placeholder="Presentacion"
-            autoComplete="off"
-            value={presentacion}
-            onChange={ev => setPresentacion(ev.target.value)}
-            ></Infor>
-            <Name>Categoria</Name>
-            <Infor
-            type="text"
-            name="categoria"
-            placeholder="Categoria"
-            autoComplete="off"
-            value={categoria}
-            onChange={ev => setCategoria(ev.target.value)}
-            ></Infor>
-            <Name>Unidad</Name>
-            <Infor
-            type="number"
-            name="unidad"
-            placeholder="Unidad"
-            autoComplete="off"
-            value={unidad}
-            onChange={ev => setUnidad(ev.target.value)}
-            ></Infor>
-            <Name>Precio</Name>
-            <Infor
-            type="text"
-            name="precio"
-            placeholder="Precio"
-            autoComplete="off"
-            value={precio}
-            onChange={ev => setPrecio(ev.target.value)}
-            ></Infor>
-            <Entrar onClick={agregarproducto}>Agregar</Entrar>
-        </ConInfor>
+            <ConTitulo>
+                <Titulo>Agregar un nuevo producto</Titulo>
+            </ConTitulo>
+            <ConInfor>
+                <Name>Nombre del Producto</Name>
+                <Infor
+                    type="text"
+                    name="nombreProducto"
+                    placeholder="nombre del producto"
+                    autoComplete="off"
+                    value={nombreProducto}
+                    onChange={ev => setNombreProducto(ev.target.value)}>
+                </Infor>
+                    <Name>Presentacion</Name>
+                <Infor
+                    type="text"
+                    name="presentacion"
+                    placeholder="Presentacion"
+                    autoComplete="off"
+                    value={presentacion}
+                    onChange={ev => setPresentacion(ev.target.value)}>
+                </Infor>
+                <Name>Categoria</Name>
+                <Infor
+                    type="text"
+                    name="categoria"
+                    placeholder="Categoria"
+                    autoComplete="off"
+                    value={categoria}
+                    onChange={ev => setCategoria(ev.target.value)}>
+                </Infor>
+                <Name>Unidad</Name>
+                <Infor
+                    type="number"
+                    name="unidad"
+                    placeholder="Unidad"
+                    autoComplete="off"
+                    value={unidad}
+                    onChange={ev => setUnidad(ev.target.value)}>
+                </Infor>
+                <Name>Precio</Name>
+                <Infor
+                    type="text"
+                    name="precio"
+                    placeholder="Precio"
+                    autoComplete="off"
+                    value={precio}
+                    onChange={ev => setPrecio(ev.target.value)}>
+                </Infor>
+                <Entrar onClick={agregarproducto}>Agregar</Entrar>
+            </ConInfor>
         </Login>
     </Background>
     </>

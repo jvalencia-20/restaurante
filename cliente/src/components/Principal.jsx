@@ -34,7 +34,7 @@ import { DashboardBebida } from "./dashboardBebida/dashboard.bebida";
 import { ListarClientes } from "./traer.cliente/traerCliente";
 import { TraerPlatos } from "./traerPlatos/traer.platos";
 import { TraerBebidas } from "./traer.Bebidas/traerBebida";
-
+import FacturaDomicilio from "./factura-domicilio/principal";
 import Todo from "./Todo/todo";
 
 export const Principal = () => {
@@ -55,10 +55,8 @@ export const Principal = () => {
                                 <Route path="/ordenes" element = {<Carrito />}></Route>
                                 <Route path="/domicilio" element = {<Domicilio/>}></Route>
                                 <Route path="/reserva" element = {<Reserva/>}></Route>
-                                <Route path="/selectfactura" element = {<SelectFactura/>}></Route>
                                 <Route path= "/mesa" element = {<VistaMesa/>}></Route>
-                                <Route path="/factura/:di" element = {<Factura />}/>
-                                <Route path="/login" element = {<Logini/>}></Route>
+                                <Route path="/login" element = {<Logini/>}></Route>     
                             </Route>
                                 <Route path={PRIVATE} element = {<PrivateRoute/>}>
                                 <Route element = {<PrincipalDashboard />}>
@@ -79,9 +77,11 @@ export const Principal = () => {
                                 <Route path="bebidafisica/:id" element = {<BebidaFisica/>} />
                                 <Route path="carritofisica" element = {<CarritoFisica/>} />
                                 <Route path= "mesa" element = {<VistaMesa/>}></Route>
-                                <Route path="factura" element = {<Factura />} />
+                                <Route path="factura/:di" element = {<Factura />}/>
+                                <Route path="facturadomicilio/:di" element = {<FacturaDomicilio />} />
                                 <Route path="recibir-orden" element = {<RecibirOrden />}></Route>
                                 <Route path="registro-fact" element = {<RegistroFactura/>}></Route>
+                                <Route path="selectfactura" element = {<SelectFactura/>}></Route>
                             </Route>
                         </Route>   
                     </Routes>

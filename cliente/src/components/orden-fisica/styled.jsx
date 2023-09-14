@@ -45,6 +45,7 @@ export const ConTitulos = styled.div`
     justify-content: space-evenly;
     align-items: center;
 `;
+
 export const Conten = styled.div`
     max-height: 36em;
     overflow-y: scroll;
@@ -57,7 +58,8 @@ export const Conten = styled.div`
         background: transparent;
         border-radius: 10px;
     }
-`
+`;
+
 export const Titulos = styled.h3`
     filter: drop-shadow(7px 10px 5px black);
 `;

@@ -1,34 +1,62 @@
+// import Axios from "axios"
 import { useEffect, useState } from "react"
 import { Container, Titulo, ConTitulos, Titulos, Eliminar, Pedir, Conten } from "./styled"
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Escoge from "../VentanasModal/eligeMenu";
+
 
 const Carrito = () => {
-    const [totalPrecio, setTotalPrecio] = useState(0);
+    const navigate = useNavigate()
     const [plato, setPlatos] = useState([])
+    const [llenar, setLlenar] = useState(false)
+    const [totalPrecio, setTotalPrecio] = useState(0);
     useEffect(() => {
     const plato = JSON.parse(localStorage.getItem("platico"));
-    const platoLocalStorage = JSON.parse(localStorage.getItem("platico"));
     if (Array.isArray(plato)) {
-    setPlatos(plato);
-    const total = plato.reduce((acumulador, compra) => acumulador + compra.precio, 0);
-    setTotalPrecio(total);
+      // Realiza las operaciones necesarias solo si plato es un array válido
+        const total = plato.reduce((acumulador, compra) => acumulador + compra.precio, 0);
+        setTotalPrecio(total);
+        setPlatos(plato);
     }
-    setPlatos(platoLocalStorage);
-}, []);
+    }, []);
 
 const eliminar = (index) => {
-const platoLocalStorage = JSON.parse(localStorage.getItem("platico"));
+  // Obtén los datos actuales de localStorage
+    const platoLocalStorage = JSON.parse(localStorage.getItem("platico"));
+
+  // Verifica si los datos son un array y si el índice es válido
     if (Array.isArray(platoLocalStorage) && index >= 0 && index < platoLocalStorage.length) {
+    // Utiliza splice para eliminar el elemento en el índice especificado
     platoLocalStorage.splice(index, 1);
+
+    // Guarda los datos actualizados en localStorage
     localStorage.setItem("platico", JSON.stringify(platoLocalStorage));
-    setPlatos(platoLocalStorage);
     const total = platoLocalStorage.reduce((acumulador, compra) => acumulador + compra.precio, 0);
-    setTotalPrecio(total)
+    setTotalPrecio(total);
+    // Actualiza el estado local (si es necesario)
+    setPlatos(platoLocalStorage);
+    }
 }
+const noEnviar = () => {
+    if( plato.length > 0){
+        navigate("/domicilio")
+    }else{
+        setLlenar(!llenar)
+        setTimeout(()=>{
+            setLlenar(false)
+        },2000)
+    }   
+}
+const vaciar = () => {
+    localStorage.clear("platico")
+    setPlatos([])
+    setTotalPrecio(0);
 }
 
 return (
-<>
+    <>
+    {llenar && <Escoge/>}
     <Container>
         <Titulo>Orden</Titulo>
         <ConTitulos>
@@ -44,18 +72,17 @@ return (
             <Titulos>{compra.nombre_plato}</Titulos>
             <Titulos>{compra.cantidad}</Titulos>
             <Titulos>${compra.precio}</Titulos>
-            <Eliminar onClick={() => eliminar(index)}>X</Eliminar>
+            <Eliminar onClick={() => eliminar(index)}><h1 style={{margin:"0"}}>X</h1></Eliminar>
         </ConTitulos>
-        ))) : (
-        <p>No hay datos disponibles</p>
-        )}             
+        ))) : "" }             
             </Conten>
         <ConTitulos>
             <Titulos>Total: ${totalPrecio}</Titulos>
-            <Link to="/domicilio"><Pedir>Pedir Order</Pedir></Link>
+            <Pedir onClick={noEnviar}>Pedir Order</Pedir>
+            <Pedir onClick={vaciar}>Vaciar</Pedir>
         </ConTitulos>
     </Container>
-</>
+    </>
     )
 }
 

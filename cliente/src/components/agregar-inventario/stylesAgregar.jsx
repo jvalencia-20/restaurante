@@ -70,7 +70,6 @@ export const ConInfor = styled.div`
   justify-content: center;
   @media screen and ( max-width: 90vh){   
     height: 70%;
-     
   }
 `;
 

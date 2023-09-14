@@ -1,12 +1,9 @@
 import styled from "styled-components";
 import nota from "../Img/Notas.jpg"
-import pared from "../Img/Ordenes.jpg"
+
 
 export const Fondo = styled.div`
-    background-image: url(${pared});
-    background-size: cover;
     height: 100vh;
-    background-color: yellow;
     display: flex;
     justify-content: center;
     align-items: center;

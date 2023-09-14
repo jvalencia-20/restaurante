@@ -67,40 +67,40 @@ const Crearcuenta = () => {
           <ConInfor>
             <Name>Usuario</Name>
             <Infor
-            type="text"
-            name="usuario"
-            placeholder="Usuario"
-            autoComplete="off"
-            value={usuario}
-            onChange={ev => setUsuario(ev.target.value)}
-            ></Infor>
+              type="text"
+              name="usuario"
+              placeholder="Usuario"
+              autoComplete="off"
+              value={usuario}
+              onChange={ev => setUsuario(ev.target.value)}>
+            </Infor>
             <Name>Correo</Name>
             <Infor
-            type="email"
-            name="correo"
-            placeholder="Correo"
-            autoComplete="off"
-            value={correo}
-            onChange={ev => setCorreo(ev.target.value)}
-            ></Infor>
+              type="email"
+              name="correo"
+              placeholder="Correo"
+              autoComplete="off"
+              value={correo}
+              onChange={ev => setCorreo(ev.target.value)}>
+            </Infor>
             <Name>Contraseña</Name>
             <Infor
-            type="password"
-            name="contraseña"
-            placeholder="Contraseña"
-            autoComplete="off"
-            value={contraseña}
-            onChange={ev => setContaseña(ev.target.value)}
-            ></Infor>
+              type="password"
+              name="contraseña"
+              placeholder="Contraseña"
+              autoComplete="off"
+              value={contraseña}
+              onChange={ev => setContaseña(ev.target.value)}>
+            </Infor>
             <Name>Confirmar Contraseña</Name>
             <Infor
-            type="password"
-            name="confirmar_contraseña"
-            placeholder="Confirmar Contraseña"
-            autoComplete="off"
-            value={confirmarContraseña}
-            onChange={ev => setconfirmarContraseña(ev.target.value)}
-            ></Infor>
+              type="password"
+              name="confirmar_contraseña"
+              placeholder="Confirmar Contraseña"
+              autoComplete="off"
+              value={confirmarContraseña}
+              onChange={ev => setconfirmarContraseña(ev.target.value)}>
+            </Infor>
             <Entrar onClick={agregarusuario}>Registrate</Entrar>
           </ConInfor>
         </Login>

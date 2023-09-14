@@ -60,7 +60,6 @@ export const DivPrincipal = styled.div`
     display: none;
     }
     @media  screen and (max-width: 670px ) {
-        /* height: 120% */
     }
     @media  screen and (min-width: 1020px ) {
     height: 60%;

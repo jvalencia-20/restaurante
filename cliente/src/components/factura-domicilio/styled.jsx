@@ -1,8 +1,7 @@
 import styled from "styled-components"
 
 export const Background = styled.div`
-    background-color: transparent;
-    height: 90vh;
+    height: 100vh;
     width: 100vh;
     display: flex;
     align-items: center;
@@ -12,11 +11,10 @@ export const Background = styled.div`
 
 export const ContPrincipal = styled.div`
     border: solid 1px;
-    background-color: rgba(05, 05, 05, .5);  
-    backdrop-filter: blur(10px);
     width: 60%;
     height: 80%;
-    box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.26);
+    background-color: rgba(05, 05, 05, .5);  
+    backdrop-filter: blur(10px);
     border-radius: 20px;
     @media (min-width: 768px) {
         width: 50%;
@@ -54,6 +52,7 @@ export const ContFactura = styled.div`
             margin-bottom: 10px;
         }
     }
+    
 `;
 
 export const ResPrecios = styled.div`
@@ -65,6 +64,7 @@ export const ResPrecios = styled.div`
         max-height: initial;
         font-size: 20px;
     }
+    
 `;
 
 export const ContBoton = styled.div`

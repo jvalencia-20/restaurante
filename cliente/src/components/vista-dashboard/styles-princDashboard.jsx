@@ -63,10 +63,9 @@ export const Container = styled.div`
     width: 97%;
     right: auto;
     grid-template:
-        
         "header  header header"   100px
         "navbar1 main1    sidebar1" auto
-    /
+        /
         200px     auto       200px
     ;
     transition-duration: 1s ease

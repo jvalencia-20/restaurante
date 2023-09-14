@@ -32,7 +32,7 @@ return (
                     <Notificacion style={{fontSize:"22px", filter:"drop-shadow(-1px 10px 5px black)"}}>{notificacion}</Notificacion>
                 </Button>
                 {activo  && <CarritoFisica/> }
-                <Link to="/private/todofisica/fisica" style={{textDecoration:"none"}}>
+                <Link to="/private/todofisica/selectfactura" style={{textDecoration:"none"}}>
                     <Button><h1 style={{cursor:"pointer"}}>Domicilio</h1></Button> 
                 </Link>
                 <Link to="/private/todofisica/mesa" style={{textDecoration:"none"}}>

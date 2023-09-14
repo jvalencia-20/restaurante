@@ -11,7 +11,7 @@ import {dirname, extname, join} from 'path';
 import { fileURLToPath } from "url";
 import express from "express";
 import jwt from 'jsonwebtoken';
-import { getAllRegistros, getRegistro, getRegistroPorMesa, createNew, updateRegistro, delete1, deleteAllRegistro, getRegistrosPorMesaYFecha } from "../controllers/factura_reg.controllers.js"
+import { getAllRegistros, getRegistro, createNew, updateRegistro, delete1, deleteAllRegistro, getRegistrosPorFecha, getRegistrosPorMesaYFecha, getRegistrosPorMesa } from "../controllers/factura_reg.controllers.js"
 import { getAllPlatos } from "../controllers/platos.controllers.js";
 
 const SECRET = "secreto"
@@ -147,7 +147,8 @@ router.delete('/orden/:id_mesa', deleteOrdenPorMesa);
 
 router.get('/registro', getAllRegistros)
 router.get('/registro/:id', getRegistro)
-router.get('/registro/:id_mesa', getRegistroPorMesa)
+router.get('/registro/por-mesa/:mesa', getRegistrosPorMesa)
+router.get('/registro/por-fecha/:fecha', getRegistrosPorFecha);
 router.get("/registro/por-mesa-y-fecha/:mesa/:fecha", getRegistrosPorMesaYFecha);
 router.post('/registro', createNew)
 router.patch('/registro/:id', updateRegistro)

@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { Background, Platos, ConImg, Contenido, ImgPlato, Titulo, NomPlato, Aumentar, Botones, Agregar, Plato, Container, Logito, CajaImg } from "./styled"
 import logito from "../Img/LOgo3.png"
+import Agregado from "../VentanasModal/agregaCarrito"
 
 const Pedidos = () => {
+    const [enviado, setEnviado] = useState(false)
     const [plato, setPlato] = useState({});
     const [contar, setContar] = useState(1)
     const nombrePlato = plato.nombre_plato
@@ -34,6 +36,7 @@ const Pedidos = () => {
     const agrega = () => { 
     const nuevoPlato = { nombre_plato: nombrePlato, cantidad: contar, precio: precios }; 
     setPlatos([...platos, nuevoPlato]);
+    setEnviado(!enviado)
     };
     const [platos, setPlatos] = useState(() => { 
     const platoLocalStorage = JSON.parse(localStorage.getItem("platico"));
@@ -51,6 +54,7 @@ useEffect(() => {
 
 return (
 <>
+    {enviado && <Agregado/>}
     <Background>
         <Platos>
             <Titulo>

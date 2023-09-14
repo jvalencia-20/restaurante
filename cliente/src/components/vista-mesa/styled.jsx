@@ -53,12 +53,10 @@ export const Box = styled.button`
     align-items: center;
     position: relative;
     transition: background-color 0.3s, border-color 0.5s, transform 0.3s; 
-
     @media (max-width: 768px) {
         width: calc(60% - 10px);
         height: 15rem;
     }
-
     &:hover {
         background-color: transparent; 
         border: 2px solid #ffd700; 
@@ -69,7 +67,6 @@ export const ButtonContainer = styled.div`
     display: flex;
     justify-content: center;
     margin-top: -50px;
-
 @media (max-width: 768px) {
     margin-top: -30px; 
 }
@@ -88,7 +85,6 @@ export const Button = styled.button`
 &:hover {
     background-color: #00d;
 }
-
 @media (max-width: 768px) {
     font-size: 14px; 
     padding: 8px 16px; 

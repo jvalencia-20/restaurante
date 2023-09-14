@@ -1,13 +1,13 @@
 import {pool} from "../db.js"
 import moment from "moment-timezone";
 
-moment.tz.setDefault('America/Bogota');
+moment.tz.setDefault('America/Bogota'); 
 
 //Se seleccionan todos los registros
 export const getAllRegistros = async (req, res) => {
     try {
-        const [rows] = await pool.query('SELECT * FROM registros_fact')
-        res.json(rows)
+        const [rows] = await pool.query('SELECT * FROM registros_fact ORDER BY fecha_factura DESC');
+        res.json(rows);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
@@ -29,27 +29,22 @@ export const getRegistro = async (req, res) => {
     }
 }
 
-export const getRegistroPorMesa = async (req, res) => {
-    try {
-        const { numeroMesa } = req.params;
-        const [rows] = await pool.query('SELECT * FROM registros_fact WHERE id_mesa = ?', [numeroMesa]);
-        res.json(rows);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-};
-
-//Se crea registro
 export const createNew = async (req, res) => {
     try {
         const { id_mesa, productos, fecha_factura } = req.body;
+
         const insertIds = [];
+
         for (const productoData of productos) {
             const { producto, cantidad, precio } = productoData;
-            const fechaFactura = moment(fecha_factura, 'DD/MM/YYYY, HH:mm:ss a').format('YYYY-MM-DD HH:mm:ss');
+            
+            const fechaFactura = moment(fecha_factura, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD HH:mm:ss');
+            console.log("Fecha recibida en el backend:", fechaFactura);
+            
             const [rows] = await pool.query('INSERT INTO registros_fact (id_mesa, producto, cantidad, precio, fecha_factura) VALUES (?, ?, ?, ?, ?)', [id_mesa, producto, cantidad, precio, fechaFactura]);
             insertIds.push(rows.insertId);
         }
+
         res.send({
             insertIds,
             id_mesa,
@@ -60,6 +55,7 @@ export const createNew = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 }
+
 
 //Se actualiza registro
 export const updateRegistro = async (req, res) => {
@@ -110,8 +106,42 @@ export const deleteAllRegistro = async (req, res) => {
 export const getRegistrosPorMesaYFecha = async (req, res) => {
     try {
         const { mesa, fecha } = req.params;
+        let query = 'SELECT * FROM registros_fact WHERE id_mesa = ?';
+        const params = [mesa];
+        if (fecha) {
+            query += ' AND DATE(fecha_factura) = ?';
+            params.push(moment(fecha).format('YYYY-MM-DD'));
+        }
+        const [rows] = await pool.query(query, params);
+        res.json(rows);
+    } catch (error) {
+        console.error("Error al filtrar por mesa y fecha:", error);
+        res.status(500).json({ error: error.message });
+    }
+};
+
+
+export const getRegistrosPorMesa = async (req, res) => {
+    try {
+        const { mesa } = req.params;
+        const idMesa = parseInt(mesa, 10);
+        if (isNaN(idMesa)) {
+            return res.status(400).json({ error: "La mesa debe ser un número válido" });
+        }
+        console.log("Mesa recibida:", idMesa);
+        const [rows] = await pool.query('SELECT * FROM registros_fact WHERE id_mesa = ?', [idMesa]);
+        res.json(rows);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+
+export const getRegistrosPorFecha = async (req, res) => {
+    try {
+        const { fecha } = req.params;
         const formattedFecha = moment(fecha).format('YYYY-MM-DD');
-        const [rows] = await pool.query('SELECT * FROM registros_fact WHERE id_mesa = ? AND DATE(fecha_factura) = ?', [mesa, formattedFecha]);
+        const [rows] = await pool.query('SELECT * FROM registros_fact WHERE DATE(fecha_factura) = ?', [formattedFecha]);
         res.json(rows);
     } catch (error) {
         res.status(500).json({ error: error.message });

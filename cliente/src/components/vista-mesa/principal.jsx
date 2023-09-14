@@ -35,8 +35,9 @@ const VistaMesa = () => {
     try {
       const mesaDataResponse = await mesaFunctions.getMesa(mesaNumber);
       setMesaData(mesaDataResponse);
-      navigate("/private/todofisica/factura");
+      navigate("/private/todofisica/factura/:di");
     } catch (error) {
+      console.error("Error sending reservation data:", error);
     }
   };
 

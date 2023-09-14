@@ -14,7 +14,7 @@ export const ContPrincipal = styled.div`
     width: 40%;
     height: 80%;
     background-color: rgba(05, 05, 05, .5);  
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
     box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.26);
     border-radius: 20px;
     @media (min-width: 768px) {

@@ -35,6 +35,7 @@ const Factura = ({ mesa }) => {
                 setFilteredReservas(convertedResponse);
                 calculateTotal();
             })
+            .catch(error => console.error('Error fetching data:', error));
     }, [mesa]);
     const calculateTotal = () => {
         const pedidosConProductos = mesaData.filter(item => item.producto && item.cantidad && item.precio);
@@ -62,10 +63,13 @@ const Factura = ({ mesa }) => {
             if (response.status === 200) {
                 setBorrarFactura(true);
             } else {
+                console.error('Error en la solicitud POST:', response.statusText);
             }
         } catch (error) {
+            console.error('Error al procesar la factura:', error);
         }
     };
+
     useEffect(() => {
         if (borrarFactura) {
             axios.delete(`http://localhost:3002/api/orden/${mesaSeleccionada}`)
@@ -73,12 +77,15 @@ const Factura = ({ mesa }) => {
                     if (deleteOrdenResponse.status === 204) {
                         navigate('/private/todofisica/registro-fact');
                     } else {
+                        console.error('Error al eliminar datos en la tabla orden:', deleteOrdenResponse.statusText);
                     }
                 })
                 .catch((deleteError) => {
+                    console.error('Error al ejecutar la solicitud DELETE:', deleteError);
                 });
         }
     }, [borrarFactura]);
+
     const handlePrintClick = () => {
         window.print();
     };
@@ -86,23 +93,23 @@ const Factura = ({ mesa }) => {
     return (
         <Background>
             <ContPrincipal>
-                <h1 style={{ textAlign: "center" }}>Factura de Mesa {mesaSeleccionada}</h1>
+                <h1 style={{ textAlign: "center" , color:"white" }}>Factura de Mesa {mesaSeleccionada}</h1>
                 <BotonImprimir style={{marginLeft: "20px"}} onClick={() => navigate('/private/todofisica/mesa')}>Regresar</BotonImprimir>
                 <ContFactura>
                     <table>
                         <thead>
                             <tr>
-                                <th>PRODUCTO</th>
-                                <th>CANTIDAD</th>
-                                <th>PRECIO</th>
+                                <th style={{backgroundColor:"transparent",color:"white"}}>PRODUCTO</th>
+                                <th style={{backgroundColor:"transparent",color:"white"}}>CANTIDAD</th>
+                                <th style={{backgroundColor:"transparent",color:"white"}}>PRECIO</th>
                             </tr>
                         </thead>
                         <tbody>
                             {filteredReservas.map((pedido, index) => (
                                 <tr key={index}>
-                                    <td>{pedido.producto}</td>
-                                    <td>{pedido.cantidad}</td>
-                                    <td>{pedido.precio}</td>
+                                    <td style={{color:"white"}}>{pedido.producto}</td>
+                                    <td style={{color:"white"}}>{pedido.cantidad}</td>
+                                    <td style={{color:"white"}}>{pedido.precio}</td>
                                 </tr>
                             ))}
                         </tbody>
@@ -110,7 +117,7 @@ const Factura = ({ mesa }) => {
                 </ContFactura>
                 <ResPrecios>
                     <div style={{ marginTop: '20px', textAlign: 'right' }}>
-                        <p style={{ fontWeight: 'bolder', fontSize: 'x-large', fontStyle: 'italic', margin: '0' }}>Total: $ {total.toFixed(2)}</p>
+                        <p style={{ fontWeight: 'bolder', fontSize: 'x-large', fontStyle: 'italic', margin: '0' , color:"white" }}>Total: $ {total}</p>
                     </div>
                 </ResPrecios>
                 <ContBoton>

@@ -82,7 +82,7 @@ export const CajaImg = styled.div`
     width: 95%;
     height: auto;
   }
-`
+`;
 
 export const ImgPlato = styled.img`
   border-radius: 15px;

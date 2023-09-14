@@ -19,7 +19,7 @@ const SelectFactura = () => {
     const enviar = (direccion) => {
     const parametro = direccion;
     const parametroCodificado = encodeURIComponent(parametro); //Cuando creas una URL, ciertos caracteres, como espacios, signos de puntuación y otros caracteres especiales, deben codificarse para que sean interpretados correctamente por los servidores web y los navegadores. encodeURIComponent realiza esta codificación al reemplazar caracteres no seguros en la URL con su equivalente codificado en URL
-    navigate(`/factura/${parametroCodificado}`)
+    navigate(`/private/todofisica/facturadomicilio/${parametroCodificado}`)
     }
 
 return (

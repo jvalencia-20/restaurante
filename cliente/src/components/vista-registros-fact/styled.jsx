@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Background = styled.div`
-    background-color: #f7f1f1dd;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -14,6 +13,8 @@ export const ContPrincipal = styled.div`
     border: solid 1px;
     width: 70%;
     height: 71%;
+    background-color: rgba(05, 05, 05, .5);  
+    backdrop-filter: blur(5px);
     box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.26);
     border-radius: 20px;
     @media (min-width: 768px) {
@@ -78,7 +79,7 @@ export const Th = styled.th`
 export const Td = styled.td`
     padding: 10px;
     margin: 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: white;
     z-index: 0;
 `;
 
