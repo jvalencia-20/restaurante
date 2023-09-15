@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Container, Titulo, ConTitulos, Titulos, Eliminar, Pedir, Conten } from "./styled";
-import { Link } from "react-router-dom";
+import { Link , useNavigate} from "react-router-dom";
+
 
 const CarritoFisica = () => {
     const [totalPrecio, setTotalPrecio] = useState(0);
     const [plato, setPlatos] = useState([]);
+    const navigate = useNavigate()
     useEffect(() => {
         const plato = JSON.parse(localStorage.getItem("platico"));
         const platoLocalStorage = JSON.parse(localStorage.getItem("platico"));
@@ -20,14 +22,19 @@ const CarritoFisica = () => {
         if (Array.isArray(platoLocalStorage) && index >= 0 && index < platoLocalStorage.length) {
             platoLocalStorage.splice(index, 1);
             localStorage.setItem("platico", JSON.stringify(platoLocalStorage));
+            const total = platoLocalStorage.reduce((acumulador, compra) => acumulador + compra.precio, 0);
+            setTotalPrecio(total);
             setPlatos(platoLocalStorage);
+            window.location.reload()
         }
     };
     const transferirDatos = () => {
         const datosAEnviar = plato;
         localStorage.setItem("datosAEnviar", JSON.stringify(datosAEnviar));
         // Cierra la ventana actual
-        window.close();
+        navigate("/private/todofisica/recibir-orden")
+        window.location.reload(); 
+        // window.close();   
     };
 
     return (
@@ -50,9 +57,7 @@ const CarritoFisica = () => {
                                 <Eliminar onClick={() => eliminar(index)}>X</Eliminar>
                             </ConTitulos>
                         ))
-                    ) : (
-                        <p>No hay datos disponibles</p>
-                    )}
+                    ) : ""}
                 </Conten>
                 <ConTitulos>
                     <Titulos>Total: ${totalPrecio}</Titulos>

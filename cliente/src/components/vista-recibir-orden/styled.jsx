@@ -7,6 +7,7 @@ export const Background = styled.div`
     align-items: center;
     justify-content: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    flex-direction: column;
 `;
 
 export const ContPrincipal = styled.div`
@@ -25,7 +26,6 @@ export const ContPrincipal = styled.div`
 export const ContFactura = styled.div`
     height: 22rem;
     margin-bottom: 20px;
-    padding-top: 20px;
     overflow-y: auto;
     border-bottom: dashed;
     table {

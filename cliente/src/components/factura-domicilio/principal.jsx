@@ -10,7 +10,6 @@ const FacturaDomicilio = () => {
     const [nombre, setNombre] = useState()
     const calculateTotal = (platos) => {
     const pedidosConProductos = platos.filter(item => item.nombre_plato && item.cantidad && item.precio);
-    console.warn(pedidosConProductos,'❤️❤️');
     setNombre(pedidosConProductos[0].nombre_cliente)
     const subtotalAmount = pedidosConProductos.reduce((accumulator, pedido) => {
         const pedidoTotal = parseFloat(pedido.precio) ;

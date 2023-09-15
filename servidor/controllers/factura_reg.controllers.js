@@ -32,19 +32,13 @@ export const getRegistro = async (req, res) => {
 export const createNew = async (req, res) => {
     try {
         const { id_mesa, productos, fecha_factura } = req.body;
-
         const insertIds = [];
-
         for (const productoData of productos) {
             const { producto, cantidad, precio } = productoData;
-            
             const fechaFactura = moment(fecha_factura, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD HH:mm:ss');
-            console.log("Fecha recibida en el backend:", fechaFactura);
-            
             const [rows] = await pool.query('INSERT INTO registros_fact (id_mesa, producto, cantidad, precio, fecha_factura) VALUES (?, ?, ?, ?, ?)', [id_mesa, producto, cantidad, precio, fechaFactura]);
             insertIds.push(rows.insertId);
         }
-
         res.send({
             insertIds,
             id_mesa,
@@ -128,8 +122,7 @@ export const getRegistrosPorMesa = async (req, res) => {
         if (isNaN(idMesa)) {
             return res.status(400).json({ error: "La mesa debe ser un número válido" });
         }
-        console.log("Mesa recibida:", idMesa);
-        const [rows] = await pool.query('SELECT * FROM registros_fact WHERE id_mesa = ?', [idMesa]);
+        const [rows] = await pool.query('SELECT * FROM registros_fact WHERE id_mesa = ? ORDER BY fecha_factura DESC', [idMesa]);
         res.json(rows);
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -141,7 +134,7 @@ export const getRegistrosPorFecha = async (req, res) => {
     try {
         const { fecha } = req.params;
         const formattedFecha = moment(fecha).format('YYYY-MM-DD');
-        const [rows] = await pool.query('SELECT * FROM registros_fact WHERE DATE(fecha_factura) = ?', [formattedFecha]);
+        const [rows] = await pool.query('SELECT * FROM registros_fact WHERE DATE(fecha_factura) = ? ORDER BY fecha_factura DESC', [formattedFecha]);
         res.json(rows);
     } catch (error) {
         res.status(500).json({ error: error.message });

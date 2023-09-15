@@ -26,6 +26,7 @@ const PedidosBe = () => {
   const agrega = () => { 
     const nuevoPlato = { nombre_plato: nombrePlato, cantidad: contar, precio: precios }; 
     setPlatos([...platos, nuevoPlato]);
+    window.location.reload()
   };
   
   const [platos, setPlatos] = useState(() => { 

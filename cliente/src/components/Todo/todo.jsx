@@ -17,14 +17,17 @@ const Todo = () => {
   const [notificacion, setNotificacion] = useState(0)
   const [platos, setPlatos] = useState([])
   const navigate = useNavigate()
-//   useEffect(() => {
-//   setNotificacion(platos.length)
-//   const platoLocalStorage = JSON.parse(localStorage.getItem("platico"));
-//   setPlatos(platoLocalStorage);
-// }, [platos])
 useEffect(()=>{
   navigate("/menu") 
 },[])
+
+useEffect(() => {
+  const plato = JSON.parse(localStorage.getItem("platico"));
+  if (Array.isArray(plato)) {
+    setPlatos(plato);
+    setNotificacion(plato.length)
+  }
+}, []);
 
 return (
   <Background style={{backgroundImage:`url(${fondo})`, backgroundSize:"cover"}}>

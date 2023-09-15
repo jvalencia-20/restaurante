@@ -37,6 +37,7 @@ const eliminar = (index) => {
     // Actualiza el estado local (si es necesario)
     setPlatos(platoLocalStorage);
     }
+    window.location.reload()
 }
 const noEnviar = () => {
     if( plato.length > 0){
@@ -52,6 +53,7 @@ const vaciar = () => {
     localStorage.clear("platico")
     setPlatos([])
     setTotalPrecio(0);
+    window.location.reload();
 }
 
 return (

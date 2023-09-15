@@ -173,11 +173,9 @@ export const getAllPlatos = async (req, res) => {
 }
 
 export const createBebida = async (nombre_bebida, descripcion, precio, imagePath, colores) => {
-    console.log(imagePath, "imagen aqui")
     try {
         const query = "INSERT INTO bebida (nombre_bebida, descripcion, precio, imagen,  colores) VALUES (?, ?, ?, ?, ?)";
         const values = [nombre_bebida, descripcion, precio, imagePath, colores];
-        console.log(values,"values aqui")
         const [rows] = await pool.query(query, values);
         return rows;
     } catch (error) {

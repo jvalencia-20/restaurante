@@ -96,7 +96,7 @@ export const Domicilio = () => {
                 </Container3>
                 <button onClick={()=>agregarPedido()} style={{width:"6rem",height:"2rem",marginTop:"70px",fontSize:"16px",backgroundColor:"transparent",color:"white"}}>Enviar</button>               
             </Conatiner2>
-            <Link to="/todo/informacion">
+            <Link to="/menu">
                 <Salir>
                     <BsBoxArrowLeft style={{fontSize:"29px"}}></BsBoxArrowLeft>
                 </Salir>

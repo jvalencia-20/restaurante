@@ -68,6 +68,8 @@ const RecibirOrden = () => {
         Axios.post("http://localhost:3002/api/crear-mesa", pedido)
             .then((response) => {
                 navigate("/private/todofisica/mesa");
+                localStorage.removeItem("platico")
+                window.location.reload()
             })
             .catch((error) => {
                 console.error("Error al enviar el pedido a la mesa:", error);
@@ -80,11 +82,7 @@ const RecibirOrden = () => {
 
     return (
         <Background>
-            <ContPrincipal>
-                <h1 style={{ textAlign: "center", color: "white" }}>Orden</h1>
-                <BotonImprimir style={{ display: "flex", justifyContent: "center", margin: "auto" }} onClick={() => navigate('/private/todofisica/fisica')}>Regresar</BotonImprimir>
-                <ContFactura>
-                    <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <div style={{ display: 'flex', justifyContent: 'center', marginBottom:"20px" }}>
                         <select onChange={handleMesaSeleccionada}>
                             <option value="">Seleccione una mesa</option>
                             {mesasDisponibles.map((numeroMesa, index) => (
@@ -94,24 +92,12 @@ const RecibirOrden = () => {
                             ))}
                         </select>
                     </div>
+            <ContPrincipal>
+                <h1 style={{ textAlign: "center", color: "white" }}>Orden</h1>
+                <BotonImprimir style={{ display: "flex", justifyContent: "center", margin: "auto" }} onClick={() => navigate('/private/todofisica/fisica')}>Regresar</BotonImprimir>
+                <ContFactura>
                     <table>
                         <tbody>
-                            <tr>
-                                <td style={{ width: "33%" }}>
-                                </td>
-                                <td style={{ width: "33%" }}>
-                                </td>
-                                <td style={{ width: "33%" }}>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style={{ width: "33%" }}>
-                                </td>
-                                <td style={{ width: "33%" }}>
-                                </td>
-                                <td style={{ width: "33%" }}>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                     <div style={{ display: "flex", justifyContent: "center" }}>

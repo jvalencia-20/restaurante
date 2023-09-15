@@ -75,7 +75,6 @@ export const traerProducto = async (req,res) => {
     try{
         const [rows] = await pool.query('SELECT * FROM inventario')
         res.send(rows)
-        // console.log(rows)
     } catch(error) {
         res.status(500).json({error:error.message})
     }
@@ -84,7 +83,6 @@ export const traerProducto = async (req,res) => {
 export const createProducto = async (req, res) => {
     try {
         const { nombre_producto, categoria, presentacion, unidad, precio } = req.body;
-        console.log(req.body,"aqui esta el body")
         if (!nombre_producto) {
             return res.status(409).send('nombre de producto requerido.');
         }

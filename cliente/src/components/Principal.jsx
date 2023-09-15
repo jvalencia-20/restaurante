@@ -46,7 +46,7 @@ export const Principal = () => {
                     <Routes>
                         <Route path={PUBLIC} element = {<PublicRoute />}>
                             <Route element = {<Todo/>}> 
-                            <Route index />
+                                <Route index />
                                 <Route path="/menu" element = {<PrincipalConnect/>}/>
                                 <Route path="/pedido/:id" element = {<Pedidos />}></Route> 
                                 <Route path="/pedidoBebida/:id" element = {<PedidosBe/>}></Route>
@@ -57,10 +57,10 @@ export const Principal = () => {
                                 <Route path="/reserva" element = {<Reserva/>}></Route>
                                 <Route path= "/mesa" element = {<VistaMesa/>}></Route>
                                 <Route path="/login" element = {<Logini/>}></Route>     
-                            </Route>
-                                <Route path={PRIVATE} element = {<PrivateRoute/>}>
-                                <Route element = {<PrincipalDashboard />}>
-                            <Route index /> 
+                        </Route>
+                        <Route path={PRIVATE} element = {<PrivateRoute/>}>
+                            <Route element = {<PrincipalDashboard />}>
+                                <Route index /> 
                                 <Route path="register" element = {<Crearcuenta />} />
                                 <Route path="dashboard" element = {<Dashboard />} />
                                 <Route path="crearProducto" element = {<CrearProducto />} />

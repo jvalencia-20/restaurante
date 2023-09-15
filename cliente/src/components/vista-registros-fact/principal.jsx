@@ -1,20 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import moment from "moment";
-import {
-    Background,
-    ContPrincipal,
-    InputContainer,
-    Boton,
-    Table,
-    Thead,
-    Tbody,
-    Tr1,
-    Tr2,
-    Th,
-    Td,
-    TdMesa
-} from "./styled";
+import { Background, ContPrincipal, InputContainer, Boton, Table, Thead, Tbody, Tr1, Tr2, Th, Td, TdMesa } from "./styled";
 import { Link } from "react-router-dom";
 
 const RegistroFactura = () => {
@@ -22,7 +9,6 @@ const RegistroFactura = () => {
     const [filtros, setFiltros] = useState({ mesa: null, fecha: null });
     const [totalPrecios, setTotalPrecios] = useState(0);
     const [error, setError] = useState("");
-
     useEffect(() => {
         const cargarRegistros = async () => {
             try {
@@ -50,7 +36,6 @@ const RegistroFactura = () => {
         };
         cargarRegistros();
     }, [filtros]);
-
     const borrarFiltros = () => {
         setFiltros((prevFiltros) => ({
             ...prevFiltros,
@@ -58,7 +43,6 @@ const RegistroFactura = () => {
             fecha: null,
         }));
     };
-    
     const handleFiltroChange = (e) => {
         const { name, value } = e.target;
         setFiltros((prevFiltros) => ({
@@ -67,7 +51,6 @@ const RegistroFactura = () => {
         }));
         setError(""); 
     };
-
     const handlePrintClick = () => {
         window.print();
     };

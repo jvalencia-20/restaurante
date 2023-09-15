@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-    Background,
-    ContPrincipal,
-    ContFactura,
-    ResPrecios,
-    ContBoton,
-    BotonImprimir,
-} from "./styled";
+import { Background, ContPrincipal, ContFactura, ResPrecios, ContBoton, BotonImprimir } from "./styled";
 import mesaFunctions from "../vista-mesa/mesa.services/mesa.services";
 import { useDataState } from "../vista-mesa/data.context/data.state.context";
 import axios from "axios";
@@ -38,16 +31,22 @@ const Factura = ({ mesa }) => {
             .catch(error => console.error('Error fetching data:', error));
     }, [mesa]);
     const calculateTotal = () => {
-        const pedidosConProductos = mesaData.filter(item => item.producto && item.cantidad && item.precio);
+        const pedidosConProductos = mesaData.filter(
+            (item) => item.producto && item.precio
+        );
         const totalAmount = pedidosConProductos.reduce((accumulator, pedido) => {
-            const pedidoTotal = parseFloat(pedido.precio) * pedido.cantidad;
-            return accumulator + pedidoTotal;
+            const precio = parseFloat(pedido.precio);
+            if (!isNaN(precio)) {
+                return accumulator + precio;
+            }
+            return accumulator;
         }, 0);
+        console.log(`Total: ${totalAmount}`);
         setTotal(totalAmount);
     };
     const handleIrRegistroFact = async () => {
         try {
-            const fecha_factura = moment().format('DD/MM/YYYY, HH:mm:ss a');
+            const fecha_factura = moment().format('YYYY/MM/DD, HH:mm:ss a');
             const productos = mesaData.map((pedido) => ({
                 producto: pedido.producto,
                 cantidad: pedido.cantidad,
@@ -85,7 +84,6 @@ const Factura = ({ mesa }) => {
                 });
         }
     }, [borrarFactura]);
-
     const handlePrintClick = () => {
         window.print();
     };
