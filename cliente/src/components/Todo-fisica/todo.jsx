@@ -1,6 +1,6 @@
 import React  from "react"
 import {Outlet, useNavigate} from "react-router-dom"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { HiOutlineShoppingCart, } from "react-icons/hi"
 import { Container, Minibox2, Button, Notificacion, Box1, Background } from "./styled";
 import { Link } from "react-router-dom";
@@ -11,14 +11,24 @@ const TodoFisica = () => {
     const [activo, setActivo] = useState(false)
     const [notificacion, setNotificacion] = useState(0)
     const [platos, setPlatos] = useState([])
+    const navigate = useNavigate()
 
-useEffect(() => {
+    useEffect(() => {
     const plato = JSON.parse(localStorage.getItem("platico"));
     if (Array.isArray(plato)) {
         setPlatos(plato);
         setNotificacion(plato.length)
     }
     }, []);
+
+  //para cerrar el carrito
+    const modalRef = useRef(null);
+    const handleOutsideClick = (event) => {
+    if (modalRef.current && !modalRef.current.contains(event.target)) {
+      // Si el clic fue fuera de la ventana modal, ciérrala
+        setActivo(!activo);
+    }
+    };
 
 return (
     <Background style={{backgroundImage:`url(${fondo})`, backgroundSize:"cover"}}>
@@ -29,7 +39,7 @@ return (
                     <HiOutlineShoppingCart style={{filter:"drop-shadow(-5px 1px 3px black)"}}></HiOutlineShoppingCart>
                     <Notificacion style={{fontSize:"22px", filter:"drop-shadow(-1px 10px 5px black)"}}>{notificacion}</Notificacion>
                 </Button>
-                {activo  && <CarritoFisica/> }
+                {activo  && <div ref={modalRef}><CarritoFisica /></div> }
                 <Link to="/private/todofisica/selectfactura" style={{textDecoration:"none"}}>
                     <Button><h1 style={{cursor:"pointer"}}>Domicilio</h1></Button> 
                 </Link>

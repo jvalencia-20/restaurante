@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Axios from "axios"
 import { Background, ConInfor, ConTitulo, Entrar, Infor, Login, Name, ReContraseña, Titulo } from "./Styled";
-import {Link, useNavigate} from  "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useAuthContext } from "../context/AuthContext";
 
 const Crearcuenta = () => {
@@ -17,41 +17,41 @@ const Crearcuenta = () => {
       nombre: usuario,
       correo: correo,
       password: contraseña,
-      confirmar_password:confirmarContraseña
-  },{
-    headers: {
-      Authorization: token
-  }  
-  })
-  .then(({data})=>{
-      alert("usuario registrado")
-      redireccionarALogin()
+      confirmar_password: confirmarContraseña
+    }, {
+      headers: {
+        Authorization: token
+      }
     })
-    .catch(error => {
-      if (error.response) {
-        if (error.response.status === 409) {
-          const errorMessage = error.response.data;
-          switch (errorMessage) {
-            case 'contraseña requerida.':
-              break;
-            case 'Nombre de usuario requerido.':
-              break;
-            case 'Correo requerido.':
-              break;
-            case 'Nombre de usuario o correo ya existente.':
-              break;
+      .then(({ data }) => {
+        alert("usuario registrado")
+        redireccionarALogin()
+      })
+      .catch(error => {
+        if (error.response) {
+          if (error.response.status === 409) {
+            const errorMessage = error.response.data;
+            switch (errorMessage) {
+              case 'contraseña requerida.':
+                break;
+              case 'Nombre de usuario requerido.':
+                break;
+              case 'Correo requerido.':
+                break;
+              case 'Nombre de usuario o correo ya existente.':
+                break;
               case 'Las contraseñas deben coincidir.':
                 break;
-            default:
-              break;
-          }
-        } else {
-          alert("Ocurrió un error en el registro.");
-        }
-      } else {
-        alert("Ocurrió un error en la solicitud.");
-      }
-    });
+              default:
+                break;
+              }
+              } else {
+            alert("Ocurrió un error en el registro.");
+              }
+              } else {
+              alert("Ocurrió un error en la solicitud.");
+              }
+            });
   }
   const redireccionarALogin = () => {
     navigate("/login");

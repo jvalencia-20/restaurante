@@ -17,11 +17,11 @@ export const Receta = styled.div`
     height: 100%;
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 8px;
 `;
-
 
 export const ContentImg = styled.div`
     height: 230px;
@@ -58,7 +58,7 @@ export const DivPrincipal = styled.div`
     overflow-y: auto;
     ::-webkit-scrollbar {
     display: none;
-    }
+}
     @media  screen and (max-width: 670px ) {
     }
     @media  screen and (min-width: 1020px ) {

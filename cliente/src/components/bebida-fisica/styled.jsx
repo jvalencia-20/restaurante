@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import FondoComida from "../Img/fondoComida.jpg"
 
-
 export const Background = styled.div`
     height: 50rem;
     display: flex;

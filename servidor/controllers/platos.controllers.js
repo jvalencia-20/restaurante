@@ -40,6 +40,7 @@ export const obtenerPlato = async (req, res) => {
     }
 };
 
+
 export const obtenerBebida = async (req, res) => {
     try {
         const { id } = req.params;
@@ -85,6 +86,22 @@ export const PlatosCorriente = async (req, res) => {
 }
 
 export const createPlato = async (nombre_plato, descripcion, precio, imagePath, tipo_plato) => {
+    if (!nombre_plato) {
+        return res.status(409).send('Nombre del Plato requerido.');
+    }
+    if (!descripcion) {
+        return res.status(409).send('descripcion requerida.');
+    }
+    if (!precio) {
+        return res.status(409).send('Precio Requerido.');
+    }
+    if (!imagePath) {
+        return res.status(409).send('Imagen Requerida');
+    }
+    if (!tipo_plato) {
+        return res.status(409).send('Tipo de plato  requerido.');
+    }
+
     try {
         const query = "INSERT INTO plato (nombre_plato, descripcion, precio, imagen, tipo_plato) VALUES (?, ?, ?, ?, ?)";
         const values = [nombre_plato, descripcion, precio, imagePath, tipo_plato];
@@ -114,6 +131,16 @@ export const deletePlato = async(req,res) => {
     }
 }
 
+export const traerPlatos = async (req, res) => {
+    try {
+        const [rows] = await pool.query('SELECT * FROM plato')
+        res.send(rows)
+    } catch (error) {
+        res.status(500).json({error: error.message})
+    }
+}
+
+
 export const deleteBebida = async(req,res) => {
     try {
         const [result] = await pool.query('DELETE FROM bebida WHERE id_bebida = ?' ,[req.params.id]);
@@ -137,9 +164,9 @@ export const deleteBebida = async(req,res) => {
 export const updatePlato = async(req,res) => {
     try {
         const {id} = req.params;
-        const {nombre_plato, descripcion, precio, imagen} = req.body;
-        const query = "UPDATE plato SET nombre_plato = ? , descripcion = ? , precio = ? , imagen = ? WHERE id_plato = ?";
-        const values = [nombre_plato, descripcion, precio, imagen, id];
+        const {nombre_plato, descripcion, precio, tipo_plato} = req.body;
+        const query = "UPDATE plato SET nombre_plato = IFNULL( ?, nombre_plato), descripcion = IFNULL( ?, descripcion), precio = IFNULL( ?, precio), tipo_plato = IFNULL(?, tipo_plato)  WHERE id_plato = ?";
+        const values = [nombre_plato, descripcion, precio, tipo_plato, id];
         const [result] = await pool.query(query,values);
         if (result.affectedRows === 0) {
             return res.status(404).json({
@@ -149,8 +176,51 @@ export const updatePlato = async(req,res) => {
         const [rows] = await pool.query('SELECT * FROM plato WHERE id_plato = ?', [id])
         res.json(rows[0])
     } catch (error) {
+        console.error("Ups error al actualizar:", error);
         res.status(500).json({ message: "Error en el servidor" });
         
+    }
+}
+
+export const updateBebida = async(req,res) => {
+    try {
+        const {id} = req.params;
+        const {nombre_bebida, descripcion, precio, color} = req.body;
+        const query = "UPDATE plato SET nombre_bebida = IFNULL( ?, nombre_bebida), descripcion = IFNULL( ?, descripcion), precio = IFNULL( ?, precio), colores = IFNULL(?, colores)  WHERE id_bebida = ?";
+        const values = [nombre_bebida, descripcion, precio, color, id];
+        const [result] = await pool.query(query,values);
+        if (result.affectedRows === 0) {
+            return res.status(404).json({
+            message: 'plato no encontrado'
+            });
+        }
+        const [rows] = await pool.query('SELECT * FROM bebida WHERE id_bebida = ?', [id])
+        res.json(rows[0])
+    } catch (error) {
+        console.error("Ups error al actualizar:", error);
+        res.status(500).json({ message: "Error en el servidor" });
+        
+    }
+}
+
+export const updateImagePlato = async (imagen, id) => {
+    try {
+        const query = "UPDATE plato SET  imagen = ?  WHERE id_plato = ?";
+        const values = [ imagen, id];
+        const [result] = await pool.query(query,values);
+        
+    } catch (error) {
+        throw error;
+    }
+}
+
+export const updateImagebebida = async (imagen, id) => {
+    try {
+        const query = "UPDATE bebida SET  imagen = ?  WHERE id_bebida = ?";
+        const values = [ imagen, id];
+        const [result] = await pool.query(query,values);
+    } catch (error) {
+        throw error;
     }
 }
 

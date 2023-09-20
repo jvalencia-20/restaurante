@@ -1,12 +1,10 @@
 import {pool} from "../db.js"
 
-//logica para traer todas las reservas 
 export const getReservas = async(req, res) => {
     const [rows] = await pool.query("SELECT * FROM reserva")
     res.json(rows)
 }
 
-//logica para obtener las reservas por id
 export const getReserva = async(req,res)=> {
     try {
         const [rows] = await pool.query('SELECT * FROM reserva WHERE id_reserva = ?' , [req.params.id]);

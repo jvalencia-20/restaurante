@@ -37,19 +37,20 @@ export const createNew = async (req, res) => {
             const { producto, cantidad, precio } = productoData;
             const fechaFactura = moment(fecha_factura, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD HH:mm:ss');
             const [rows] = await pool.query('INSERT INTO registros_fact (id_mesa, producto, cantidad, precio, fecha_factura) VALUES (?, ?, ?, ?, ?)', [id_mesa, producto, cantidad, precio, fechaFactura]);
+            const lastInsertedId = rows.insertId;
             insertIds.push(rows.insertId);
         }
         res.send({
-            insertIds,
-            id_mesa,
-            productos,
-            fecha_factura,
+            insertIds: insertIds,
+            id_mesa: id_mesa,
+            productos: productos,
+            fecha_factura: fecha_factura,
+            lastInsertedId: lastInsertedId
         });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 }
-
 
 //Se actualiza registro
 export const updateRegistro = async (req, res) => {
@@ -136,6 +137,16 @@ export const getRegistrosPorFecha = async (req, res) => {
         const formattedFecha = moment(fecha).format('YYYY-MM-DD');
         const [rows] = await pool.query('SELECT * FROM registros_fact WHERE DATE(fecha_factura) = ? ORDER BY fecha_factura DESC', [formattedFecha]);
         res.json(rows);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+export const obtenerUltimoId = async (req, res) => {
+    try {
+        const [rows] = await pool.query('SELECT MAX(id_num_orden) AS ultimoId FROM registros_fact');
+        const ultimoId = rows[0].ultimoId;
+        res.json(ultimoId);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }

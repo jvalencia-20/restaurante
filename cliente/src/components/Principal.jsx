@@ -6,7 +6,6 @@ import { PrincipalConnect } from "./vista-principal-domicilio/principal";
 import Crearcuenta from "../components/Crear-cuenta/Principal"
 import Logini from "../components/login/Principal"
 import { Domicilio } from "./vista-domicilio/principal";
-import { Reserva } from "./vista reserva/principal";
 import Pedidos from "./pedidos/principal";
 import PedidosBe from "./PedidoBebida/pedido1"
 import Carrito from "./orden/principal";
@@ -26,7 +25,6 @@ import PedidoFisica from "./pedido-fisico/principal";
 import BebidaFisica from "./bebida-fisica/principal";
 import TodoFisica from "./Todo-fisica/todo";
 import CarritoFisica from "./orden-fisica/principal";
-import { Imprimir } from "./imprimir-pedido/principal";
 import SelectFactura from "./select-factura/factura";
 import RecibirOrden from "./vista-recibir-orden/principal";
 import RegistroFactura from "./vista-registros-fact/principal";
@@ -35,10 +33,18 @@ import { ListarClientes } from "./traer.cliente/traerCliente";
 import { TraerPlatos } from "./traerPlatos/traer.platos";
 import { TraerBebidas } from "./traer.Bebidas/traerBebida";
 import FacturaDomicilio from "./factura-domicilio/principal";
+import Imprimir from "./imprimir-pedido/principal";
+import ImprimirDomicilio from "./imprimir-pedido-domicilio/principal";
+import ActualizarUser from "./actualizarCliente/actualizar.cliente";
+import ActualizarContraseña from "./VentanasModal/ActualizarContraseña";
+import { ActualizarPlato } from "./actualizarPlato/actualizar.plato";
+import { ActualizarBebida } from "./actualizar-bebida/actualizar.bebida";
+import ActualizarImg from "./imgActualizar/img.actualizar";
+import ActualizarImgBebida from "./img-actualizar-bebida/img.actualizar.bebida";
 import Todo from "./Todo/todo";
 
 export const Principal = () => {
-    return(
+return(
     <>  
         <AuthContextProvider>
             <DataProvider>
@@ -52,9 +58,8 @@ export const Principal = () => {
                                 <Route path="/pedidoBebida/:id" element = {<PedidosBe/>}></Route>
                                 <Route path="/informacion" element = {<Informacion/>}></Route>
                             </Route>
-                                <Route path="/ordenes" element = {<Carrito />}></Route>
+                                <Route path="/ordenes" element = {<Carrito />}></Route> 
                                 <Route path="/domicilio" element = {<Domicilio/>}></Route>
-                                <Route path="/reserva" element = {<Reserva/>}></Route>
                                 <Route path= "/mesa" element = {<VistaMesa/>}></Route>
                                 <Route path="/login" element = {<Logini/>}></Route>     
                         </Route>
@@ -69,6 +74,12 @@ export const Principal = () => {
                                 <Route path="traerCliente" element= {<ListarClientes />}></Route>
                                 <Route path="traerBebida" element= {<TraerBebidas />}></Route>
                                 <Route path="traerPlato" element = {<TraerPlatos/>}></Route>
+                                <Route path="actualizarCliente/:id" element={<ActualizarUser />}></Route>
+                                <Route path="actualizarContraseña/:id" element={<ActualizarContraseña />}></Route>
+                                <Route path="actualizarPlato/:id" element={<ActualizarPlato />}></Route>
+                                <Route path="actualizarbebida/:id" element = {<ActualizarBebida/>}></Route>
+                                <Route path="actualizarImgPlato/:id" element={<ActualizarImg />}></Route>
+                                <Route path="actualizarImgbebida/:id" element = {<ActualizarImgBebida/>}></Route>
                             </Route>
                             <Route path={LOGOUT} element = {<Logout/>}/>
                             <Route path="todofisica" element = {<TodoFisica/>}>
@@ -78,6 +89,8 @@ export const Principal = () => {
                                 <Route path="carritofisica" element = {<CarritoFisica/>} />
                                 <Route path= "mesa" element = {<VistaMesa/>}></Route>
                                 <Route path="factura/:di" element = {<Factura />}/>
+                                <Route path="imprimir" element = {<Imprimir/>}></Route>
+                                <Route path="imprimirdomicilio/:di" element = {<ImprimirDomicilio/>}></Route>
                                 <Route path="facturadomicilio/:di" element = {<FacturaDomicilio />} />
                                 <Route path="recibir-orden" element = {<RecibirOrden />}></Route>
                                 <Route path="registro-fact" element = {<RegistroFactura/>}></Route>

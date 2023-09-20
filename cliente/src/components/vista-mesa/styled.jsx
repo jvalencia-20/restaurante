@@ -67,7 +67,7 @@ export const ButtonContainer = styled.div`
     display: flex;
     justify-content: center;
     margin-top: -50px;
-@media (max-width: 768px) {
+    @media (max-width: 768px) {
     margin-top: -30px; 
 }
 `;
@@ -81,7 +81,7 @@ export const Button = styled.button`
     cursor: pointer;
     border: none;
     transition: background-color 0.3s, border-color 0.5s, transform 0.3s;
-
+    font-style: italic;
 &:hover {
     background-color: #00d;
 }

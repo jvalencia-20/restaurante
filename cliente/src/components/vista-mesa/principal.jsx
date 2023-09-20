@@ -23,14 +23,12 @@ const VistaMesa = () => {
   const [showFactura, setShowFactura] = useState(false);
   const [reservas, setReservas] = useState(Array(Mesa.length).fill({ Producto: "", Cantidad: "", Total: 0 }));
   const [mesaOcupada, setMesaOcupada] = useState(Array(Mesa.length).fill(false));
-
   const handleTableClick = (mesaNumber) => {
     if (!mesaOcupada[mesaNumber - 1]) {
       setSelectedTableIndex(mesaNumber - 1);
       sendReservationData(mesaNumber, reservas);
     }
   };
-
   const sendReservationData = async (mesaNumber, reservas) => {
     try {
       const mesaDataResponse = await mesaFunctions.getMesa(mesaNumber);
@@ -40,7 +38,6 @@ const VistaMesa = () => {
       console.error("Error sending reservation data:", error);
     }
   };
-
   const handleBackToOrdenClick = () => {
     navigate("/private/todofisica/fisica");
   };
@@ -53,12 +50,12 @@ const VistaMesa = () => {
             <Box
               style={{
                 backgroundImage: `url(${p.imagen})`,
-                backgroundSize: "cover",
-                position: "relative",
+                backgroundSize: "contain",
+                backgroundRepeat:"no-repeat",
+                backgroundPosition:"center",
                 cursor: "pointer",
               }}
-              onClick={() => handleTableClick(index + 1)}
-            >
+              onClick={() => handleTableClick(index + 1)}>
               <span style={{ position: "absolute", top: "10px", left: "10px", color: "white" }}>
                 Mesa {index + 1}
               </span>
@@ -68,12 +65,12 @@ const VistaMesa = () => {
         <Box
           style={{
             backgroundImage: `url(${Mesa[7].imagen})`,
-            backgroundSize: "cover",
-            position: "relative",
+            backgroundSize: "contain",
+            backgroundRepeat:"no-repeat",
+            backgroundPosition:"center",
             cursor: "pointer",
           }}
-          onClick={() => handleTableClick(8)}
-        >
+          onClick={() => handleTableClick(8)}>
           <span style={{ position: "absolute", top: "10px", left: "10px", color: "white" }}>
             Mesa 8
           </span>

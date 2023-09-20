@@ -1,6 +1,5 @@
 import styled from "styled-components"
 
-
 export const Background = styled.div`
   background-size: cover;
   height: 100%;
@@ -26,8 +25,6 @@ export const Login = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
-
 `;
 
 export const ConTitulo = styled.div`
@@ -44,7 +41,6 @@ export const Titulo = styled.h1`
   padding: 2px;
   margin-bottom: 10rem;
   font-weight: bold;
-
 `;
 
 export const Logotipo = styled.img`

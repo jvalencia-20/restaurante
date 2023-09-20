@@ -67,7 +67,7 @@ export const updateEmpleado = async(req,res) => {
             });
         }
         const [rows] = await pool.query('SELECT * FROM empleado WHERE id_empleado = ?', [id]);
-        res.json(rows[0])
+        res.json(rows[0]);
     } catch (error) {
         res.status(500).json({message: 'Error en el servidor'});
     }

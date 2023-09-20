@@ -19,9 +19,14 @@ export const Platos = styled.div`
   flex-direction: column;
   backdrop-filter: blur(2px); 
   background-color: #878787ae;
-  @media screen and (max-width: 768px) {
-    height: auto;
-    width: 90%;
+  @media screen and (max-width: 900px) {
+    width: 40em;
+  }
+  @media screen and (max-width: 660px) {
+      width: 30em;
+  }    
+  @media screen and (max-width: 500px) {
+      width: 22em;
   }
 `;
 
@@ -30,9 +35,15 @@ export const Titulo = styled.div`
   height: 4em;
   display: flex;
   justify-content: center;
-  @media screen and (max-width: 768px) {
-    height: auto;
-    width: 90%;
+  @media screen and (max-width: 900px) {
+        width: 40em;
+  }
+  @media screen and (max-width: 660px) {
+      width: 30em;
+  }
+  @media screen and (max-width: 500px) {
+      width: 20em;
+      margin-left: 1em;
   }
 `;
 
@@ -40,9 +51,14 @@ export const Container = styled.div`
   display: flex;
   height: 50em;
   width: 70em;
-  @media screen and (max-width: 98vh){
-    height: 50em;
-    width: 40em;
+  @media screen and (max-width: 900px) {
+        width: 40em;
+  }
+  @media screen and (max-width: 660px) {
+      width: 30em;
+  }
+  @media screen and (max-width: 500px) {
+      width: 22em;
   }
 `;
 
@@ -63,9 +79,14 @@ export const ConImg = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  @media screen and (max-width: 768px) {
-    width: 90%;
-    margin-top: 2em;
+  @media screen and (max-width: 900px) {
+        width: 25em;
+  }
+  @media screen and (max-width: 660px) {
+      width: 15em;
+  }
+  @media screen and (max-width: 500px) {
+      width: 10em;
   }
 `;
 
@@ -78,9 +99,16 @@ export const CajaImg = styled.div`
   margin-top: 2em;
   height: 20em;
   width: 25em;
-  @media screen and (max-width: 768px) {
-    width: 95%;
-    height: auto;
+  @media screen and (max-width: 900px) {
+        width: 20em;
+  }
+  @media screen and (max-width: 660px) {
+      width: 15em;
+      height: 15em;
+  }
+  @media screen and (max-width: 500px) {
+      width: 10em;
+      height: 10em;
   }
 `;
 
@@ -88,9 +116,16 @@ export const ImgPlato = styled.img`
   border-radius: 15px;
   height: 20em;
   width: 25em;
-  @media screen and (max-width: 768px) {
-    width: 95%;
-    height: auto;
+  @media screen and (max-width: 900px) {
+        width: 20em;
+  }
+  @media screen and (max-width: 660px) {
+      width: 15em;
+      height: 15em;
+  }
+  @media screen and (max-width: 500px) {
+      width: 10em;
+      height: 10em;
   }
 `;
 
@@ -100,8 +135,9 @@ export const Aumentar = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  @media screen and (max-width: 768px) {
-    width: 90%;
+  @media screen and (max-width: 900px) {
+      flex-direction: column;
+      width: 15em;
   }
 `;
 
@@ -113,6 +149,12 @@ export const Botones = styled.button`
   background-color: transparent;
   border: 2px solid #000;
   border-radius: 0.5em;
+  &:hover {
+      border: 2px solid #fff;
+      color: #fff;
+      background-color: #000;
+      box-shadow: 1px 0px 20px #000;
+  }
 `;
 
 export const Agregar = styled.button`
@@ -123,6 +165,15 @@ export const Agregar = styled.button`
   margin-right: 15px;
   border: 2px solid #000;
   border-radius: 0.5em;
+  &:hover {
+      border: 2px solid #fff;
+      color: #fff;
+      background-color: #000;
+      box-shadow: 1px 0px 20px #000;
+  }
+  @media screen and (max-width: 900px) {
+      margin-top: 1em;
+  }
 `;
 
 export const Plato = styled.div`
@@ -131,33 +182,8 @@ export const Plato = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly
-`;
-
-export const Adicional = styled.div`
-  width: 20em;
-  display: flex;
-  justify-content: center;
-  @media screen and (max-width: 768px) {
-    width: 100%;
+  justify-content: space-evenly;
+  @media screen and (max-width: 500px) {
+      width: 12em;
   }
-`;
-
-export const Infor = styled.input`
-  width: 10em;
-  height: 2em;
-  border: 2px solid #000;
-  margin-left: 1em;
-  background-color: transparent;
-  border-radius: 5px;
-  @media screen and ( max-width: 90vh){   
-  height: 2em;
-  width: 20em; 
-  }
-`;
-
-export const Ingredientes = styled.input`
-  margin-top: 23px;
-  height: 17px;
-  width: 17px;
 `;

@@ -11,6 +11,7 @@ import {FaInstagramSquare} from "react-icons/fa"
 import { Loader, Placeholder } from 'rsuite';
 import logo1 from "../Img/LOgo3.png"
 import fondo from "../Img/FondoInfor.jpg"
+import { useRef } from "react";
 
 const Todo = () => {
   const [activo, setActivo] = useState(false)
@@ -29,7 +30,17 @@ useEffect(() => {
   }
 }, []);
 
+  //para cerrar el carrito
+  const modalRef = useRef(null);
+  const handleOutsideClick = (event) => {
+  if (modalRef.current && !modalRef.current.contains(event.target)) {
+    // Si el clic fue fuera de la ventana modal, ciérrala
+      setActivo(!activo);
+  }
+  };
+
 return (
+
   <Background style={{backgroundImage:`url(${fondo})`, backgroundSize:"cover"}}>
     <Container3>
       <Box1><h1 style={{color:"#ffffff93", margin:"0", filter:"drop-shadow(-5px 10px 6px black)"}}>Platos</h1></Box1>
@@ -44,7 +55,7 @@ return (
         <Link to="/menu" style={{textDecoration:"none"}}>
           <Button><h1 style={{cursor:"pointer"}}>Menu</h1></Button> 
         </Link>
-        {activo  && <Carrito/> }
+        {activo  &&  <div ref={modalRef}><Carrito/></div> }
       </Minibox2>
     </Container3>
     <div >

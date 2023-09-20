@@ -16,7 +16,6 @@ const RecibirOrden = () => {
     const [productosSeleccionados, setProductosSeleccionados] = useState([]);
     const [subtotal, setSubtotal] = useState(0);
     const [mesaSeleccionada, setMesaSeleccionada] = useState(null);
-
     useEffect(() => {
         Axios.get("http://localhost:3002/api/allPlatos")
             .then((response) => {

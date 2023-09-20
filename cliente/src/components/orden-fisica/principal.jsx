@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Container, Titulo, ConTitulos, Titulos, Eliminar, Pedir, Conten } from "./styled";
-import { Link , useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const CarritoFisica = () => {
+    const navegate = useNavigate()
     const [totalPrecio, setTotalPrecio] = useState(0);
     const [plato, setPlatos] = useState([]);
     const navigate = useNavigate()
@@ -29,16 +30,33 @@ const CarritoFisica = () => {
         }
     };
     const transferirDatos = () => {
+        if( plato.length > 0){
         const datosAEnviar = plato;
         localStorage.setItem("datosAEnviar", JSON.stringify(datosAEnviar));
         // Cierra la ventana actual
-        navigate("/private/todofisica/recibir-orden")
+        navegate("/private/todofisica/recibir-orden")
         window.location.reload(); 
-        // window.close();   
+        // window.close();
+        }   
     };
 
+    const modalRef = useRef(null);
+    const [modalAbierta, setModalAbierta] = useState(true); 
+    useEffect(() => {
+        const handleOutsideClick = (event) => {
+        if (modalRef.current && !modalRef.current.contains(event.target)) {
+            setModalAbierta(!modalAbierta); 
+        }
+        };
+        document.addEventListener("mousedown", handleOutsideClick);
+        return () => {
+        document.removeEventListener("mousedown", handleOutsideClick);
+        };
+    }, []);
+
     return (
-        <>
+        <div ref={modalRef}>
+            {modalAbierta && ( 
             <Container>
                 <Titulo>Orden</Titulo>
                 <ConTitulos>
@@ -61,12 +79,11 @@ const CarritoFisica = () => {
                 </Conten>
                 <ConTitulos>
                     <Titulos>Total: ${totalPrecio}</Titulos>
-                    <Link to="/private/todofisica/recibir-orden">
                         <Pedir onClick={transferirDatos}>Enviar Orden</Pedir>
-                    </Link>
                 </ConTitulos>
             </Container>
-        </>
+            )}
+            </div>
     );
 };
 

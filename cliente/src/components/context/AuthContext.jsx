@@ -8,10 +8,10 @@ export const AuthContext = createContext();
 
 export default function AuthContextProvider({ children }) {
   const [token, setToken] = useState( window.localStorage.getItem("token") || null);
+  const x = "clave"
   const login = useCallback(function (newToken) {
     if (newToken) {
       window.localStorage.setItem("token", newToken);
-      // window.sessionStorage.setItem(MY_AUTH_TOKEN, newToken);
       setToken(newToken);
     }
   }, []);
@@ -23,8 +23,9 @@ export default function AuthContextProvider({ children }) {
       login,
       logout,
       token,
+      x,
     }),
-    [token, login, logout]
+    [ x ,token, login, logout]
     
   );
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

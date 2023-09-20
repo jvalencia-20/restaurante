@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios"
-import { useNavigate } from "react-router-dom";
-import { Domicilio, Fondo, Pedido, Pendiente, Select, Titulo } from "./styled";
+import { useNavigate,Link } from "react-router-dom";
+import { Domicilio, Fondo, Pedido, Pendiente, Select, Titulo, Regresar } from "./styled";
 
 const SelectFactura = () => {
     const navigate = useNavigate()
@@ -28,6 +28,9 @@ return (
         <Select>
             <Titulo>
                 <Domicilio>Domicilios Pendientes</Domicilio>
+                <Link to="/private/todofisica/fisica">
+                    <Regresar>regresar al menu</Regresar>
+                </Link>
             </Titulo>
             <Pedido>
                 {factura.map((domi, index) => {

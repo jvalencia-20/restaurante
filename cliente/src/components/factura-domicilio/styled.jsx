@@ -64,7 +64,6 @@ export const ResPrecios = styled.div`
         max-height: initial;
         font-size: 20px;
     }
-    
 `;
 
 export const ContBoton = styled.div`

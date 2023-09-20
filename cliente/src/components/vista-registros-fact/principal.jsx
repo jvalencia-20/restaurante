@@ -1,7 +1,20 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import moment from "moment";
-import { Background, ContPrincipal, InputContainer, Boton, Table, Thead, Tbody, Tr1, Tr2, Th, Td, TdMesa } from "./styled";
+import {
+    Background,
+    ContPrincipal,
+    InputContainer,
+    Boton,
+    Table,
+    Thead,
+    Tbody,
+    Tr1,
+    Tr2,
+    Th,
+    Td,
+    TdMesa
+} from "./styled";
 import { Link } from "react-router-dom";
 
 const RegistroFactura = () => {
@@ -9,21 +22,18 @@ const RegistroFactura = () => {
     const [filtros, setFiltros] = useState({ mesa: null, fecha: null });
     const [totalPrecios, setTotalPrecios] = useState(0);
     const [error, setError] = useState("");
+
     useEffect(() => {
         const cargarRegistros = async () => {
             try {
                 let url = "http://localhost:3002/api/registro";
                 if (filtros.mesa && filtros.fecha) {
-                    console.log("Filtrando por mesa y fecha:", filtros.mesa, filtros.fecha);
                     url = `http://localhost:3002/api/registro/por-mesa-y-fecha/${encodeURIComponent(filtros.mesa)}/${moment(filtros.fecha).format('YYYY-MM-DD')}`;
                 } else if (filtros.mesa) {
-                    console.log("Filtrando por mesa:", filtros.mesa);
                     url = `http://localhost:3002/api/registro/por-mesa/${encodeURIComponent(filtros.mesa)}`;
                 } else if (filtros.fecha) {
-                    console.log("Filtrando por fecha:", filtros.fecha);
                     url = `http://localhost:3002/api/registro/por-fecha/${moment(filtros.fecha).format('YYYY-MM-DD')}`;
                 }
-                console.log("URL de la solicitud:", url);
                 const response = await axios.get(url);
                 const total = response.data.reduce((accumulator, factura) => {
                     return accumulator + parseFloat(factura.precio);
@@ -36,6 +46,7 @@ const RegistroFactura = () => {
         };
         cargarRegistros();
     }, [filtros]);
+
     const borrarFiltros = () => {
         setFiltros((prevFiltros) => ({
             ...prevFiltros,
@@ -43,8 +54,9 @@ const RegistroFactura = () => {
             fecha: null,
         }));
     };
+    
     const handleFiltroChange = (e) => {
-        const { name, value } = e.target;
+        const { name, value } = e.target; 
         setFiltros((prevFiltros) => ({
             ...prevFiltros,
             [name]: value.trim()

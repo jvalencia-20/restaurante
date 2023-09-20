@@ -7,27 +7,26 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Enviar = () => {
   const navigate = useNavigate()
-
   setTimeout(() => {
     navigate("/menu")
   }, 1000);
   return (
     <div>
-    <Fondo>
-      <Container>
-        <Salir>
-          <Link to="/menu">
-            <Salida></Salida>
-          </Link>
-        </Salir>
-        <Mensaje>
-          <h1 style={{margin:"0"}}>
-            Su Pedido fue enviado
-          </h1>
-        </Mensaje>
-        <Exito></Exito>
-      </Container>
-    </Fondo>      
+      <Fondo>
+        <Container>
+          <Salir>
+            <Link to="/menu">
+              <Salida></Salida>
+            </Link>
+          </Salir>
+          <Mensaje>
+            <h1 style={{margin:"0"}}>
+              Su Pedido fue enviado
+            </h1>
+          </Mensaje>
+          <Exito></Exito>
+        </Container>
+      </Fondo>      
     </div>
 
   )

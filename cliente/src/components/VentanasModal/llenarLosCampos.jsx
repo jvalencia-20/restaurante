@@ -6,18 +6,18 @@ import Finalizar from "../Img/cross-logo.gif"
 const Llena = () => {
   return (
     <div>
-    <Fondo>
-      <Container>
-        <Salir>
-        </Salir>
-        <Mensaje>
-          <h1 style={{margin:"0"}}>
-            Ingrese todos los datos
-          </h1>
-        </Mensaje>
-        <Exito></Exito>
-      </Container>
-    </Fondo>      
+      <Fondo>
+        <Container>
+          <Salir>
+          </Salir>
+          <Mensaje>
+            <h1 style={{margin:"0"}}>
+              Ingrese todos los datos
+            </h1>
+          </Mensaje>
+          <Exito></Exito>
+        </Container>
+      </Fondo>      
     </div>
   )
 }

@@ -64,15 +64,15 @@ const Salir = styled.div`
 `;
 
 const Salida = styled.button`
-    background-image: url(${Finalizar});
-    background-size: cover;
-    background-position: center;
-    margin-bottom: 50em;
-    border-radius: 2em;
-    border: 3px solid black;
-    height: 4em;
-    width: 4em;
-    margin: 1em;
+  background-image: url(${Finalizar});
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 50em;
+  border-radius: 2em;
+  border: 3px solid black;
+  height: 4em;
+  width: 4em;
+  margin: 1em;
 `;
 
 const Mensaje = styled.div`

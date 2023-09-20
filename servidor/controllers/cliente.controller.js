@@ -1,13 +1,15 @@
 import {pool} from "../db.js"
 import bcrypt from "bcrypt"
 import jwt from 'jsonwebtoken'
+import CryptoJS from 'crypto-js'
 
 const SECRET = "secreto"
+const x = "clave"
 
 //Se seleccionan todos los registros
 export const getCliente = async (req, res) => {
     try {
-        const [rows] = await pool.query('SELECT nombre, correo  FROM admin')
+        const [rows] = await pool.query('SELECT id_admin, nombre, correo  FROM admin')
         res.json(rows)
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -61,7 +63,7 @@ export const createCliente = async (req, res) => {
         const insertQuery = 'INSERT INTO admin (nombre, correo, password) VALUES (?, ?, ?)';
         const insertValues = [nombre, correo, hashedPassword];
         const [result] = await pool.query(insertQuery, insertValues);
-    res.status(201).json({
+            res.status(201).json({
             id_admin: result.insertId,
             nombre,
             correo
@@ -98,7 +100,6 @@ export const createProducto = async (req, res) => {
         if (!precio){
             return res.status(409).send('precio requerido.');
         }
-
         // Insertar el nuevo cliente en la base de datos
         const insertQuery = 'INSERT INTO inventario (nombre_producto, categoria, presentacion, unidad, precio) VALUES (?, ?, ?, ?, ?)';
         const insertValues = [nombre_producto, categoria, presentacion, unidad, precio];
@@ -115,11 +116,18 @@ export const createProducto = async (req, res) => {
 export const confirmar = async (req, res) => {
     try {
     const { usuario, password } = req.body;
+    if (!usuario) {
+        return res.status(409).send('Usuario requerido.');
+    }
+    if (!password) {
+        return res.status(409).send('contraseña requerida.');
+    }
+    const password2 = CryptoJS.AES.decrypt(password, x).toString(CryptoJS.enc.Utf8)
     const [rows] = await pool.query(
         'SELECT * FROM admin WHERE nombre = ? ', [usuario]
     );
         if (rows.length > 0) {
-        const compassword = await bcrypt.compare(password, rows[0].password);
+        const compassword = await bcrypt.compare(password2, rows[0].password);
         const accesToken = jwt.sign({id: rows[0].id_admin}, SECRET, {
             expiresIn: "1h",
         });
@@ -158,6 +166,28 @@ export const updateCliente = async (req, res) => {
         const { id } = req.params;
         const {nombre, correo, password} = req.body
         const [result] = await pool.query('UPDATE admin SET nombre = IFNULL(?, nombre), correo = IFNULL(?, correo), password = IFNULL(?, password) WHERE id_cliente = ?', [nombre, correo, password, id])
+        if (result.affectedRows === 0) {
+            return res.status(404).json({
+            message: 'No encontrado'
+        });
+        }
+        const [rows] = await pool.query('SELECT * FROM admin WHERE id_admin = ?', [id])
+        res.json(rows[0])
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+}
+
+export const actualizarContraseñaCliente = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const {password, confirmarPassword} = req.body
+        if (password !== confirmarPassword){
+            return res.status(409).send('Las contraseñas deben coincidir.');
+    }   
+        const saltRounds = 10;
+        const passwordEncripta = await bcrypt.hash(password, saltRounds);
+        const [result] = await pool.query('UPDATE admin SET password = IFNULL(?, password) WHERE id_admin = ?', [passwordEncripta, id])
         if (result.affectedRows === 0) {
             return res.status(404).json({
             message: 'No encontrado'

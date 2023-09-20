@@ -1,16 +1,13 @@
 import React,{useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import Axios from "axios"
-
 import tablap from "../Img/bandeja.png"
-
-import { Container, Box2,Box3, Container2, Minibox1,} from "./Styled"
+import { Container, Box2,Box3, Container2, Minibox1} from "./Styled"
 
 export const Fisica = () => {
 const [sancocho, setSancocho] = useState([])
 const [corriente, setCorriente] = useState([])
 const [bebida, setBebida] = useState([])
-const [, setNotificacion] = useState("")
 const platosSancocho = () => {
     Axios.get("http://localhost:3002/api/platosSancocho").then((response)=>{
         setSancocho(response.data)
@@ -32,24 +29,11 @@ const bebidas = () => {
     .catch(error => {
     })
 }
-const Compra = () => {
-    Axios.get("http://localhost:3002/api/compras")
-        .then((response) => {     
-        if (response.data.length > 0){
-            setNotificacion(response.data.length)
-        } else {
-            setNotificacion("")
-        }
-        Compra();
-        })
-        .catch(error => {
-        }); 
-}
+
 useEffect(()=>{
     platosSancocho()
     platosCorriente()
     bebidas()
-    Compra()
 },[])
 
 return(

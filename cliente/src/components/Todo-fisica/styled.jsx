@@ -5,6 +5,11 @@ import Tabla from "../Img/letrero.jpg"
 export const Background = styled.div`
     height: 100%;
     width: 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0; 
+    padding: 0; 
     display: flex;
     align-items: center;
     justify-content: center;

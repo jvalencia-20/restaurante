@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { Boton } from "../vista-dashboard/styles-princDashboard";
 
 export const Contenedor = styled.div`
     width: 100%;
@@ -8,9 +8,8 @@ export const Contenedor = styled.div`
     justify-content: center;
     @media (max-width: 480px){
     height: 100em;   
-    }
+}
 `;
-
 
 export const Main = styled.main`
     @media (max-width: 480px){
@@ -18,18 +17,19 @@ export const Main = styled.main`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    }
+}
 `;
 
 export const Tabla = styled.table`
     border-collapse: collapse;
-    border-radius: 2px solid black;
-    border-right: 2px solid black;
-    border-left: 2px solid black;
+    border-radius: 2px solid #0099ff;
+    border-right: 2px solid #0099ff;
+    border-left: 2px solid #0099ff;
+    border-bottom: 2px solid #0099ff;
 `;
 
 export const Thead = styled.thead`
-    background-color: black;
+    background-color: #0099ff;
     color: white;
     height: 40px;
 `;
@@ -38,7 +38,7 @@ export const Tr = styled.tr`
 `;
 
 export const Th = styled.th`
-    padding: 5px 10px
+    padding: 5px 10px;
 `;
 
 export const Tbody = styled.tbody`
@@ -46,5 +46,9 @@ export const Tbody = styled.tbody`
 `;
 
 export const Td = styled.td`
-    padding: 5px 10px
+    padding: 5px 10px;
+    text-align: start;
+`;
+
+export const Borrar = styled.button`
 `;

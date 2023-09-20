@@ -63,3 +63,17 @@ export const Pendiente = styled.button`
     margin-right: 1em;
     text-align: center;
 `;
+
+export const Regresar = styled.button`
+    width: 10rem;
+    height: 2rem;
+    color: #fffafa;
+    background-color: black;
+    border: solid 1px;
+    border-radius: 20px;
+    font-style: italic;
+    cursor: pointer;
+    &:hover{
+        background-color: #1f52e0;
+    }
+`;

@@ -35,16 +35,21 @@ export const createMesa = async (req, res) => {
 };
 
 export const deleteOrdenPorMesa = async (req, res) => {
+    const id_mesa = parseInt(req.params.id_mesa);
     try {
-        const id_mesa = parseInt(req.params.id_mesa);
-        
-        const query = `
+        const deleteQuery = `
             DELETE FROM orden
             WHERE id_mesa = ?
         `;
-        await pool.query(query, [id_mesa]);
-        res.status(204).send();
+        const result = await pool.query(deleteQuery, [id_mesa]);
+        if (result.affectedRows > 0) {
+            res.status(204).send(); 
+        } else {
+            console.error(`No se encontraron registros con id_mesa ${id_mesa} para eliminar.`);
+            res.status(404).send(); 
+        }
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        console.error(`Error al eliminar la orden con id_mesa ${id_mesa}: ${error.message}`);
+        res.status(500).json({ error: error.message }); 
     }
 };

@@ -1,16 +1,26 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { Background, ContPrincipal, ContFactura, ResPrecios, ContBoton, BotonImprimir } from "./styled";
+import { useNavigate,Link } from "react-router-dom";
+import {
+    Background,
+    ContPrincipal,
+    ContFactura,
+    ResPrecios,
+    ContBoton,
+    BotonImprimir,
+} from "./styled";
 import mesaFunctions from "../vista-mesa/mesa.services/mesa.services";
 import { useDataState } from "../vista-mesa/data.context/data.state.context";
 import axios from "axios";
 import moment from 'moment';
+import { Pago } from "../payu/principal";
 
 const Factura = ({ mesa }) => {
     const navigate = useNavigate()
     const [total, setTotal] = useState(0);
     const [filteredReservas, setFilteredReservas] = useState([]);
     const [borrarFactura, setBorrarFactura] = useState(false);
+    const [lastInsertedId, setLastInsertedId] = useState(null)
+    const [redirectToPayU,setRedirectToPayU] = useState(false)
     const { mesaData } = useDataState();
     const mesaSeleccionada = mesa ?? mesaData[0]?.id_mesa;
     useEffect(() => {
@@ -41,7 +51,6 @@ const Factura = ({ mesa }) => {
             }
             return accumulator;
         }, 0);
-        console.log(`Total: ${totalAmount}`);
         setTotal(totalAmount);
     };
     const handleIrRegistroFact = async () => {
@@ -60,6 +69,7 @@ const Factura = ({ mesa }) => {
             };
             const response = await axios.post('http://localhost:3002/api/registro', facturaData);
             if (response.status === 200) {
+                const id_orden = response.data.id_orden; 
                 setBorrarFactura(true);
             } else {
                 console.error('Error en la solicitud POST:', response.statusText);
@@ -68,13 +78,11 @@ const Factura = ({ mesa }) => {
             console.error('Error al procesar la factura:', error);
         }
     };
-
     useEffect(() => {
         if (borrarFactura) {
-            axios.delete(`http://localhost:3002/api/orden/${mesaSeleccionada}`)
+            axios.delete(`http://localhost:3002/api/orden/${lastInsertedId}`)
                 .then((deleteOrdenResponse) => {
                     if (deleteOrdenResponse.status === 204) {
-                        navigate('/private/todofisica/registro-fact');
                     } else {
                         console.error('Error al eliminar datos en la tabla orden:', deleteOrdenResponse.statusText);
                     }
@@ -84,9 +92,25 @@ const Factura = ({ mesa }) => {
                 });
         }
     }, [borrarFactura]);
+    if (redirectToPayU) {
+        const payUUrl = `/pago=${total}`
+        window.location.href = payUUrl
+    }
     const handlePrintClick = () => {
         window.print();
     };
+    useEffect(() => {
+        const obtenerUltimoId = async () => {
+            try {
+                const response = await axios.get('http://localhost:3002/api/ultimo-id');
+                const ultimoId = response.data;
+                setLastInsertedId(ultimoId);
+            } catch (error) {
+                console.error('Error al obtener el último ID:', error);
+            }
+        }
+        obtenerUltimoId();
+    }, []);
 
     return (
         <Background>
@@ -117,14 +141,17 @@ const Factura = ({ mesa }) => {
                     <div style={{ marginTop: '20px', textAlign: 'right' }}>
                         <p style={{ fontWeight: 'bolder', fontSize: 'x-large', fontStyle: 'italic', margin: '0' , color:"white" }}>Total: $ {total}</p>
                     </div>
+                    <Pago total={total} lastInsertedIdProp={parseInt(lastInsertedId, 10)} />
                 </ResPrecios>
                 <ContBoton>
                     <BotonImprimir onClick={handlePrintClick}>Imprimir factura</BotonImprimir>
-                    <BotonImprimir onClick={handleIrRegistroFact}>Ir a registro de facturas</BotonImprimir>
+                    <Link to="/private/todofisica/registro-fact">
+                        <BotonImprimir onClick={handleIrRegistroFact}>Ir a registro de facturas</BotonImprimir>
+                    </Link>
                 </ContBoton>
             </ContPrincipal>
         </Background>
     );
 };
 
-export default Factura;
+export default Factura

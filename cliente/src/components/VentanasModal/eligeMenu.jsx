@@ -6,18 +6,18 @@ import Finalizar from "../Img/cross-logo.gif"
 const Escoge = () => {
   return (
     <div>
-    <Fondo>
-      <Container>
-        <Salir>
-        </Salir>
-        <Mensaje>
-          <h2 style={{margin:"0"}}>
-            Primero deleitate con nuestro menu
-          </h2>
-        </Mensaje>
-        <Exito></Exito>
-      </Container>
-    </Fondo>      
+      <Fondo>
+        <Container>
+          <Salir>
+          </Salir>
+          <Mensaje>
+            <h2 style={{margin:"0"}}>
+              Primero deleitate con nuestro menu
+            </h2>
+          </Mensaje>
+          <Exito></Exito>
+        </Container>
+      </Fondo>      
     </div>
   )
 }
