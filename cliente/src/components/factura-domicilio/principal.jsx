@@ -20,6 +20,12 @@ const FacturaDomicilio = () => {
         const totalAmount = subtotalAmount
         setTotal(totalAmount);
     };
+    const Delete = () => {
+        Axios.delete(`http://localhost:3002/api/quitar/${di}`)
+        .catch(error => {
+        })
+    }
+
     const handlePrintClick = () => {
         window.print();
     };
@@ -78,6 +84,9 @@ const FacturaDomicilio = () => {
                 <ContBoton>
                     <BotonImprimir onClick={handlePrintClick}>Imprimir factura</BotonImprimir>
                     <BotonImprimir onClick={envia}>Imprimir pedido </BotonImprimir>
+                    <Link to="/private/todofisica/fisica">
+                        <BotonImprimir onClick={Delete}>Eliminar Factura</BotonImprimir>                                
+                    </Link>
                     <Link to="/private/todofisica/selectfactura">
                         <BotonImprimir>regresar</BotonImprimir>
                     </Link>

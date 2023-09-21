@@ -15,8 +15,8 @@ const [Confirmpassword, setConfirmPassword] = useState("")
 const { id } = useParams();
 const {token} = useAuthContext()
 
-const cliente = async () => {
-    await Axios.get(`http://localhost:3002/api/cliente/${id}`,{
+const admin = async () => {
+    await Axios.get(`http://localhost:3002/api/admin/${id}`,{
         headers: {
         Authorization: token
     } 
@@ -42,7 +42,7 @@ Axios.put(`http://localhost:3002/api/actualizarcontrasena/${id}`, {
 })
 .then(({data})=>{
     alert("usuario Actualizado")
-    navigate("/private/traerCliente")
+    navigate("/private/traeradmin")
 })
 .catch(error => {
     if (error.response) {
@@ -66,11 +66,11 @@ Axios.put(`http://localhost:3002/api/actualizarcontrasena/${id}`, {
 }
 
 const cierra = () => {
-    navigate(`/private/traerCliente`)
+    navigate(`/private/traeradmin`)
 }
 
 useEffect(() => {
-    cliente()
+    admin()
 }, [])
 
 return (

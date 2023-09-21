@@ -6,13 +6,13 @@ import { Container, Minibox2, Button, Notificacion, Box1, Background } from "./s
 import { Link } from "react-router-dom";
 import fondo from "../Img/FondoInfor.jpg"
 import CarritoFisica from "../orden-fisica/principal";
+import { LOGOUT } from "../router/path";
 
 const TodoFisica = () => {
     const [activo, setActivo] = useState(false)
     const [notificacion, setNotificacion] = useState(0)
     const [platos, setPlatos] = useState([])
     const navigate = useNavigate()
-
     useEffect(() => {
     const plato = JSON.parse(localStorage.getItem("platico"));
     if (Array.isArray(plato)) {
@@ -48,6 +48,9 @@ return (
                 </Link>
                 <Link to="/private/todofisica/recibir-orden" style={{textDecoration:"none"}}>
                     <Button><h1 style={{cursor:"pointer"}}>Recibir orden</h1></Button> 
+                </Link>
+                <Link to={LOGOUT} style={{textDecoration:"none"}}>
+                    <Button><h1 style={{cursor:"pointer"}}>Cerrar sesion</h1></Button> 
                 </Link>
             </Minibox2>
         </Container>

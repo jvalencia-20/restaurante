@@ -6,12 +6,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { Contenedor, Main, Tabla, Thead, Tr, Th, Tbody, Td, Borrar } from "./styles";
 import "./styles.css"
 
-export const ListarClientes = () => {
+export const ListarAdmin = () => {
     const {token} = useAuthContext()
     const [cliente, setCliente] = useState([])
     const navigate = useNavigate()
     const clientes = () => {
-        Axios.get("http://localhost:3002/api/cliente",{
+        Axios.get("http://localhost:3002/api/admin",{
             headers: {
             Authorization: token
         } 
@@ -22,10 +22,11 @@ export const ListarClientes = () => {
         .catch(error =>{
         })
     }
-    const eliminarCliente = (id_admin) => {
-        Axios.delete(`http://localhost:3002/api/deletecliente/${id_admin}`)
+    const eliminarAdmin = (id_admin) => {
+        Axios.delete(`http://localhost:3002/api/deleteadmin/${id_admin}`)
             .then((response) => {
             clientes()
+            window.location.reload()
             ;
             })
             .catch(error => {
@@ -45,6 +46,7 @@ export const ListarClientes = () => {
                         <Tr>
                             <Th>NOMBRE_USUARIO</Th>
                             <Th>CORREO</Th>
+                            <Th>CARGO</Th>
                             <Th>ACCION</Th>
                         </Tr>
                     </Thead>
@@ -53,15 +55,16 @@ export const ListarClientes = () => {
                             cliente.map((val, index)=>(
                                 
                             <Tr  key={index} style={{ backgroundColor: index % 2 === 0 ? 'white' : '#00b7ff68' }} >
-                                <Td>{val.nombre_admin}</Td>
+                                <Td>{val.nombre}</Td>
                                 <Td>{val.correo}</Td>
+                                <Td>{val.cargo}</Td>
                                 <Td>
-                                    <Link to={`/private/actualizarCliente/${val.id_admin}`}>
+                                    <Link to={`/private/actualizaradmin/${val.id_admin}`}>
                                         <button >
                                             Editar
                                         </button>
                                     </Link>
-                                    <Borrar onClick={() => eliminarCliente(val.id_admin)}>
+                                    <Borrar onClick={() => eliminarAdmin(val.id_admin)}>
                                         Borrar
                                     </Borrar>
                                 </Td>

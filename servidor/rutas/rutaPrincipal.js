@@ -1,10 +1,8 @@
 import { Router } from "express";
-import { getCliente, getCliente1, createCliente, updateCliente, deleteCliente, confirmar, deletePlatoCarrito, createProducto, traerProducto, actualizarContraseñaCliente } from "../controllers/cliente.controller.js";
+import { getAdmin, getAdmin1, createAdmin, updateAdmin, deleteAdmin, confirmar, deletePlatoCarrito, createProducto, traerProducto, actualizarContraseñaAdmin } from "../controllers/admin.controller.js";
 import { getEmpleado,getEmpleados,createEmpleado,deleteEmpleado,updateEmpleado } from "../controllers/empleado.controllers.js";
 import { createPlato,createBebida, deletePlato,updatePlato, obtenerPlato, Compra, agregarPedido, Bebidas, obtenerBebida, PlatosSancocho, PlatosCorriente, informacion, deleteBebida, updateImagePlato,traerPlatos,updateImagebebida, updateBebida } from "../controllers/platos.controllers.js";
-import { getReserva,getReservas,createReservation,deleteReservation,updateReservation } from "../controllers/reserva.controllers.js";
 import { createDomicilio,getDomicilios,getDomicilio, deleteDomicilio, updateDomicilio } from "../controllers/domicilios.controllers.js";
-import { getMesa, createMesa, deleteOrdenPorMesa } from "../controllers/mesa.controller.js";
 import multer from 'multer';
 import {dirname, extname, join} from 'path';
 import { fileURLToPath } from "url";
@@ -12,6 +10,7 @@ import express from "express";
 import jwt from 'jsonwebtoken';
 import { getAllRegistros, getRegistro, createNew, updateRegistro, delete1, deleteAllRegistro, getRegistrosPorFecha, getRegistrosPorMesaYFecha, getRegistrosPorMesa, obtenerUltimoId } from "../controllers/factura_reg.controllers.js"
 import { getAllPlatos } from "../controllers/platos.controllers.js";
+import { getMesa, createMesa, deleteOrdenPorMesa } from "../controllers/mesa.controller.js";
 
 const SECRET = "secreto"
 
@@ -51,15 +50,15 @@ const upload = multer({
 
 const expressApp = express();
 
-//Tabla cliente
+//Tabla admin
 
-router.get('/cliente', getCliente) //Ruta para obtener todos
-router.get('/cliente/:id', getCliente1) //Ruta para obtener uno
-router.post('/createcliente', verificarToken, createCliente) //Ruta para crear uno
-router.put('/actualizarcontrasena/:id', verificarToken, actualizarContraseñaCliente)
+router.get('/admin', getAdmin) //Ruta para obtener todos
+router.get('/admin/:id', getAdmin1) //Ruta para obtener uno
+router.post('/createadmin', verificarToken, createAdmin) //Ruta para crear uno
+router.put('/actualizarcontrasena/:id', verificarToken, actualizarContraseñaAdmin)
 router.post('/login', confirmar)
-router.patch('/cliente/:id', updateCliente) //Ruta para actualizar
-router.delete('/deletecliente/:id', deleteCliente) //Ruta para eliminar uno
+router.put('/admin/:id', updateAdmin) //Ruta para actualizar
+router.delete('/deleteadmin/:id', deleteAdmin) //Ruta para eliminar uno
 
 //tabla inventario producto.
 
@@ -112,13 +111,11 @@ router.delete('/agrega_comida/:id_plato', deletePlatoCarrito)
 
 router.get('/informacion', informacion)
 
-//Tabla reserva
+//Tabla mesa
 
-router.get('/reservaciones', getReservas);//ruta para traer todas las reservas
-router.get('/reservacion/:id', getReserva);//ruta para traer una reservacion por id
-router.post('/crea', createReservation);//ruta para crear una reservacion 
-router.delete('/delete/:id', deleteReservation);//ruta para eliminar una reservacion
-router.patch('/update/:id', updateReservation);//ruta para actualizar una reservacion
+router.get('/mesa/:id', getMesa);
+router.post('/crear-mesa', createMesa)
+router.delete('/orden/:id_mesa', deleteOrdenPorMesa);
 
 //Tabla de domicilios
 
@@ -127,11 +124,8 @@ router.post('/domicilio', createDomicilio); //ruta para crear domicilios
 router.get('/domicilios', getDomicilios); //ruta para obtener todos los domicilios
 router.get('/domicilio/:di', getDomicilio); //ruta para obtener un domicilio por id
 router.delete('/quitar/:id', deleteDomicilio); //ruta para eliminar domicilio
-router.patch('/modificar/:id', updateDomicilio); //ruta para actualizar un domicilio
+router.delete('/quitar/:di', deleteDomicilio); //ruta para eliminar domicilio
 
-router.get('/mesa/:id', getMesa);
-router.post('/crear-mesa', createMesa)
-router.delete('/orden/:id_mesa', deleteOrdenPorMesa);
 
 router.get('/registro', getAllRegistros)
 router.get('/registro/:id', getRegistro)

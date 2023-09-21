@@ -1,5 +1,6 @@
 import styled from "styled-components"
 
+
 export const Body = styled.div`
     width: 100%;
     height: 100vh;
@@ -12,7 +13,7 @@ export const Body = styled.div`
 `;
 
 export const Container = styled.div`
-    width: 90%;
+    width: 100%;
     height: 100%;
     border-radius: 5px;
     display: grid;
@@ -22,32 +23,33 @@ export const Container = styled.div`
     grid-template:
         "header" 100px
         "navbar1" 50px
-        "main1" 294vh
+        "main1" 135vh
         "sidebar1" 400px
     ;
-    @media  screen and (min-width: 300px ) {
+    @media  screen and (max-height: 450px ) {
     right: auto;
     width: 97%;
     grid-template:
         "header" 100px
         "navbar1" 50px
-        "main1" 195vh
+        "main1" 155vh
         "sidebar1" 400px        
+        200px auto
     }
     @media  screen and (min-width: 600px ) {
     right: auto;
-    width: 97%;
+    width: 100%;
     grid-template:
         "header" 100px
         "navbar1" 50px
-        "main1" 15vh
+        "main1" 145vh
         "sidebar1" 180px        
         200px auto
     ;
     transition: 1s ease
     }
     @media  screen and (min-width: 700px ) {
-    width: 97%;
+    width: 100%;
     right: 2%;
     grid-template:
         "header header" 100px
@@ -59,12 +61,13 @@ export const Container = styled.div`
     transition: 1s ease
     }
     @media  screen and (min-width: 1000px ) {
-    width: 97%;
+    width: 100%;
     right: auto;
     grid-template:
+        
         "header  header header"   100px
         "navbar1 main1    sidebar1" auto
-        /
+    /
         200px     auto       200px
     ;
     transition-duration: 1s ease
@@ -72,10 +75,8 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.div`
-    background-color: white;
-    width: 100%;
+    width: 95%;
     height: 80%;
-    border-radius: 5px;
     margin-top: 2px;
     display: flex;
     align-items: center;
@@ -84,14 +85,15 @@ export const Header = styled.div`
 `;
 
 export const ContainerHeader = styled.div`
-    background-color: white;
+    background-color: #12011d;
     display: flex;
     justify-content: center;
     align-items: start;
     width: 100%;
     height: 100%;
     box-shadow: -1px 1px 7px 0px rgba(0, 0, 0, 0.75);
-    border-radius: 5px;
+    color: #ffffff;
+    text-shadow: 0 0 10PX #A945C7,0 0 40PX #A945C7, 0 0 80PX #A945C7;
     grid-area: header;
 `;
 
@@ -99,10 +101,9 @@ export const CajaNav = styled.div`
     background-color: white;
     display: flex;
     grid-area: navbar1;
-    box-shadow: -1px 1px 7px 0px rgba(0, 0, 0, 0.75);
     border-radius: 5px;
     @media  screen and (min-width: 1000px ) {
-        flex-direction: column
+        flex-direction: column;
     }
 `;
 
@@ -135,15 +136,18 @@ export const ContainerFooter = styled.div`
 
 export const CajaLogo = styled.div`
     height: 40px;
-    width: 30rem;
+    width: 40rem;
     display: flex;
     align-items: center;
 `;
 
 export const Boton = styled.button`
     height: 100%;
-    width:120px;
+    width:100px;
     text-decoration: none;
+    border-radius: 8px;
+    background-color: transparent;
+    border: none;
     &:hover{
     box-shadow: 0 0 10PX black,0 0 40PX black, 0 0 80PX black;
     };
@@ -154,10 +158,13 @@ export const Boton = styled.button`
     }
     @media  screen and (min-width: 1000px ) {
         height: 50px;
-        width:200px;
+        width:150px;
         text-decoration: none;
         border: none;
-        background-color: transparent
+        background-color: transparent;
+        text-align: start;
+        margin: 10px;
+        font-size: 13px;
+        font-weight: bold;
     }
-    
 `;

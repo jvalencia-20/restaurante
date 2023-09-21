@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Outlet, useLocation } from "react-router-dom";
 import {Body, Container, Header, ContainerHeader, Boton, CajaNav, CajaLogo, ContainerMain, ContainerMenu, ContainerFooter} from "./styles-princDashboard"
 import { LOGOUT } from "../router/path";
@@ -9,6 +9,7 @@ import Paila from "../VentanasModal/paila";
 import Comprobando from "../VentanasModal/comprobando";
 
 function PrincipalDashboard() {
+    const navegate = useNavigate()
     const [comprobar, setComprobar] = useState(true) 
     const [producto, setProducto] = useState([]);
     const { token, logout } = useAuthContext();
@@ -31,13 +32,16 @@ function PrincipalDashboard() {
     }
     }
     const cliente = async () => {
-    await Axios.get(`http://localhost:3002/api/cliente/${destokenado}`,{
+    await Axios.get(`http://localhost:3002/api/admin/${destokenado}`,{
         headers: {
         Authorization: token
     } 
 })
     .then((response) => {
         setUser(response.data.nombre)
+        if (response.data.cargo === "empleado" ) {
+            navegate("/private/todofisica/fisica")
+        }
         setComprobar(false)
     })
     .catch(error =>{
@@ -68,7 +72,7 @@ return (
                     <CajaLogo >
                         <h1>Bienvenido {user} </h1>
                     </CajaLogo>
-                    <div style={{fontSize:"20px"}}><Link to={LOGOUT}><Boton style={{height:"80px"}}>🔚Cerrar sesión</Boton></Link></div>
+                    <div style={{fontSize:"20px"}}><Link to={LOGOUT}><Boton style={{height:"80px", color:"white", textShadow:"0 0 10PX #A945C7,0 0 40PX #A945C7, 0 0 80PX #A945C7"}}>🔚Cerrar sesión</Boton></Link></div>
                 </Header>
             </ContainerHeader>
             <CajaNav>
@@ -77,7 +81,7 @@ return (
                 <Link to="/private/crearBebida"><Boton>🍹Agregar Bebida</Boton></Link>
                 <Link to="/private/register"><Boton>👤Crear Usuario</Boton></Link>
                 <Link to="/private/crearProducto"><Boton>📦Agregar Producto</Boton></Link>
-                <Link to="/private/traerCliente"><Boton>👨‍💼Administradores</Boton></Link>
+                <Link to="/private/traerAdmin"><Boton>👨‍💼Administradores</Boton></Link>
                 <Link to="/private/traerPlato"><Boton>🥗Platos</Boton></Link>
                 <Link to="/private/traerBebida"><Boton>🍸Bebidas</Boton></Link>
                 <Link to="/private/inventario"><Boton>📚 Inventario</Boton></Link>

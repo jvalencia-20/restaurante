@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import Fondo from "../Img/Restauran.jpg"
 
 export const Background = styled.div`
   background-size: cover;

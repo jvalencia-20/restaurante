@@ -1,12 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../context/AuthContext";
 import pafuera from "../Img/pafuera.jpg"
 
-
 const Paila = () => {
-  const navigate = useNavigate()
   const {logout} = useAuthContext()
   setTimeout(() => {
     logout()

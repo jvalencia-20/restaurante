@@ -18,7 +18,7 @@ const ActualizarUser = () => {
     const [activo, setActivo] = useState(false)
     const [ver, setVer] = useState("password")
   const clientes = async () => {
-    await Axios.get(`http://localhost:3002/api/cliente/${id}`,{
+    await Axios.get(`http://localhost:3002/api/admin/${id}`,{
         headers: {
         Authorization: token
     } 
@@ -39,48 +39,47 @@ useEffect(() => {
     clientes()
 },[])
 
-  const actualizarusuario = (e) => {
-    e.preventDefault()
-    Axios.patch(`http://localhost:3002/api/cliente/${id}`, {
-      nombre: usuario,
-      correo: correo,
-      password: contraseñaNueva,
-  },{
-    headers: {
-      Authorization: token
-  }  
-  })
-  .then(({data})=>{
+const actualizarusuario = (e) => {
+  e.preventDefault()
+  Axios.put(`http://localhost:3002/api/admin/${id}`, {
+    nombre: usuario,
+    correo: correo,
+},{
+  headers: {
+    Authorization: token
+}  
+})
+.then(({data})=>{
 
-      alert("usuario Actualizado")
-      navigate("/private/traerCliente")
-    })
-    .catch(error => {
-      if (error.response) {
-        if (error.response.status === 409) {
-          const errorMessage = error.response.data;
-          switch (errorMessage) {
-            case 'contraseña requerida.':
-              break;
-            case 'Nombre de usuario requerido.':
-              break;
-            case 'Correo requerido.':
-              break;
-            case 'Nombre de usuario o correo ya existente.':
-              break;
-              case 'Las contraseñas deben coincidir.':
-              break;
-            default:
-              break;
-            }
-            } else {
-          alert("Ocurrió un error en la actualizacion.");
-            }
+    alert("usuario Actualizado")
+    navigate("/private/traeradmin")
+  })
+  .catch(error => {
+    if (error.response) {
+      if (error.response.status === 409) {
+        const errorMessage = error.response.data;
+        switch (errorMessage) {
+          case 'contraseña requerida.':
+            break;
+          case 'Nombre de usuario requerido.':
+            break;
+          case 'Correo requerido.':
+            break;
+          case 'Nombre de usuario o correo ya existente.':
+            break;
+            case 'Las contraseñas deben coincidir.':
+            break;
+          default:
+            break;
+          }
           } else {
-          alert("Ocurrió un error en la solicitud.");
-      }
-    });
-  }
+        alert("Ocurrió un error en la actualizacion.");
+          }
+        } else {
+        alert("Ocurrió un error en la solicitud.");
+    }
+  });
+}
   const verContraseña = () => {
     setVer("text")
   }

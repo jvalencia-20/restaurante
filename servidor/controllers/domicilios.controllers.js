@@ -54,7 +54,6 @@ export const deleteDomicilio = async(req,res) => {
 }
 
 //logica para actualizar un domicilio
-
 export const updateDomicilio = async(req,res) => {
     try {
         const {id} =req.params;

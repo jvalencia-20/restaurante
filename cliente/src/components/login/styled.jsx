@@ -16,12 +16,33 @@ export const Background = styled.div`
   }
 `;
 
+export const Fondo1 = styled.div`
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.904);
+z-index: 1000;
+display: flex;
+justify-content: center;
+align-items: center;
+@media screen and ( max-width: 90vh) {
+  flex-direction: column;  
+  
+}
+`
+
 export const Login = styled.form`
-  background-color: #434649c5;
-  height: 40em;
+  background-color: #12011d;
+  height: 35em;
   width: 30em;
-  border-radius: 1em;
+  border-radius: 2em;
   box-shadow: 10px 10px 10px  black;
+  display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
   @media screen and ( max-width: 90vh){   
     height: 31em;
     width: 20em; 
@@ -29,19 +50,23 @@ export const Login = styled.form`
 `;
 
 export const ConTitulo = styled.div`
-  height: 5em;
+/* background-color: aqua; */
+  height: 8em;
   display: flex;
   text-align: center;
 `;
 
 export const Titulo = styled.h1`
+  height: 100px;
   font-family: 'Katibeh', cursive;
-  color: #f1f1f1;
-  font-size: 2em;
-  padding: 10px;
+  color: #ffffff;
+  text-shadow: 0 0 10PX #A945C7,0 0 40PX #A945C7, 0 0 80PX #A945C7;
+  font-size: 1.5em;
+  margin: none;
+  /* background-color: red; */
   @media screen and ( max-width: 90vh){   
-    font-size: 2em;
-    padding: 7px;
+    font-size: 1em;
+    /* padding: 7px; */
   }
 `;
 
@@ -73,7 +98,7 @@ export const ConInfor = styled.div`
 `;
 
 export const Name = styled.h3`
-  color: #ffff;
+  color: #12011d;
   @media screen and ( max-width: 90vh){   
     font-size: 1em;
   }
@@ -82,10 +107,10 @@ export const Name = styled.h3`
 export const Infor = styled.input`
   width: 23em;
   height: 2em;
-  border: 1px solid #ffff;
+  border: 1px solid #000000;
   background-color: transparent;
   border-radius: 5px;
-  color: #c0c0c0;
+  color: #000000;
   @media screen and ( max-width: 90vh){   
     height: 2em;
     width: 20em; 
@@ -105,3 +130,28 @@ export const Entrar = styled.button`
 export const ReContraseña = styled.h4`
   color: #ffff;
 `;
+
+export const Form = styled.div`
+background-color: #a9a8aa;
+
+background-size: contain;
+background-repeat: no-repeat;
+background-position: center;
+height: 15em;
+width: 30em;
+display: flex;
+align-items: center;
+justify-content: end;
+@media screen and ( max-width: 90vh){   
+  height: 14em;
+    width: 20em; 
+  }
+`
+export const Div = styled.div`
+    
+    width: 13em;
+    height: 6em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`

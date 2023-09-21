@@ -7,9 +7,9 @@ const SECRET = "secreto"
 const x = "clave"
 
 //Se seleccionan todos los registros
-export const getCliente = async (req, res) => {
+export const getAdmin = async (req, res) => {
     try {
-        const [rows] = await pool.query('SELECT id_admin, nombre, correo  FROM admin')
+        const [rows] = await pool.query('SELECT id_admin, nombre, correo, cargo  FROM admin')
         res.json(rows)
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -17,7 +17,7 @@ export const getCliente = async (req, res) => {
 }
 
 //Se selecciona un registro
-export const getCliente1 = async (req, res) => {
+export const getAdmin1 = async (req, res) => {
     try {
         const { id } = req.params
         const [rows] = await pool.query('SELECT * FROM admin WHERE id_admin = ?', [id])
@@ -33,9 +33,9 @@ export const getCliente1 = async (req, res) => {
 }
 
 //Se crea un registro
-export const createCliente = async (req, res) => {
+export const createAdmin = async (req, res) => {
     try {
-        const { nombre, correo, password, confirmar_password } = req.body;
+        const { nombre, correo, cargo, password, confirmar_password } = req.body;
         if (!password) {
             return res.status(409).send('contraseña requerida.');
         }
@@ -44,6 +44,9 @@ export const createCliente = async (req, res) => {
         }
         if (!correo) {
             return res.status(409).send('Correo requerido.');
+        }
+        if (cargo != "admin" && cargo != "empleado") {
+            return res.status(409).send("escriba un cargo valido")
         }
         if (password !== confirmar_password){
             return res.status(409).send('Las contraseñas deben coincidir.');
@@ -60,13 +63,15 @@ export const createCliente = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, saltRounds);
 
 // Insertar el nuevo cliente en la base de datos
-        const insertQuery = 'INSERT INTO admin (nombre, correo, password) VALUES (?, ?, ?)';
-        const insertValues = [nombre, correo, hashedPassword];
+        const insertQuery = 'INSERT INTO admin (nombre, correo, cargo, password) VALUES (?, ?, ?, ?)';
+        const insertValues = [nombre, correo, cargo, hashedPassword];
         const [result] = await pool.query(insertQuery, insertValues);
             res.status(201).json({
             id_admin: result.insertId,
             nombre,
-            correo
+            correo,
+            cargo
+            
         });
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -112,10 +117,10 @@ export const createProducto = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
-
 export const confirmar = async (req, res) => {
     try {
     const { usuario, password } = req.body;
+
     if (!usuario) {
         return res.status(409).send('Usuario requerido.');
     }
@@ -136,16 +141,15 @@ export const confirmar = async (req, res) => {
                 accesToken
                 );
         }else{
-            res.status(400).send("el usuario no existe⭐")
+            res.status(409).send("Las Contraseñas no Coinciden")
         }
         } else {
-            res.status(400).send("El usuario no existe ❤️❤️❤️❤️❤️❤️");
+            res.status(409).send("El usuario no existe");
         }
         } catch (error) {
         res.status(500).json({ error: "Error del servidor" });
         }
 };
-
 export const deletePlatoCarrito = async (req, res) => {
     try {
         const [result] = await pool.query('DELETE FROM agrega_comida WHERE id_plato = ?', [req.params.id_plato]);
@@ -161,11 +165,11 @@ export const deletePlatoCarrito = async (req, res) => {
 }
 
 //Se actualiza un registro
-export const updateCliente = async (req, res) => {
+export const updateAdmin = async (req, res) => {
     try {
         const { id } = req.params;
-        const {nombre, correo, password} = req.body
-        const [result] = await pool.query('UPDATE admin SET nombre = IFNULL(?, nombre), correo = IFNULL(?, correo), password = IFNULL(?, password) WHERE id_cliente = ?', [nombre, correo, password, id])
+        const {nombre, correo} = req.body
+        const [result] = await pool.query('UPDATE admin SET nombre = IFNULL(?, nombre), correo = IFNULL(?, correo) WHERE id_admin = ?', [nombre, correo, id])
         if (result.affectedRows === 0) {
             return res.status(404).json({
             message: 'No encontrado'
@@ -178,7 +182,7 @@ export const updateCliente = async (req, res) => {
     }
 }
 
-export const actualizarContraseñaCliente = async (req, res) => {
+export const actualizarContraseñaAdmin = async (req, res) => {
     try {
         const { id } = req.params;
         const {password, confirmarPassword} = req.body
@@ -201,7 +205,7 @@ export const actualizarContraseñaCliente = async (req, res) => {
 }
 
 //Se elimina un registro
-export const deleteCliente = async (req, res) => {
+export const deleteAdmin = async (req, res) => {
     try {
         const [result] = await pool.query('DELETE FROM admin WHERE id_admin = ?', [req.params.id])
         if (result.affectedRows <= 0) {

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Tabla from "../Img/letrero.jpg"
 
-
 export const Background = styled.div`
     height: 100%;
     width: 100%;

@@ -24,7 +24,7 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-filter: drop-shadow(6px 15px 8px black);
+    filter: drop-shadow(6px 15px 8px black);
 `;
 
 export const Salir = styled.div`
@@ -51,7 +51,8 @@ export const Salida = styled.button`
     color: white;
     text-shadow: 0 0 10PX white,0 0 40PX white, 0 0 80PX white;
     };
-`
+`;
+
 export const Mensaje = styled.div`
     height: 4em;
     width: 30em;
