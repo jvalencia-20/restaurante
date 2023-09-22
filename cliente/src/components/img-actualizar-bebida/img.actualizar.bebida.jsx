@@ -61,45 +61,43 @@ const cierra = () => {
 
 return (
 <div>
-<Fondo>
-    <Container>
-        <Salir>
-            <Salida onClick={cierra}>X</Salida>
-        </Salir>
-        <Mensaje>
-            <h1 style={{margin:"0"}}>
-                Actualizar Imagen
-            </h1>
-        </Mensaje>
-        <Form>
-            <ConInfor>
-                <LabelImg className="btn btn-warning">
-                    <SpanImg>Cargar </SpanImg>
-                    <InforImg
-                        hidden 
-                        type="file"
-                        onChange={handleImageChange}>
-                    </InforImg>
-                </LabelImg>
-                <ContentImg>
-                    {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}
-                </ContentImg>
-            </ConInfor>
-        </Form>     
-            <Div>
-                <a onClick={actualizarusuario} style={{fontWeight:"bold"}} href="#" class="btn-neon">
-                    <span id="span1"></span>
-                    <span id="span2"></span>
-                    <span id="span3"></span>
-                    <span id="span4"></span>
-                    ACTUALIZAR IMG
-                </a>
-            </Div>
-    </Container>
-</Fondo>      
+    <Fondo>
+        <Container>
+            <Salir>
+                <Salida onClick={cierra}>X</Salida>
+            </Salir>
+            <Mensaje>
+                <h1 style={{margin:"0"}}>
+                    Actualizar Imagen
+                </h1>
+            </Mensaje>
+            <Form>
+                <ConInfor>
+                    <LabelImg className="btn btn-warning">
+                        <SpanImg>Cargar </SpanImg>
+                        <InforImg
+                            hidden 
+                            type="file"
+                            onChange={handleImageChange}>
+                        </InforImg>
+                    </LabelImg>
+                    <ContentImg>
+                        {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}
+                    </ContentImg>
+                </ConInfor>
+            </Form>     
+                <Div>
+                    <a onClick={actualizarusuario} style={{fontWeight:"bold"}} href="#" class="btn-neon">
+                        <span id="span1"></span>
+                        <span id="span2"></span>
+                        <span id="span3"></span>
+                        <span id="span4"></span>
+                        ACTUALIZAR IMG
+                    </a>
+                </Div>
+        </Container>
+    </Fondo>      
 </div>
-
 )
 }
-
 export default ActualizarImgBebida;

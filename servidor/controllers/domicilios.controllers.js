@@ -19,7 +19,6 @@ export const createDomicilio = async (req, res) => {
 }
 
 //logica para obtener todos los domicilios
-
 export const getDomicilios = async(req,res) => {
     try {
         const [rows] = await pool.query('SELECT nombre_cliente, direccion, hora_entrega FROM `domicilio` GROUP BY direccion ORDER BY hora_entrega')
@@ -40,10 +39,10 @@ export const getDomicilio = async (req, res) => {
 };
 
 //eliminar domicilio
-
 export const deleteDomicilio = async(req,res) => {
     try {
-        const [result] = await pool.query('DELETE FROM domicilios WHERE id_domicilio = ?', [req.params.id]);       
+        console.log(req.params.di,'😘😘😘😘');
+        const [result] = await pool.query('DELETE FROM domicilio WHERE direccion = ?', [req.params.di]);       
         if (result.affectedRows <= 0) {
             return res.status(404).json({message: 'El domicilio no se encuentra 😓'});
         }
@@ -66,7 +65,6 @@ export const updateDomicilio = async(req,res) => {
         }
         const [rows] = await pool.query('SELECT * FROM domicilios WHERE id_domicilio = ?' , [id]);
         res.status(200).json({message: 'Domicilio actualizado'});
-        //res.json(rows[0])
     } catch (error) {
         res.status(500).json({message: 'Error Interno'});
     }

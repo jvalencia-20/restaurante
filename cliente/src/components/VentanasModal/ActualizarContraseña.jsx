@@ -76,11 +76,9 @@ useEffect(() => {
 return (
 <div>
 <Fondo>
-        <Container>
+    <Container>
         <Salir>
-
             <Salida onClick={cierra}>X</Salida>
-
         </Salir>
         <Mensaje>
             <h1 style={{margin:"0"}}>
@@ -110,13 +108,13 @@ return (
             </ConInfor>
         </Form>     
             <Div>
-            <a onClick={actualizarusuario} style={{fontWeight:"bold"}} href="#" class="btn-neon">
-                        <span id="span1"></span>
-                        <span id="span2"></span>
-                        <span id="span3"></span>
-                        <span id="span4"></span>
-                        ACTUALIZAR
-                    </a>
+                <a onClick={actualizarusuario} style={{fontWeight:"bold"}} href="#" class="btn-neon">
+                    <span id="span1"></span>
+                    <span id="span2"></span>
+                    <span id="span3"></span>
+                    <span id="span4"></span>
+                    ACTUALIZAR
+                </a>
             </Div>
     </Container>
 </Fondo>      

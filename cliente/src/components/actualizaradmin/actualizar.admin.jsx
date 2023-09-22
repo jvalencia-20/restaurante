@@ -17,7 +17,7 @@ const ActualizarUser = () => {
     const [cliente, setCliente] = useState([])
     const [activo, setActivo] = useState(false)
     const [ver, setVer] = useState("password")
-  const clientes = async () => {
+    const clientes = async () => {
     await Axios.get(`http://localhost:3002/api/admin/${id}`,{
         headers: {
         Authorization: token
@@ -75,7 +75,7 @@ const actualizarusuario = (e) => {
           } else {
         alert("Ocurrió un error en la actualizacion.");
           }
-        } else {
+          } else {
         alert("Ocurrió un error en la solicitud.");
     }
   });

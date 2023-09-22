@@ -64,6 +64,7 @@ export const Box2 = styled.div`
         width: 350px;
     }
 `;
+
 export const Box3 = styled.div`
     height: 15rem;
     width: 115.5rem;

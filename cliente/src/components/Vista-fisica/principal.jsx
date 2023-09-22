@@ -3,11 +3,62 @@ import { Link } from "react-router-dom";
 import Axios from "axios"
 import tablap from "../Img/bandeja.png"
 import { Container, Box2,Box3, Container2, Minibox1} from "./Styled"
+import { useAuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
+import Comprobando from "../VentanasModal/comprobando";
 
 export const Fisica = () => {
 const [sancocho, setSancocho] = useState([])
 const [corriente, setCorriente] = useState([])
 const [bebida, setBebida] = useState([])
+const [destokenado, setDestokenado] = useState("")
+const [activo, setActivo] = useState(false)
+    const navegate = useNavigate()
+    const { token, logout } = useAuthContext();
+    const [comprobar, setComprobar] = useState(true) 
+    const decodeJWT= (token) => {
+        try{
+        const base64Url = token.split('.')[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+        const decode = JSON.parse(jsonPayload);
+        setDestokenado(decode.id)
+    }
+    catch{
+        setActivo(true) 
+    }
+    }
+    const cliente = async () => {
+    await Axios.get(`http://localhost:3002/api/admin/${destokenado}`,{
+        headers: {
+        Authorization: token
+    } 
+})
+    .then((response) => {
+        if (response.data.cargo === "empleado" ) {
+            navegate("/private/todofisica/fisica")
+        }
+        setComprobar(false)
+    })
+    .catch(error =>{
+        if(error){
+            logout()
+            
+        }
+    })
+}
+
+useEffect(() => {
+    
+    decodeJWT(token)
+    
+}, [])
+setTimeout(() => {
+    cliente()
+    }, 100);
+
 const platosSancocho = () => {
     Axios.get("http://localhost:3002/api/platosSancocho").then((response)=>{
         setSancocho(response.data)
@@ -37,6 +88,8 @@ useEffect(()=>{
 },[])
 
 return(
+    <>
+    {comprobar && <Comprobando />}
 <Container>
     <Container2>
         <h1 style={{WebkitTextStroke:"1.1px black",fontWeight:"bold",textShadow:"5px 5px 5px black", color:"#ffffff", marginLeft:"3em", filter: "drop-shadow(-10px 25px 15px black)"}}>SANCOCHOS</h1>
@@ -84,5 +137,6 @@ return(
         </Box3>
     </Container2>
 </Container>
+</>
 )
 }

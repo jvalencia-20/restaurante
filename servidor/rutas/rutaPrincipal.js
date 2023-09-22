@@ -123,7 +123,6 @@ router.get('/platos', verificarToken,  traerPlatos)
 router.post('/domicilio', createDomicilio); //ruta para crear domicilios
 router.get('/domicilios', getDomicilios); //ruta para obtener todos los domicilios
 router.get('/domicilio/:di', getDomicilio); //ruta para obtener un domicilio por id
-router.delete('/quitar/:id', deleteDomicilio); //ruta para eliminar domicilio
 router.delete('/quitar/:di', deleteDomicilio); //ruta para eliminar domicilio
 
 

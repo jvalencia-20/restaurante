@@ -21,11 +21,12 @@ const FacturaDomicilio = () => {
         setTotal(totalAmount);
     };
     const Delete = () => {
-        Axios.delete(`http://localhost:3002/api/quitar/${di}`)
+        const parametro = di;
+        const parametroCodificado = encodeURIComponent(parametro);
+        Axios.delete(`http://localhost:3002/api/quitar/${parametroCodificado}`)
         .catch(error => {
         })
     }
-
     const handlePrintClick = () => {
         window.print();
     };
@@ -33,7 +34,7 @@ const FacturaDomicilio = () => {
     // cambio 
     const Domicilios = () => {
         const parametro = di;
-        const parametroCodificado = encodeURIComponent(parametro); //Cuando creas una URL, ciertos caracteres, como espacios, signos de puntuación y otros caracteres especiales, deben codificarse para que sean interpretados correctamente por los servidores web y los navegadores. encodeURIComponent realiza esta codificación al reemplazar caracteres no seguros en la URL con su equivalente codificado en URL
+        const parametroCodificado = encodeURIComponent(parametro); 
         Axios.get(`http://localhost:3002/api/domicilio/${parametroCodificado}`).then((response) => {
             setFilteredReservas(response.data)
             calculateTotal(response.data)
@@ -97,6 +98,3 @@ const FacturaDomicilio = () => {
 };
 
 export default FacturaDomicilio;
-
-
-

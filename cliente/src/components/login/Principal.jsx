@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Axios from "axios";
 import { Background, ConInfor, ConTitulo, Infor, Login, Name, Titulo, Logotipo, Div, Form, Fondo1 } from "./styled";
-import logo from "../Img/LOgo.png"
+import logo from "../Img/Unido.png"
 import { useNavigate } from "react-router-dom";
 import {useAuthContext} from "../context/AuthContext"
 import CryptoJS from 'crypto-js'
@@ -14,7 +14,6 @@ const Logini = () => {
   const [usuario, setUsuario] = useState("")
   const [advertencia, setAdvertencia] = useState("")
   const {x} = useAuthContext()
-
   const verificar = (e) => {
     e.preventDefault()
     const caracteresSospechosos = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\]/.test(usuario);    
@@ -29,7 +28,6 @@ const Logini = () => {
     })
     .then(({data})=>{
       login(data)
-      // navigate("/private")
     })
     .catch(error => {
       if (error.response) {
@@ -45,20 +43,18 @@ const Logini = () => {
             case "Las Contraseñas no Coinciden":
               setAdvertencia("Contraseña Incorrecta.");
               break;
-              case "El usuario no existe":
+            case "El usuario no existe":
                 setAdvertencia("El usuario no existe");
-                break;
-            
-          
+              break;
             default:
               setAdvertencia("Error en el login.");
               break;
-          }
-        } else {
-          setAdvertencia("Ocurrió un error en la Autenticación.");
-        }
-      } else {
-        setAdvertencia("Ocurrió un error en la solicitud.");
+            }
+            } else {
+              setAdvertencia("Ocurrió un error en la Autenticación.");
+            }
+            } else {
+            setAdvertencia("Ocurrió un error en la solicitud.");
       }
     });
   }     
@@ -75,12 +71,12 @@ const Logini = () => {
             <ConInfor>
               <Name style={{filter: "drop-shadow(-15px 15px 10px black)"}}>Usuario</Name>
               <Infor
-                    type="text"
-                    name="usuario"
-                    placeholder="Usuario"
-                    autoComplete="off"
-                    value={usuario}
-                    onChange={ev => setUsuario(ev.target.value)}>
+                type="text"
+                name="usuario"
+                placeholder="Usuario"
+                autoComplete="off"
+                value={usuario}
+                onChange={ev => setUsuario(ev.target.value)}>
               </Infor>
               <Name style={{filter: "drop-shadow(-15px 15px 10px black)"}}>Contraseña</Name>
               <Infor
@@ -91,17 +87,16 @@ const Logini = () => {
                 value={password}
                 onChange={ev => setPassword(ev.target.value)}>
               </Infor>
-         </ConInfor>
+        </ConInfor>
         </Form>
-         {/* <Entrar onClick={verificar} style={{filter: "drop-shadow(-15px 15px 10px black)"}}>Entrar</Entrar> */}
-         <Div>
-        <a onClick={verificar} style={{fontWeight:"bold"}} href="#" className="btn-neon">
-                    <span id="span1"></span>
-                    <span id="span2"></span>
-                    <span id="span3"></span>
-                    <span id="span4"></span>
-                    INGRESAR
-                </a>
+        <Div>
+          <a onClick={verificar} style={{fontWeight:"bold"}} href="#" className="btn-neon">
+            <span id="span1"></span>
+            <span id="span2"></span>
+            <span id="span3"></span>
+            <span id="span4"></span>
+            INGRESAR
+          </a>
         </Div>
               <h4 style={{color: "white", margin:"none"}}>{advertencia}</h4>
         </Login>

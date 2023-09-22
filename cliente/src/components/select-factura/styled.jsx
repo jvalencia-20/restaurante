@@ -23,6 +23,8 @@ export const Titulo = styled.div`
 
 export const Domicilio = styled.h1`
     margin: 0;
+    text-shadow: 5px 5px 5px  black;
+    -webkit-text-stroke: 1.5px black;
 `;
 
 export const Pedido = styled.div`
@@ -76,4 +78,13 @@ export const Regresar = styled.button`
     &:hover{
         background-color: #1f52e0;
     }
+`;
+export const Notificacion = styled.h4`
+    background-color: yellow;
+    border-radius: 2em;
+    width: 30px;
+    height: 30px;
+    text-shadow: 5px 5px 5px  black;
+    -webkit-text-stroke: 1.5px black;
+    margin-left: 15px;
 `;

@@ -74,7 +74,7 @@ const Carrito = () => {
     useEffect(() => {
         const handleOutsideClick = (event) => {
         if (modalRef.current && !modalRef.current.contains(event.target)) {
-          setModalAbierta(!modalAbierta); 
+            setModalAbierta(!modalAbierta); 
         }
         };
         document.addEventListener("mousedown", handleOutsideClick);

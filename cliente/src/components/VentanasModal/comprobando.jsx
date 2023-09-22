@@ -58,7 +58,6 @@ const Salir = styled.div`
 `;
 
 const Salida = styled.button`
-  
   background-size: cover;
   background-position: center;
   margin-bottom: 50em;

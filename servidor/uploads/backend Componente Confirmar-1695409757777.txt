@@ -1,0 +1,34 @@
+export const confirmar = async (req, res) => {
+    try {
+    const { usuario, password } = req.body;
+
+    console.log(req.body, "body")
+    if (!usuario) {
+        return res.status(409).send('Usuario requerido.');
+    }
+    if (!password) {
+        return res.status(409).send('contraseña requerida.');
+    }
+    const password2 = CryptoJS.AES.decrypt(password, x).toString(CryptoJS.enc.Utf8)
+    const [rows] = await pool.query(
+        'SELECT * FROM admin WHERE nombre = ? ', [usuario]
+    );
+        if (rows.length > 0) {
+        const compassword = await bcrypt.compare(password2, rows[0].password);
+        const accesToken = jwt.sign({id: rows[0].id_admin}, SECRET, {
+            expiresIn: "1h",
+        });
+        if(compassword){
+            res.status(200).json(
+                accesToken
+                );
+        }else{
+            res.status(409).send("Las Contraseñas no Coinciden")
+        }
+        } else {
+            res.status(409).send("El usuario no existe");
+        }
+        } catch (error) {
+        res.status(500).json({ error: "Error del servidor" });
+        }
+};

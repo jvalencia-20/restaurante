@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Box, ButtonContainer, Button } from "./styled"; 
 import { useNavigate } from "react-router-dom";
 import { useDataState } from "./data.context/data.state.context";
@@ -23,12 +23,26 @@ const VistaMesa = () => {
   const [showFactura, setShowFactura] = useState(false);
   const [reservas, setReservas] = useState(Array(Mesa.length).fill({ Producto: "", Cantidad: "", Total: 0 }));
   const [mesaOcupada, setMesaOcupada] = useState(Array(Mesa.length).fill(false));
+  
+
+  useEffect(() => {
+  }, [selectedTableIndex]);
+
+  useEffect(() => {
+    if (selectedTableIndex !== -1) {
+      setShowFactura(true);
+    } else {
+      setShowFactura(false);
+    }
+  }, [selectedTableIndex]);
+
   const handleTableClick = (mesaNumber) => {
     if (!mesaOcupada[mesaNumber - 1]) {
       setSelectedTableIndex(mesaNumber - 1);
       sendReservationData(mesaNumber, reservas);
     }
   };
+
   const sendReservationData = async (mesaNumber, reservas) => {
     try {
       const mesaDataResponse = await mesaFunctions.getMesa(mesaNumber);
@@ -38,6 +52,7 @@ const VistaMesa = () => {
       console.error("Error sending reservation data:", error);
     }
   };
+
   const handleBackToOrdenClick = () => {
     navigate("/private/todofisica/fisica");
   };
@@ -50,12 +65,12 @@ const VistaMesa = () => {
             <Box
               style={{
                 backgroundImage: `url(${p.imagen})`,
-                backgroundSize: "contain",
-                backgroundRepeat:"no-repeat",
-                backgroundPosition:"center",
+                backgroundSize: "cover",
+                position: "relative",
                 cursor: "pointer",
               }}
-              onClick={() => handleTableClick(index + 1)}>
+              onClick={() => handleTableClick(index + 1)}
+            >
               <span style={{ position: "absolute", top: "10px", left: "10px", color: "white" }}>
                 Mesa {index + 1}
               </span>
@@ -65,12 +80,12 @@ const VistaMesa = () => {
         <Box
           style={{
             backgroundImage: `url(${Mesa[7].imagen})`,
-            backgroundSize: "contain",
-            backgroundRepeat:"no-repeat",
-            backgroundPosition:"center",
+            backgroundSize: "cover",
+            position: "relative",
             cursor: "pointer",
           }}
-          onClick={() => handleTableClick(8)}>
+          onClick={() => handleTableClick(8)}
+        >
           <span style={{ position: "absolute", top: "10px", left: "10px", color: "white" }}>
             Mesa 8
           </span>
@@ -81,7 +96,7 @@ const VistaMesa = () => {
           Regresar al menu
         </Button>
       </ButtonContainer>
-      {showFactura && <Factura mesa={selectedTableIndex + 1} reservas={reservas} />}
+      {showFactura && <Factura mesa={(selectedTableIndex + 1).toString()} reservas={reservas} />}    
     </>
   );
 };

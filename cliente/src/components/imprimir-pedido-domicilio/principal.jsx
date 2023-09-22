@@ -71,6 +71,3 @@ const ImprimirDomicilio = () => {
 };
 
 export default ImprimirDomicilio;
-
-
-

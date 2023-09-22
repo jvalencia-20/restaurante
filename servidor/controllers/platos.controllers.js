@@ -101,7 +101,6 @@ export const createPlato = async (nombre_plato, descripcion, precio, imagePath, 
     if (!tipo_plato) {
         return res.status(409).send('Tipo de plato  requerido.');
     }
-
     try {
         const query = "INSERT INTO plato (nombre_plato, descripcion, precio, imagen, tipo_plato) VALUES (?, ?, ?, ?, ?)";
         const values = [nombre_plato, descripcion, precio, imagePath, tipo_plato];
@@ -139,7 +138,6 @@ export const traerPlatos = async (req, res) => {
         res.status(500).json({error: error.message})
     }
 }
-
 
 export const deleteBebida = async(req,res) => {
     try {

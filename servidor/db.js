@@ -7,4 +7,3 @@ export const pool = createPool({
     password:'',
     database:'restaurante',
 })
-

@@ -18,7 +18,6 @@ export const TraerPlatos = () => {
             setPlato(response.data)
         })
         .catch(error => {
-        // alert("hola: " + error.message);
         });
     }
     useEffect(() => {

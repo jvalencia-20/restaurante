@@ -10,13 +10,13 @@ import Comprobando from "../VentanasModal/comprobando";
 
 function PrincipalDashboard() {
     const navegate = useNavigate()
-    const [comprobar, setComprobar] = useState(true) 
     const [producto, setProducto] = useState([]);
-    const { token, logout } = useAuthContext();
     const ubicacion = useLocation()
     const [user, setUser] = useState("")
-    const [destokenado, setDestokenado] = useState("")
     const [activo, setActivo] = useState(false)
+    const [destokenado, setDestokenado] = useState("")
+    const { token, logout } = useAuthContext();
+    const [comprobar, setComprobar] = useState(true) 
     const decodeJWT= (token) => {
         try{
         const base64Url = token.split('.')[1];
@@ -72,19 +72,19 @@ return (
                     <CajaLogo >
                         <h1>Bienvenido {user} </h1>
                     </CajaLogo>
-                    <div style={{fontSize:"20px"}}><Link to={LOGOUT}><Boton style={{height:"80px", color:"white", textShadow:"0 0 10PX #A945C7,0 0 40PX #A945C7, 0 0 80PX #A945C7"}}>🔚Cerrar sesión</Boton></Link></div>
+                    <div style={{fontSize:"20px"}}><Link to={LOGOUT}><Boton style={{height:"80px", color:"white", textShadow:"0 0 10PX rgb(78,143,143),0 0 40PX rgb(78,143,143), 0 0 80PX rgb(78,143,143)"}}>🔚Cerrar sesión</Boton></Link></div>
                 </Header>
             </ContainerHeader>
             <CajaNav>
-                <Link to="/private"><Boton>🏠Inicio</Boton></Link>
-                <Link to="/private/dashboard"><Boton>🍝Agregar Plato</Boton></Link>
-                <Link to="/private/crearBebida"><Boton>🍹Agregar Bebida</Boton></Link>
-                <Link to="/private/register"><Boton>👤Crear Usuario</Boton></Link>
-                <Link to="/private/crearProducto"><Boton>📦Agregar Producto</Boton></Link>
-                <Link to="/private/traerAdmin"><Boton>👨‍💼Administradores</Boton></Link>
-                <Link to="/private/traerPlato"><Boton>🥗Platos</Boton></Link>
-                <Link to="/private/traerBebida"><Boton>🍸Bebidas</Boton></Link>
-                <Link to="/private/inventario"><Boton>📚 Inventario</Boton></Link>
+                <Link to="/private" style={{cursor:"inherit"}}><Boton>🏠Inicio</Boton></Link>
+                <Link to="/private/dashboard" style={{cursor:"inherit"}}><Boton>🍝Agregar Plato</Boton></Link>
+                <Link to="/private/crearBebida" style={{cursor:"inherit"}}><Boton>🍹Agregar Bebida</Boton></Link>
+                <Link to="/private/register" style={{cursor:"inherit"}}><Boton>👤Crear Usuario</Boton></Link>
+                <Link to="/private/crearProducto" style={{cursor:"inherit"}}><Boton>📦Agregar Producto</Boton></Link>
+                <Link to="/private/traerAdmin" style={{cursor:"inherit"}}><Boton>👨‍💼Administradores</Boton></Link>
+                <Link to="/private/traerPlato" style={{cursor:"inherit"}}><Boton>🥗Platos</Boton></Link>
+                <Link to="/private/traerBebida" style={{cursor:"inherit"}}><Boton>🍸Bebidas</Boton></Link>
+                <Link to="/private/inventario" style={{cursor:"inherit"}}><Boton>📚 Inventario</Boton></Link>
             </CajaNav>      
             <ContainerMain >
                 <Outlet />
@@ -103,10 +103,6 @@ return (
         </Container> 
     </Body>
 </>
-
 );
 }
-
 export default PrincipalDashboard;
-
-

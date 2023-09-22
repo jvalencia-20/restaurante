@@ -28,7 +28,6 @@ const Enviar = () => {
         </Container>
       </Fondo>      
     </div>
-
   )
 }
 

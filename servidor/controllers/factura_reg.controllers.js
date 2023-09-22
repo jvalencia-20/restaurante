@@ -115,7 +115,6 @@ export const getRegistrosPorMesaYFecha = async (req, res) => {
     }
 };
 
-
 export const getRegistrosPorMesa = async (req, res) => {
     try {
         const { mesa } = req.params;
@@ -129,7 +128,6 @@ export const getRegistrosPorMesa = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
-
 
 export const getRegistrosPorFecha = async (req, res) => {
     try {

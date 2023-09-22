@@ -48,7 +48,6 @@ export const Titulo = styled.div`
 `;
 
 export const Container = styled.div`
-/* background-color: yellowgreen; */
     display: flex;
     height: 50em;
     width: 55em;
@@ -74,7 +73,6 @@ export const Contenido = styled.h3`
 `;
 
 export const ConImg = styled.div`
-/* background-color: yellow    ; */
     height: 30em;
     width: 30em;
     display: flex;
@@ -179,7 +177,6 @@ export const Agregar = styled.button`
 `;
 
 export const Plato = styled.div`
-/* background-color: aqua; */
     height: 30em;
     width: 23em;
     display: flex;

@@ -71,7 +71,6 @@ export const createAdmin = async (req, res) => {
             nombre,
             correo,
             cargo
-            
         });
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -117,10 +116,10 @@ export const createProducto = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
+
 export const confirmar = async (req, res) => {
     try {
     const { usuario, password } = req.body;
-
     if (!usuario) {
         return res.status(409).send('Usuario requerido.');
     }
@@ -150,6 +149,7 @@ export const confirmar = async (req, res) => {
         res.status(500).json({ error: "Error del servidor" });
         }
 };
+
 export const deletePlatoCarrito = async (req, res) => {
     try {
         const [result] = await pool.query('DELETE FROM agrega_comida WHERE id_plato = ?', [req.params.id_plato]);

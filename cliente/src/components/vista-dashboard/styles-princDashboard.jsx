@@ -85,20 +85,21 @@ export const Header = styled.div`
 `;
 
 export const ContainerHeader = styled.div`
-    background-color: #12011d;
+    background-color:rgb(0, 0, 0);
     display: flex;
     justify-content: center;
     align-items: start;
     width: 100%;
     height: 100%;
     box-shadow: -1px 1px 7px 0px rgba(0, 0, 0, 0.75);
-    color: #ffffff;
-    text-shadow: 0 0 10PX #A945C7,0 0 40PX #A945C7, 0 0 80PX #A945C7;
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 10PX rgb(78,143,143),0 0 40PX rgb(78,143,143), 0 0 80PX rgb(78,143,143);
     grid-area: header;
 `;
 
 export const CajaNav = styled.div`
     background-color: white;
+    border: solid;
     display: flex;
     grid-area: navbar1;
     border-radius: 5px;
@@ -143,18 +144,19 @@ export const CajaLogo = styled.div`
 
 export const Boton = styled.button`
     height: 100%;
+    margin: 10px;
     width:100px;
     text-decoration: none;
     border-radius: 8px;
     background-color: transparent;
     border: none;
     &:hover{
-    box-shadow: 0 0 10PX black,0 0 40PX black, 0 0 80PX black;
+    box-shadow: 0 0 10PX rgb(78,143,143),0 0 40PX rgb(78,143,143), 0 0 80PX rgb(78,143,143);
     };
     &:focus{
     background-color: black;
-    color: orange;
-    text-shadow:  0 0 10PX orange,0 0 40PX orange, 0 0 80PX orange;
+    color: rgb(255, 255, 255);
+    text-shadow:  0 0 10PX rgb(78,143,143),0 0 40PX rgb(78,143,143), 0 0 80PX rgb(78,143,143);
     }
     @media  screen and (min-width: 1000px ) {
         height: 50px;
@@ -163,8 +165,8 @@ export const Boton = styled.button`
         border: none;
         background-color: transparent;
         text-align: start;
-        margin: 10px;
         font-size: 13px;
         font-weight: bold;
+        cursor: pointer
     }
 `;

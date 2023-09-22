@@ -165,4 +165,3 @@ export const DivPrincipal = styled.div`
     box-shadow: none;
     }
 `;
-
