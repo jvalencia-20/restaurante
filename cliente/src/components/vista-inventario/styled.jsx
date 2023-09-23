@@ -29,6 +29,7 @@ export const Box3 = styled.div`
     width: 100%;
     display: flex;
     border: solid 1px;
+    background-color: white;
 `;
 
 export const Box = styled.div`
@@ -38,7 +39,7 @@ export const Box = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: aqua;
+    background-color: #c7ba45;
     overflow: hidden;
 `;
 

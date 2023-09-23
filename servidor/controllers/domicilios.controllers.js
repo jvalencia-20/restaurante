@@ -41,7 +41,6 @@ export const getDomicilio = async (req, res) => {
 //eliminar domicilio
 export const deleteDomicilio = async(req,res) => {
     try {
-        console.log(req.params.di,'😘😘😘😘');
         const [result] = await pool.query('DELETE FROM domicilio WHERE direccion = ?', [req.params.di]);       
         if (result.affectedRows <= 0) {
             return res.status(404).json({message: 'El domicilio no se encuentra 😓'});

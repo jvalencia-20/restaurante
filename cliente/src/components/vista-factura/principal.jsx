@@ -5,7 +5,6 @@ import {
     ContPrincipal,
     ContFactura,
     ResPrecios,
-    ContBoton,
     BotonImprimir,
 } from "./styled";
 import mesaFunctions from "../vista-mesa/mesa.services/mesa.services";
@@ -56,14 +55,6 @@ const Factura = (props) => {
             return accumulator;
         }, 0);
         setTotal(totalAmount);
-    };
-
-    const handleBackToOrdenClick = () => {
-        navigate("/private/todofisica/fisica");
-    };
-
-    const handlePayUClick = () => {
-        setRedirectToPayU(true);
     };
 
     const handleIrRegistroFact = async () => {
@@ -164,15 +155,14 @@ const Factura = (props) => {
                     </div>
                     <Pago total={total} lastInsertedIdProp={parseInt(lastInsertedId, 10)} />
                 </ResPrecios>
-                <ContBoton>
                     <BotonImprimir onClick={handlePrintClick}>Imprimir factura</BotonImprimir>
-                    <Link to="/private/todofisica/registro-fact">
-                        <BotonImprimir id="registrarFacturaButton" onClick={handleIrRegistroFact}>Ir a registro de facturas</BotonImprimir>
-                        <BotonImprimir onClick={handleBackToOrdenClick}>Regresar al menú</BotonImprimir>
-                        <BotonImprimir onClick={handlePayUClick}>Pagar con PayU</BotonImprimir>
-                        <BotonImprimir onClick={handleEliminarRegistros} style={{ marginTop: '20px' }}> Eliminar Registros de la Factura </BotonImprimir>
+                        <Link to="/private/todofisica/registro-fact">
+                            <BotonImprimir id="registrarFacturaButton" onClick={handleIrRegistroFact}>Ir a registro de facturas</BotonImprimir>
+                        <Link to="/private/todofisica/imprimir">
+                            <BotonImprimir>Imprimir pedido</BotonImprimir>
+                        </Link>
+                    <BotonImprimir onClick={handleEliminarRegistros} style={{ marginTop: '20px' }}> Eliminar Registros de la Factura </BotonImprimir>
                     </Link>
-                </ContBoton>
             </ContPrincipal>
         </Background>
     );

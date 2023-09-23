@@ -1,9 +1,6 @@
 import styled from "styled-components"
-import Fondo from "../Img/Restauran.jpg"
 
 export const Background = styled.div`
-  background-image: url(${Fondo});
-  background-size: cover;
   height: 100%;
   width: 100%;
   display: flex;

@@ -69,7 +69,6 @@ export const Titulo = styled.h1`
 export const Logotipo = styled.img`
   background-color: rgba(05, 05, 05, .5);  
   backdrop-filter: blur(5px);
-  /* box-shadow: 0 0 10PX #fffdfd,0 0 20PX #fbffff, 0 0 40PX #f2ffff; */
   height: 35em;
   width: 40em;
   box-shadow: 2px 1px 10px black;
@@ -108,7 +107,7 @@ export const Infor = styled.input`
   border: 1px solid #ffffff;
   background-color: transparent;
   border-radius: 5px;
-  color: #000000;
+  color: #fffafa;
   @media screen and ( max-width: 90vh){   
     height: 2em;
     width: 20em; 

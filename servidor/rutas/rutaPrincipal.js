@@ -112,10 +112,10 @@ router.delete('/agrega_comida/:id_plato', deletePlatoCarrito)
 router.get('/informacion', informacion)
 
 //Tabla mesa
-
 router.get('/mesa/:id', getMesa);
 router.post('/crear-mesa', createMesa)
-router.delete('/orden/:id_mesa', deleteOrdenPorMesa);
+router.delete('/mesa_id/:id_mesa', deleteOrdenPorMesa);
+
 
 //Tabla de domicilios
 

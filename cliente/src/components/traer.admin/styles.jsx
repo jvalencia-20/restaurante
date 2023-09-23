@@ -22,15 +22,15 @@ export const Main = styled.main`
 
 export const Tabla = styled.table`
     border-collapse: collapse;
-    border-radius: 2px solid #0099ff;
-    border-right: 2px solid #0099ff;
-    border-left: 2px solid #0099ff;
-    border-bottom: 2px solid #0099ff;
+    border-radius: 2px solid #c7ba45;
+    border-right: 2px solid #c7ba45;
+    border-left: 2px solid #c7ba45;
+    border-bottom: 2px solid #c7ba45;
 `;
 
 export const Thead = styled.thead`
-    background-color: #0099ff;
-    color: white;
+    background-color: #c7ba45;
+    color: #000;
     height: 40px;
 `;
 

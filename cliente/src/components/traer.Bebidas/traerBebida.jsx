@@ -36,6 +36,7 @@ export const TraerBebidas = () => {
     <Pagina>
         <Background>
             <Receta>
+            <h1>Bebidas</h1>
                 <DivPrincipal >
                     <div style={{position: "relative", top:"9%"}}>
                         {

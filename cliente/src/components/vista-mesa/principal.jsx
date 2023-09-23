@@ -65,7 +65,9 @@ const VistaMesa = () => {
             <Box
               style={{
                 backgroundImage: `url(${p.imagen})`,
-                backgroundSize: "cover",
+                backgroundSize: "contain",
+                backgroundPosition:"center",
+                backgroundRepeat:"no-repeat",
                 position: "relative",
                 cursor: "pointer",
               }}
@@ -80,7 +82,9 @@ const VistaMesa = () => {
         <Box
           style={{
             backgroundImage: `url(${Mesa[7].imagen})`,
-            backgroundSize: "cover",
+            backgroundSize: "contain",
+            backgroundPosition:"center",
+            backgroundRepeat:"no-repeat",
             position: "relative",
             cursor: "pointer",
           }}

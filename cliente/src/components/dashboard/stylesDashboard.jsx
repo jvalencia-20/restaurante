@@ -18,6 +18,7 @@ export const Receta = styled.div`
     height: 100%;
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 8px;
@@ -67,6 +68,8 @@ export const Infor = styled.input`
     color: white;
     border-radius: 8px;
     height: 30px;
+    width: 20em;
+
 `;
 
 export const Infor2 = styled.input`

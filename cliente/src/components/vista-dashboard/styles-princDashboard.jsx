@@ -1,6 +1,5 @@
 import styled from "styled-components"
 
-
 export const Body = styled.div`
     width: 100%;
     height: 100vh;
@@ -85,21 +84,21 @@ export const Header = styled.div`
 `;
 
 export const ContainerHeader = styled.div`
-    background-color:rgb(0, 0, 0);
+    background-color: #1d100163;
     display: flex;
     justify-content: center;
     align-items: start;
     width: 100%;
     height: 100%;
     box-shadow: -1px 1px 7px 0px rgba(0, 0, 0, 0.75);
-    color: rgb(255, 255, 255);
-    text-shadow: 0 0 10PX rgb(78,143,143),0 0 40PX rgb(78,143,143), 0 0 80PX rgb(78,143,143);
+    color: #ffffff;
+    text-shadow: 0 0 10PX #c7ba45,0 0 40PX #c7c345, 0 0 80PX #c3c745;
     grid-area: header;
 `;
 
 export const CajaNav = styled.div`
-    background-color: white;
-    border: solid;
+    background-color: #1d100163;
+    box-shadow: -1px 1px 7px 0px rgba(0, 0, 0, 0.75);
     display: flex;
     grid-area: navbar1;
     border-radius: 5px;
@@ -115,12 +114,21 @@ export const ContainerMain = styled.div`
     grid-area: main1;
     border-radius: 5px;
     overflow: scroll;
+    &::-webkit-scrollbar-thumb {
+    background: #000000; 
+    border-radius: 10px;
+    }
+    &::-webkit-scrollbar {
+        background: transparent;
+        border-radius: 10px;
+    }
 `;
 
 export const ContainerMenu = styled.div`
-    background-color: white;
+    background-color: #1d100163;
     grid-area: sidebar1;
     box-shadow: -1px 1px 7px 0px rgba(0, 0, 0, 0.75);
+    color: #ffffff;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -146,17 +154,18 @@ export const Boton = styled.button`
     height: 100%;
     margin: 10px;
     width:100px;
+    color: #fff;
     text-decoration: none;
     border-radius: 8px;
     background-color: transparent;
     border: none;
     &:hover{
-    box-shadow: 0 0 10PX rgb(78,143,143),0 0 40PX rgb(78,143,143), 0 0 80PX rgb(78,143,143);
+    box-shadow: 0 0 10PX black,0 0 40PX black, 0 0 80PX black;
     };
     &:focus{
     background-color: black;
     color: rgb(255, 255, 255);
-    text-shadow:  0 0 10PX rgb(78,143,143),0 0 40PX rgb(78,143,143), 0 0 80PX rgb(78,143,143);
+    text-shadow:  0 0 10PX orange,0 0 40PX orange, 0 0 80PX orange;
     }
     @media  screen and (min-width: 1000px ) {
         height: 50px;

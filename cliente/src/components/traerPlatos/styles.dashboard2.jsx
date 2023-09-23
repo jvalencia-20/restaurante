@@ -56,9 +56,14 @@ export const DivPrincipal = styled.div`
     box-shadow: 8px 12px 9px 10px rgba(0, 0, 0, 0.75);
     position: relative;
     overflow-y: auto;
-    ::-webkit-scrollbar {
-    display: none;
-}
+    &::-webkit-scrollbar-thumb {
+    background: #000000; 
+    border-radius: 10px;
+    }
+    &::-webkit-scrollbar {
+        background: transparent;
+        border-radius: 10px;
+    }
     @media  screen and (max-width: 670px ) {
     }
     @media  screen and (min-width: 1020px ) {

@@ -67,11 +67,6 @@ export const ResPrecios = styled.div`
     }
 `;
 
-export const ContBoton = styled.div`
-    display: flex;
-    justify-content: center;
-`;
-
 export const BotonImprimir = styled.button`
     color: #fffafa;
     background-color: black;

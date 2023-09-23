@@ -48,6 +48,7 @@ export const Dashboard = () => {
         <Pagina>
             <Background>
                 <Receta>
+                <h1>Agregar Platos</h1>
                     <DivPrincipal>
                         <Hoja1>
                             <Div>
@@ -72,7 +73,7 @@ export const Dashboard = () => {
                                     cols="40"
                                     value={descripcion}
                                     onChange={ev => setDescripcion(ev.target.value)}
-                                    style={{ height: "80px", width: "150px", borderRadius: "8px" }}>
+                                    style={{ height: "80px",  borderRadius: "8px" }}>
                                 </Infor>
                             </Div>
                             <Div>

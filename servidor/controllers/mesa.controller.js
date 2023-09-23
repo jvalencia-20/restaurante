@@ -34,6 +34,7 @@ export const createMesa = async (req, res) => {
     }
 };
 
+
 export const deleteOrdenPorMesa = async (req, res) => {
     try {
         const id_mesa = parseInt(req.params.id_mesa);
@@ -47,7 +48,6 @@ export const deleteOrdenPorMesa = async (req, res) => {
         if (deleteResult.affectedRows > 0) {
             return res.status(200).json({ message: 'Registros eliminados correctamente.' });
         } else {
-            console.error(`No se encontraron registros para la mesa con id_mesa ${id_mesa} para eliminar.`);
             return res.status(404).json({ message: 'No encontrado' });
         }
         } catch (error) {

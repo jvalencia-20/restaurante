@@ -16,7 +16,8 @@ export const Background = styled.div`
 `;
 
 export const Login = styled.form`
-  background-color: #087debdc;
+  background-color: rgba(05, 05, 05, .5);  
+  backdrop-filter: blur(5px);
   height: 95%;
   width: 90%;
   border-radius: 1em;

@@ -51,6 +51,7 @@ const config = {
     <Pagina>
         <Background>
             <Receta>
+            <h1>Agregar Bebidas</h1>
                 <DivPrincipal>
                     <Hoja1>
                         <Div>
@@ -75,7 +76,7 @@ const config = {
                                 cols="40"
                                 value={descripcion}
                                 onChange={ev => setDescripcion(ev.target.value)}
-                                style={{  height: "80px", width: "150px", borderRadius: "8px" }}>
+                                style={{  height: "80px", borderRadius: "8px" }}>
                             </Infor>
                         </Div>
                         <Div>

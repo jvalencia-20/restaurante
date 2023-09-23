@@ -24,6 +24,7 @@ Buscar()
 return (
 <>
     <Container>
+        <h1>Inventario</h1>
         <Container2>
             <Box3>
                 <Box>Nombre</Box>
@@ -33,7 +34,7 @@ return (
                 <Box>Precio</Box>
             </Box3>
             {inventario.map((p, index) => (
-            <Box3 key={index}>
+            <Box3 key={index} style={{ backgroundColor: index % 2 === 0 ? 'white' : '#c7ba453c' }}>
                 <Box2>{p.nombre_producto}</Box2>
                 <Box2>{p.presentacion}</Box2>
                 <Box2>{p.categoria}</Box2>

@@ -72,18 +72,18 @@ return (
                     <CajaLogo >
                         <h1>Bienvenido {user} </h1>
                     </CajaLogo>
-                    <div style={{fontSize:"20px"}}><Link to={LOGOUT}><Boton style={{height:"80px", color:"white", textShadow:"0 0 10PX rgb(78,143,143),0 0 40PX rgb(78,143,143), 0 0 80PX rgb(78,143,143)"}}>🔚Cerrar sesión</Boton></Link></div>
+                    <div style={{fontSize:"20px"}}><Link to={LOGOUT}><Boton style={{height:"80px",width:"200px", color:"white",fontSize:"20px", textShadow:"0 0 10PX #c7ba45,0 0 40PX #c7c345, 0 0 80PX #c3c745"}}>🔚Cerrar sesión</Boton></Link></div>
                 </Header>
             </ContainerHeader>
             <CajaNav>
-                <Link to="/private" style={{cursor:"inherit"}}><Boton>🏠Inicio</Boton></Link>
-                <Link to="/private/dashboard" style={{cursor:"inherit"}}><Boton>🍝Agregar Plato</Boton></Link>
-                <Link to="/private/crearBebida" style={{cursor:"inherit"}}><Boton>🍹Agregar Bebida</Boton></Link>
-                <Link to="/private/register" style={{cursor:"inherit"}}><Boton>👤Crear Usuario</Boton></Link>
-                <Link to="/private/crearProducto" style={{cursor:"inherit"}}><Boton>📦Agregar Producto</Boton></Link>
-                <Link to="/private/traerAdmin" style={{cursor:"inherit"}}><Boton>👨‍💼Administradores</Boton></Link>
-                <Link to="/private/traerPlato" style={{cursor:"inherit"}}><Boton>🥗Platos</Boton></Link>
-                <Link to="/private/traerBebida" style={{cursor:"inherit"}}><Boton>🍸Bebidas</Boton></Link>
+                <Link to="/private" style={{cursor:"inherit"}}><Boton>🏠 Inicio</Boton></Link>
+                <Link to="/private/dashboard" style={{cursor:"inherit"}}><Boton>🍝 Agregar Plato</Boton></Link>
+                <Link to="/private/crearBebida" style={{cursor:"inherit"}}><Boton>🍹 Agregar Bebida</Boton></Link>
+                <Link to="/private/register" style={{cursor:"inherit"}}><Boton>👤 Crear Usuario</Boton></Link>
+                <Link to="/private/crearProducto" style={{cursor:"inherit"}}><Boton>📦 Agregar Producto</Boton></Link>
+                <Link to="/private/traerAdmin" style={{cursor:"inherit"}}><Boton>👨‍💼 Administradores</Boton></Link>
+                <Link to="/private/traerPlato" style={{cursor:"inherit"}}><Boton>🥗 Platos</Boton></Link>
+                <Link to="/private/traerBebida" style={{cursor:"inherit"}}><Boton>🍸 Bebidas</Boton></Link>
                 <Link to="/private/inventario" style={{cursor:"inherit"}}><Boton>📚 Inventario</Boton></Link>
             </CajaNav>      
             <ContainerMain >
