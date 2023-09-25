@@ -22,6 +22,7 @@ const Factura = (props) => {
     const [redirectToPayU, setRedirectToPayU] = useState(false);
     const [numMesa, setNumMesa] = useState(0);
     const { mesaData } = useDataState();
+    console.log(mesaData,'holaaaaaaaaaaaaa22222222222222222222')
     const mesaSeleccionada = mesa ?? mesaData[0]?.id_mesa;
 
     useEffect(() => {

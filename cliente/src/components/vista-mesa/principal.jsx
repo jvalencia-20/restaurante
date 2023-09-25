@@ -10,7 +10,6 @@ const VistaMesa = () => {
   const [mesas, setMesas] = useState([]);
   const navigate = useNavigate();
   const { mesaData, setMesaData } = useDataState();
-  console.log(mesaData, 'holaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
   const [selectedTableIndex, setSelectedTableIndex] = useState(-1);
   const [showFactura, setShowFactura] = useState(false);
   const [reservas, setReservas] = useState(Array(mesas.length).fill({ Producto: "", Cantidad: "", Total: 0 }));
@@ -41,8 +40,7 @@ const VistaMesa = () => {
     try {
       const mesaDataResponse = await mesaFunctions.getMesa(mesaNumber);
       setMesaData(mesaDataResponse);
-      console.log(mesaDataResponse,'(●●)(●●)')
-      navigate(`/private/todofisica/factura/${mesaDataResponse.id_mesa}`);
+      navigate(`/private/todofisica/factura/${mesaDataResponse[0].id_mesa}`);
     } catch (error) {
       console.error("Error sending reservation data:", error);
     }
