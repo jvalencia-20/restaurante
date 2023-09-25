@@ -115,7 +115,7 @@ const Factura = (props) => {
         const obtenerUltimoId = async () => {
             try {
                 const response = await axios.get('http://localhost:3002/api/ultimo-id');
-                const ultimoId = response.data;
+                const ultimoId = response.data; 
                 setLastInsertedId(ultimoId);
             } catch (error) {
                 console.error('Error al obtener el último ID:', error);

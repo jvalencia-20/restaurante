@@ -7,27 +7,44 @@ import guardar from "../Img/save.png"
 export const Pagina = styled.div`
     height: 100vh;
     width: 100%;
-`;
-
-export const Background = styled.div`
-    height: 100%;
-    width: 100%;
-`;
-
-export const Receta = styled.div`
-    height: 100%;
-    width: 100%;
+    /* background-color: yellowgreen; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+`;
+
+export const DivPrincipal = styled.div`
+    height: 90%;
+    width: 80%;
+    background-color: aqua;
+    background-image: url(${pizarra});
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
     border-radius: 8px;
+    box-shadow: 8px 12px 9px 10px rgba(0, 0, 0, 0.75);
+    position: relative;
+    @media  screen and (max-width: 670px ) {
+        height: 120%
+    }
+    @media  screen and (min-width: 1020px ) {
+    flex-direction: row;
+    justify-content: center;
+    height: 60%;
+    width: 70%;
+    }
+    @media  screen and (max-height: 450px ) {
+    height: 200%;
+    box-shadow: none;
+    }
 `;
 
 export const Hoja1 = styled.form`
     height: 100%;
     width: 100%;
-    background-color: transparent;
+    /* background-color: yellowgreen; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -69,6 +86,7 @@ export const Infor = styled.input`
     border-radius: 8px;
     height: 30px;
     width: 20em;
+    margin-top: 2em;
 `;
 
 export const Infor2 = styled.input`
@@ -142,29 +160,3 @@ export const Sticker = styled.div`
 export const Sticker2 = styled.div`
 `;
 
-export const DivPrincipal = styled.div`
-    height: 90%;
-    width: 90%;
-    background-color: aqua;
-    background-image: url(${pizarra});
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-    align-items: center;
-    border-radius: 8px;
-    box-shadow: 8px 12px 9px 10px rgba(0, 0, 0, 0.75);
-    position: relative;
-    @media  screen and (max-width: 670px ) {
-        height: 120%
-    }
-    @media  screen and (min-width: 1020px ) {
-    flex-direction: row;
-    justify-content: center;
-    height: 60%;
-    width: 80%;
-    }
-    @media  screen and (max-height: 450px ) {
-    height: 200%;
-    box-shadow: none;
-    }
-`;

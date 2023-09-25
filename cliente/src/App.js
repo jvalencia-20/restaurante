@@ -90,7 +90,7 @@ return(
                                 <Route path="bebidafisica/:id" element = {<BebidaFisica/>} />
                                 <Route path="carritofisica" element = {<CarritoFisica/>} />
                                 <Route path= "mesa" element = {<VistaMesa/>}></Route>
-                                <Route path="factura/:di" element = {<Factura />}/>
+                                <Route path="factura/:id" element = {<Factura />}/>
                                 <Route path="imprimir" element = {<Imprimir/>}></Route>
                                 <Route path="imprimirdomicilio/:di" element = {<ImprimirDomicilio/>}></Route>
                                 <Route path="facturadomicilio/:di" element = {<FacturaDomicilio />} />

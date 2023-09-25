@@ -26,7 +26,7 @@ export const crearMesas = async (numeroMesa,imagen_url) => {
 //eliminar una mesa
 export const eliminarMesas = async(req,res) => {
     try {
-        const [result] = await pool.query('DELETE FROM mesas WHERE id= ?', [req.params.id]);
+        const [result] = await pool.query('DELETE FROM mesas WHERE mesa = ?', [req.params.id]);
         if(result.affectedRows <= 0){
             return res.status(404).json({
                 message: 'Mesa no encontrada'
@@ -36,8 +36,10 @@ export const eliminarMesas = async(req,res) => {
         }
         res.status(200).json({message: 'Se elimino la mesa 🎉'})
     } catch (error) {
+        console.error('ocurrio un error:', error);
         res.status(500).json({message: 'error interno'})
     }
+
 }
 
 //actualizar una mesa
