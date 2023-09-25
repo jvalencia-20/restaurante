@@ -1,29 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { Container, Box, ButtonContainer, Button } from "./styled"; 
+import { Container, Box, ButtonContainer, Button } from "./styled";
 import { useNavigate } from "react-router-dom";
 import { useDataState } from "./data.context/data.state.context";
-import mesa from "../Img/mesa.png";
+import axios from "axios";
 import Factura from "../vista-factura/principal";
 import mesaFunctions from "./mesa.services/mesa.services";
 
 const VistaMesa = () => {
+  const [mesas, setMesas] = useState([]);
   const navigate = useNavigate();
-  const Mesa = [
-    { imagen: mesa, nombre: "Mesa 1" },
-    { imagen: mesa, nombre: "Mesa 2" },
-    { imagen: mesa, nombre: "Mesa 3" },
-    { imagen: mesa, nombre: "Mesa 4" },
-    { imagen: mesa, nombre: "Mesa 5" },
-    { imagen: mesa, nombre: "Mesa 6" },
-    { imagen: mesa, nombre: "Mesa 7" },
-    { imagen: mesa, nombre: "Mesa 8" },
-  ];
   const { mesaData, setMesaData } = useDataState();
   const [selectedTableIndex, setSelectedTableIndex] = useState(-1);
   const [showFactura, setShowFactura] = useState(false);
-  const [reservas, setReservas] = useState(Array(Mesa.length).fill({ Producto: "", Cantidad: "", Total: 0 }));
-  const [mesaOcupada, setMesaOcupada] = useState(Array(Mesa.length).fill(false));
-  
+  const [reservas, setReservas] = useState(Array(mesas.length).fill({ Producto: "", Cantidad: "", Total: 0 }));
+  const [mesaOcupada, setMesaOcupada] = useState(Array(mesas.length).fill(false));
+
 
   useEffect(() => {
   }, [selectedTableIndex]);
@@ -36,6 +27,8 @@ const VistaMesa = () => {
     }
   }, [selectedTableIndex]);
 
+
+
   const handleTableClick = (mesaNumber) => {
     if (!mesaOcupada[mesaNumber - 1]) {
       setSelectedTableIndex(mesaNumber - 1);
@@ -47,7 +40,7 @@ const VistaMesa = () => {
     try {
       const mesaDataResponse = await mesaFunctions.getMesa(mesaNumber);
       setMesaData(mesaDataResponse);
-      navigate("/private/todofisica/factura/:di");
+      navigate(`/private/todofisica/factura/${mesaDataResponse.di}`);
     } catch (error) {
       console.error("Error sending reservation data:", error);
     }
@@ -57,50 +50,42 @@ const VistaMesa = () => {
     navigate("/private/todofisica/fisica");
   };
 
+  const getMesas = () => {
+    axios.get("http://localhost:3002/api/mesas").then((response) => {
+      setMesas(response.data);
+    });
+  };
+
+  useEffect(() => {
+    getMesas();
+  }, []);
+
   return (
     <>
       <Container>
-        {Mesa.slice(1).map((p, index) => (
-          <React.Fragment key={index}>
+        {mesas.map((mesa, index) => (
+          <React.Fragment key={mesa.id}>
             <Box
               style={{
-                backgroundImage: `url(${p.imagen})`,
+                backgroundImage: `url(${"http://localhost:3002/" + mesa.imagen_url})`,
                 backgroundSize: "contain",
-                backgroundPosition:"center",
-                backgroundRepeat:"no-repeat",
-                position: "relative",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
                 cursor: "pointer",
               }}
               onClick={() => handleTableClick(index + 1)}
             >
-              <span style={{ position: "absolute", top: "10px", left: "10px", color: "white" }}>
-                Mesa {index + 1}
-              </span>
+              <h1 style={{ position: "absolute", top: "10px", left: "10px", color: "white" }}>
+                {mesa.mesa}
+              </h1>
             </Box>
           </React.Fragment>
         ))}
-        <Box
-          style={{
-            backgroundImage: `url(${Mesa[7].imagen})`,
-            backgroundSize: "contain",
-            backgroundPosition:"center",
-            backgroundRepeat:"no-repeat",
-            position: "relative",
-            cursor: "pointer",
-          }}
-          onClick={() => handleTableClick(8)}
-        >
-          <span style={{ position: "absolute", top: "10px", left: "10px", color: "white" }}>
-            Mesa 8
-          </span>
-        </Box>
       </Container>
       <ButtonContainer>
-        <Button onClick={handleBackToOrdenClick}>
-          Regresar al menu
-        </Button>
+        <Button onClick={handleBackToOrdenClick}>Regresar al menu</Button>
       </ButtonContainer>
-      {showFactura && <Factura mesa={(selectedTableIndex + 1).toString()} reservas={reservas} />}    
+      {showFactura && <Factura mesa={selectedTableIndex + 1} reservas={reservas} />}
     </>
   );
 };

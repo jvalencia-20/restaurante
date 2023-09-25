@@ -63,7 +63,7 @@ const Logini = () => {
       <Background>
         <Fondo1 >
           <Logotipo src={logo}></Logotipo>
-        <Login>
+          <Login>
             <ConTitulo>
               <Titulo style={{filter: "drop-shadow(-15px 15px 10px black)"}}>Donde entras por una Bandeja y sales con una Paisa</Titulo>
             </ConTitulo>
@@ -87,19 +87,19 @@ const Logini = () => {
                 value={password}
                 onChange={ev => setPassword(ev.target.value)}>
               </Infor>
-        </ConInfor>
-        </Form>
-        <Div>
-          <a onClick={verificar} style={{fontWeight:"bold"}} href="#" className="btn-neon">
-            <span id="span1"></span>
-            <span id="span2"></span>
-            <span id="span3"></span>
-            <span id="span4"></span>
-            INGRESAR
-          </a>
-        </Div>
+            </ConInfor>
+            </Form>
+            <Div>
+              <a onClick={verificar} style={{fontWeight:"bold"}} href="#" className="btn-neon">
+                <span id="span1"></span>
+                <span id="span2"></span>
+                <span id="span3"></span>
+                <span id="span4"></span>
+                INGRESAR
+              </a>
+            </Div>
               <h4 style={{color: "white", margin:"none"}}>{advertencia}</h4>
-        </Login>
+          </Login>
         </Fondo1>
       </Background>
     </>

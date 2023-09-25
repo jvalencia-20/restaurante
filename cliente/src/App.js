@@ -42,6 +42,7 @@ import { ActualizarBebida } from "./components/actualizar-bebida/actualizar.bebi
 import ActualizarImg from "./components/imgActualizar/img.actualizar";
 import ActualizarImgBebida from "./components/img-actualizar-bebida/img.actualizar.bebida";
 import Todo from "./components/Todo/todo";
+import { CreaMesas } from "./components/crea-mesa/mesas";
 
 export const Principal = () => {
 return(
@@ -66,6 +67,7 @@ return(
                         <Route path={PRIVATE} element = {<PrivateRoute/>}>
                             <Route element = {<PrincipalDashboard />}>
                                 <Route index /> 
+                                <Route path="creaMesas" element = {<CreaMesas/>}></Route>    
                                 <Route path="register" element = {<Crearcuenta />} />
                                 <Route path="dashboard" element = {<Dashboard />} />
                                 <Route path="crearProducto" element = {<CrearProducto />} />

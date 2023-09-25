@@ -12,11 +12,10 @@ import Axios from "axios";
 
 const RecibirOrden = () => {
     const navigate = useNavigate();
-    const [mesasDisponibles, setMesasDisponibles] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
+    const [mesasDisponibles, setMesasDisponibles] = useState([]);
     const [productosSeleccionados, setProductosSeleccionados] = useState([]);
     const [subtotal, setSubtotal] = useState(0);
     const [mesaSeleccionada, setMesaSeleccionada] = useState(null);
-
     useEffect(() => {
         Axios.get("http://localhost:3002/api/allPlatos")
             .then((response) => {
@@ -76,6 +75,15 @@ const RecibirOrden = () => {
             });
     };
     
+    const getMesas = () => {
+        Axios.get("http://localhost:3002/api/mesas").then((response) => {
+            setMesasDisponibles(response.data);
+        });
+        };
+        useEffect(() => {
+        getMesas();
+        }, []);
+
     const handlePrintClick = () => {
         window.print();
     };
@@ -86,8 +94,8 @@ const RecibirOrden = () => {
                         <select onChange={handleMesaSeleccionada}>
                             <option value="">Seleccione una mesa</option>
                             {mesasDisponibles.map((numeroMesa, index) => (
-                                <option key={index} value={numeroMesa}>
-                                    Mesa {numeroMesa}
+                                <option key={index} value={numeroMesa.mesa}>
+                                    Mesa {numeroMesa.mesa}
                                 </option>
                             ))}
                         </select>

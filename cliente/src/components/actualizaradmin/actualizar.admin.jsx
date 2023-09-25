@@ -51,7 +51,7 @@ const actualizarusuario = (e) => {
 })
 .then(({data})=>{
 
-    alert("usuario Actualizado")
+    // alert("usuario Actualizado")
     navigate("/private/traeradmin")
   })
   .catch(error => {

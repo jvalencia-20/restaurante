@@ -91,7 +91,7 @@ export const Infor = styled.input`
   border: 1px solid #ffff;
   background-color: transparent;
   border-radius: 5px;
-  color: #c0c0c0;
+  color: #000000;
   @media screen and ( max-width: 90vh){   
     height: 2em;
     width: 20em; 

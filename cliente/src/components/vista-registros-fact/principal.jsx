@@ -45,14 +45,11 @@ const RegistroFactura = () => {
                 setLastAssignedIdMesa(response.data[0].id_mesa);
             }
         } catch (error) {
-            console.error("Error al cargar registros:", error);
         }
     };
-
     useEffect(() => {
         cargarRegistros(); 
     }, [filtros]);
-
     const handleFiltroChange = (e) => {
         const { name, value } = e.target;
         setFiltros((prevFiltros) => ({
@@ -61,7 +58,6 @@ const RegistroFactura = () => {
         }));
         setError("");
     };
-
     const borrarFiltros = () => {
         setFiltros((prevFiltros) => ({
             ...prevFiltros,
@@ -69,17 +65,14 @@ const RegistroFactura = () => {
             fecha: null,
         }));
     };
-
     const handlePrintClick = () => {
         window.print();
     };
-
     const handleBackToLastAssigned = async () => {
         if (lastAssignedIdMesa) {
             navigate(`/private/todofisica/factura/${lastAssignedIdMesa}`);
         }
     };
-
 
     return (
         <Background>

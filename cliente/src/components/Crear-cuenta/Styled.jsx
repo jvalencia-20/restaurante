@@ -15,7 +15,7 @@ export const Background = styled.div`
 `;
 
 export const Login = styled.form`
-  background-color: rgba(05, 05, 05, .5);  
+  background-color: black;
   backdrop-filter: blur(5px);
   height: 95%;
   width: 30em;
@@ -25,6 +25,7 @@ export const Login = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: solid;
   @media screen and ( max-width: 90vh){
     height: 80%;
     width: 20em; 

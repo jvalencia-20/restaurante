@@ -11,6 +11,8 @@ import jwt from 'jsonwebtoken';
 import { getAllRegistros, getRegistro, createNew, updateRegistro, delete1, deleteAllRegistro, getRegistrosPorFecha, getRegistrosPorMesaYFecha, getRegistrosPorMesa, obtenerUltimoId } from "../controllers/factura_reg.controllers.js"
 import { getAllPlatos } from "../controllers/platos.controllers.js";
 import { getMesa, createMesa, deleteOrdenPorMesa } from "../controllers/mesa.controller.js";
+import { getMesas,crearMesas,eliminarMesas,updateMesas } from "../controllers/mesas.controller.js";
+
 
 const SECRET = "secreto"
 
@@ -115,6 +117,26 @@ router.get('/informacion', informacion)
 router.get('/mesa/:id', getMesa);
 router.post('/crear-mesa', createMesa)
 router.delete('/mesa_id/:id_mesa', deleteOrdenPorMesa);
+
+
+router.get('/mesas',getMesas )//traer todas las mesas
+router.post('/creare', upload.single("imagen"), async (req, res) => {
+    try {
+        const { numeroMesa } = req.body;
+        const imagen = req.file.filename;
+        const result = await crearMesas(numeroMesa,imagen);
+        res.status(200).json({
+            message: 'Creación exitosa 🎉',
+            result
+        });
+    } catch (error) {
+        res.status(500).json({ error: 'Error en el servidor' });
+    }
+} )//crear mesas
+router.delete('/eliminar-mesa/:id' ,eliminarMesas); //eliminar mesas
+router.patch('/actualizar-mesa/:id',updateMesas); //actualizar mesa
+
+
 
 
 //Tabla de domicilios

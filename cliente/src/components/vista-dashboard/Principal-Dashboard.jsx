@@ -28,7 +28,7 @@ function PrincipalDashboard() {
         setDestokenado(decode.id)
     }
     catch{
-        setActivo(true) 
+        logout() 
     }
     }
     const cliente = async () => {
@@ -53,9 +53,7 @@ function PrincipalDashboard() {
 }
 
 useEffect(() => {
-    
     decodeJWT(token)
-    
 }, [])
 setTimeout(() => {
     cliente()
@@ -76,7 +74,7 @@ return (
                 </Header>
             </ContainerHeader>
             <CajaNav>
-                <Link to="/private" style={{cursor:"inherit"}}><Boton>🏠 Inicio</Boton></Link>
+                <Link to="/private/creaMesas" style={{cursor:"inherit"}}><Boton>🪵 Crear Mesa</Boton></Link>
                 <Link to="/private/dashboard" style={{cursor:"inherit"}}><Boton>🍝 Agregar Plato</Boton></Link>
                 <Link to="/private/crearBebida" style={{cursor:"inherit"}}><Boton>🍹 Agregar Bebida</Boton></Link>
                 <Link to="/private/register" style={{cursor:"inherit"}}><Boton>👤 Crear Usuario</Boton></Link>

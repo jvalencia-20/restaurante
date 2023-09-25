@@ -13,7 +13,7 @@ export const Body = styled.div`
 
 export const Container = styled.div`
     width: 100%;
-    height: 100%;
+    height: 100vh;
     border-radius: 5px;
     display: grid;
     gap: 15px;
@@ -84,7 +84,7 @@ export const Header = styled.div`
 `;
 
 export const ContainerHeader = styled.div`
-    background-color: #1d100163;
+    background-color: black;
     display: flex;
     justify-content: center;
     align-items: start;
@@ -97,11 +97,12 @@ export const ContainerHeader = styled.div`
 `;
 
 export const CajaNav = styled.div`
-    background-color: #1d100163;
-    box-shadow: -1px 1px 7px 0px rgba(0, 0, 0, 0.75);
+    background-color: black;
+    box-shadow: -1px 1px 7px 0px rgb(208, 255, 0);
     display: flex;
     grid-area: navbar1;
     border-radius: 5px;
+    border: solid;
     @media  screen and (min-width: 1000px ) {
         flex-direction: column;
     }
@@ -125,7 +126,7 @@ export const ContainerMain = styled.div`
 `;
 
 export const ContainerMenu = styled.div`
-    background-color: #1d100163;
+    background-color: black;
     grid-area: sidebar1;
     box-shadow: -1px 1px 7px 0px rgba(0, 0, 0, 0.75);
     color: #ffffff;
@@ -160,7 +161,7 @@ export const Boton = styled.button`
     background-color: transparent;
     border: none;
     &:hover{
-    box-shadow: 0 0 10PX black,0 0 40PX black, 0 0 80PX black;
+    box-shadow: 0 0 10PX yellow,0 0 40PX yellow, 0 0 80PX yellow;
     };
     &:focus{
     background-color: black;
