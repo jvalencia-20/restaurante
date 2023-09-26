@@ -1,14 +1,13 @@
 import React  from "react"
-import {Outlet, useNavigate} from "react-router-dom"
+import { Outlet, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react";
-import { HiOutlineShoppingCart, } from "react-icons/hi"
+import { HiOutlineShoppingCart } from "react-icons/hi"
 import { Container3, Minibox2, Button, Notificacion, Box1, Background } from "./styled";
 import Carrito from "../orden/principal";
 import { Link } from "react-router-dom";
 import { Container4, Minibox3, Minibox4 } from "./styled";
-import {BsFacebook} from "react-icons/bs"
-import {FaInstagramSquare} from "react-icons/fa"
-import { Loader, Placeholder } from 'rsuite';
+import { BsFacebook } from "react-icons/bs"
+import { FaInstagramSquare } from "react-icons/fa"
 import logo1 from "../Img/LOgo3.png"
 import fondo from "../Img/FondoInfor.jpg"
 import { useRef } from "react";
@@ -34,7 +33,7 @@ useEffect(() => {
   const modalRef = useRef(null);
   const handleOutsideClick = (event) => {
   if (modalRef.current && !modalRef.current.contains(event.target)) {
-    // Si el clic fue fuera de la ventana modal, ciérrala
+  // Si el clic fue fuera de la ventana modal, ciérrala
       setActivo(!activo);
   }
   };

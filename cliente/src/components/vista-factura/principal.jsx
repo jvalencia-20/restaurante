@@ -22,14 +22,11 @@ const Factura = (props) => {
     const [redirectToPayU, setRedirectToPayU] = useState(false);
     const [numMesa, setNumMesa] = useState(0);
     const { mesaData } = useDataState();
-    console.log(mesaData,'holaaaaaaaaaaaaa22222222222222222222')
     const mesaSeleccionada = mesa ?? mesaData[0]?.id_mesa;
-
     useEffect(() => {
         setFilteredReservas(mesaData);
         calculateTotal();
     }, [mesaData]);
-
     useEffect(() => {
         mesaFunctions.getAllMesa(mesaData)
             .then(response => {
@@ -43,7 +40,6 @@ const Factura = (props) => {
             })
             .catch(error => console.error('Error fetching data:', error));
     }, [mesaData]);
-
     const calculateTotal = () => {
         const pedidosConProductos = mesaData.filter(
             (item) => item.producto && item.precio

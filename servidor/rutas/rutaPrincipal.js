@@ -1,6 +1,5 @@
 import { Router } from "express";
 import { getAdmin, getAdmin1, createAdmin, updateAdmin, deleteAdmin, confirmar, deletePlatoCarrito, createProducto, traerProducto, actualizarContraseñaAdmin } from "../controllers/admin.controller.js";
-import { getEmpleado,getEmpleados,createEmpleado,deleteEmpleado,updateEmpleado } from "../controllers/empleado.controllers.js";
 import { createPlato,createBebida, deletePlato,updatePlato, obtenerPlato, Compra, agregarPedido, Bebidas, obtenerBebida, PlatosSancocho, PlatosCorriente, informacion, deleteBebida, updateImagePlato,traerPlatos,updateImagebebida, updateBebida } from "../controllers/platos.controllers.js";
 import { createDomicilio,getDomicilios,getDomicilio, deleteDomicilio, updateDomicilio } from "../controllers/domicilios.controllers.js";
 import multer from 'multer';
@@ -54,12 +53,12 @@ const expressApp = express();
 
 //Tabla admin
 
-router.get('/admin', getAdmin) //Ruta para obtener todos
-router.get('/admin/:id', getAdmin1) //Ruta para obtener uno
+router.get('/admin', verificarToken,getAdmin) //Ruta para obtener todos
+router.get('/admin/:id', verificarToken, getAdmin1) //Ruta para obtener uno
 router.post('/createadmin', verificarToken, createAdmin) //Ruta para crear uno
 router.put('/actualizarcontrasena/:id', verificarToken, actualizarContraseñaAdmin)
 router.post('/login', confirmar)
-router.put('/admin/:id', updateAdmin) //Ruta para actualizar
+router.put('/admin/:id', verificarToken, updateAdmin) //Ruta para actualizar
 router.delete('/deleteadmin/:id', deleteAdmin) //Ruta para eliminar uno
 
 //tabla inventario producto.
@@ -69,11 +68,6 @@ router.post('/createproducto', verificarToken, createProducto)
 
 //Tabla empleado
 
-router.get('/empleados',getEmpleados);//ruta para obtener todos los empleados
-router.get('/empleado/:id', getEmpleado);//ruta para obtener un empleado por id
-router.post('/creacion',createEmpleado);//ruta para crear un empleado
-router.delete('/eliminar/:id',deleteEmpleado);//ruta para eliminar un empleado
-router.patch('/actualizar/:id', updateEmpleado);//ruta para actualizar empleado
 router.delete('/eliminarbebida/:id', deleteBebida)
 
 //Tabla plato

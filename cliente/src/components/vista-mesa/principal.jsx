@@ -14,20 +14,16 @@ const VistaMesa = () => {
   const [showFactura, setShowFactura] = useState(false);
   const [reservas, setReservas] = useState(Array(mesas.length).fill({ Producto: "", Cantidad: "", Total: 0 }));
   const [mesaOcupada, setMesaOcupada] = useState(Array(mesas.length).fill(false));
-
+  console.log(mesaOcupada,'hola')
 
   useEffect(() => {
   }, [selectedTableIndex]);
 
   useEffect(() => {
     if (selectedTableIndex !== -1) {
-      setShowFactura(true);
-    } else {
-      setShowFactura(false);
+      setShowFactura(!showFactura);
     }
   }, [selectedTableIndex]);
-
-
 
   const handleTableClick = (mesaNumber) => {
     if (!mesaOcupada[mesaNumber - 1]) {
@@ -73,8 +69,7 @@ const VistaMesa = () => {
                 backgroundPosition: "center",
                 cursor: "pointer",
               }}
-              onClick={() => handleTableClick(index + 1)}
-            >
+              onClick={() => handleTableClick(index + 1)}>
               <h1 style={{ position: "absolute", top: "10px", left: "10px", color: "white" }}>
                 {mesa.mesa}
               </h1>
@@ -85,7 +80,7 @@ const VistaMesa = () => {
       <ButtonContainer>
         <Button onClick={handleBackToOrdenClick}>Regresar al menu</Button>
       </ButtonContainer>
-      {showFactura && <Factura mesa={selectedTableIndex + 1} reservas={reservas} />}
+      {showFactura &&  reservas > 0  ? <Factura mesa={selectedTableIndex + 1} reservas={reservas}/> : "" }
     </>
   );
 };

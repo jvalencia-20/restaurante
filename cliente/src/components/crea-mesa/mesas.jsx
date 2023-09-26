@@ -44,20 +44,20 @@ const config = {
     });
 }
 const getMesas = () => {
-  Axios.get("http://localhost:3002/api/mesas").then((response) => {
+    Axios.get("http://localhost:3002/api/mesas").then((response) => {
     setMesas(response.data.length);
-  });
+    });
 };
 
 useEffect(() => {
-  getMesas();
+    getMesas();
 }, []);
 
 const eliminar = () => {
-  Axios.delete(`http://localhost:3002/api/eliminar-mesa/${mesas}`)
-  .catch(error => {
-  })
-  window.location.reload()
+    Axios.delete(`http://localhost:3002/api/eliminar-mesa/${mesas}`)
+    .catch(error => {
+    })
+    window.location.reload()
 }
     return(
     <Pagina>
@@ -65,8 +65,8 @@ const eliminar = () => {
                 <DivPrincipal>
                     <Hoja1>
                         <Div style={{ height:" 3em"}}>
-                          <Name>Numero total de mesas: {mesas}</Name>
-                          <Div style={{width:"17em"}}></Div>
+                            <Name>Numero total de mesas: {mesas}</Name>
+                            <Div style={{width:"17em"}}></Div>
                         </Div>
                         <Div>
                             <Name>Ingrese el numero de la mesa siguiente:</Name>
@@ -79,9 +79,7 @@ const eliminar = () => {
                                 onChange={ev => setNumeroMesa(ev.target.value)}>
                             </Infor>
                         </Div>
-
                         <Div style={{ height:" 3em"}}>
-
                         </Div>
                         <Div>
                         <Name>Elimina mesas</Name>

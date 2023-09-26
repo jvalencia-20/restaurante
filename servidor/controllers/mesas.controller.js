@@ -11,6 +11,17 @@ export const getMesas = async(req,res) => {
     }
 }
 
+// export const getMesas = async(req,res) => {
+//     try {
+//         const [rows] = await pool.query('SELECT *, orden.id_mesa FROM mesas LEFT JOIN orden on mesa = id_mesa ORDER BY mesas.mesa');
+//         console.log(rows,'❤️❤️')
+//         res.json(rows)
+//     } catch (error) {
+//         console.error('Ocurrio un error:', error);
+//         res.status(500).json({message: 'Error en el server'});
+//     }
+// }
+
 //ruta crear mesa
 export const crearMesas = async (numeroMesa,imagen_url) => {
     try {
