@@ -7,12 +7,6 @@ export const Background = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  /* @media screen and ( max-width: 90vh){   
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  } */
 `;
 
 export const Login = styled.form`
@@ -52,11 +46,6 @@ export const Logotipo = styled.img`
   box-shadow: 2px 1px 10px black;
   border-radius: 2em;
   margin-right: 5em;
-  /* @media screen and ( max-width: 95vh){   
-    height: 10em;
-    width: 20em;
-    margin: 0;
-  } */
 `;
 
 export const ConInfor = styled.div`
@@ -66,16 +55,10 @@ export const ConInfor = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* @media screen and ( max-width: 90vh){   
-    height: 70%;
-  } */
 `;
 
 export const Name = styled.h3`
   color: #ffff;
-  /* @media screen and ( max-width: 90vh){   
-    font-size: 2.5em;
-  } */
 `;
 
 export const Infor = styled.input`

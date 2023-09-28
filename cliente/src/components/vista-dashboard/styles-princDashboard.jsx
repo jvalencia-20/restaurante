@@ -26,50 +26,49 @@ export const Container = styled.div`
         "sidebar1" 400px
     ;
     @media  screen and (max-height: 450px ) {
-    right: auto;
-    width: 97%;
-    grid-template:
-        "header" 100px
-        "navbar1" 50px
-        "main1" 155vh
-        "sidebar1" 400px        
-        200px auto
+        right: auto;
+        width: 97%;
+        grid-template:
+            "header" 100px
+            "navbar1" 50px
+            "main1" 155vh
+            "sidebar1" 400px        
+            200px auto
     }
     @media  screen and (min-width: 600px ) {
-    right: auto;
-    width: 100%;
-    grid-template:
-        "header" 100px
-        "navbar1" 50px
-        "main1" 145vh
-        "sidebar1" 180px        
-        200px auto
+        right: auto;
+        width: 100%;
+        grid-template:
+            "header" 100px
+            "navbar1" 50px
+            "main1" 145vh
+            "sidebar1" 180px        
+            200px auto
     ;
     transition: 1s ease
     }
     @media  screen and (min-width: 700px ) {
-    width: 100%;
-    right: 2%;
-    grid-template:
-        "header header" 100px
-        "navbar1 navbar1" 50px
-        "sidebar1 main1" auto
-        /
-        200px auto
+        width: 100%;
+        right: 2%;
+        grid-template:
+            "header header" 100px
+            "navbar1 navbar1" 50px
+            "sidebar1 main1" auto
+            /
+            200px auto
     ;
     transition: 1s ease
     }
     @media  screen and (min-width: 1000px ) {
-    width: 100%;
-    right: auto;
-    grid-template:
-        
-        "header  header header"   100px
-        "navbar1 main1    sidebar1" auto
-    /
-        200px     auto       200px
-    ;
-    transition-duration: 1s ease
+        width: 100%;
+        right: auto;
+        grid-template:
+            "header  header header"   100px
+            "navbar1 main1    sidebar1" auto
+            /
+            200px     auto       200px
+            ;
+            transition-duration: 1s ease
     }
 `;
 
@@ -116,8 +115,8 @@ export const ContainerMain = styled.div`
     border-radius: 5px;
     overflow: scroll;
     &::-webkit-scrollbar-thumb {
-    background: #000000; 
-    border-radius: 10px;
+        background: #000000; 
+        border-radius: 10px;
     }
     &::-webkit-scrollbar {
         background: transparent;
@@ -161,12 +160,12 @@ export const Boton = styled.button`
     background-color: transparent;
     border: none;
     &:hover{
-    box-shadow: 0 0 10PX yellow,0 0 40PX yellow, 0 0 80PX yellow;
+        box-shadow: 0 0 10PX yellow,0 0 40PX yellow, 0 0 80PX yellow;
     };
     &:focus{
-    background-color: black;
-    color: rgb(255, 255, 255);
-    text-shadow:  0 0 10PX orange,0 0 40PX orange, 0 0 80PX orange;
+        background-color: black;
+        color: rgb(255, 255, 255);
+        text-shadow:  0 0 10PX orange,0 0 40PX orange, 0 0 80PX orange;
     }
     @media  screen and (min-width: 1000px ) {
         height: 50px;

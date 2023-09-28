@@ -31,7 +31,7 @@ const [activo, setActivo] = useState(false)
     }
     }
     const cliente = async () => {
-    await Axios.get(`http://localhost:3002/api/admin/${destokenado}`,{
+    await Axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/admin/${destokenado}`,{
         headers: {
         Authorization: token
     } 
@@ -60,21 +60,21 @@ setTimeout(() => {
     }, 100);
 
 const platosSancocho = () => {
-    Axios.get("http://localhost:3002/api/platosSancocho").then((response)=>{
+    Axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/platosSancocho`).then((response)=>{
         setSancocho(response.data)
     })
     .catch(error => {
     })
 }
 const platosCorriente = () => {
-    Axios.get("http://localhost:3002/api/platosCorriente").then((response)=>{
+    Axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/platosCorriente`).then((response)=>{
         setCorriente(response.data)
     })
     .catch(error => {
     })
 }
 const bebidas = () => {
-    Axios.get("http://localhost:3002/api/bebidas").then((response) => {
+    Axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/bebidas`).then((response) => {
         setBebida(response.data)
     })
     .catch(error => {
@@ -98,7 +98,7 @@ return(
             <Link to={`/private/todofisica/pedidofisica/${comida.id_plato}`} key={index} style={{textDecoration:"none"}}> 
             <Minibox1  key={index}>
                 <img 
-                src={"http://localhost:3002/" + comida.imagen} alt={comida.nombre_plato} style={{width:"15rem", filter: "drop-shadow(-15px 15px 10px black)", cursor:"pointer"}}></img>
+                src={`${process.env.REACT_APP_PRIMERO_UNO}/` + comida.imagen} alt={comida.nombre_plato} style={{width:"15rem", filter: "drop-shadow(-15px 15px 10px black)", cursor:"pointer"}}></img>
                 <div style={{backgroundImage:`url(${tablap}`,backgroundRepeat:"no-repeat",backgroundSize:"cover", backgroundPosition:"center",width:"20rem",height:"7.5rem",justifyContent:"center",alignItems:"center",opacity:"0.8", cursor:"pointer",filter: "drop-shadow(-8px 10px 3px black)"}}>
                     <h4 style={{margin:"0",marginTop:"3rem",fontSize:"20px", cursor:"pointer"}}> {comida.nombre_plato} </h4>
                     <h4 style={{margin:"0",fontSize:"20px", cursor:"pointer"}}> {comida.precio} </h4>
@@ -112,7 +112,7 @@ return(
             {corriente.map((comida, index)=>
             <Link to={`/private/todofisica/pedidofisica/${comida.id_plato}`} key={index} style={{textDecoration:"none"}} >
                 <Minibox1 key={index}>
-                    <img src={"http://localhost:3002/" + comida.imagen} alt={comida.nombre} style={{width:"15rem", filter: "drop-shadow(-15px 15px 10px black)", cursor:"pointer"}}></img>
+                    <img src={`${process.env.REACT_APP_PRIMERO_UNO}/` + comida.imagen} alt={comida.nombre} style={{width:"15rem", filter: "drop-shadow(-15px 15px 10px black)", cursor:"pointer"}}></img>
                     <div style={{backgroundImage:`url(${tablap}`,backgroundRepeat:"no-repeat",backgroundSize:"cover", backgroundPosition:"center",width:"20rem",height:"7.5rem",justifyContent:"center",alignItems:"center",opacity:"0.8",filter: "drop-shadow(-8px 10px 3px black)", cursor:"pointer"}}>
                         <h4 style={{margin:"0",marginTop:"3rem",fontSize:"20px", cursor:"pointer"}}> {comida.nombre_plato} </h4>
                         <h4 style={{margin:"0",fontSize:"20px", cursor:"pointer"}}> {comida.precio} </h4>
@@ -126,7 +126,7 @@ return(
             {bebida.map((jugo,index) =>
             <Link to={`/private/todofisica/bebidafisica/${jugo.id_bebida}`} key={index} style={{textDecoration:"none"}}>
                 <Minibox1 key={index}>
-                    <img src={"http://localhost:3002/" + jugo.imagen} alt={jugo.nombre_bebida} style={{width:"15rem", filter: "drop-shadow(-15px 15px 10px black)", cursor:"pointer"}}></img>
+                    <img src={`${process.env.REACT_APP_PRIMERO_UNO}/` + jugo.imagen} alt={jugo.nombre_bebida} style={{width:"15rem", filter: "drop-shadow(-15px 15px 10px black)", cursor:"pointer"}}></img>
                     <div style={{backgroundImage:`url(${tablap}`,backgroundRepeat:"no-repeat",backgroundSize:"cover", backgroundPosition:"center",width:"20rem",height:"7.5rem",justifyContent:"center",alignItems:"center", opacity:"0.8",filter: "drop-shadow(-8px 10px 3px black)",marginLeft:"13px", cursor:"pointer"}}>
                         <h4 style={{margin:"0", marginTop:"3rem",fontSize:"20px", cursor:"pointer"}}> {jugo.nombre_bebida}</h4>
                         <h4 style={{margin:"0",fontSize:"20px", cursor:"pointer"}}> {jugo.precio}</h4>

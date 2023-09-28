@@ -23,10 +23,10 @@ export const Platos = styled.div`
     width: 40em;
   }
   @media screen and (max-width: 660px) {
-      width: 30em;
+    width: 30em;
   }    
   @media screen and (max-width: 500px) {
-      width: 22em;
+    width: 22em;
   }
 `;
 
@@ -36,14 +36,14 @@ export const Titulo = styled.div`
   display: flex;
   justify-content: center;
   @media screen and (max-width: 900px) {
-        width: 40em;
+    width: 40em;
   }
   @media screen and (max-width: 660px) {
-      width: 30em;
+    width: 30em;
   }
   @media screen and (max-width: 500px) {
-      width: 20em;
-      margin-left: 1em;
+    width: 20em;
+    margin-left: 1em;
   }
 `;
 
@@ -52,13 +52,13 @@ export const Container = styled.div`
   height: 50em;
   width: 70em;
   @media screen and (max-width: 900px) {
-        width: 40em;
+    width: 40em;
   }
   @media screen and (max-width: 660px) {
-      width: 30em;
+    width: 30em;
   }
   @media screen and (max-width: 500px) {
-      width: 22em;
+    width: 22em;
   }
 `;
 
@@ -80,13 +80,13 @@ export const ConImg = styled.div`
   justify-content: center;
   align-items: center;
   @media screen and (max-width: 900px) {
-        width: 25em;
+    width: 25em;
   }
   @media screen and (max-width: 660px) {
-      width: 15em;
+    width: 15em;
   }
   @media screen and (max-width: 500px) {
-      width: 10em;
+    width: 10em;
   }
 `;
 
@@ -100,15 +100,15 @@ export const CajaImg = styled.div`
   height: 20em;
   width: 25em;
   @media screen and (max-width: 900px) {
-        width: 20em;
+    width: 20em;
   }
   @media screen and (max-width: 660px) {
-      width: 15em;
-      height: 15em;
+    width: 15em;
+    height: 15em;
   }
   @media screen and (max-width: 500px) {
-      width: 10em;
-      height: 10em;
+    width: 10em;
+    height: 10em;
   }
 `;
 
@@ -117,15 +117,15 @@ export const ImgPlato = styled.img`
   height: 20em;
   width: 25em;
   @media screen and (max-width: 900px) {
-        width: 20em;
+    width: 20em;
   }
   @media screen and (max-width: 660px) {
-      width: 15em;
-      height: 15em;
+    width: 15em;
+    height: 15em;
   }
   @media screen and (max-width: 500px) {
-      width: 10em;
-      height: 10em;
+    width: 10em;
+    height: 10em;
   }
 `;
 
@@ -136,8 +136,8 @@ export const Aumentar = styled.div`
   align-items: center;
   justify-content: center;
   @media screen and (max-width: 900px) {
-      flex-direction: column;
-      width: 15em;
+    flex-direction: column;
+    width: 15em;
   }
 `;
 
@@ -150,10 +150,10 @@ export const Botones = styled.button`
   border: 2px solid #000;
   border-radius: 0.5em;
   &:hover {
-      border: 2px solid #fff;
-      color: #fff;
-      background-color: #000;
-      box-shadow: 1px 0px 20px #000;
+    border: 2px solid #fff;
+    color: #fff;
+    background-color: #000;
+    box-shadow: 1px 0px 20px #000;
   }
 `;
 
@@ -166,13 +166,13 @@ export const Agregar = styled.button`
   border: 2px solid #000;
   border-radius: 0.5em;
   &:hover {
-      border: 2px solid #fff;
-      color: #fff;
-      background-color: #000;
-      box-shadow: 1px 0px 20px #000;
+    border: 2px solid #fff;
+    color: #fff;
+    background-color: #000;
+    box-shadow: 1px 0px 20px #000;
   }
   @media screen and (max-width: 900px) {
-      margin-top: 1em;
+    margin-top: 1em;
   }
 `;
 
@@ -184,6 +184,6 @@ export const Plato = styled.div`
   align-items: center;
   justify-content: space-evenly;
   @media screen and (max-width: 500px) {
-      width: 12em;
+    width: 12em;
   }
 `;

@@ -27,7 +27,7 @@ const Pedidos = () => {
     }
     const obtenerPlato = async () => {
         try {
-            const response = await Axios.get(`http://localhost:3002/api/plato/${id}`);
+            const response = await Axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/plato/${id}`);
             setPlato(response.data);
             setPrecios(response.data.precio) 
         } catch (error) {
@@ -64,7 +64,7 @@ return (
             <Container>
                 <ConImg>
                     <CajaImg>
-                        <ImgPlato src={"http://localhost:3002/" + plato.imagen} style={{filter: "drop-shadow(-3px 10px 6px black)"}}></ImgPlato>  
+                        <ImgPlato src={`${process.env.REACT_APP_PRIMERO_UNO}/` + plato.imagen} style={{filter: "drop-shadow(-3px 10px 6px black)"}}></ImgPlato>  
                     </CajaImg>
                     <Contenido>Precio: ${plato.precio}</Contenido>
                 </ConImg>

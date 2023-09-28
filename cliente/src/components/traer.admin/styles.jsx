@@ -51,4 +51,22 @@ export const Td = styled.td`
 `;
 
 export const Borrar = styled.button`
+    background-color: #e61212;
+    border: 1px solid black;
+    margin: 1px;
+    width: 75px;  
+    color: white;
+    cursor: pointer;
+    border-radius: 5px; 
+`;
+
+
+export const Editar = styled.button`
+background-color: #00c3ff;
+border: 1px groove black;
+width: 70px;
+cursor: pointer;
+margin: 1px;
+border-radius: 5px;
+
 `;

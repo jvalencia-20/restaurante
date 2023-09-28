@@ -18,7 +18,7 @@ const ActualizarUser = () => {
     const [activo, setActivo] = useState(false)
     const [ver, setVer] = useState("password")
     const clientes = async () => {
-    await Axios.get(`http://localhost:3002/api/admin/${id}`,{
+    await Axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/admin/${id}`,{
         headers: {
         Authorization: token
     } 
@@ -41,7 +41,7 @@ useEffect(() => {
 
 const actualizarusuario = (e) => {
   e.preventDefault()
-  Axios.put(`http://localhost:3002/api/admin/${id}`, {
+  Axios.put(`${process.env.REACT_APP_PRIMERO_UNO}/api/admin/${id}`, {
     nombre: usuario,
     correo: correo,
 },{

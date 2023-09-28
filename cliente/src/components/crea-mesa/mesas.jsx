@@ -11,7 +11,7 @@ export const CreaMesas = () => {
     const {token} = useAuthContext()
     const [mesas, setMesas] = useState([]);
     const [selectedImage, setSelectedImage] = useState(null);
-    const [numeroMesa, setNumeroMesa] = useState("")
+    const [numeroMesa, setNumeroMesa] = useState([])
     const [imagen_url, setImagen_url] = useState("")
     const handleImageChange = (event) => {
         const file = event.target.files[0];
@@ -36,7 +36,7 @@ const config = {
         Authorization: token
     }
     };
-    Axios.post("http://localhost:3002/api/creare", datos, config)
+    Axios.post(`${process.env.REACT_APP_PRIMERO_UNO}/api/creare`, datos, config)
     .then(({ data }) => {
     window.location.reload()
     })
@@ -44,8 +44,9 @@ const config = {
     });
 }
 const getMesas = () => {
-    Axios.get("http://localhost:3002/api/mesas").then((response) => {
+    Axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/mesas`).then((response) => {
     setMesas(response.data.length);
+    setNumeroMesa(response.data.length + 1)
     });
 };
 
@@ -54,7 +55,7 @@ useEffect(() => {
 }, []);
 
 const eliminar = () => {
-    Axios.delete(`http://localhost:3002/api/eliminar-mesa/${mesas}`)
+    Axios.delete(`${process.env.REACT_APP_PRIMERO_UNO}/api/eliminar-mesa/${mesas}`)
     .catch(error => {
     })
     window.location.reload()

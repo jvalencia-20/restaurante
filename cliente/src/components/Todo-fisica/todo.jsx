@@ -31,7 +31,7 @@ const TodoFisica = () => {
     };
 
 return (
-    <Background style={{backgroundImage:`url(${fondo})`, backgroundSize:"cover"}}>
+    <Background>
         <Container>
             <Box1><h1 style={{color:"#ffffff93", margin:"0", filter:"drop-shadow(-5px 10px 6px black)"}}>Platos</h1></Box1>
             <Minibox2>
@@ -45,9 +45,6 @@ return (
                 </Link>
                 <Link to="/private/todofisica/mesa" style={{textDecoration:"none"}}>
                     <Button><h1 style={{cursor:"pointer"}}>Mesa</h1></Button> 
-                </Link>
-                <Link to="/private/todofisica/recibir-orden" style={{textDecoration:"none"}}>
-                    <Button><h1 style={{cursor:"pointer"}}>Recibir orden</h1></Button> 
                 </Link>
                 <Link to={LOGOUT} style={{textDecoration:"none"}}>
                     <Button><h1 style={{cursor:"pointer"}}>Cerrar sesion</h1></Button> 

@@ -27,13 +27,13 @@ const RegistroFactura = () => {
 
     const cargarRegistros = async () => {
         try {
-            let url = "http://localhost:3002/api/registro";
+            let url = `${process.env.REACT_APP_PRIMERO_UNO}/api/registro`;
             if (filtros.mesa && filtros.fecha) {
-                url = `http://localhost:3002/api/registro/por-mesa-y-fecha/${encodeURIComponent(filtros.mesa)}/${moment(filtros.fecha).format('YYYY-MM-DD')}`;
+                url = `${process.env.REACT_APP_PRIMERO_UNO}/api/registro/por-mesa-y-fecha/${encodeURIComponent(filtros.mesa)}/${moment(filtros.fecha).format('YYYY-MM-DD')}`;
             } else if (filtros.mesa) {
-                url = `http://localhost:3002/api/registro/por-mesa/${encodeURIComponent(filtros.mesa)}`;
+                url = `${process.env.REACT_APP_PRIMERO_UNO}/api/registro/por-mesa/${encodeURIComponent(filtros.mesa)}`;
             } else if (filtros.fecha) {
-                url = `http://localhost:3002/api/registro/por-fecha/${moment(filtros.fecha).format('YYYY-MM-DD')}`;
+                url = `${process.env.REACT_APP_PRIMERO_UNO}/api/registro/por-fecha/${moment(filtros.fecha).format('YYYY-MM-DD')}`;
             }
             const response = await axios.get(url);
             const total = response.data.reduce((accumulator, factura) => {

@@ -14,7 +14,7 @@ const Informacion = () => {
     setCurrentImage((currentImage - 1 + total) % total);
   };
   useEffect(() => {
-    Axios.get("http://localhost:3002/api/informacion")
+    Axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/informacion`)
       .then((response) => {
         setInformacion(response.data);
         setTotal(response.data.length);
@@ -35,7 +35,7 @@ const Informacion = () => {
               <Contenedor
                 key={index}
                 style={{
-                  backgroundImage: `url(http://localhost:3002/${infor.imagen})`,
+                  backgroundImage: `url(${process.env.REACT_APP_PRIMERO_UNO}/${infor.imagen})`,
                   backgroundSize: "cover",
                   backgroundRepeat: "no-repeat",
                   display: index === currentImage ? "block" : "none",

@@ -39,7 +39,7 @@ const config = {
         Authorization: token
     }
     };
-    Axios.post("http://localhost:3002/api/crearbebida", datos, config)
+    Axios.post(`${process.env.REACT_APP_PRIMERO_UNO}/api/crearbebida`, datos, config)
     .then(({ data }) => {
     navigate("/private/traerBebida")
     })

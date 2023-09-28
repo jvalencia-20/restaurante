@@ -17,13 +17,13 @@ const RecibirOrden = () => {
     const [subtotal, setSubtotal] = useState(0);
     const [mesaSeleccionada, setMesaSeleccionada] = useState(null);
     useEffect(() => {
-        Axios.get("http://localhost:3002/api/allPlatos")
+        Axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/allPlatos`)
             .then((response) => {
             })
             .catch((error) => {
                 console.error("Error fetching platos data:", error);
             });
-        Axios.get("http://localhost:3002/api/bebidas")
+        Axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/bebidas`)
             .then((response) => {
             })
             .catch((error) => {
@@ -64,7 +64,7 @@ const RecibirOrden = () => {
                 precio: producto.precio,
             })),
         };
-        Axios.post("http://localhost:3002/api/crear-mesa", pedido)
+        Axios.post(`${process.env.REACT_APP_PRIMERO_UNO}/api/crear-mesa`, pedido)
             .then((response) => {
                 navigate("/private/todofisica/mesa");
                 localStorage.removeItem("platico")
@@ -76,7 +76,7 @@ const RecibirOrden = () => {
     };
     
     const getMesas = () => {
-        Axios.get("http://localhost:3002/api/mesas").then((response) => {
+        Axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/mesas`).then((response) => {
             setMesasDisponibles(response.data);
         });
         };

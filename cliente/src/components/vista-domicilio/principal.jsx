@@ -26,7 +26,7 @@ export const Domicilio = () => {
     const agregarPedido = () => {
         if(nombre.length > 0 && direccion.length > 0 &&  hora.length > 0){
         plato.forEach((platoItem) => { //iteramos los item que estan en el localstarage
-            Axios.post("http://localhost:3002/api/domicilio", {
+            Axios.post(`${process.env.REACT_APP_PRIMERO_UNO}/api/domicilio`, {
             nombre_plato: platoItem.nombre_plato,
             cantidad: platoItem.cantidad,
             precio: platoItem.precio,

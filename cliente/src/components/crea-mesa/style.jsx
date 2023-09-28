@@ -7,7 +7,6 @@ import guardar from "../Img/save.png"
 export const Pagina = styled.div`
     height: 100vh;
     width: 100%;
-    /* background-color: yellowgreen; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -44,7 +43,6 @@ export const DivPrincipal = styled.div`
 export const Hoja1 = styled.form`
     height: 100%;
     width: 100%;
-    /* background-color: yellowgreen; */
     display: flex;
     flex-direction: column;
     justify-content: center;

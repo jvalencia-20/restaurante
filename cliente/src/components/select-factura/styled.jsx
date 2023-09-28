@@ -6,12 +6,15 @@ export const Fondo = styled.div`
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
 `;
 
 export const Select = styled.div`
     height: 50em;
     width: 90em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `;
 
 export const Titulo = styled.div`
@@ -19,6 +22,18 @@ export const Titulo = styled.div`
     width: 90em;
     color: #ffff;
     text-align: center;
+    @media screen and (max-width: 1400px) {
+        width: 80em;
+    }
+    @media screen and (max-width: 1200px) {
+        width: 60em;
+    }
+    @media screen and (max-width: 600px) {
+        width: 27em;
+    }
+    @media screen and (max-width: 600px) {
+        width: 23em;
+    }
 `;
 
 export const Domicilio = styled.h1`
@@ -46,6 +61,19 @@ export const Pedido = styled.div`
         background: transparent;
         border-radius: 10px;
     }
+    @media screen and (max-width: 1400px) {
+        width: 80em;
+    }
+    @media screen and (max-width: 1200px) {
+        width: 60em;
+    }
+    @media screen and (max-width: 920px) {
+        width: 40em;
+    }
+    @media screen and (max-width: 600px) {
+        width: 23em;
+        /* height: 40em; */
+    }
 `;
 
 export const Pendiente = styled.button`
@@ -64,6 +92,22 @@ export const Pendiente = styled.button`
     margin-left: 1em;
     margin-right: 1em;
     text-align: center;
+    @media screen and (max-width: 1200px) {
+        width: 70%;
+        flex-basis: 30%;
+    }
+    @media screen and (max-width: 1000px) {
+        width: 60%;
+        flex-basis: 40%;
+    }
+    @media screen and (max-width: 920px) {
+        width: 50%;
+        flex-basis: 50%;
+    }
+    @media screen and (max-width: 600px) {
+        width: 10%;
+        flex-basis: 90%;
+    }
 `;
 
 export const Regresar = styled.button`

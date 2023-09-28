@@ -14,7 +14,6 @@ const VistaMesa = () => {
   const [showFactura, setShowFactura] = useState(false);
   const [reservas, setReservas] = useState(Array(mesas.length).fill({ Producto: "", Cantidad: "", Total: 0 }));
   const [mesaOcupada, setMesaOcupada] = useState(Array(mesas.length).fill(false));
-  console.log(mesaOcupada,'hola')
 
   useEffect(() => {
   }, [selectedTableIndex]);

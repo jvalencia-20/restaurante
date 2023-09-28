@@ -4,6 +4,7 @@ import Fondo from "../Img/Restauran.jpg"
 export const Background = styled.div`
   background-image: url(${Fondo});
   background-size: cover;
+  background-repeat: no-repeat;
   height: 100vh;
   display: flex;
   align-items: center;

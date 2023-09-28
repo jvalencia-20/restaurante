@@ -1,9 +1,16 @@
-import {createPool} from "mysql2/promise"
+import { createPool } from "mysql2/promise";
+import dotenv from 'dotenv';
 
-//conexion 
+// Carga las variables de entorno desde el archivo .env
+dotenv.config();
+
+// Lee las variables de entorno para configurar la conexión
+const { DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE } = process.env;
+
+// Crea la pool de conexiones
 export const pool = createPool({
-    host:'localhost',
-    user:'root',
-    password:'',
-    database:'restaurante',
-})
+    host: DB_HOST,
+    user: DB_USER,
+    password: DB_PASSWORD,
+    database: DB_DATABASE,
+});

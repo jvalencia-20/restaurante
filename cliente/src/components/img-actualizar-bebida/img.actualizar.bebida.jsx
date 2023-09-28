@@ -27,7 +27,7 @@ const datos = new FormData();
 
 datos.append("imagen", imgEnv)
 
-Axios.put(`http://localhost:3002/api/actualizarImgbebida/${id}`, datos, {
+Axios.put(`${process.env.REACT_APP_PRIMERO_UNO}/api/actualizarImgbebida/${id}`, datos, {
     headers: {
     Authorization: token
 }  

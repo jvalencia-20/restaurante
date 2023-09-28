@@ -15,9 +15,9 @@ export const ActualizarPlato = () => {
     const navigate = useNavigate()
     const { token } = useAuthContext();
     const { id } = useParams();
-    const ubicacion = "http://localhost:3002/"
+    const ubicacion = `${process.env.REACT_APP_PRIMERO_UNO}/`
     const BuscarPlato = async () => {
-        await Axios.get(`http://localhost:3002/api/plato/${id}`,{
+        await Axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/plato/${id}`,{
             headers: {
             Authorization: token
         } 
@@ -57,7 +57,7 @@ const config = {
         Authorization: token
     }
     };
-    Axios.put(`http://localhost:3002/api/actualiza/${id}`, {
+    Axios.put(`${process.env.REACT_APP_PRIMERO_UNO}/api/actualiza/${id}`, {
         nombre_plato: nombrePlato,
         descripcion: descripcion,
         precio: precio,

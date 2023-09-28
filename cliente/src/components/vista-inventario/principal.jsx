@@ -7,7 +7,7 @@ export const Inventario = () => {
 const {token} = useAuthContext()
 const [inventario,setInventario] = useState([])
 const Buscar = () => {
-Axios.get("http://localhost:3002/api/traerproducto",{
+Axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/traerproducto`,{
     headers: {
         Authorization:token
     }

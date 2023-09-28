@@ -11,7 +11,7 @@ export const ListarAdmin = () => {
     const [cliente, setCliente] = useState([])
     const navigate = useNavigate()
     const clientes = () => {
-        Axios.get("http://localhost:3002/api/admin",{
+        Axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/admin`,{
             headers: {
             Authorization: token
         } 
@@ -23,7 +23,7 @@ export const ListarAdmin = () => {
         })
     }
     const eliminarAdmin = (id_admin) => {
-        Axios.delete(`http://localhost:3002/api/deleteadmin/${id_admin}`)
+        Axios.delete(`${process.env.REACT_APP_PRIMERO_UNO}/api/deleteadmin/${id_admin}`)
             .then((response) => {
             clientes()
             window.location.reload()

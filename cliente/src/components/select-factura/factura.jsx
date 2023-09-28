@@ -4,11 +4,12 @@ import { useNavigate,Link } from "react-router-dom";
 import { Domicilio, Fondo, Pedido, Pendiente, Select, Titulo, Regresar, Notificacion } from "./styled";
 
 const SelectFactura = () => {
+    const Hola = process.env.REACT_APP_PRIMERO_UNO
     const navigate = useNavigate()
     const [factura, setFactura] = useState([])
     const [notificacion, setNotificacion] = useState(0)
     const Domicilios = () => {
-    Axios.get("http://localhost:3002/api/domicilios").then((response) => {
+    Axios.get(`${Hola}/api/domicilios`).then((response) => {
         setFactura(response.data)
         setNotificacion(response.data.length)
     })

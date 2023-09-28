@@ -128,9 +128,9 @@ export const LabelImg = styled.label`
     font-weight: bold;
     color: #7c7b7b;
     &:hover{
-    color: white;
-    background: #A945C7;
-    box-shadow: 0 0 10PX #A945C7,0 0 40PX #A945C7, 0 0 80PX #A945C7;
+        color: white;
+        background: #A945C7;
+        box-shadow: 0 0 10PX #A945C7,0 0 40PX #A945C7, 0 0 80PX #A945C7;
     }
 `;
 
@@ -145,8 +145,8 @@ export const ContentImg = styled.div`
     align-items: center;
     justify-content: center;
     @media  screen and (max-height: 600px ) {
-    height: 210px;
-    width: 150px;
+        height: 210px;
+        width: 150px;
     }
 `;
 
@@ -158,9 +158,9 @@ export const ImgPlato = styled.img`
     left: 3%;
     top: 1%;
     @media  screen and (max-height: 600px ) {
-    height: 100px;
-    width: 95px;
-    left: 4%;
+        height: 100px;
+        width: 95px;
+        left: 4%;
     }
 `;
 

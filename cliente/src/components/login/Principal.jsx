@@ -22,7 +22,7 @@ const Logini = () => {
       return;
     }
     const hash = CryptoJS.AES.encrypt(password, x).toString();
-    Axios.post("http://localhost:3002/api/login",{
+    Axios.post(`${process.env.REACT_APP_PRIMERO_UNO}/api/login`,{
       usuario: usuario,
       password: hash
     })

@@ -45,11 +45,11 @@ export const Salida = styled.button`
     width: 4em;
     margin: 1em;
     color: #ffffff6a;
-&:hover{
-    background-color: #ff0000;
-    box-shadow: 0 0 10PX red,0 0 40PX red, 0 0 80PX red;
-    color: white;
-    text-shadow: 0 0 10PX white,0 0 40PX white, 0 0 80PX white;
+    &:hover{
+        background-color: #ff0000;
+        box-shadow: 0 0 10PX red,0 0 40PX red, 0 0 80PX red;
+        color: white;
+        text-shadow: 0 0 10PX white,0 0 40PX white, 0 0 80PX white;
     };
 `;
 
@@ -91,9 +91,9 @@ export const Infor = styled.input`
     background-color: transparent;
     border-radius: 5px;
     color: #12011d;
-@media screen and ( max-width: 90vh){   
-    height: 2em;
-    width: 20em; 
+    @media screen and ( max-width: 90vh){   
+        height: 2em;
+        width: 20em; 
 }
 `;
 

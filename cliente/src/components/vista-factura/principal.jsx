@@ -68,7 +68,7 @@ const Factura = (props) => {
                 productos,
                 fecha_factura,
             };
-            const response = await axios.post('http://localhost:3002/api/registro', facturaData);
+            const response = await axios.post(`${process.env.REACT_APP_PRIMERO_UNO}/api/registro`, facturaData);
             if (response.status === 200) {
                 const id_orden = response.data.numOrden;
                 if (id_orden !== null && id_orden !== undefined) {
@@ -89,7 +89,7 @@ const Factura = (props) => {
         try {
             if (!isNaN(mesaSeleccionada)) {
                 const idMesaInt = parseInt(mesaSeleccionada);
-                const response = await axios.delete(`http://localhost:3002/api/mesa_id/${idMesaInt}`);
+                const response = await axios.delete(`${process.env.REACT_APP_PRIMERO_UNO}/api/mesa_id/${idMesaInt}`);
                 if (response.status === 200) {
                     setNumMesa(idMesaInt);
                     navigate('/private/todofisica/fisica');
@@ -111,7 +111,7 @@ const Factura = (props) => {
     useEffect(() => {
         const obtenerUltimoId = async () => {
             try {
-                const response = await axios.get('http://localhost:3002/api/ultimo-id');
+                const response = await axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/ultimo-id`);
                 const ultimoId = response.data; 
                 setLastInsertedId(ultimoId);
             } catch (error) {

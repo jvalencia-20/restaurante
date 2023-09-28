@@ -16,7 +16,7 @@ const { id } = useParams();
 const {token} = useAuthContext()
 
 const admin = async () => {
-    await Axios.get(`http://localhost:3002/api/admin/${id}`,{
+    await Axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/admin/${id}`,{
         headers: {
         Authorization: token
     } 
@@ -31,7 +31,7 @@ const admin = async () => {
 const actualizarusuario = (e) => {
 e.preventDefault()
 
-Axios.put(`http://localhost:3002/api/actualizarcontrasena/${id}`, {
+Axios.put(`${process.env.REACT_APP_PRIMERO_UNO}/api/actualizarcontrasena/${id}`, {
     nombre: usuario,
     password: password,
     confirmarPassword: Confirmpassword,

@@ -4,6 +4,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import {Body, Container, Header, ContainerHeader, Boton, CajaNav, CajaLogo, ContainerMain, ContainerMenu, ContainerFooter} from "./styles-princDashboard"
 import { LOGOUT } from "../router/path";
 import Axios from "axios"
+import "../../App.css"
 import { useAuthContext } from "../context/AuthContext"
 import Paila from "../VentanasModal/paila";
 import Comprobando from "../VentanasModal/comprobando";
@@ -32,7 +33,7 @@ function PrincipalDashboard() {
     }
     }
     const cliente = async () => {
-    await Axios.get(`http://localhost:3002/api/admin/${destokenado}`,{
+    await Axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/admin/${destokenado}`,{
         headers: {
         Authorization: token
     } 
@@ -70,7 +71,7 @@ return (
                     <CajaLogo >
                         <h1>Bienvenido {user} </h1>
                     </CajaLogo>
-                    <div style={{fontSize:"20px"}}><Link to={LOGOUT}><Boton style={{height:"80px",width:"200px", color:"white",fontSize:"20px", textShadow:"0 0 10PX #c7ba45,0 0 40PX #c7c345, 0 0 80PX #c3c745"}}>🔚Cerrar sesión</Boton></Link></div>
+                    <div style={{fontSize:"20px"}}><Link to={LOGOUT}><Boton style={{height:"80px",width:"200px", color:"var(--color-blanco)",fontSize:"20px", textShadow:"0 0 10PX #c7ba45,0 0 40PX #c7c345, 0 0 80PX #c3c745"}}>🔚Cerrar sesión</Boton></Link></div>
                 </Header>
             </ContainerHeader>
             <CajaNav>

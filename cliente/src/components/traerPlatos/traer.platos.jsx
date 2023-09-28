@@ -10,7 +10,7 @@ export const TraerPlatos = () => {
     const {token} = useAuthContext()
     //mapeo de platos desde la db
     const Platos = () => {
-        Axios.get("http://localhost:3002/api/platos", {
+        Axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/platos`, {
             headers: {
                 Authorization: token
             } 
@@ -24,7 +24,7 @@ export const TraerPlatos = () => {
         Platos()
     },)
     const eliminarProducto = (id_plato) => {
-        Axios.delete(`http://localhost:3002/api/elimina/${id_plato}`)
+        Axios.delete(`${process.env.REACT_APP_PRIMERO_UNO}/api/elimina/${id_plato}`)
             .then((response) => {
             Platos()
             ;
@@ -47,7 +47,7 @@ export const TraerPlatos = () => {
                             <DivFilas>
                                 <div style={{width: "100px"}} >{val.nombre_plato}</div>
                                 <ContentImg>
-                                    <ImgPlato src={"http://localhost:3002/" + val.imagen} alt={val.nombre_plato}></ImgPlato>
+                                    <ImgPlato src={`${process.env.REACT_APP_PRIMERO_UNO}/` + val.imagen} alt={val.nombre_plato}></ImgPlato>
                                 </ContentImg>
                                 <Link to={`/private/actualizarPlato/${val.id_plato}`}>
                                     <button >editar</button>

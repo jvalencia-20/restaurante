@@ -15,9 +15,10 @@ export const ActualizarBebida = () => {
     const navigate = useNavigate()
     const { token } = useAuthContext();
     const { id } = useParams();
-    const ubicacion = "http://localhost:3002/"
+    // console.log(process.env.REACT_APP_PRIMERO_UNO, 'hola bebida');
+    const ubicacion = `${process.env.REACT_APP_PRIMERO_UNO}/`
     const BuscarBebida = async () => {
-        await Axios.get(`http://localhost:3002/api/bebida/${id}`,{
+        await Axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/bebida/${id}`,{
             headers: {
             Authorization: token
         } 
@@ -49,7 +50,7 @@ const config = {
         Authorization: token
     }
     };
-    Axios.put(`http://localhost:3002/api/updateBebida/${id}`, {
+    Axios.put(`${process.env.REACT_APP_PRIMERO_UNO}/api/updateBebida/${id}`, {
         nombre_bebida: nombreBebida,
         descripcion: descripcion,
         precio: precio,
@@ -60,7 +61,7 @@ const config = {
     }  
     })
     .then(({ data }) => {
-    navigate("/private/traerPlato")
+    navigate("/private/traerBebida")
     })
     .catch(error => {
         if (error.response) {
@@ -96,7 +97,7 @@ useEffect(()=>{
     <Pagina>
         <Background>
             <Receta>
-            <h1>Actualizar Platos</h1>
+            <h1>Actualizar Bebida</h1>
                 <DivPrincipal>
                     <Hoja1>
                         <Div>

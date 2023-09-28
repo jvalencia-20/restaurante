@@ -1,7 +1,7 @@
 import {pool} from "../db.js"
 import bcrypt from "bcrypt"
 import jwt from 'jsonwebtoken'
-import CryptoJS from 'crypto-js'
+import CryptoJS from "crypto-js"
 
 const SECRET = "secreto"
 const x = "clave"

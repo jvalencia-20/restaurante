@@ -40,7 +40,7 @@ const BebidaFisica = () => {
     const { id } = useParams();
     const obtenerBebida = async () => {
         try {
-            const response = await Axios.get(`http://localhost:3002/api/bebida/${id}`);
+            const response = await Axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/bebida/${id}`);
             setBebida(response.data);
             setPrecios(response.data.precio)
         } catch (error) {
@@ -61,7 +61,7 @@ const BebidaFisica = () => {
                     <Container>
                         <ConImg>
                             <CajaImg>
-                                <ImgPlato src={"http://localhost:3002/" + bebida.imagen} style={{ filter: "drop-shadow(-3px 10px 6px black)" }}></ImgPlato>
+                                <ImgPlato src={`${process.env.REACT_APP_PRIMERO_UNO}` + bebida.imagen} style={{ filter: "drop-shadow(-3px 10px 6px black)" }}></ImgPlato>
                             </CajaImg>
                             <Contenido>Precio: ${bebida.precio}</Contenido>
                         </ConImg>

@@ -35,7 +35,7 @@ export const Dashboard = () => {
                 Authorization: token
             }
         };
-        Axios.post("http://localhost:3002/api/crearplato", datos, config)
+        Axios.post(`${process.env.REACT_APP_PRIMERO_UNO}/api/crearplato`, datos, config)
             .then(({ data }) => {
                 ;
                 navigate("/private/traerPlato")

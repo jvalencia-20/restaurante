@@ -44,7 +44,7 @@ const Imprimir = ({ mesa }) => {
     };
     useEffect(() => {
         if (borrarFactura) {
-            axios.delete(`http://localhost:3002/api/orden/${mesaSeleccionada}`)
+            axios.delete(`${process.env.REACT_APP_PRIMERO_UNO}/api/orden/${mesaSeleccionada}`)
                 .then((deleteOrdenResponse) => {
                     if (deleteOrdenResponse.status === 204) {
                         navigate('/private/todofisica/registro-fact');

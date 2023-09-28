@@ -40,7 +40,7 @@ useEffect(() => {
 
 return (
 
-  <Background style={{backgroundImage:`url(${fondo})`, backgroundSize:"cover"}}>
+  <Background>
     <Container3>
       <Box1><h1 style={{color:"#ffffff93", margin:"0", filter:"drop-shadow(-5px 10px 6px black)"}}>Platos</h1></Box1>
       <Minibox2>

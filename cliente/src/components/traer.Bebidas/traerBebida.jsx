@@ -9,7 +9,7 @@ export const TraerBebidas = () => {
     const {token} = useAuthContext()
     //mapeo de platos desde la db
     const Bebidas = () => {
-        Axios.get("http://localhost:3002/api/bebidas", {
+        Axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/bebidas`, {
             headers: {
                 Authorization: token
             } 
@@ -23,7 +23,7 @@ export const TraerBebidas = () => {
         Bebidas()
     },)
     const eliminarProducto = (id_bebida) => {
-        Axios.delete(`http://localhost:3002/api/eliminarbebida/${id_bebida}`)
+        Axios.delete(`${process.env.REACT_APP_PRIMERO_UNO}/api/eliminarbebida/${id_bebida}`)
             .then((response) => {
             Bebidas()
             ;
@@ -45,7 +45,7 @@ export const TraerBebidas = () => {
                                 <DivFilas>
                                     <div style={{width: "100px"}} >{val.nombre_bebida}</div>
                                     <ContentImg>
-                                        <ImgPlato src={"http://localhost:3002/" + val.imagen} alt={val.nombre_bebida}></ImgPlato>
+                                        <ImgPlato src={`${process.env.REACT_APP_PRIMERO_UNO}/` + val.imagen} alt={val.nombre_bebida}></ImgPlato>
                                     </ContentImg>
                                     <Link to={`/private/actualizarBebida/${val.id_bebida}`}>
                                         <button >editar</button>

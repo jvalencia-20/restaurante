@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:3002/api"; 
+const baseUrl = `${process.env.REACT_APP_PRIMERO_UNO}/api`; 
 
 const fetchAllMesaData = async () => {
     try {

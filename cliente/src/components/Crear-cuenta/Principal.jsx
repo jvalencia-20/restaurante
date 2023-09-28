@@ -15,7 +15,7 @@ const Crearcuenta = () => {
   const [mensajito, setMensajito] = useState("") 
   const agregarusuario = (e) => {
     e.preventDefault()
-    Axios.post("http://localhost:3002/api/createadmin", {
+    Axios.post(`${process.env.REACT_APP_PRIMERO_UNO}/api/createadmin`, {
       nombre: usuario,
       correo: correo,
       cargo: cargo,

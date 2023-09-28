@@ -23,7 +23,7 @@ const FacturaDomicilio = () => {
     const Delete = () => {
         const parametro = di;
         const parametroCodificado = encodeURIComponent(parametro);
-        Axios.delete(`http://localhost:3002/api/quitar/${parametroCodificado}`)
+        Axios.delete(`${process.env.REACT_APP_PRIMERO_UNO}/api/quitar/${parametroCodificado}`)
         .catch(error => {
         })
     }
@@ -35,7 +35,7 @@ const FacturaDomicilio = () => {
     const Domicilios = () => {
         const parametro = di;
         const parametroCodificado = encodeURIComponent(parametro); 
-        Axios.get(`http://localhost:3002/api/domicilio/${parametroCodificado}`).then((response) => {
+        Axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/domicilio/${parametroCodificado}`).then((response) => {
             setFilteredReservas(response.data)
             calculateTotal(response.data)
         })

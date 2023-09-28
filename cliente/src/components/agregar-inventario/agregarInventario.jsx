@@ -15,7 +15,7 @@ const CrearProducto = () => {
     const { token } = useAuthContext();
     const agregarproducto = (e) => {
         e.preventDefault()
-        Axios.post("http://localhost:3002/api/createproducto", {
+        Axios.post(`${process.env.REACT_APP_PRIMERO_UNO}/api/createproducto`, {
             nombre_producto: nombreProducto,
             categoria: categoria,
             presentacion: presentacion,

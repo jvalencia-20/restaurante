@@ -57,8 +57,8 @@ export const DivPrincipal = styled.div`
     position: relative;
     overflow-y: auto;
     &::-webkit-scrollbar-thumb {
-    background: #000000; 
-    border-radius: 10px;
+        background: #000000; 
+        border-radius: 10px;
     }
     &::-webkit-scrollbar {
         background: transparent;
@@ -67,12 +67,12 @@ export const DivPrincipal = styled.div`
     @media  screen and (max-width: 670px ) {
     }
     @media  screen and (min-width: 1020px ) {
-    height: 60%;
-    width: 80%;
+        height: 60%;
+        width: 80%;
     }
     @media  screen and (max-height: 450px ) {
-    height: 200%;
-    box-shadow: none;
+        height: 200%;
+        box-shadow: none;
     }
 `;
 
