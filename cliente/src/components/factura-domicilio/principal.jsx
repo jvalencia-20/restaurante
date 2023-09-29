@@ -6,7 +6,6 @@ import { Link, useNavigate } from "react-router-dom";
 
 const FacturaDomicilio = () => {
     const Navegate = useNavigate()
-    const [subtotal, setSubtotal] = useState(0);
     const [total, setTotal] = useState(0);
     const [filteredReservas, setFilteredReservas] = useState([]);
     const [nombre, setNombre] = useState()
@@ -31,7 +30,6 @@ const FacturaDomicilio = () => {
         window.print();
     };
 
-    // cambio 
     const Domicilios = () => {
         const parametro = di;
         const parametroCodificado = encodeURIComponent(parametro); 

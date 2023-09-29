@@ -50,44 +50,44 @@ const BebidaFisica = () => {
         obtenerBebida();
     }, []);
 
-    return (
-        <>
-            <Background>
-                <Platos style={{ backgroundColor: bebida.colores }}>
-                    <Titulo>
-                        <NomPlato>{bebida.nombre_bebida}</NomPlato>
-                        <Logito src={logito}></Logito>
-                    </Titulo>
-                    <Container>
-                        <ConImg>
-                            <CajaImg>
-                                <ImgPlato src={`${process.env.REACT_APP_PRIMERO_UNO}` + bebida.imagen} style={{ filter: "drop-shadow(-3px 10px 6px black)" }}></ImgPlato>
-                            </CajaImg>
-                            <Contenido>Precio: ${bebida.precio}</Contenido>
-                        </ConImg>
-                        <Plato>
-                            <Contenido style={{ marginLeft: "2em", marginRight: "2em", textAlign: "center" }}>Descripcion: {bebida.descripcion}</Contenido>
-                            <Aumentar>
-                                <Botones
-                                    onClick={restar}
-                                >-</Botones>
-                                <Contenido>{contar}</Contenido>
-                                <Botones
-                                    onClick={suma}
-                                >+</Botones>
-                            </Aumentar>
-                            <Aumentar>
-                                <Agregar onClick={() => agrega()}>Agregar a Pedido</Agregar>
-                                <Link to="/private/todofisica/fisica"> <Agregar>Volver a Menu</Agregar></Link>
-                            </Aumentar>
-                            <Aumentar>
-                                <Contenido>Total: ${precios}</Contenido>
-                            </Aumentar>
-                        </Plato>
-                    </Container>
-                </Platos>
-            </Background>
-        </>
+return (
+    <>
+        <Background>
+            <Platos style={{ backgroundColor: bebida.colores }}>
+                <Titulo>
+                    <NomPlato>{bebida.nombre_bebida}</NomPlato>
+                    <Logito src={logito}></Logito>
+                </Titulo>
+                <Container>
+                    <ConImg>
+                        <CajaImg>
+                            <ImgPlato src={`${process.env.REACT_APP_PRIMERO_UNO}/` + bebida.imagen} style={{ filter: "drop-shadow(-3px 10px 6px black)" }}></ImgPlato>
+                        </CajaImg>
+                        <Contenido>Precio: ${bebida.precio}</Contenido>
+                    </ConImg>
+                    <Plato>
+                        <Contenido style={{ marginLeft: "2em", marginRight: "2em", textAlign: "center" }}>Descripcion: {bebida.descripcion}</Contenido>
+                        <Aumentar>
+                            <Botones
+                                onClick={restar}
+                            >-</Botones>
+                            <Contenido>{contar}</Contenido>
+                            <Botones
+                                onClick={suma}
+                            >+</Botones>
+                        </Aumentar>
+                        <Aumentar>
+                            <Agregar onClick={() => agrega()}>Agregar a Pedido</Agregar>
+                            <Link to="/private/todofisica/fisica"> <Agregar>Volver a Menu</Agregar></Link>
+                        </Aumentar>
+                        <Aumentar>
+                            <Contenido>Total: ${precios}</Contenido>
+                        </Aumentar>
+                    </Plato>
+                </Container>
+            </Platos>
+        </Background>
+    </>
     )
 }
 

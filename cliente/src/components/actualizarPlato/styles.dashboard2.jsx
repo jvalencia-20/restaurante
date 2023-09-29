@@ -1,7 +1,6 @@
 import styled from "styled-components"
 import pizarra from "../Img/pizarra.jpeg"
 import nota from "../Img/notaadd.png"
-import cargar from "../Img/SUBIR.png"
 import guardar from "../Img/save.png"
 
 export const Pagina = styled.div`
@@ -83,24 +82,6 @@ export const Entrar = styled.div`
     background-position: center;
 `;
 
-export const InforImg = styled.input`
-    border: none;
-    font-family: 'Indie Flower', cursive;
-`;
-
-export const SpanImg = styled.span`
-`;
-
-export const LabelImg = styled.label`
-    height: 80px;
-    width: 85px;
-    background-repeat: no-repeat;
-    background-size: 89%;
-    background-position: center;
-    border-radius: 40%;
-    background-image:url(${cargar}) ;
-`;
-
 export const ContentImg = styled.div`
     height: 300px;
     width: 250px;
@@ -130,9 +111,6 @@ export const ImgPlato = styled.img`
     width: 95px;
     left: 4%;
     }
-`;
-
-export const Nota = styled.div`
 `;
 
 export const Sticker = styled.div`

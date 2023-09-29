@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Axios from "axios"
-import { Background, ConInfor, ConTitulo, Entrar, Infor, Login, Name, ReContraseña, Titulo } from "./Styled";
-import { Link, useNavigate } from "react-router-dom"
+import { Background, ConInfor, ConTitulo, Entrar, Infor, Login, Name, Titulo } from "./Styled";
+import { useNavigate } from "react-router-dom"
 import { useAuthContext } from "../context/AuthContext";
 
 const Crearcuenta = () => {

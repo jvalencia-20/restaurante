@@ -107,7 +107,3 @@ export const Entrar = styled.button`
   border-radius: 1em;
   background-color: transparent;
 `;
-
-export const ReContraseña = styled.h4`
-  color: #ffff;
-`;

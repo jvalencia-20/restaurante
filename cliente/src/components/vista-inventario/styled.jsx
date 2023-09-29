@@ -29,7 +29,7 @@ export const Box3 = styled.div`
     width: 100%;
     display: flex;
     border: solid 1px;
-    background-color: white;
+    background-color: #ffffff;
 `;
 
 export const Box = styled.div`

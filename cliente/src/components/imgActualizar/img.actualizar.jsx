@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Axios from "axios"
-import { Container, Fondo, Salir, Salida, Mensaje, Form, ConInfor, Infor, Div, LabelImg, SpanImg, InforImg, ContentImg, ImgPlato } from "./styles";
+import { Container, Fondo, Salir, Salida, Mensaje, Form, ConInfor, Div, LabelImg, SpanImg, InforImg, ContentImg, ImgPlato } from "./styles";
 import { useNavigate, useParams } from "react-router-dom";
 import { useState} from "react";
 import { useAuthContext } from "../context/AuthContext";
@@ -33,7 +33,7 @@ Axios.put(`${process.env.REACT_APP_PRIMERO_UNO}/api/actualizarImgPlato/${id}`, d
 }  
 })
 .then(({data})=>{
-    alert("usuario Actualizado")
+    alert("imagen Actualizado")
 })
 .catch(error => {
     if (error.response) {

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Boton } from "../vista-dashboard/styles-princDashboard";
 
 export const Contenedor = styled.div`
     width: 100%;

@@ -9,7 +9,6 @@ const [sancocho, setSancocho] = useState([])
 const [corriente, setCorriente] = useState([])
 const [bebida, setBebida] = useState([])
 
-//trae los platos sancocho de la tabla platos
 const platosSancocho = () => {
     Axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/platosSancocho`).then((response)=>{
         setSancocho(response.data)
@@ -18,7 +17,6 @@ const platosSancocho = () => {
     })
 }
 
-//trae los platos corrientes de la tabla platos
 const platosCorriente = () => {
     Axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/platosCorriente`).then((response)=>{
         setCorriente(response.data)
@@ -27,7 +25,6 @@ const platosCorriente = () => {
     })
 }
 
-//trae las bebidas de la tabla bebida
 const bebidas = () => {
     Axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/bebidas`).then((response) => {
         setBebida(response.data)
@@ -36,7 +33,6 @@ const bebidas = () => {
     })
 }
 
-//llama las funciones
 useEffect(()=>{
     platosSancocho()
     platosCorriente()

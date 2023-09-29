@@ -4,10 +4,8 @@ import React, { useState, useEffect } from 'react';
 import Axios from "axios";
 import elimina from "../Img/delete.png"
 import { useAuthContext } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
 
 export const CreaMesas = () => {
-    const navigate = useNavigate()
     const {token} = useAuthContext()
     const [mesas, setMesas] = useState([]);
     const [selectedImage, setSelectedImage] = useState(null);
@@ -29,7 +27,6 @@ const datos = new FormData();
 datos.append("numeroMesa", numeroMesa)
 datos.append("imagen", imagen_url)
 
-
 const config = {
     headers: {
         'Content-Type': 'multipart/form-data',
@@ -43,6 +40,7 @@ const config = {
     .catch((error) => {
     });
 }
+
 const getMesas = () => {
     Axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/mesas`).then((response) => {
     setMesas(response.data.length);
@@ -60,56 +58,57 @@ const eliminar = () => {
     })
     window.location.reload()
 }
-    return(
+
+return(
     <Pagina>
-            <h1>Creacion de Mesas</h1>
-                <DivPrincipal>
-                    <Hoja1>
-                        <Div style={{ height:" 3em"}}>
-                            <Name>Numero total de mesas: {mesas}</Name>
-                            <Div style={{width:"17em"}}></Div>
-                        </Div>
-                        <Div>
-                            <Name>Ingrese el numero de la mesa siguiente:</Name>
-                            <Infor
-                                type="text"
-                                name="numeroMesa"
-                                placeholder="numero de la mesa"
-                                autoComplete="off"
-                                value={numeroMesa}
-                                onChange={ev => setNumeroMesa(ev.target.value)}>
-                            </Infor>
-                        </Div>
-                        <Div style={{ height:" 3em"}}>
-                        </Div>
-                        <Div>
-                        <Name>Elimina mesas</Name>
-                            <Entrar onClick={eliminar} style={{backgroundImage:`url(${elimina})`, height:"100px", width:"110px"}}></Entrar>
-                        </Div>
-                    </Hoja1>
-                    <Hoja2>
-                        <ConInfor style={{height:"480px"}}>
-                            <div style={{ height:"100px", width:"100%", display:"flex", justifyContent: "center"}}>
-                                <LabelImg className="btn btn-warning">
-                                <SpanImg> </SpanImg>
-                                <InforImg
-                                    hidden 
-                                    type="file"
-                                    onChange={handleImageChange}>
-                                </InforImg>
-                                </LabelImg>
-                                <Nota></Nota>
-                            </div>
-                                <ContentImg>
-                                    {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}
-                                </ContentImg>
-                            <div style={{display: "flex"}}>
-                            <Entrar onClick={agregarplato}></Entrar>
-                            <Sticker></Sticker>
-                            </div>
-                        </ConInfor>
-                    </Hoja2>
-                </DivPrincipal>
+        <h1 style={{color:"white"}}>Creacion de Mesas</h1>
+        <DivPrincipal>
+            <Hoja1>
+                <Div style={{ height:" 3em"}}>
+                    <Name>Numero total de mesas: {mesas}</Name>
+                    <Div style={{width:"17em"}}></Div>
+                </Div>
+                <Div>
+                    <Name>Ingrese el numero de la mesa siguiente:</Name>
+                    <Infor
+                        type="text"
+                        name="numeroMesa"
+                        placeholder="numero de la mesa"
+                        autoComplete="off"
+                        value={numeroMesa}
+                        onChange={ev => setNumeroMesa(ev.target.value)}>
+                    </Infor>
+                </Div>
+                <Div style={{ height:" 3em"}}>
+                </Div>
+                <Div>
+                <Name>Elimina mesas</Name>
+                    <Entrar onClick={eliminar} style={{backgroundImage:`url(${elimina})`, height:"100px", width:"110px"}}></Entrar>
+                </Div>
+            </Hoja1>
+            <Hoja2>
+                <ConInfor style={{height:"480px"}}>
+                    <div style={{ height:"100px", width:"100%", display:"flex", justifyContent: "center"}}>
+                        <LabelImg className="btn btn-warning">
+                        <SpanImg> </SpanImg>
+                        <InforImg
+                            hidden 
+                            type="file"
+                            onChange={handleImageChange}>
+                        </InforImg>
+                        </LabelImg>
+                        <Nota></Nota>
+                    </div>
+                        <ContentImg>
+                            {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}
+                        </ContentImg>
+                    <div style={{display: "flex"}}>
+                    <Entrar onClick={agregarplato}></Entrar>
+                    <Sticker></Sticker>
+                    </div>
+                </ConInfor>
+            </Hoja2>
+        </DivPrincipal>
     </Pagina>
     )
 }

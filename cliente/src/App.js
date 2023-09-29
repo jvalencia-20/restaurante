@@ -44,7 +44,7 @@ import ActualizarImgBebida from "./components/img-actualizar-bebida/img.actualiz
 import Todo from "./components/Todo/todo";
 import { CreaMesas } from "./components/crea-mesa/mesas";
 
-export const Principal = () => {
+export const App = () => {
 return(
     <>  
         <AuthContextProvider>

@@ -2,11 +2,13 @@ import {pool} from "../db.js"
 import bcrypt from "bcrypt"
 import jwt from 'jsonwebtoken'
 import CryptoJS from "crypto-js"
+import dotenv from 'dotenv';
+dotenv.config();
+const { CLAVE, SECRETO } = process.env;
 
-const SECRET = "secreto"
-const x = "clave"
+const SECRET = SECRETO
+const x = CLAVE
 
-//Se seleccionan todos los registros
 export const getAdmin = async (req, res) => {
     try {
         const [rows] = await pool.query('SELECT id_admin, nombre, correo, cargo  FROM admin')
@@ -16,7 +18,6 @@ export const getAdmin = async (req, res) => {
     }
 }
 
-//Se selecciona un registro
 export const getAdmin1 = async (req, res) => {
     try {
         const { id } = req.params
@@ -32,7 +33,6 @@ export const getAdmin1 = async (req, res) => {
     }
 }
 
-//Se crea un registro
 export const createAdmin = async (req, res) => {
     try {
         const { nombre, correo, cargo, password, confirmar_password } = req.body;
@@ -52,7 +52,6 @@ export const createAdmin = async (req, res) => {
             return res.status(409).send('Las contraseñas deben coincidir.');
     }
 
-// Verificar si ya existe un usuario con el mismo correo y nombre
         const checkExistingUserQuery = 'SELECT * FROM admin WHERE nombre = ? OR correo = ?';
         const checkExistingUserValues = [nombre, correo];
         const [existingUser] = await pool.query(checkExistingUserQuery, checkExistingUserValues);
@@ -62,7 +61,6 @@ export const createAdmin = async (req, res) => {
         const saltRounds = 10;
         const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-// Insertar el nuevo cliente en la base de datos
         const insertQuery = 'INSERT INTO admin (nombre, correo, cargo, password) VALUES (?, ?, ?, ?)';
         const insertValues = [nombre, correo, cargo, hashedPassword];
         const [result] = await pool.query(insertQuery, insertValues);
@@ -104,7 +102,7 @@ export const createProducto = async (req, res) => {
         if (!precio){
             return res.status(409).send('precio requerido.');
         }
-        // Insertar el nuevo cliente en la base de datos
+
         const insertQuery = 'INSERT INTO inventario (nombre_producto, categoria, presentacion, unidad, precio) VALUES (?, ?, ?, ?, ?)';
         const insertValues = [nombre_producto, categoria, presentacion, unidad, precio];
         const [result] = await pool.query(insertQuery, insertValues);
@@ -164,7 +162,6 @@ export const deletePlatoCarrito = async (req, res) => {
     }
 }
 
-//Se actualiza un registro
 export const updateAdmin = async (req, res) => {
     try {
         const { id } = req.params;
@@ -204,7 +201,6 @@ export const actualizarContraseñaAdmin = async (req, res) => {
     }
 }
 
-//Se elimina un registro
 export const deleteAdmin = async (req, res) => {
     try {
         const [result] = await pool.query('DELETE FROM admin WHERE id_admin = ?', [req.params.id])

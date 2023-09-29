@@ -21,11 +21,9 @@ const TodoFisica = () => {
     }
     }, []);
 
-  //para cerrar el carrito
     const modalRef = useRef(null);
     const handleOutsideClick = (event) => {
     if (modalRef.current && !modalRef.current.contains(event.target)) {
-      // Si el clic fue fuera de la ventana modal, ciérrala
         setActivo(!activo);
     }
     };

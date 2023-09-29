@@ -1,4 +1,4 @@
-import { Pagina, Background, Receta, Hoja1, Hoja2, ConInfor, Infor, InforImg, Name, Entrar, Div, SpanImg, LabelImg, ContentImg, ImgPlato, Nota, DivPrincipal} from "./styles.dashboard2"
+import { Pagina, Background, Receta, Hoja1, Hoja2, ConInfor, Infor, Name, Entrar, Div, ContentImg, ImgPlato,DivPrincipal} from "./styles.dashboard2"
 import { Sticker } from "./styles.dashboard2";
 import React, { useEffect, useState } from 'react';
 import Axios from "axios";
@@ -11,11 +11,9 @@ export const ActualizarBebida = () => {
     const [descripcion, setDescripcion] = useState("")
     const [precio, setPrecio] = useState("")
     const [imgEnv, setImgEnv] = useState("")
-    const [color, setColor] = useState("")
     const navigate = useNavigate()
     const { token } = useAuthContext();
     const { id } = useParams();
-    // console.log(process.env.REACT_APP_PRIMERO_UNO, 'hola bebida');
     const ubicacion = `${process.env.REACT_APP_PRIMERO_UNO}/`
     const BuscarBebida = async () => {
         await Axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/bebida/${id}`,{
@@ -28,7 +26,6 @@ export const ActualizarBebida = () => {
             setDescripcion(response.data.descripcion)
             setPrecio(response.data.precio)
             setSelectedImage(ubicacion+response.data.imagen)
-            setColor(response.data.colores)
         })
         .catch(error =>{
         })
@@ -41,54 +38,53 @@ export const ActualizarBebida = () => {
         }
     };
 
-const agregarbebida = (e) => {
-e.preventDefault()
-
-const config = {
-    headers: {
-        'Content-Type': 'multipart/form-data',
-        Authorization: token
-    }
-    };
-    Axios.put(`${process.env.REACT_APP_PRIMERO_UNO}/api/updateBebida/${id}`, {
-        nombre_bebida: nombreBebida,
-        descripcion: descripcion,
-        precio: precio,
-        colores: color
-    },{
-        headers: {
-        Authorization: token
-    }  
-    })
-    .then(({ data }) => {
-    navigate("/private/traerBebida")
-    })
-    .catch(error => {
-        if (error.response) {
-            if (error.response.status === 409) {
-            const errorMessage = error.response.data;
-            switch (errorMessage) {
-                case 'Nombre del Plato requerido.':
-            break;
-            case 'descripcion requerida.':
-            break;
-            case 'Precio Requerido.':
-            break;
-            case 'Imagen Requerida':
-            break;
-            case 'Tipo de plato  requerido.':
-            break;
-            default:
-            break;
+    const agregarbebida = (e) => {
+        e.preventDefault()
+        
+        const config = {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+                Authorization: token
+            }
+            };
+            Axios.put(`${process.env.REACT_APP_PRIMERO_UNO}/api/updateBebida/${id}`, {
+                nombre_bebida: nombreBebida,
+                descripcion: descripcion,
+                precio: precio
+            },{
+                headers: {
+                Authorization: token
+            }  
+            })
+            .then(({ data }) => {
+            navigate("/private/traerBebida")
+            })
+            .catch(error => {
+                if (error.response) {
+                    if (error.response.status === 409) {
+                    const errorMessage = error.response.data;
+                    switch (errorMessage) {
+                        case 'Nombre del Plato requerido.':
+                    break;
+                    case 'descripcion requerida.':
+                    break;
+                    case 'Precio Requerido.':
+                    break;
+                    case 'Imagen Requerida':
+                    break;
+                    case 'Tipo de plato  requerido.':
+                    break;
+                    default:
+                    break;
+                }
+                    } else {
+                    alert("Ocurrió un error en el registro.");
+                }
+                }  else {
+                    alert("Ocurrió un error en la solicitud.");
+                }
+                });
         }
-            } else {
-            alert("Ocurrió un error en el registro.");
-        }
-        }  else {
-            alert("Ocurrió un error en la solicitud.");
-        }
-        });
-}
 
 useEffect(()=>{
     BuscarBebida()
@@ -97,11 +93,11 @@ useEffect(()=>{
     <Pagina>
         <Background>
             <Receta>
-            <h1>Actualizar Bebida</h1>
+            <h1 style={{color:"white"}}>Actualizar Bebida</h1>
                 <DivPrincipal>
                     <Hoja1>
                         <Div>
-                            <Name>Ingrese el nombre del plato:</Name>
+                            <Name>Ingrese el nombre de la bebida:</Name>
                             <Infor
                                 type="text"
                                 name="nombreBebida"
@@ -135,17 +131,6 @@ useEffect(()=>{
                                 value={precio}
                                 onChange={ev => setPrecio(ev.target.value)}>
                                 </Infor>
-                        </Div>   
-                        <Div>
-                            <Name>Ingrese el tipo de plato:</Name>
-                            <Infor
-                                type="text"
-                                name="color"
-                                placeholder="color"
-                                autoComplete="off"
-                                value={color}
-                                onChange={ev => setColor(ev.target.value)}>  
-                            </Infor>
                         </Div>   
                     </Hoja1>
                     <Hoja2>

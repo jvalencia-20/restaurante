@@ -3,7 +3,6 @@ import moment from "moment-timezone";
 
 moment.tz.setDefault('America/Bogota'); 
 
-//Se seleccionan todos los registros
 export const getAllRegistros = async (req, res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM registros_fact ORDER BY fecha_factura DESC');
@@ -13,7 +12,6 @@ export const getAllRegistros = async (req, res) => {
     }
 }
 
-//Se selecciona solo uno
 export const getRegistro = async (req, res) => {
     try {
         const { id } = req.params
@@ -52,7 +50,6 @@ export const createNew = async (req, res) => {
     }
 }
 
-//Se actualiza registro
 export const updateRegistro = async (req, res) => {
     try {
         const { id } = req.params;
@@ -73,7 +70,6 @@ export const updateRegistro = async (req, res) => {
     }
 };
 
-//Se elimina 1 registro
 export const delete1 = async (req, res) => {
     try {
         const [result] = await pool.query('DELETE FROM registros_fact WHERE id_num_orden= ?', [req.params.id])
@@ -88,7 +84,6 @@ export const delete1 = async (req, res) => {
     }
 }
 
-// Se eliminan todos los registros
 export const deleteAllRegistro = async (req, res) => {
     try {
         const [result] = await pool.query('DELETE FROM registros_fact');
@@ -110,7 +105,6 @@ export const getRegistrosPorMesaYFecha = async (req, res) => {
         const [rows] = await pool.query(query, params);
         res.json(rows);
     } catch (error) {
-        console.error("Error al filtrar por mesa y fecha:", error);
         res.status(500).json({ error: error.message });
     }
 };

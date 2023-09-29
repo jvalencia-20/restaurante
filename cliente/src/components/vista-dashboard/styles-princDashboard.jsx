@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import "../../App.css"
 
 export const Body = styled.div`
     width: 100%;
@@ -26,49 +27,50 @@ export const Container = styled.div`
         "sidebar1" 400px
     ;
     @media  screen and (max-height: 450px ) {
-        right: auto;
-        width: 97%;
-        grid-template:
-            "header" 100px
-            "navbar1" 50px
-            "main1" 155vh
-            "sidebar1" 400px        
-            200px auto
+    right: auto;
+    width: 97%;
+    grid-template:
+        "header" 100px
+        "navbar1" 50px
+        "main1" 155vh
+        "sidebar1" 400px        
+        200px auto
     }
     @media  screen and (min-width: 600px ) {
-        right: auto;
-        width: 100%;
-        grid-template:
-            "header" 100px
-            "navbar1" 50px
-            "main1" 145vh
-            "sidebar1" 180px        
-            200px auto
+    right: auto;
+    width: 100%;
+    grid-template:
+        "header" 100px
+        "navbar1" 50px
+        "main1" 145vh
+        "sidebar1" 180px        
+        200px auto
     ;
     transition: 1s ease
     }
     @media  screen and (min-width: 700px ) {
-        width: 100%;
-        right: 2%;
-        grid-template:
-            "header header" 100px
-            "navbar1 navbar1" 50px
-            "sidebar1 main1" auto
-            /
-            200px auto
+    width: 100%;
+    right: 2%;
+    grid-template:
+        "header header" 100px
+        "navbar1 navbar1" 50px
+        "sidebar1 main1" auto
+        /
+        200px auto
     ;
     transition: 1s ease
     }
     @media  screen and (min-width: 1000px ) {
-        width: 100%;
-        right: auto;
-        grid-template:
-            "header  header header"   100px
-            "navbar1 main1    sidebar1" auto
-            /
-            200px     auto       200px
-            ;
-            transition-duration: 1s ease
+    width: 100%;
+    right: auto;
+    grid-template:
+        
+        "header  header header"   100px
+        "navbar1 main1    sidebar1" auto
+    /
+        200px     auto       200px
+    ;
+    transition-duration: 1s ease
     }
 `;
 
@@ -83,21 +85,21 @@ export const Header = styled.div`
 `;
 
 export const ContainerHeader = styled.div`
-    background-color: black;
+    background-color: var(--color-negro);
     display: flex;
     justify-content: center;
     align-items: start;
     width: 100%;
     height: 100%;
-    box-shadow: -1px 1px 7px 0px rgba(0, 0, 0, 0.75);
-    color: #ffffff;
+    box-shadow: var(--color-amarillo);
+    color: var(--color-blanco);
     text-shadow: 0 0 10PX #c7ba45,0 0 40PX #c7c345, 0 0 80PX #c3c745;
     grid-area: header;
 `;
 
 export const CajaNav = styled.div`
-    background-color: black;
-    box-shadow: -1px 1px 7px 0px rgb(208, 255, 0);
+    background-color: var(--color-negro);
+    box-shadow: var(--color-amarillo);
     display: flex;
     grid-area: navbar1;
     border-radius: 5px;
@@ -115,8 +117,8 @@ export const ContainerMain = styled.div`
     border-radius: 5px;
     overflow: scroll;
     &::-webkit-scrollbar-thumb {
-        background: #000000; 
-        border-radius: 10px;
+    background: var(--color-blanco); 
+    border-radius: 10px;
     }
     &::-webkit-scrollbar {
         background: transparent;
@@ -125,22 +127,23 @@ export const ContainerMain = styled.div`
 `;
 
 export const ContainerMenu = styled.div`
-    background-color: black;
+    background-color: var(--color-negro);
     grid-area: sidebar1;
-    box-shadow: -1px 1px 7px 0px rgba(0, 0, 0, 0.75);
-    color: #ffffff;
+    box-shadow: var(--color-amarillo);
+    color: var(--color-blanco);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow-y: scroll;
-`;
-
-export const ContainerFooter = styled.div`
-    background-color: white;
-    grid-area: footer1;
-    box-shadow: -1px 1px 7px 0px rgba(0, 0, 0, 0.75);
-    border-radius: 5px;
+    &::-webkit-scrollbar-thumb {
+    background: var(--color-blanco); 
+    border-radius: 10px;
+    }
+    &::-webkit-scrollbar {
+        background: transparent;
+        border-radius: 10px;
+    }
 `;
 
 export const CajaLogo = styled.div`
@@ -154,18 +157,18 @@ export const Boton = styled.button`
     height: 100%;
     margin: 10px;
     width:100px;
-    color: #fff;
+    color: var(--color-blanco);
     text-decoration: none;
     border-radius: 8px;
     background-color: transparent;
     border: none;
     &:hover{
-        box-shadow: 0 0 10PX yellow,0 0 40PX yellow, 0 0 80PX yellow;
+    box-shadow: 0 0 10PX yellow,0 0 40PX yellow, 0 0 80PX yellow;
     };
     &:focus{
-        background-color: black;
-        color: rgb(255, 255, 255);
-        text-shadow:  0 0 10PX orange,0 0 40PX orange, 0 0 80PX orange;
+    background-color: var(--color-negro);
+    color: var(--color-blanco);
+    text-shadow:  0 0 10PX orange,0 0 40PX orange, 0 0 80PX orange;
     }
     @media  screen and (min-width: 1000px ) {
         height: 50px;

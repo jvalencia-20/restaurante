@@ -16,10 +16,9 @@ const ImprimirDomicilio = () => {
         window.print();
     };
 
-    // cambio 
     const Domicilios = () => {
         const parametro = di;
-        const parametroCodificado = encodeURIComponent(parametro); //Cuando creas una URL, ciertos caracteres, como espacios, signos de puntuación y otros caracteres especiales, deben codificarse para que sean interpretados correctamente por los servidores web y los navegadores. encodeURIComponent realiza esta codificación al reemplazar caracteres no seguros en la URL con su equivalente codificado en URL
+        const parametroCodificado = encodeURIComponent(parametro);
         Axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/domicilio/${parametroCodificado}`).then((response) => {
             setFilteredReservas(response.data)
             calculateTotal(response.data)

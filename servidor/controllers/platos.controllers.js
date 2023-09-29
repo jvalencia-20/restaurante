@@ -24,7 +24,6 @@ export const agregarPedido = async (req, res) => {
     }
 }
 
-//muestra la informacion de un plato en especifico en otra vista
 export const obtenerPlato = async (req, res) => {
     try {
         const { id } = req.params;
@@ -33,7 +32,7 @@ export const obtenerPlato = async (req, res) => {
         if (rows.length === 0) {
             res.status(404).json({ error: 'Plato no encontrado' });
         } else {
-            res.json(rows[0]); // Acceder al primer resultado en la matriz
+            res.json(rows[0]); 
         }
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -48,7 +47,7 @@ export const obtenerBebida = async (req, res) => {
         if (rows.length === 0) {
             res.status(404).json({ error: 'Plato no encontrado' });
         } else {
-            res.json(rows[0]); // Acceder al primer resultado en la matriz
+            res.json(rows[0]);
         }
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -64,7 +63,6 @@ export const Compra = async (req, res) => {
     }
 }
 
-// mapeo de Platos solo sancochos
 export const PlatosSancocho = async (req, res) => {
     const sancocho = "sancocho"
     try {
@@ -111,7 +109,6 @@ export const createPlato = async (nombre_plato, descripcion, precio, imagePath, 
     }
 };
 
-//logica para eliminar un Plato
 export const deletePlato = async(req,res) => {
     try {
         const [result] = await pool.query('DELETE FROM plato WHERE id_plato = ?' ,[req.params.id]);
@@ -153,12 +150,10 @@ export const deleteBebida = async(req,res) => {
         });
         
     } catch (error) {
-        console.error('Error al eliminar bebida:', error);
         res.status(500).json({message:"Error de servidor"});
     }
 }
 
-//logica para actualizar un plato
 export const updatePlato = async(req,res) => {
     try {
         const {id} = req.params;
@@ -174,7 +169,6 @@ export const updatePlato = async(req,res) => {
         const [rows] = await pool.query('SELECT * FROM plato WHERE id_plato = ?', [id])
         res.json(rows[0])
     } catch (error) {
-        console.error("Ups error al actualizar:", error);
         res.status(500).json({ message: "Error en el servidor" });
         
     }
@@ -183,9 +177,9 @@ export const updatePlato = async(req,res) => {
 export const updateBebida = async(req,res) => {
     try {
         const {id} = req.params;
-        const {nombre_bebida, descripcion, precio, color} = req.body;
-        const query = "UPDATE plato SET nombre_bebida = IFNULL( ?, nombre_bebida), descripcion = IFNULL( ?, descripcion), precio = IFNULL( ?, precio), colores = IFNULL(?, colores)  WHERE id_bebida = ?";
-        const values = [nombre_bebida, descripcion, precio, color, id];
+        const {nombre_bebida, descripcion, precio} = req.body;
+        const query = "UPDATE bebida SET nombre_bebida = IFNULL( ?, nombre_bebida), descripcion = IFNULL( ?, descripcion), precio = IFNULL( ?, precio) WHERE id_bebida = ?";
+        const values = [nombre_bebida, descripcion, precio, id];
         const [result] = await pool.query(query,values);
         if (result.affectedRows === 0) {
             return res.status(404).json({
@@ -195,7 +189,6 @@ export const updateBebida = async(req,res) => {
         const [rows] = await pool.query('SELECT * FROM bebida WHERE id_bebida = ?', [id])
         res.json(rows[0])
     } catch (error) {
-        console.error("Ups error al actualizar:", error);
         res.status(500).json({ message: "Error en el servidor" });
         
     }
@@ -240,10 +233,10 @@ export const getAllPlatos = async (req, res) => {
     }
 }
 
-export const createBebida = async (nombre_bebida, descripcion, precio, imagePath, colores) => {
+export const createBebida = async (nombre_bebida, descripcion, precio, imagePath) => {
     try {
-        const query = "INSERT INTO bebida (nombre_bebida, descripcion, precio, imagen,  colores) VALUES (?, ?, ?, ?, ?)";
-        const values = [nombre_bebida, descripcion, precio, imagePath, colores];
+        const query = "INSERT INTO bebida (nombre_bebida, descripcion, precio, imagen) VALUES (?, ?, ?, ?)";
+        const values = [nombre_bebida, descripcion, precio, imagePath,];
         const [rows] = await pool.query(query, values);
         return rows;
     } catch (error) {

@@ -29,14 +29,13 @@ const CarritoFisica = () => {
             window.location.reload()
         }
     };
+
     const transferirDatos = () => {
         if( plato.length > 0){
         const datosAEnviar = plato;
         localStorage.setItem("datosAEnviar", JSON.stringify(datosAEnviar));
-        // Cierra la ventana actual
         navegate("/private/todofisica/recibir-orden")
         window.location.reload(); 
-        // window.close();
         }   
     };
 

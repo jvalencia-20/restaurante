@@ -1,12 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import {
-    Background,
-    ContPrincipal,
-    ContFactura,
-    ResPrecios,
-    BotonImprimir,
-} from "./styled";
+import { Background, ContPrincipal, ContFactura, ResPrecios, BotonImprimir } from "./styled";
 import mesaFunctions from "../vista-mesa/mesa.services/mesa.services";
 import { useDataState } from "../vista-mesa/data.context/data.state.context";
 import axios from "axios";
@@ -19,7 +13,6 @@ const Factura = (props) => {
     const [total, setTotal] = useState(0);
     const [filteredReservas, setFilteredReservas] = useState([]);
     const [lastInsertedId, setLastInsertedId] = useState(null);
-    const [redirectToPayU, setRedirectToPayU] = useState(false);
     const [numMesa, setNumMesa] = useState(0);
     const { mesaData } = useDataState();
     const mesaSeleccionada = mesa ?? mesaData[0]?.id_mesa;

@@ -84,19 +84,6 @@ export const ConInfor = styled.div`
     justify-content: space-around;
 `;
 
-export const Infor = styled.input`
-    width: 23em;
-    height: 2em;
-    border: 1px solid #ffff;
-    background-color: transparent;
-    border-radius: 5px;
-    color: #12011d;
-@media screen and ( max-width: 90vh){   
-    height: 2em;
-    width: 20em; 
-}
-`;
-
 export const Div = styled.div`
     width: 13em;
     height: 6em;

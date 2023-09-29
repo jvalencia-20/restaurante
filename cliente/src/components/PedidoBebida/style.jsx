@@ -1,34 +1,6 @@
 import styled from "styled-components";
 import FondoComida from "../Img/fondoComida.jpg"
 
-export const Background = styled.div`
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-`;
-
-export const Platos = styled.div`
-  height: 35em;
-  width: 55em;
-  box-shadow: 10px 10px 10px black;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  backdrop-filter: blur(2px); 
-  background-color: #878787ae;
-  @media screen and (max-width: 900px) {
-    width: 40em;
-  }
-  @media screen and (max-width: 660px) {
-    width: 30em;
-  }    
-  @media screen and (max-width: 500px) {
-    width: 22em;
-  }
-`;
 
 export const Titulo = styled.div`
   width: 60em;

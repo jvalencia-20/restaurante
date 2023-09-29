@@ -13,19 +13,17 @@ export const Domicilio = () => {
     const [hora, setHora] = useState("")
     const [active, setActive] = useState(false)
     const navigate = useNavigate()
-    //localstorage
     const [plato, setPlatos] = useState([])
-    useEffect(() => { //mantiene en ejecucion lo que esta en el localstorage
-      const plato = JSON.parse(localStorage.getItem("platico")); //llega en string pero con el parse lo convierte de nuevo en un array de objetos
+    useEffect(() => {
+        const plato = JSON.parse(localStorage.getItem("platico")); 
         if (Array.isArray(plato)) {
         setPlatos(plato);
     }
     }, []);
 
-    //agregar
     const agregarPedido = () => {
         if(nombre.length > 0 && direccion.length > 0 &&  hora.length > 0){
-        plato.forEach((platoItem) => { //iteramos los item que estan en el localstarage
+        plato.forEach((platoItem) => { 
             Axios.post(`${process.env.REACT_APP_PRIMERO_UNO}/api/domicilio`, {
             nombre_plato: platoItem.nombre_plato,
             cantidad: platoItem.cantidad,
@@ -34,7 +32,6 @@ export const Domicilio = () => {
             direccion: direccion,
             hora_entrega: hora,
             }).then(() => {
-                // Elimina los datos después de enviarlos del localStorage
                 const platosEnLocalStorage = JSON.parse(localStorage.getItem("platico"));
                 const nuevosPlatos = platosEnLocalStorage.filter((item) => item.nombre_plato !== platoItem.nombre_plato);
                 localStorage.setItem("platico", JSON.stringify(nuevosPlatos));
@@ -44,7 +41,7 @@ export const Domicilio = () => {
             alert("Problemas con el plato: " + error.message);
             });
         }); 
-        setPlatos([]); // Opcional: Limpiar el estado plato después de enviar los datos
+        setPlatos([]); 
         }else{
             setActive(!active)
             setTimeout(()=>{

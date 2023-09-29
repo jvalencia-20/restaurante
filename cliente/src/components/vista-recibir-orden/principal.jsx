@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-    Background,
-    ContPrincipal,
-    ContFactura,
-    ResPrecios,
-    ContBoton,
-    BotonImprimir,
-} from "./styled";
+import { Background,ContPrincipal, ContFactura, ResPrecios, ContBoton, BotonImprimir} from "./styled";
 import Axios from "axios";
 
 const RecibirOrden = () => {

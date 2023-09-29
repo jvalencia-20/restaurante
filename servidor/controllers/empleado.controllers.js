@@ -1,12 +1,10 @@
 import {pool} from "../db.js"
 
-//logica para traer todos los empleados
 export const getEmpleados = async(req,res) => {
     const [rows] = await pool.query('SELECT * FROM empleado');
     res.json(rows)
 }
 
-//logica para obtener empleados por id
 export const getEmpleado = async(req,res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM empleado WHERE id_empleado = ?', [req.params.id]);
@@ -19,7 +17,6 @@ export const getEmpleado = async(req,res) => {
     }
 } 
 
-//logica para crear un empleado
 export const createEmpleado = async(req,res) => {
     try {
         const{id_empleado, nombre_empleado, ocupacion, turno} = req.body;

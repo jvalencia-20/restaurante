@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Axios from "axios"
 import { Background, ConInfor, ConTitulo, Entrar, Infor, Login, Name, Titulo } from "./stylesAgregar";
-
 import { useNavigate } from "react-router-dom"
 import { useAuthContext } from "../context/AuthContext";
 

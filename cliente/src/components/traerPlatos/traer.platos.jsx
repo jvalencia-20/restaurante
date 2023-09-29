@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 export const TraerPlatos = () => {
     const [plato, setPlato] = useState([])
     const {token} = useAuthContext()
-    //mapeo de platos desde la db
     const Platos = () => {
         Axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/platos`, {
             headers: {
@@ -38,7 +37,7 @@ export const TraerPlatos = () => {
     <Pagina>
         <Background>
             <Receta>
-                <h1>Platos</h1>
+                <h1 style={{color:"white"}}>Platos</h1>
                 <DivPrincipal >
                     <div style={{position: "relative", top:"9%"}}>
                     {

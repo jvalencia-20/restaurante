@@ -1,4 +1,4 @@
-import { Pagina, Background, Receta, Hoja1, Hoja2, ConInfor, Infor, InforImg, Name, Entrar, Div, SpanImg, LabelImg, ContentImg, ImgPlato, Nota, DivPrincipal} from "./styles.dashboard2"
+import { Pagina, Background, Receta, Hoja1, Hoja2, ConInfor, Infor, Name, Entrar, Div, ContentImg, ImgPlato, DivPrincipal} from "./styles.dashboard2"
 import { Sticker } from "./styles.dashboard2";
 import React, { useEffect, useState } from 'react';
 import Axios from "axios";
@@ -75,18 +75,18 @@ const config = {
             if (error.response.status === 409) {
             const errorMessage = error.response.data;
             switch (errorMessage) {
-                case 'Nombre del Plato requerido.':
-            break;
+            case 'Nombre del Plato requerido.':
+                break;
             case 'descripcion requerida.':
-            break;
+                break;
             case 'Precio Requerido.':
-            break;
+                break;
             case 'Imagen Requerida':
-            break;
+                break;
             case 'Tipo de plato  requerido.':
-            break;
+                break;
             default:
-            break;
+                break;
             }
             } else {
             alert("Ocurrió un error en el registro.");
@@ -104,7 +104,7 @@ useEffect(()=>{
     <Pagina>
         <Background>
             <Receta>
-            <h1>Actualizar Platos</h1>
+            <h1 style={{color:"white"}}>Actualizar Platos</h1>
                 <DivPrincipal>
                     <Hoja1>
                         <Div>

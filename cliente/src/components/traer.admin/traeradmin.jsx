@@ -2,14 +2,13 @@ import React from "react";
 import { useState, useEffect } from 'react';
 import Axios from "axios";
 import { useAuthContext } from "../context/AuthContext";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Contenedor, Main, Tabla, Thead, Tr, Th, Tbody, Td, Borrar } from "./styles";
 import "./styles.css"
 
 export const ListarAdmin = () => {
     const {token} = useAuthContext()
     const [cliente, setCliente] = useState([])
-    const navigate = useNavigate()
     const clientes = () => {
         Axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/admin`,{
             headers: {
@@ -40,7 +39,7 @@ export const ListarAdmin = () => {
     return(
         <Contenedor>
             <Main>
-                <h2>Listado de Admin</h2>
+                <h2 style={{color:"white"}}>Listado de Admin</h2>
                 <Tabla >
                     <Thead  >
                         <Tr>

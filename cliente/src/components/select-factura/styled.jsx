@@ -1,12 +1,10 @@
 import styled from "styled-components";
 import nota from "../Img/Notas.jpg"
 
-
 export const Fondo = styled.div`
     height: 100vh;
     display: flex;
     justify-content: center;
-    /* align-items: center; */
 `;
 
 export const Select = styled.div`

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Axios from "axios"
-import { Background, ConInfor, ConTitulo, Entrar, Infor, Login, Logotipo, Name, ReContraseña, Titulo } from "./Styled";
+import { Background, ConInfor, ConTitulo, Entrar, Infor, Login,  Name, Titulo } from "./Styled";
 import { useNavigate, useParams} from  "react-router-dom"
 import { useAuthContext } from "../context/AuthContext";
 import ActualizarContraseña from "../VentanasModal/ActualizarContraseña";
@@ -9,9 +9,6 @@ const ActualizarUser = () => {
     const navigate = useNavigate()
     const [usuario, setUsuario] = useState("")
     const [correo, setCorreo] = useState("")
-    const [contraseña, setContaseña] = useState("")
-    const [contraseñaNueva, setContraseñaNueva] = useState("")
-    const [hola, setHola] = useState(false)
     const { token } = useAuthContext();
     const { id } = useParams();
     const [cliente, setCliente] = useState([])
@@ -50,8 +47,6 @@ const actualizarusuario = (e) => {
 }  
 })
 .then(({data})=>{
-
-    // alert("usuario Actualizado")
     navigate("/private/traeradmin")
   })
   .catch(error => {

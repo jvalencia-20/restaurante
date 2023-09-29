@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import Axios from "axios"
 import { Container, Fondo, Salir, Salida, Mensaje, Form, ConInfor, Infor, Div } from "./styles";
 import { useNavigate, useParams } from "react-router-dom";
@@ -88,23 +87,23 @@ return (
         <Form>
             <ConInfor>
                 <Infor type="text"
-                name="usuario"
-                placeholder="Usuario"
-                autoComplete="off"
-                value={usuario}
-                onChange={ev => setUsuario(ev.target.value)}/>
+                    name="usuario"
+                    placeholder="Usuario"
+                    autoComplete="off"
+                    value={usuario}
+                    onChange={ev => setUsuario(ev.target.value)}/>
                 <Infor type="password"
-                name="contraseña"
-                placeholder="Contraseña"
-                autoComplete="off"
-                value={password}
-                onChange={ev => setPassword(ev.target.value)}/>
+                    name="contraseña"
+                    placeholder="Contraseña"
+                    autoComplete="off"
+                    value={password}
+                    onChange={ev => setPassword(ev.target.value)}/>
                 <Infor type="password"
-                name="contraseña"
-                placeholder="Confirmar Contraseña"
-                autoComplete="off"
-                value={Confirmpassword}
-                onChange={ev => setConfirmPassword(ev.target.value)}/>
+                    name="contraseña"
+                    placeholder="Confirmar Contraseña"
+                    autoComplete="off"
+                    value={Confirmpassword}
+                    onChange={ev => setConfirmPassword(ev.target.value)}/>
             </ConInfor>
         </Form>     
             <Div>

@@ -1,6 +1,5 @@
 import {pool} from "../db.js"
 
-//Se seleccionan todos los registros
 export const getAllPosFactura = async (req, res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM `pos-factura`')
@@ -10,7 +9,6 @@ export const getAllPosFactura = async (req, res) => {
     }
 }
 
-//Se selecciona solo uno
 export const getPosFactura1 = async (req, res) => {
     try {
         const { id } = req.params
@@ -45,7 +43,6 @@ export const createPosFactura = async (req, res) => {
     }
 };
 
-//Se actualiza registro
 export const updatePosFactura = async (req, res) => {
     try {
         const { id } = req.params;
@@ -66,7 +63,6 @@ export const updatePosFactura = async (req, res) => {
     }
 };
 
-//Se elimina 1 registro
 export const deletePosFactura = async (req, res) => {
     try {
         const [result] = await pool.query('DELETE FROM `pos-factura` WHERE id_plato = ?', [req.params.id])
@@ -81,7 +77,6 @@ export const deletePosFactura = async (req, res) => {
     }
 }
 
-// Se eliminan todos los registros
 export const deleteAllPosFactura = async (req, res) => {
     try {
         const [result] = await pool.query('DELETE FROM `pos-factura`');

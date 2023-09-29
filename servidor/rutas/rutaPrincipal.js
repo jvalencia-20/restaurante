@@ -11,9 +11,11 @@ import { getAllRegistros, getRegistro, createNew, updateRegistro, delete1, delet
 import { getAllPlatos } from "../controllers/platos.controllers.js";
 import { getMesa, createMesa, deleteOrdenPorMesa } from "../controllers/mesa.controller.js";
 import { getMesas,crearMesas,eliminarMesas,updateMesas } from "../controllers/mesas.controller.js";
+import dotenv from 'dotenv';
 
-
-const SECRET = "secreto"
+dotenv.config();
+const { SECRETO } = process.env;
+const SECRET = SECRETO
 
 function verificarToken(req, res, next){
     const token = req.headers.authorization;
@@ -157,7 +159,6 @@ router.post('/crearbebida', verificarToken, upload.single("imagen"), async (req,
     try {  
         const { nombre_bebida, descripcion, precio, colores } = req.body;
         const imagen = req.file.filename;
-        // Llamar a la función createPlato con los datos y la ruta de la imagen
         const result = await createBebida(nombre_bebida, descripcion, precio, imagen, colores);
         res.status(200).json({
             message: 'Creación exitosa 🎉',
@@ -172,7 +173,6 @@ router.put('/actualizarImgPlato/:id', verificarToken, upload.single("imagen"), a
     try {
         const {id} = req.params;
         const imagen = req.file.filename;
-        // Llamar a la función createPlato con los datos y la ruta de la imagen
         const result = await updateImagePlato( imagen, id);
         res.status(200).json({
             message: 'Creación exitosa 🎉',
@@ -187,7 +187,6 @@ router.put('/actualizarImgbebida/:id', verificarToken, upload.single("imagen"), 
     try {
         const {id} = req.params;
         const imagen = req.file.filename;
-        // Llamar a la función createPlato con los datos y la ruta de la imagen
         const result = await updateImagebebida( imagen, id);
         res.status(200).json({
             message: 'Creación exitosa 🎉',

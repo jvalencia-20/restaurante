@@ -13,7 +13,6 @@ export const DashboardBebida = () => {
     const [descripcion, setDescripcion] = useState("")
     const [precio, setPrecio] = useState("")
     const [imgEnv, setImgEnv] = useState("")
-    const [colores, setColores] = useState("")
     const handleImageChange = (event) => {
         const file = event.target.files[0];
         if (file) {
@@ -31,7 +30,6 @@ datos.append("nombre_bebida", nombreBebida)
 datos.append("descripcion", descripcion)
 datos.append("precio", precio)
 datos.append("imagen", imgEnv)
-datos.append("colores", colores)
 
 const config = {
     headers: {
@@ -51,7 +49,7 @@ const config = {
     <Pagina>
         <Background>
             <Receta>
-            <h1>Agregar Bebidas</h1>
+            <h1 style={{color:"white"}}>Agregar Bebidas</h1>
                 <DivPrincipal>
                     <Hoja1>
                         <Div>
@@ -88,17 +86,6 @@ const config = {
                             autoComplete="off"
                             value={precio}
                             onChange={ev => setPrecio(ev.target.value)}>
-                            </Infor>
-                        </Div>
-                        <Div>
-                            <Name>Ingrese el Color:</Name>
-                            <Infor
-                                type="text"
-                                name="colores"
-                                placeholder="color de la bebida"
-                                autoComplete="off"
-                                value={colores}
-                                onChange={ev => setColores(ev.target.value)}>  
                             </Infor>
                         </Div>
                     </Hoja1>

@@ -67,11 +67,7 @@ export const Button = styled.button`
     :hover{
         transform:scale(1.25);
     }
-    &:focus {
-        filter: drop-shadow(-10px 1px 5px #000000);
-        color: #000000;
-        -webkit-text-stroke: 0.5px white;
-    }
+
     &:active {
         animation: none; 
         transform: translateX(2px);

@@ -3,16 +3,14 @@ import { useEffect, useState } from 'react';
 
 export const Pago = ({ total, lastInsertedIdProp }) => {
   const [lastInsertedId, setLastInsertedId] = useState(0);
-  const apiKey = '4Vj8eK4rloUd272L48hsrarnUA'; // defecto
-  const merchantId = '508029'; // defecto
+  const apiKey = '4Vj8eK4rloUd272L48hsrarnUA'; 
+  const merchantId = '508029';
   const referenceCode = `000${lastInsertedId}`;
   const amount = total; 
   const currency = 'COP';
 
-  // Concatenamos las variables en el orden correcto
   const textToHash = `${apiKey}~${merchantId}~${referenceCode}~${amount}~${currency}`;
 
-  // Creamos el hash MD5
   const hash = CryptoJS.MD5(textToHash).toString();
 
   useEffect(() => {

@@ -4,7 +4,6 @@ import { Background, ContPrincipal, ContFactura, ResPrecios, ContBoton, BotonImp
 import mesaFunctions from "../vista-mesa/mesa.services/mesa.services";
 import { useDataState } from "../vista-mesa/data.context/data.state.context";
 import axios from "axios";
-import moment from 'moment';
 
 const Imprimir = ({ mesa }) => {
     const navigate = useNavigate()
@@ -49,11 +48,9 @@ const Imprimir = ({ mesa }) => {
                     if (deleteOrdenResponse.status === 204) {
                         navigate('/private/todofisica/registro-fact');
                     } else {
-                        console.error('Error al eliminar datos en la tabla orden:', deleteOrdenResponse.statusText);
                     }
                 })
                 .catch((deleteError) => {
-                    console.error('Error al ejecutar la solicitud DELETE:', deleteError);
                 });
         }
     }, [borrarFactura]);

@@ -50,20 +50,6 @@ export const Titulo = styled.h1`
   }
 `;
 
-export const Logotipo = styled.img`
-  background-color: #434649c5;
-  height: 30em;
-  width: 40em;
-  box-shadow: 2px 1px 10px black;
-  border-radius: 2em;
-  margin-right: 5em;
-  @media screen and ( max-width: 95vh){   
-    height: 10em;
-    width: 20em;
-    margin: 0;
-  }
-`;
-
 export const ConInfor = styled.div`
   width: 30em;
   height: 15em;
@@ -106,8 +92,4 @@ export const Entrar = styled.button`
   border: 1px solid #ffff;
   border-radius: 1em;
   background-color: transparent;
-`;
-
-export const ReContraseña = styled.h4`
-  color: #ffff;
 `;

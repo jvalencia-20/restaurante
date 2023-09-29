@@ -3,27 +3,27 @@ import fondo from "../Img/orden123.jpg"
 import fondo2 from "../Img/picar.png"
 
 export const Container = styled.div`
-    backdrop-filter: blur(8px); 
-    background-image: url(${fondo});
-    background-size: cover;
-    background-position: center;
-    background-color: rgba(0, 0, 0, 0.51);
-    color: #000000;
-    -webkit-text-stroke: 0.1px #000000;
-    height: 50em;
-    width: 30em;
-    border-radius: 2em 2em 0 0;
-    position: absolute;
-    z-index: 1;
-    margin-bottom: -4em;
-    margin-left: 33em;
-    bottom: 0;
-    left: 0;
-    filter: drop-shadow(10px 20px 15px black);
-    box-shadow: -10px 0px 10px black;
-    @media screen and (max-width: 1600px) {
-    bottom: -70px;
-    left: -300px;
+  backdrop-filter: blur(8px); 
+  background-image: url(${fondo});
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.51);
+  color: #000000;
+  -webkit-text-stroke: 0.1px #000000;
+  height: 50em;
+  width: 30em;
+  border-radius: 2em 2em 0 0;
+  position: absolute;
+  z-index: 1;
+  margin-bottom: -4em;
+  margin-left: 33em;
+  bottom: 0;
+  left: 0;
+  filter: drop-shadow(10px 20px 15px black);
+  box-shadow: -10px 0px 10px black;
+  @media screen and (max-width: 1600px) {
+  bottom: -70px;
+  left: -300px;
   }
   @media screen and (max-width: 1200px) {
     bottom: -50px;

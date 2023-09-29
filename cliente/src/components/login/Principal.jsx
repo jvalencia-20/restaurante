@@ -8,7 +8,6 @@ import CryptoJS from 'crypto-js'
 
 const Logini = () => {
   const [body,setBody] = useState({usuario:'',password:''})
-  const navigate = useNavigate()
   const {login} = useAuthContext()
   const [password, setPassword] = useState("")
   const [usuario, setUsuario] = useState("")

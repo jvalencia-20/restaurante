@@ -18,7 +18,6 @@ export const createDomicilio = async (req, res) => {
     }
 }
 
-//logica para obtener todos los domicilios
 export const getDomicilios = async(req,res) => {
     try {
         const [rows] = await pool.query('SELECT nombre_cliente, direccion, hora_entrega FROM `domicilio` GROUP BY direccion ORDER BY hora_entrega')
@@ -38,7 +37,6 @@ export const getDomicilio = async (req, res) => {
     }
 };
 
-//eliminar domicilio
 export const deleteDomicilio = async(req,res) => {
     try {
         const [result] = await pool.query('DELETE FROM domicilio WHERE direccion = ?', [req.params.di]);       
@@ -51,7 +49,6 @@ export const deleteDomicilio = async(req,res) => {
     }
 }
 
-//logica para actualizar un domicilio
 export const updateDomicilio = async(req,res) => {
     try {
         const {id} =req.params;

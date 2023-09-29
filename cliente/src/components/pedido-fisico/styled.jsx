@@ -149,12 +149,6 @@ export const Botones = styled.button`
     background-color: transparent;
     border: 2px solid #000;
     border-radius: 0.5em;
-    &:hover {
-        border: 2px solid #fff;
-        color: #fff;
-        background-color: #000;
-        box-shadow: 1px 0px 20px #000;
-    }
 `;
 
 export const Agregar = styled.button`
@@ -165,12 +159,6 @@ export const Agregar = styled.button`
     margin-left: 15px;
     margin-right: 15px;
     border-radius: 0.5em;
-    &:hover {
-        border: 2px solid #fff;
-        color: #fff;
-        background-color: #000;
-        box-shadow: 1px 0px 20px #000;
-    }
     @media screen and (max-width: 900px) {
         margin-top: 1em;
     }

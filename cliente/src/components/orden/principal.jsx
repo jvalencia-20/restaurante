@@ -1,7 +1,6 @@
-// import Axios from "axios"
+
 import { useEffect, useState, useRef } from "react"
 import { Container, Titulo, ConTitulos, Titulos, Eliminar, Pedir, Conten } from "./styled"
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Escoge from "../VentanasModal/eligeMenu";
 import Delete from "../VentanasModal/eliminaTodo";
@@ -16,7 +15,6 @@ const Carrito = () => {
     useEffect(() => {
         const plato = JSON.parse(localStorage.getItem("platico"));
         if (Array.isArray(plato)) {
-            // Realiza las operaciones necesarias solo si plato es un array válido
             const total = plato.reduce((acumulador, compra) => acumulador + compra.precio, 0);
             setTotalPrecio(total);
             setPlatos(plato);
@@ -24,19 +22,12 @@ const Carrito = () => {
     }, []);
 
     const eliminar = (index) => {
-        // Obtén los datos actuales de localStorage
         const platoLocalStorage = JSON.parse(localStorage.getItem("platico"));
-
-        // Verifica si los datos son un array y si el índice es válido
         if (Array.isArray(platoLocalStorage) && index >= 0 && index < platoLocalStorage.length) {
-            // Utiliza splice para eliminar el elemento en el índice especificado
             platoLocalStorage.splice(index, 1);
-
-            // Guarda los datos actualizados en localStorage
             localStorage.setItem("platico", JSON.stringify(platoLocalStorage));
             const total = platoLocalStorage.reduce((acumulador, compra) => acumulador + compra.precio, 0);
             setTotalPrecio(total);
-            // Actualiza el estado local (si es necesario)
             setPlatos(platoLocalStorage);
         }
         window.location.reload()

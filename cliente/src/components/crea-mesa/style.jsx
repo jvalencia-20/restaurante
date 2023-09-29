@@ -16,7 +16,6 @@ export const Pagina = styled.div`
 export const DivPrincipal = styled.div`
     height: 90%;
     width: 80%;
-    background-color: aqua;
     background-image: url(${pizarra});
     display: flex;
     flex-direction: column;

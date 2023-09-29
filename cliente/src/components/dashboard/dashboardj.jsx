@@ -44,86 +44,86 @@ export const Dashboard = () => {
             });
     }
 
-    return (
-        <Pagina>
-            <Background>
-                <Receta>
-                <h1>Agregar Platos</h1>
-                    <DivPrincipal>
-                        <Hoja1>
-                            <Div>
-                                <Name>Ingrese el nombre del plato:</Name>
-                                <Infor
-                                    type="text"
-                                    name="nombrePlato"
-                                    placeholder="nombre del plato"
-                                    autoComplete="off"
-                                    value={nombrePlato}
-                                    onChange={ev => setNombrePlato(ev.target.value)}>
-                                </Infor>
-                            </Div>
-                            <Div style={{ alignItems: "start" }}>
-                                <Name >Ingrese la Descripción:</Name>
-                                <Infor
-                                    type="text"
-                                    name="descripcion"
-                                    placeholder="Descripción"
-                                    autoComplete="off"
-                                    rows="10"
-                                    cols="40"
-                                    value={descripcion}
-                                    onChange={ev => setDescripcion(ev.target.value)}
-                                    style={{ height: "80px",  borderRadius: "8px" }}>
-                                </Infor>
-                            </Div>
-                            <Div>
-                                <Name>Ingrese el precio:</Name>
-                                <Infor
-                                    type="text"
-                                    name="precio"
-                                    placeholder="Precio"
-                                    autoComplete="off"
-                                    value={precio}
-                                    onChange={ev => setPrecio(ev.target.value)}>
-                                </Infor>
-                            </Div>
-                            <Div>
-                                <Name>Ingrese el tipo de plato:</Name>
-                                <Infor
-                                    type="text"
-                                    name="tipoPlato"
-                                    placeholder="tipo del plato"
-                                    autoComplete="off"
-                                    value={tipoPlato}
-                                    onChange={ev => setTipoPlato(ev.target.value)}>
-                                </Infor>
-                            </Div>
-                        </Hoja1>
-                        <Hoja2>
-                            <ConInfor style={{ height: "480px" }}>
-                                <div style={{ height: "100px", width: "100%", display: "flex", justifyContent: "center" }}>
-                                    <LabelImg className="btn btn-warning">
-                                        <SpanImg> </SpanImg>
-                                        <InforImg
-                                            hidden
-                                            type="file"
-                                            onChange={handleImageChange}>
-                                        </InforImg>
-                                    </LabelImg>
-                                    <Nota></Nota>
-                                </div>
-                                <ContentImg>
-                                    {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}
-                                </ContentImg>
-                                <div style={{ display: "flex" }}>
-                                    <Entrar onClick={agregarplato}></Entrar>
-                                    <Sticker></Sticker>
-                                </div>
-                            </ConInfor>
-                        </Hoja2>
-                    </DivPrincipal>
-                </Receta>
-            </Background>
-        </Pagina>
+return (
+    <Pagina>
+        <Background>
+            <Receta>
+            <h1 style={{color:"white"}}>Agregar Platos</h1>
+                <DivPrincipal>
+                    <Hoja1>
+                        <Div>
+                            <Name>Ingrese el nombre del plato:</Name>
+                            <Infor
+                                type="text"
+                                name="nombrePlato"
+                                placeholder="nombre del plato"
+                                autoComplete="off"
+                                value={nombrePlato}
+                                onChange={ev => setNombrePlato(ev.target.value)}>
+                            </Infor>
+                        </Div>
+                        <Div style={{ alignItems: "start" }}>
+                            <Name >Ingrese la Descripción:</Name>
+                            <Infor
+                                type="text"
+                                name="descripcion"
+                                placeholder="Descripción"
+                                autoComplete="off"
+                                rows="10"
+                                cols="40"
+                                value={descripcion}
+                                onChange={ev => setDescripcion(ev.target.value)}
+                                style={{ height: "80px",  borderRadius: "8px" }}>
+                            </Infor>
+                        </Div>
+                        <Div>
+                            <Name>Ingrese el precio:</Name>
+                            <Infor
+                                type="text"
+                                name="precio"
+                                placeholder="Precio"
+                                autoComplete="off"
+                                value={precio}
+                                onChange={ev => setPrecio(ev.target.value)}>
+                            </Infor>
+                        </Div>
+                        <Div>
+                            <Name>Ingrese el tipo de plato:</Name>
+                            <Infor
+                                type="text"
+                                name="tipoPlato"
+                                placeholder="tipo del plato"
+                                autoComplete="off"
+                                value={tipoPlato}
+                                onChange={ev => setTipoPlato(ev.target.value)}>
+                            </Infor>
+                        </Div>
+                    </Hoja1>
+                    <Hoja2>
+                        <ConInfor style={{ height: "480px" }}>
+                            <div style={{ height: "100px", width: "100%", display: "flex", justifyContent: "center" }}>
+                                <LabelImg className="btn btn-warning">
+                                    <SpanImg> </SpanImg>
+                                    <InforImg
+                                        hidden
+                                        type="file"
+                                        onChange={handleImageChange}>
+                                    </InforImg>
+                                </LabelImg>
+                                <Nota></Nota>
+                            </div>
+                            <ContentImg>
+                                {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}
+                            </ContentImg>
+                            <div style={{ display: "flex" }}>
+                                <Entrar onClick={agregarplato}></Entrar>
+                                <Sticker></Sticker>
+                            </div>
+                        </ConInfor>
+                    </Hoja2>
+                </DivPrincipal>
+            </Receta>
+        </Background>
+    </Pagina>
     )
 }

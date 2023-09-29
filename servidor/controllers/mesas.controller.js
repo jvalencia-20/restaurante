@@ -1,28 +1,14 @@
 import {pool} from "../db.js"
 
-//ruta traer todas las mesas
 export const getMesas = async(req,res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM mesas');
         res.json(rows)
     } catch (error) {
-        console.error('Ocurrio un error:', error);
         res.status(500).json({message: 'Error en el server'});
     }
 }
 
-// export const getMesas = async(req,res) => {
-//     try {
-//         const [rows] = await pool.query('SELECT *, orden.id_mesa FROM mesas LEFT JOIN orden on mesa = id_mesa ORDER BY mesas.mesa');
-//         console.log(rows,'❤️❤️')
-//         res.json(rows)
-//     } catch (error) {
-//         console.error('Ocurrio un error:', error);
-//         res.status(500).json({message: 'Error en el server'});
-//     }
-// }
-
-//ruta crear mesa
 export const crearMesas = async (numeroMesa,imagen_url) => {
     try {
         const query = "INSERT INTO mesas(mesa,imagen_url) VALUES(?,?)";
@@ -34,7 +20,6 @@ export const crearMesas = async (numeroMesa,imagen_url) => {
     }
 };
 
-//eliminar una mesa
 export const eliminarMesas = async(req,res) => {
     try {
         const [result] = await pool.query('DELETE FROM mesas WHERE mesa = ?', [req.params.id]);
@@ -47,13 +32,10 @@ export const eliminarMesas = async(req,res) => {
         }
         res.status(200).json({message: 'Se elimino la mesa 🎉'})
     } catch (error) {
-        console.error('ocurrio un error:', error);
         res.status(500).json({message: 'error interno'})
     }
-
 }
 
-//actualizar una mesa
 export const updateMesas = async(req,res) => {
     try {
         const {id} = req.params;
