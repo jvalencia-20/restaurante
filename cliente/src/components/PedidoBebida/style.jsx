@@ -1,6 +1,40 @@
 import styled from "styled-components";
 import FondoComida from "../Img/fondoComida.jpg"
 
+export const Background = styled.div`
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+`;
+
+export const Platos = styled.div`
+    background-color: #878787ae;
+    height: 35em;
+    width: 55em;
+    box-shadow: 10px 10px 10px black;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @media screen and (max-width: 900px) {
+    width: 40em;
+    }
+    @media screen and (max-width: 660px) {
+        width: 30em;
+        height: 54em;
+    }    
+    @media screen and (max-width: 500px) {
+        width: 22em;
+        margin-bottom: 3em;
+    }
+`;
+
+
+
+
 
 export const Titulo = styled.div`
   width: 60em;
@@ -121,12 +155,6 @@ export const Botones = styled.button`
   background-color: transparent;
   border: 2px solid #000;
   border-radius: 0.5em;
-  &:hover {
-    border: 2px solid #fff;
-    color: #fff;
-    background-color: #000;
-    box-shadow: 1px 0px 20px #000;
-  }
 `;
 
 export const Agregar = styled.button`
@@ -137,12 +165,6 @@ export const Agregar = styled.button`
   margin-right: 15px;
   border: 2px solid #000;
   border-radius: 0.5em;
-  &:hover {
-    border: 2px solid #fff;
-    color: #fff;
-    background-color: #000;
-    box-shadow: 1px 0px 20px #000;
-  }
   @media screen and (max-width: 900px) {
     margin-top: 1em;
   }
