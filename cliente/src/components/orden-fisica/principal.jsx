@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Container, Titulo, ConTitulos, Titulos, Eliminar, Pedir, Conten } from "./styled";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";   
 
 
 const CarritoFisica = () => {
@@ -57,7 +57,6 @@ const CarritoFisica = () => {
         <div ref={modalRef}>
             {modalAbierta && ( 
             <Container>
-                <Titulo>Orden</Titulo>
                 <ConTitulos>
                     <Titulos>Nombre</Titulos>
                     <Titulos>Cantidad</Titulos>
@@ -70,19 +69,19 @@ const CarritoFisica = () => {
                             <ConTitulos key={index}>
                                 <Titulos>{compra.nombre_plato}</Titulos>
                                 <Titulos>{compra.cantidad}</Titulos>
-                                <Titulos>${compra.precio}</Titulos>
+                                <Titulos><span style={{ color: '#ffffff' }}>${compra.precio}</span> </Titulos>
                                 <Eliminar onClick={() => eliminar(index)}>X</Eliminar>
                             </ConTitulos>
                         ))
                     ) : ""}
                 </Conten>
                 <ConTitulos>
-                    <Titulos>Total: ${totalPrecio}</Titulos>
-                        <Pedir onClick={transferirDatos}>Enviar Orden</Pedir>
+                    <Titulos>Total: <span style={{ color: '#ffffff' }}>${totalPrecio}</span></Titulos>
+                        <Pedir onClick={transferirDatos}>🛒Enviar Orden</Pedir>
                 </ConTitulos>
             </Container>
             )}
-            </div>
+        </div>
     );
 };
 

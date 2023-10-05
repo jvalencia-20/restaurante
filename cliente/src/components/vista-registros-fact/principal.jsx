@@ -52,9 +52,6 @@ const RegistroFactura = () => {
             fecha: null,
         }));
     };
-    const handlePrintClick = () => {
-        window.print();
-    };
     const handleBackToLastAssigned = async () => {
         if (lastAssignedIdMesa) {
             navigate(`/private/todofisica/factura/${lastAssignedIdMesa}`);
@@ -105,7 +102,6 @@ const RegistroFactura = () => {
             <Link to="/private/todofisica/fisica">
                 <Boton style={{ marginTop: "20px" }}>Regresar al menú</Boton>
             </Link>
-            <Boton style={{ marginTop: "20px" }} onClick={handlePrintClick}>Imprimir factura</Boton>
             <Boton style={{ marginTop: "20px" }} onClick={handleBackToLastAssigned}>Volver a la última factura asignada</Boton>
         </Background>
     );

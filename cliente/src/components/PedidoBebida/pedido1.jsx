@@ -2,10 +2,11 @@ import { useState, useEffect } from "react";
 import Axios from "axios"
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { ConImg, Contenido, ImgPlato, Titulo, NomPlato, Aumentar, Botones, Agregar, Plato, Container,Logito, CajaImg, Background, Platos } from "./style"
-import logito from "../Img/LOgo3.png"
+import { Background, Platos, ConImg, Contenido, ImgPlato, Titulo, NomPlato, Aumentar, Botones, Agregar, Plato, Plato2, Container, CajaImg } from "./style"
+import Agregado from "../VentanasModal/agregaCarrito"
 
 const PedidosBe = () => {
+  const [enviado, setEnviado] = useState(false)
   const [bebida, setBebida] = useState({});
   const [contar, setContar] = useState(1)
   const nombrePlato = bebida.nombre_bebida
@@ -26,7 +27,7 @@ const PedidosBe = () => {
   const agrega = () => { 
     const nuevoPlato = { nombre_plato: nombrePlato, cantidad: contar, precio: precios }; 
     setPlatos([...platos, nuevoPlato]);
-    window.location.reload()
+    setEnviado(!enviado)
   };
   
   const [platos, setPlatos] = useState(() => { 
@@ -51,44 +52,63 @@ const PedidosBe = () => {
       obtenerBebida();
   }, []);
 
-return (
-  <>
-  <Background>
-    <Platos>
-      <Titulo>
-        <NomPlato>{bebida.nombre_bebida}</NomPlato>
-        <Logito src={logito}></Logito>
-      </Titulo>
-      <Container>
-        <ConImg>
-          <CajaImg>
-            <ImgPlato src={`${process.env.REACT_APP_PRIMERO_UNO}/` + bebida.imagen} style={{filter: "drop-shadow(-3px 10px 6px black)"}}></ImgPlato> 
-          </CajaImg>
-          <Contenido>Precio: ${bebida.precio}</Contenido>
-        </ConImg>
-        <Plato>
-          <Contenido style={{marginLeft:"2em", marginRight:"2em", textAlign:"center"}}>Descripcion: {bebida.descripcion}</Contenido>             
-          <Aumentar>
-            <Botones
-            onClick={restar}
-            >-</Botones>
-            <Contenido>{contar}</Contenido>
-            <Botones
-            onClick={suma}
-            >+</Botones>
-          </Aumentar>
-          <Aumentar>
-            <Agregar onClick={() => agrega()}>Agregar a Pedido</Agregar>
-            <Link to="/menu"> <Agregar>Volver a Menu</Agregar></Link>
-          </Aumentar>
-          <Aumentar>
-            <Contenido>Total: ${precios}</Contenido>
-          </Aumentar>
-        </Plato>
-      </Container>   
-    </Platos>  
-  </Background>        
-  </>
+  return (
+    <>
+      {enviado && <Agregado/>}
+      <Background>
+        <Platos >
+            <Titulo>
+              <NomPlato>{bebida.nombre_bebida}</NomPlato>
+            </Titulo>
+            <Container>
+              <ConImg>
+                <CajaImg>
+                  <ImgPlato src={`${process.env.REACT_APP_PRIMERO_UNO}/` + bebida.imagen} style={{filter: "drop-shadow(-3px 10px 6px black)"}}></ImgPlato> 
+                </CajaImg>
+                <Contenido>Precio: ${bebida.precio}</Contenido>
+                <Plato2>
+                <Contenido style={{marginLeft:"2em", marginRight:"2em", textAlign:"center"}}>Descripcion: {bebida.descripcion}</Contenido>             
+                <Aumentar>
+                  <Botones
+                  onClick={restar}
+                  >-</Botones>
+                  <Contenido>{contar}</Contenido>
+                  <Botones
+                  onClick={suma}
+                  >+</Botones>
+                </Aumentar>
+                <Aumentar>
+                  <Agregar onClick={() => agrega()}>Agregar a Pedido</Agregar>
+                  <Link to="/menu"> <Agregar>Volver a Menu</Agregar></Link>
+                </Aumentar>
+                <Aumentar>
+                  <Contenido>Total: ${precios}</Contenido>
+                </Aumentar>
+                </Plato2>
+              </ConImg>
+              <Plato>
+                <Contenido style={{marginLeft:"2em", marginRight:"2em", textAlign:"center"}}>Descripcion: {bebida.descripcion}</Contenido>             
+                <Aumentar>
+                  <Botones
+                  onClick={restar}
+                  >-</Botones>
+                  <Contenido>{contar}</Contenido>
+                  <Botones
+                  onClick={suma}
+                  >+</Botones>
+                </Aumentar>
+                <Aumentar>
+                  <Agregar onClick={() => agrega()}>Agregar a Pedido</Agregar>
+                  <Link to="/menu"> <Agregar>Volver a Menu</Agregar></Link>
+                </Aumentar>
+                <Aumentar>
+                  <Contenido>Total: ${precios}</Contenido>
+                </Aumentar>
+                </Plato>
+            </Container>             
+        </Platos>
+      </Background>
+    </>
   )
 }
 

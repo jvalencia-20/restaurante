@@ -118,22 +118,22 @@ const Factura = (props) => {
         <Background>
             <ContPrincipal>
                 <h1 style={{ textAlign: "center", color: "white" }}>Factura de Mesa {mesaSeleccionada}</h1>
-                <BotonImprimir style={{ marginLeft: "20px" }} onClick={() => navigate('/private/todofisica/mesa')}>Regresar</BotonImprimir>
+                <BotonImprimir style={{ marginLeft: "20px", fontSize:"15px" }} onClick={() => navigate('/private/todofisica/mesa')}>Regresar</BotonImprimir>
                 <ContFactura>
                     <table>
                         <thead>
                             <tr>
-                                <th style={{ backgroundColor: "transparent", color: "white" }}>PRODUCTO</th>
-                                <th style={{ backgroundColor: "transparent", color: "white" }}>CANTIDAD</th>
-                                <th style={{ backgroundColor: "transparent", color: "white" }}>PRECIO</th>
+                                <th style={{ backgroundColor: "transparent", color: "white", fontSize:"20px" }}>PRODUCTO</th>
+                                <th style={{ backgroundColor: "transparent", color: "white", fontSize:"20px" }}>CANTIDAD</th>
+                                <th style={{ backgroundColor: "transparent", color: "white", fontSize:"20px" }}>PRECIO</th>
                             </tr>
                         </thead>
                         <tbody>
                             {filteredReservas.map((pedido, index) => (
                                 <tr key={index}>
-                                    <td style={{ color: "white" }}>{pedido.producto}</td>
-                                    <td style={{ color: "white" }}>{pedido.cantidad}</td>
-                                    <td style={{ color: "white" }}>{pedido.precio}</td>
+                                    <td style={{ color: "white", fontSize:"20px" }}>{pedido.producto}</td>
+                                    <td style={{ color: "white", fontSize:"20px" }}>{pedido.cantidad}</td>
+                                    <td style={{ color: "white", fontSize:"20px" }}>${pedido.precio}</td>
                                 </tr>
                             ))}
                         </tbody>

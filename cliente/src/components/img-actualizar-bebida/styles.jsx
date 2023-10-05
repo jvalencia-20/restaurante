@@ -14,7 +14,7 @@ export const Fondo = styled.div`
 `;
 
 export const Container = styled.div`
-    background-color:  #12011d;
+    background-color:  #000000;
     position: absolute;
     z-index: 0;
     height: 33em;
@@ -45,11 +45,11 @@ export const Salida = styled.button`
     width: 4em;
     margin: 1em;
     color: #ffffff6a;
-&:hover{
-    background-color: #ff0000;
-    box-shadow: 0 0 10PX red,0 0 40PX red, 0 0 80PX red;
-    color: white;
-    text-shadow: 0 0 10PX white,0 0 40PX white, 0 0 80PX white;
+    &:hover{
+        background-color: #ff0000;
+        box-shadow: 0 0 10PX red,0 0 40PX red, 0 0 80PX red;
+        color: white;
+        text-shadow: 0 0 10PX white,0 0 40PX white, 0 0 80PX white;
     };
 `;
 
@@ -60,7 +60,6 @@ export const Mensaje = styled.div`
     align-items: center;
     justify-content: center;
     color: #ffffff;
-    text-shadow: 0 0 10PX #A945C7,0 0 40PX #A945C7, 0 0 80PX #A945C7;
 `;
 
 export const Form = styled.div`
@@ -83,8 +82,6 @@ export const ConInfor = styled.div`
     align-items: center;
     justify-content: space-around; 
 `;
-
-
 
 export const Div = styled.div`
     width: 13em;
@@ -109,7 +106,7 @@ export const LabelImg = styled.label`
     background-size: 89%;
     background-position: center;
     border-radius: 8%;
-    background-color: #12011d ;
+    background-color: #000000 ;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -117,9 +114,9 @@ export const LabelImg = styled.label`
     font-weight: bold;
     color: #7c7b7b;
     &:hover{
-    color: white;
-    background: #A945C7;
-    box-shadow: 0 0 10PX #A945C7,0 0 40PX #A945C7, 0 0 80PX #A945C7;
+        color: white;
+        background: #000000;
+        box-shadow: 0 0 10PX #000000,0 0 40PX #000000, 0 0 80PX #000000;
     }
 `;
 
@@ -134,8 +131,8 @@ export const ContentImg = styled.div`
     align-items: center;
     justify-content: center;
     @media  screen and (max-height: 600px ) {
-    height: 210px;
-    width: 150px;
+        height: 210px;
+        width: 150px;
     }
 `;
 
@@ -147,9 +144,9 @@ export const ImgPlato = styled.img`
     left: 3%;
     top: 1%;
     @media  screen and (max-height: 600px ) {
-    height: 100px;
-    width: 95px;
-    left: 4%;
+        height: 100px;
+        width: 95px;
+        left: 4%;
     }
 `;
 

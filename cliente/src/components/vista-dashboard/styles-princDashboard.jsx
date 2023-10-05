@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import "../../App.css"
+import pizarra from "../Img/pizarra.jpeg"
 
 export const Body = styled.div`
     width: 100%;
@@ -24,52 +25,47 @@ export const Container = styled.div`
         "header" 100px
         "navbar1" 50px
         "main1" 135vh
-        "sidebar1" 400px
-    ;
+        "sidebar1" 400px;
     @media  screen and (max-height: 450px ) {
-    right: auto;
-    width: 97%;
-    grid-template:
-        "header" 100px
-        "navbar1" 50px
-        "main1" 155vh
-        "sidebar1" 400px        
-        200px auto
+        right: auto;
+        width: 97%;
+        grid-template:
+            "header" 100px
+            "navbar1" 50px
+            "main1" 155vh
+            "sidebar1" 400px        
+            200px auto
     }
     @media  screen and (min-width: 600px ) {
-    right: auto;
-    width: 100%;
-    grid-template:
-        "header" 100px
-        "navbar1" 50px
-        "main1" 145vh
-        "sidebar1" 180px        
-        200px auto
-    ;
-    transition: 1s ease
+        right: auto;
+        width: 100%;
+        grid-template:
+            "header" 100px
+            "navbar1" 50px
+            "main1" 145vh
+            "sidebar1" 180px        
+            200px auto;
+            transition: 1s ease
     }
     @media  screen and (min-width: 700px ) {
-    width: 100%;
-    right: 2%;
-    grid-template:
-        "header header" 100px
-        "navbar1 navbar1" 50px
-        "sidebar1 main1" auto
+        width: 100%;
+        right: 2%;
+        grid-template:
+            "header header" 100px
+            "navbar1 navbar1" 50px
+            "sidebar1 main1" auto
         /
-        200px auto
-    ;
-    transition: 1s ease
+            200px auto;
+        transition: 1s ease
     }
     @media  screen and (min-width: 1000px ) {
-    width: 100%;
-    right: auto;
-    grid-template:
-        
+        width: 100%;
+        right: auto;
+        grid-template:
         "header  header header"   100px
         "navbar1 main1    sidebar1" auto
     /
-        200px     auto       200px
-    ;
+        220px     auto       220px;
     transition-duration: 1s ease
     }
 `;
@@ -82,6 +78,7 @@ export const Header = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 6px;
+    background-image: url(${pizarra});
 `;
 
 export const ContainerHeader = styled.div`
@@ -93,7 +90,6 @@ export const ContainerHeader = styled.div`
     height: 100%;
     box-shadow: var(--color-amarillo);
     color: var(--color-blanco);
-    text-shadow: 0 0 10PX #c7ba45,0 0 40PX #c7c345, 0 0 80PX #c3c745;
     grid-area: header;
 `;
 
@@ -103,9 +99,10 @@ export const CajaNav = styled.div`
     display: flex;
     grid-area: navbar1;
     border-radius: 5px;
-    border: solid;
+    background-image: url(${pizarra});
     @media  screen and (min-width: 1000px ) {
         flex-direction: column;
+        font-size: 13px;
     }
 `;
 
@@ -117,8 +114,8 @@ export const ContainerMain = styled.div`
     border-radius: 5px;
     overflow: scroll;
     &::-webkit-scrollbar-thumb {
-    background: var(--color-blanco); 
-    border-radius: 10px;
+        background: var(--color-blanco); 
+        border-radius: 10px;
     }
     &::-webkit-scrollbar {
         background: transparent;
@@ -136,9 +133,10 @@ export const ContainerMenu = styled.div`
     flex-direction: column;
     align-items: center;
     overflow-y: scroll;
+    background-image: url(${pizarra});
     &::-webkit-scrollbar-thumb {
-    background: var(--color-blanco); 
-    border-radius: 10px;
+        background: var(--color-blanco); 
+        border-radius: 10px;
     }
     &::-webkit-scrollbar {
         background: transparent;
@@ -157,27 +155,20 @@ export const Boton = styled.button`
     height: 100%;
     margin: 10px;
     width:100px;
+    margin-top: 10px;
     color: var(--color-blanco);
     text-decoration: none;
     border-radius: 8px;
     background-color: transparent;
     border: none;
-    &:hover{
-    box-shadow: 0 0 10PX yellow,0 0 40PX yellow, 0 0 80PX yellow;
-    };
-    &:focus{
-    background-color: var(--color-negro);
-    color: var(--color-blanco);
-    text-shadow:  0 0 10PX orange,0 0 40PX orange, 0 0 80PX orange;
-    }
     @media  screen and (min-width: 1000px ) {
         height: 50px;
-        width:150px;
+        width:100%;
         text-decoration: none;
         border: none;
         background-color: transparent;
         text-align: start;
-        font-size: 13px;
+        font-size: 15px;
         font-weight: bold;
         cursor: pointer
     }

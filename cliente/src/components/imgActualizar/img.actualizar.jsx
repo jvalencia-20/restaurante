@@ -33,7 +33,7 @@ Axios.put(`${process.env.REACT_APP_PRIMERO_UNO}/api/actualizarImgPlato/${id}`, d
 }  
 })
 .then(({data})=>{
-    alert("imagen Actualizado")
+    alert("imagen Actualizada")
 })
 .catch(error => {
     if (error.response) {

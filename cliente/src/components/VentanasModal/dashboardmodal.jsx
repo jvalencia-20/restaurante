@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Cumplidopro from "../Img/Bien.gif"
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Agregadopro = () => {
     const navigate = useNavigate()

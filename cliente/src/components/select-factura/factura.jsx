@@ -50,7 +50,6 @@ return (
                 )})               
             ): <Pendiente>
                 <h2 style={{margin:"0"}}>No tenemos Domicilios Pendientes</h2>
-                <h2 style={{margin:"0"}}>Cargue de nuevo la pagina...</h2>
             </Pendiente>}
             </Pedido>
         </Select>

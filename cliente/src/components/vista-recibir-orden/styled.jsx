@@ -78,7 +78,17 @@ export const BotonImprimir = styled.button`
     border-radius: 20px;
     font-style: italic;
     cursor: pointer;
+    font-size: 15px;
     &:hover{
         background-color: #1f52e0;
     }
+`;
+
+export const Select = styled.select`
+    width: 10rem;
+    height: 30px;
+    color: white;
+    background-color: black;
+    border: solid 1px;
+    font-style: italic;
 `;

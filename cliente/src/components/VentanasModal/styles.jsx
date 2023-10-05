@@ -14,7 +14,7 @@ export const Fondo = styled.div`
 `;
 
 export const Container = styled.div`
-    background-color:  #12011d;
+    background-color:  #000000;
     position: absolute;
     z-index: 0;
     height: 33em;
@@ -60,7 +60,7 @@ export const Mensaje = styled.div`
     align-items: center;
     justify-content: center;
     color: #ffffff;
-    text-shadow: 0 0 10PX #A945C7,0 0 40PX #A945C7, 0 0 80PX #A945C7;
+    text-shadow: 0 0 10PX #ffffff,0 0 40PX #ffffff, 0 0 80PX #ffffff;
 `;
 
 export const Form = styled.div`

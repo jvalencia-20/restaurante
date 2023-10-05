@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import pizarra from "../Img/pizarra.jpeg"
 
 export const Background = styled.div`
   height: 100%;
@@ -15,7 +16,7 @@ export const Background = styled.div`
 `;
 
 export const Login = styled.form`
-  background-color: black;
+  background-image: url(${pizarra});
   backdrop-filter: blur(5px);
   height: 95%;
   width: 30em;
@@ -80,6 +81,7 @@ export const ConInfor = styled.div`
 
 export const Name = styled.h3`
   color: #ffff;
+  font-size: 20px;
   @media screen and ( max-width: 90vh){   
     font-size: 0.8em;
   }
@@ -87,7 +89,8 @@ export const Name = styled.h3`
 
 export const Infor = styled.input`
   width: 23em;
-  height: 2em;
+  height: 5em;
+  font-size: 15px;
   border: 1px solid #ffff;
   background-color: transparent;
   border-radius: 5px;
@@ -101,9 +104,11 @@ export const Infor = styled.input`
 export const Entrar = styled.button`
   margin-top: 2em;
   color: #ffff;
-  height: 2em;
+  height: 5em;
   width: 8em;
+  font-size: 15px;
   border: 1px solid #ffff;
   border-radius: 1em;
   background-color: transparent;
+  cursor: pointer;
 `;

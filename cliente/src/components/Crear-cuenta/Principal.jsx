@@ -8,11 +8,18 @@ const Crearcuenta = () => {
   const navigate = useNavigate()
   const [usuario, setUsuario] = useState("")
   const [correo, setCorreo] = useState("")
-  const [cargo, setCargo] = useState("")
+  const [cargo, setCargo] = useState(null)
   const [contraseña, setContaseña] = useState("")
   const [confirmarContraseña, setconfirmarContraseña] = useState("")
   const { token } = useAuthContext();
   const [mensajito, setMensajito] = useState("") 
+
+  const cargos = ["admin", "empleado"]
+  const handleCargoSeleccionada = (event) => {
+    const cargoSelect = event.target.value;
+    setCargo(cargoSelect);
+};
+
   const agregarusuario = (e) => {
     e.preventDefault()
     Axios.post(`${process.env.REACT_APP_PRIMERO_UNO}/api/createadmin`, {
@@ -96,14 +103,16 @@ const Crearcuenta = () => {
               onChange={ev => setCorreo(ev.target.value)}>
             </Infor>
             <Name>Cargo</Name>
-            <Infor
-              type="text"
-              name="cargo"
-              placeholder="cargo"
-              autoComplete="off"
-              value={cargo}
-              onChange={ev => setCargo(ev.target.value)}>
-            </Infor>
+            <select style={{backgroundColor:"#00000015",color:"rgb(105,105,105)",borderRadius:"5px",width:"22rem",height:"5rem",fontSize:"18px", border:"1px solid #ffff"}}
+              onChange={handleCargoSeleccionada}>
+              <option value="" style={{backgroundColor:"#000", color:"rgb(131,144,135)"}}>Selecciona el cargo</option>
+              {cargos.map((cargo, index)=>(
+                <option key={index} value={cargo} style={{backgroundColor:"#000", color:"#ffff"}}>
+                    {cargo}
+                </option>
+              ))}
+
+            </select>
             <Name>Contraseña</Name>
             <Infor
               type="password"

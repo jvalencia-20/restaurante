@@ -32,7 +32,7 @@ Axios.put(`${process.env.REACT_APP_PRIMERO_UNO}/api/actualizarImgbebida/${id}`, 
 }  
 })
 .then(({data})=>{
-    alert("imagen Actualizado")
+    alert("imagen Actualizada")
 })
 .catch(error => {
     if (error.response) {

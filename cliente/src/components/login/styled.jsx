@@ -27,8 +27,8 @@ export const Fondo1 = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-@media screen and ( max-width: 90vh) {
-  flex-direction: column;  
+  @media screen and ( max-width: 90vh) {
+    flex-direction: column;  
 }
 `;
 
@@ -59,7 +59,6 @@ export const Titulo = styled.h1`
   height: 100px;
   font-family: 'Katibeh', cursive;
   color: #feffff;
-  text-shadow: 0 0 10PX #fffdfd,0 0 40PX #fbffff, 0 0 80PX #f2ffff;
   font-size: 1.5em;
   margin: none;
   @media screen and ( max-width: 90vh){   
@@ -104,7 +103,7 @@ export const Name = styled.h3`
 
 export const Infor = styled.input`
   width: 23em;
-  height: 2em;
+  height: 3em;
   border: 1px solid #ffffff;
   background-color: transparent;
   border-radius: 5px;
@@ -139,8 +138,8 @@ export const Form = styled.div`
   display: flex;
   align-items: center;
   justify-content: end;
-@media screen and ( max-width: 90vh){   
-  height: 14em;
+  @media screen and ( max-width: 90vh){   
+    height: 14em;
     width: 20em; 
   }
 `;

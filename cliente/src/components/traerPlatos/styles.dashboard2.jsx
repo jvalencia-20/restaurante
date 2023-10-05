@@ -88,14 +88,18 @@ export const Contendiv = styled.div`
 `;
 
 export const Borrar = styled.button`
-    width: 55px;
-    height: 55px;
+    width: 80px;
+    height: 80px;
     background-image: url(${borrar});
     background-repeat: no-repeat;
     background-size: 96%;
     background-position: center;
     background-color: transparent;
     border: none;
+    &:hover{
+        rotate: 30deg;
+        cursor: pointer;
+    }
 `;
 
 export const DivFilas = styled.div`
@@ -104,4 +108,15 @@ export const DivFilas = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+`;
+
+
+export const Editar = styled.button`
+    border: none;
+    width: 80px;
+    height: 45px;
+    background-color: black;
+    color: white;
+    border-radius:20px;
+    cursor: pointer;
 `;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Background,ContPrincipal, ContFactura, ResPrecios, ContBoton, BotonImprimir} from "./styled";
+import { Background,ContPrincipal, ContFactura, ResPrecios, ContBoton, BotonImprimir,Select} from "./styled";
 import Axios from "axios";
 
 const RecibirOrden = () => {
@@ -77,25 +77,22 @@ const RecibirOrden = () => {
         getMesas();
         }, []);
 
-    const handlePrintClick = () => {
-        window.print();
-    };
 
     return (
         <Background>
                 <div style={{ display: 'flex', justifyContent: 'center', marginBottom:"20px" }}>
-                        <select onChange={handleMesaSeleccionada}>
-                            <option value="">Seleccione una mesa</option>
-                            {mesasDisponibles.map((numeroMesa, index) => (
-                                <option key={index} value={numeroMesa.mesa}>
-                                    Mesa {numeroMesa.mesa}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
+                    <Select onChange={handleMesaSeleccionada}>
+                        <option value="" style={{width:"50px"}}>Seleccione una mesa</option>
+                        {mesasDisponibles.map((numeroMesa, index) => (
+                            <option key={index} value={numeroMesa.mesa} style={{fontSize:"14px"}}>
+                                Mesa {numeroMesa.mesa}
+                            </option>
+                        ))}
+                    </Select>
+                </div>
             <ContPrincipal>
                 <h1 style={{ textAlign: "center", color: "white" }}>Orden</h1>
-                <BotonImprimir style={{ display: "flex", justifyContent: "center", margin: "auto" }} onClick={() => navigate('/private/todofisica/fisica')}>Regresar</BotonImprimir>
+                <BotonImprimir style={{ display: "flex", justifyContent: "center", margin: "auto",fontSize:"15px" }} onClick={() => navigate('/private/todofisica/fisica')}>Regresar</BotonImprimir>
                 <ContFactura>
                     <table>
                         <tbody>
@@ -106,9 +103,9 @@ const RecibirOrden = () => {
                             <thead>
                                 <tr>
                                     <th style={{ backgroundColor: "transparent" }}></th>
-                                    <th style={{ width: "200px", backgroundColor: "transparent", color: "white" }}>Nombre</th>
-                                    <th style={{ backgroundColor: "transparent", color: "white" }}>Cantidad</th>
-                                    <th style={{ backgroundColor: "transparent", color: "white" }}>Precio</th>
+                                    <th style={{ width: "200px", backgroundColor: "transparent", color: "white", fontSize:"20px" }}>Nombre</th>
+                                    <th style={{ backgroundColor: "transparent", color: "white", fontSize:"20px" }}>Cantidad</th>
+                                    <th style={{ backgroundColor: "transparent", color: "white" , fontSize:"20px"}}>Precio</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -117,9 +114,9 @@ const RecibirOrden = () => {
                                         <td style={{ margin: "0", padding: "0" }}>
                                             
                                         </td>
-                                        <td style={{ color: "white" }}>{producto.nombre_plato}</td>
-                                        <td style={{ color: "white" }}>{producto.cantidad}</td>
-                                        <td style={{ color: "white" }}>{producto.precio}</td>
+                                        <td style={{ color: "white", fontSize:"20px" }}>{producto.nombre_plato}</td>
+                                        <td style={{ color: "white", fontSize:"20px" }}>{producto.cantidad}</td>
+                                        <td style={{ color: "white", fontSize:"20px" }}>${producto.precio}</td>
                                     </tr>
                                 ))}
                                 <tr>
@@ -137,11 +134,9 @@ const RecibirOrden = () => {
                     </div>
                 </ResPrecios>
                 <ContBoton>
-                    <BotonImprimir onClick={handlePrintClick}>Imprimir factura</BotonImprimir>
                     <BotonImprimir
                         onClick={enviarPedidoAMesa}
-                        disabled={productosSeleccionados.length === 0}
-                    >
+                        disabled={productosSeleccionados.length === 0}>
                         Tomar Pedido
                     </BotonImprimir>
                 </ContBoton>

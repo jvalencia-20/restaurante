@@ -2,11 +2,13 @@ import React from "react";
 import { useState, useEffect } from 'react';
 import Axios from "axios";
 import { useAuthContext } from "../context/AuthContext";
-import { Link } from "react-router-dom";
-import { Contenedor, Main, Tabla, Thead, Tr, Th, Tbody, Td, Borrar } from "./styles";
-import "./styles.css"
+import { Link, useNavigate } from "react-router-dom";
+import { Contenedor, Main, Tabla, Thead,Editar, Tr, Th, Tbody, Td, Borrar } from "./styles";
+import dedo from "../Img/aqui1.jpg"
+import dedo2 from "../Img/aqui2.jpg"
 
 export const ListarAdmin = () => {
+    const Navegate = useNavigate()
     const {token} = useAuthContext()
     const [cliente, setCliente] = useState([])
     const clientes = () => {
@@ -35,15 +37,24 @@ export const ListarAdmin = () => {
     useEffect(() => {
         clientes()
     },[])
-
+    const enviar = () => {
+        Navegate("/private/register")
+        }
     return(
         <Contenedor>
             <Main>
-                <h2 style={{color:"white"}}>Listado de Admin</h2>
-                <Tabla >
-                    <Thead  >
+                <div style={{display:"flex", width:"100%"}}>
+                    <h2 style={{color:"black"}}>Listado de Admin</h2>
+                    <div onClick={enviar} style={{display:"flex", alignItems:"center", justifyContent:"center", marginLeft:"2em",cursor:"pointer"}}>
+                        <img src={dedo} style={{height:"3em", borderRadius:"1em 0 0 1em"}}/>
+                        <button style={{height:"3.6em", backgroundColor:"rgb(51,51,51)", color:"white", border:"none",cursor:"pointer"}}>Crear Usuario</button>
+                        <img src={dedo2} style={{height:"3em", borderRadius:" 0 1em 1em 0 "}}/>
+                    </div>
+                    </div>
+                <Tabla>
+                    <Thead>
                         <Tr>
-                            <Th>NOMBRE_USUARIO</Th>
+                            <Th>NOMBRE USUARIO</Th>
                             <Th>CORREO</Th>
                             <Th>CARGO</Th>
                             <Th>ACCION</Th>
@@ -59,12 +70,12 @@ export const ListarAdmin = () => {
                                 <Td>{val.cargo}</Td>
                                 <Td>
                                     <Link to={`/private/actualizaradmin/${val.id_admin}`}>
-                                        <button >
+                                        <Editar>
                                             Editar
-                                        </button>
+                                        </Editar>
                                     </Link>
                                     <Borrar onClick={() => eliminarAdmin(val.id_admin)}>
-                                        Borrar
+                                        Borrar 
                                     </Borrar>
                                 </Td>
                             </Tr>  

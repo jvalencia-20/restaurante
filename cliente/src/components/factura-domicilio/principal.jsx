@@ -3,6 +3,7 @@ import Axios from "axios";
 import { useParams } from "react-router-dom";
 import { Background, ContPrincipal, ContFactura, ResPrecios, ContBoton, BotonImprimir } from "./styled";
 import { Link, useNavigate } from "react-router-dom";
+import moment from "moment";
 
 const FacturaDomicilio = () => {
     const Navegate = useNavigate()
@@ -50,6 +51,45 @@ const FacturaDomicilio = () => {
     }
     const { di } = useParams();
 
+    const enviarDatosARegistrosDomicilio = async () => {
+        const dataDomicilio = {
+            table: "domicilio",
+            rows: filteredReservas,
+        };
+    
+        const dataRegistrosDomicilio = dataDomicilio.rows.map((domicilio) => {
+            return {
+                nombre_cliente: domicilio.nombre_cliente,
+                producto: domicilio.nombre_plato,
+                cantidad: domicilio.cantidad,
+                precio: domicilio.precio,
+                direccion: domicilio.direccion,
+                fecha_domi: fechaActual,
+            };
+        });
+    
+        console.log("Enviando datos al servidor:", dataRegistrosDomicilio); 
+    
+        try {
+            const responseRegistrosDomicilio = await Axios.post(
+                `${process.env.REACT_APP_PRIMERO_UNO}/api/reg_domi`,
+                { table: "registros_domicilio", rows: dataRegistrosDomicilio }
+            );
+    
+            if (responseRegistrosDomicilio.status === 200) {
+                console.log("Datos de domicilio agregados exitosamente a registros_domicilio.");
+    
+                Navegate(`/private/todofisica/registrosdomi`);
+            } else {
+                console.error("Error al agregar datos de domicilio a registros_domicilio.");
+            }
+        } catch (error) {
+            console.error("Error al comunicarse con el servidor:", error);
+        }
+    };
+
+    const fechaActual = moment().format('YYYY-MM-DD HH:mm:ss'); 
+
     return (
         <Background>
             <ContPrincipal>
@@ -58,17 +98,17 @@ const FacturaDomicilio = () => {
                     <table>
                         <thead>
                             <tr>
-                                <th style={{ backgroundColor: "transparent", color: "white" }}>PRODUCTO</th>
-                                <th style={{ backgroundColor: "transparent", color: "white" }}>CANTIDAD</th>
-                                <th style={{ backgroundColor: "transparent", color: "white" }}>PRECIO</th>
+                                <th style={{ backgroundColor: "transparent", color: "white",fontSize:"20px" }}>PRODUCTO</th>
+                                <th style={{ backgroundColor: "transparent", color: "white",fontSize:"20px" }}>CANTIDAD</th>
+                                <th style={{ backgroundColor: "transparent", color: "white",fontSize:"20px" }}>PRECIO</th>
                             </tr>
                         </thead>
                         <tbody>
                             {filteredReservas.map((pedido, index) => (
                                 <tr key={index}>
-                                    <td style={{ color: "white" }}>{pedido.nombre_plato}</td>
-                                    <td style={{ color: "white" }}>{pedido.cantidad}</td>
-                                    <td style={{ color: "white" }}>{pedido.precio}</td>
+                                    <td style={{ color: "white",fontSize:"20px" }}>{pedido.nombre_plato}</td>
+                                    <td style={{ color: "white",fontSize:"20px" }}>{pedido.cantidad}</td>
+                                    <td style={{ color: "white",fontSize:"20px" }}>{pedido.precio}</td>
                                 </tr>
                             ))}
                         </tbody>
@@ -86,8 +126,11 @@ const FacturaDomicilio = () => {
                     <Link to="/private/todofisica/fisica">
                         <BotonImprimir onClick={Delete}>Eliminar Factura</BotonImprimir>                                
                     </Link>
+                    <BotonImprimir onClick={enviarDatosARegistrosDomicilio}>
+                        Ir a Registro de Domicilio
+                    </BotonImprimir>
                     <Link to="/private/todofisica/selectfactura">
-                        <BotonImprimir>regresar</BotonImprimir>
+                        <BotonImprimir style={{width:"5rem",height:"2rem"}}>regresar</BotonImprimir>
                     </Link>
                 </ContBoton>
             </ContPrincipal>    

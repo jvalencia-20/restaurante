@@ -44,15 +44,15 @@ const ImprimirDomicilio = () => {
                     <table>
                         <thead>
                             <tr>
-                                <th style={{ backgroundColor: "transparent", color: "white" }}>PRODUCTO</th>
-                                <th style={{ backgroundColor: "transparent", color: "white" }}>CANTIDAD</th>
+                                <th style={{ backgroundColor: "transparent", color: "white",fontSize:"20px" }}>PRODUCTO</th>
+                                <th style={{ backgroundColor: "transparent", color: "white",fontSize:"20px" }}>CANTIDAD</th>
                             </tr>
                         </thead>
                         <tbody>
                             {filteredReservas.map((pedido, index) => (
                                 <tr key={index}>
-                                    <td style={{ color: "white" }}>{pedido.nombre_plato}</td>
-                                    <td style={{ color: "white" }}>{pedido.cantidad}</td>
+                                    <td style={{ color: "white",fontSize:"20px" }}>{pedido.nombre_plato}</td>
+                                    <td style={{ color: "white",fontSize:"20px" }}>{pedido.cantidad}</td>
                                 </tr>
                             ))}
                         </tbody>

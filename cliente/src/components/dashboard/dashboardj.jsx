@@ -11,7 +11,8 @@ export const Dashboard = () => {
     const [descripcion, setDescripcion] = useState("")
     const [precio, setPrecio] = useState("")
     const [imgEnv, setImgEnv] = useState("")
-    const [tipoPlato, setTipoPlato] = useState("")
+    const [tipoPlato, setTipoPlato] = useState(null)
+    const Tipos = ["sancocho", "corriente"]
     const navigate = useNavigate()
     const { token } = useAuthContext();
     const handleImageChange = (event) => {
@@ -21,6 +22,11 @@ export const Dashboard = () => {
             setImgEnv(file);
         }
     };
+    const handleCargoSeleccionada = (event) => {
+        const TipoSelect = event.target.value;
+        setTipoPlato(TipoSelect);
+    };
+
     const agregarplato = (e) => {
         e.preventDefault()
         const datos = new FormData();
@@ -48,7 +54,7 @@ return (
     <Pagina>
         <Background>
             <Receta>
-            <h1 style={{color:"white"}}>Agregar Platos</h1>
+            <h1 style={{color:"black"}}>Agregar Platos</h1>
                 <DivPrincipal>
                     <Hoja1>
                         <Div>
@@ -89,14 +95,15 @@ return (
                         </Div>
                         <Div>
                             <Name>Ingrese el tipo de plato:</Name>
-                            <Infor
-                                type="text"
-                                name="tipoPlato"
-                                placeholder="tipo del plato"
-                                autoComplete="off"
-                                value={tipoPlato}
-                                onChange={ev => setTipoPlato(ev.target.value)}>
-                            </Infor>
+                            <select style={{backgroundColor:"#00000015",color:"rgb(105,105,105)",borderRadius:"10px",width:"17.1rem",height:"3rem",fontSize:"14px", border:"1px solid #ffff"}}
+                                onChange={handleCargoSeleccionada}>
+                                <option value="" style={{backgroundColor:"black"}}>El tipo de Plato</option>
+                                {Tipos.map((tipo, index)=>(
+                                    <option key={index} value={tipo} style={{backgroundColor:"black"}}>
+                                        {tipo}
+                                    </option>
+                                ))}
+                            </select>
                         </Div>
                     </Hoja1>
                     <Hoja2>
@@ -116,7 +123,7 @@ return (
                                 {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}
                             </ContentImg>
                             <div style={{ display: "flex" }}>
-                                <Entrar onClick={agregarplato}></Entrar>
+                                <Entrar onClick={agregarplato}>Guardar</Entrar>
                                 <Sticker></Sticker>
                             </div>
                         </ConInfor>

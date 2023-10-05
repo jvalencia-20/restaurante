@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { getAdmin, getAdmin1, createAdmin, updateAdmin, deleteAdmin, confirmar, deletePlatoCarrito, createProducto, traerProducto, actualizarContraseñaAdmin } from "../controllers/admin.controller.js";
-import { createPlato,createBebida, deletePlato,updatePlato, obtenerPlato, Compra, agregarPedido, Bebidas, obtenerBebida, PlatosSancocho, PlatosCorriente, informacion, deleteBebida, updateImagePlato,traerPlatos,updateImagebebida, updateBebida } from "../controllers/platos.controllers.js";
+import { createPlato,createBebida, deletePlato,updatePlato, obtenerPlato, Compra, agregarPedido, Bebidas, obtenerBebida, PlatosSancocho, PlatosCorriente, deleteBebida, updateImagePlato,traerPlatos,updateImagebebida, updateBebida } from "../controllers/platos.controllers.js";
 import { createDomicilio,getDomicilios,getDomicilio, deleteDomicilio, updateDomicilio } from "../controllers/domicilios.controllers.js";
 import multer from 'multer';
 import {dirname, extname, join} from 'path';
@@ -11,6 +11,9 @@ import { getAllRegistros, getRegistro, createNew, updateRegistro, delete1, delet
 import { getAllPlatos } from "../controllers/platos.controllers.js";
 import { getMesa, createMesa, deleteOrdenPorMesa } from "../controllers/mesa.controller.js";
 import { getMesas,crearMesas,eliminarMesas,updateMesas } from "../controllers/mesas.controller.js";
+import { deleteDomi, getAllDomicilios, newDomicilio, updateDomi, getDomi } from "../controllers/reg_domi.controller.js";
+import { crearInformacion, deleteInformacion, informacion, obtenerInformacion, updateImgInfor, updateInfor } from "../controllers/informacion.controller.js";
+import {getProductos,getProducto,deleteProducto,updateProducto,createProductos} from "../controllers/producto.controllers.js";
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -68,7 +71,7 @@ router.delete('/deleteadmin/:id', deleteAdmin) //Ruta para eliminar uno
 router.get('/traerproducto',verificarToken, traerProducto)
 router.post('/createproducto', verificarToken, createProducto)
 
-//Tabla empleado
+
 
 router.delete('/eliminarbebida/:id', deleteBebida)
 
@@ -108,6 +111,36 @@ router.delete('/agrega_comida/:id_plato', deletePlatoCarrito)
 //informacion
 
 router.get('/informacion', informacion)
+router.delete('/eliminaInfor/:id', deleteInformacion)
+router.get('/selectInformacion/:id', obtenerInformacion)
+router.put('/inforActualizada/:id', updateInfor)
+router.put('/actualizaImgInfor/:id', upload.single("imagen"), async (req, res) => {
+    try {
+        const {id} = req.params;
+        const imagen = req.file.filename;
+        const result = await updateImgInfor(imagen, id);
+        console.log(imagen, id, 'hola');
+        res.status(200).json({
+            message: 'Creación exitosa 🎉',
+            result
+        });
+    } catch (error) {
+        res.status(500).json({ error: 'Error en el servidor' });
+    }
+} )
+router.post('/crearInformacion', upload.single("imagen"), async (req, res) => {
+    try {
+        const { titulo, informacion, noticia } = req.body;
+        const imagen = req.file.filename;
+        const result = await crearInformacion(titulo, informacion, noticia, imagen);
+        res.status(200).json({
+            message: 'Creación exitosa 🎉',
+            result
+        });
+    } catch (error) {
+        res.status(500).json({ error: 'Error en el servidor' });
+    }
+} )
 
 //Tabla mesa
 router.get('/mesa/:id', getMesa);
@@ -155,6 +188,12 @@ router.patch('/registro/:id', updateRegistro)
 router.delete('/registro/:id', delete1)
 router.delete('/delete', deleteAllRegistro)
 
+router.get('/reg_domi', getAllDomicilios)
+router.get('/reg_domi/:id', getDomi)
+router.post('/reg_domi', newDomicilio)
+router.patch('/reg_domi/:id', updateDomi)
+router.delete('/reg_domi/:id', deleteDomi)
+
 router.post('/crearbebida', verificarToken, upload.single("imagen"), async (req, res) => {
     try {  
         const { nombre_bebida, descripcion, precio, colores } = req.body;
@@ -194,7 +233,24 @@ router.put('/actualizarImgbebida/:id', verificarToken, upload.single("imagen"), 
         });
     } catch (error) {
         res.status(500).json({ error: 'Error en el servidor' });
+
+
     }
 });
+
+
+
+
+//tabla producto
+router.post('/productos',createProductos); //crear poducto
+router.get('/producto', getProductos); // traer todos los productos
+router.get('/producto/:id',getProducto); //traer productos por Id
+router.put('/actualiza-p/:id', updateProducto); //actualizar productos
+router.delete('/elimina-p/:id', deleteProducto); //eliminar productos
+
+
+
+
+
 
 export default router

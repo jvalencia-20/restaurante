@@ -1,40 +1,41 @@
 import styled from "styled-components";
 import FondoComida from "../Img/fondoComida.jpg"
+import letrero2 from "../Img/letrero2.jpg"
 
 export const Background = styled.div`
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 `;
 
 export const Platos = styled.div`
-    background-color: #878787ae;
-    height: 35em;
-    width: 55em;
-    box-shadow: 10px 10px 10px black;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    @media screen and (max-width: 900px) {
+  height: 35em;
+  width: 55em;
+  box-shadow: 10px 10px 10px black;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+    background-image: url(${letrero2}) ;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    box-shadow: 10px 10px 25px 15px #000000;
+  @media screen and (max-width: 900px) {
     width: 40em;
-    }
-    @media screen and (max-width: 660px) {
-        width: 30em;
-        height: 54em;
-    }    
-    @media screen and (max-width: 500px) {
-        width: 22em;
-        margin-bottom: 3em;
-    }
+  }
+  @media screen and (max-width: 660px) {
+    width: 30em;
+    height: 54em;
+  }    
+  @media screen and (max-width: 500px) {
+    width: 22em;
+    margin-bottom: 3em;
+  }
 `;
-
-
-
-
 
 export const Titulo = styled.div`
   width: 60em;
@@ -55,8 +56,10 @@ export const Titulo = styled.div`
 
 export const Container = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
   height: 50em;
-  width: 70em;
+  width: 55em;
   @media screen and (max-width: 900px) {
     width: 40em;
   }
@@ -73,9 +76,14 @@ export const Logito = styled.img`
 `;
 
 export const NomPlato = styled.h1`
+  color: white;
+  font-style: italic;
 `;
 
 export const Contenido = styled.h3`
+  color: white;
+  font-size: 28px;
+  font-style: italic;
 `;
 
 export const ConImg = styled.div`
@@ -87,12 +95,17 @@ export const ConImg = styled.div`
   align-items: center;
   @media screen and (max-width: 900px) {
     width: 25em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   @media screen and (max-width: 660px) {
-    width: 15em;
-  }
-  @media screen and (max-width: 500px) {
-    width: 10em;
+    width: 20em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
@@ -106,15 +119,17 @@ export const CajaImg = styled.div`
   height: 20em;
   width: 25em;
   @media screen and (max-width: 900px) {
+    box-shadow: -2px 10px 10px black;
+    border-radius: 15px;
+    margin-top: 2em;
+    height: 18em;
     width: 20em;
   }
   @media screen and (max-width: 660px) {
-    width: 15em;
-    height: 15em;
-  }
-  @media screen and (max-width: 500px) {
-    width: 10em;
-    height: 10em;
+    box-shadow: -2px 10px 10px black;
+    border-radius: 15px;
+    margin-top: 2em;
+    width: 16em;
   }
 `;
 
@@ -129,10 +144,6 @@ export const ImgPlato = styled.img`
     width: 15em;
     height: 15em;
   }
-  @media screen and (max-width: 500px) {
-    width: 10em;
-    height: 10em;
-  }
 `;
 
 export const Aumentar = styled.div`
@@ -144,6 +155,7 @@ export const Aumentar = styled.div`
   @media screen and (max-width: 900px) {
     flex-direction: column;
     width: 15em;
+    margin-top: 1em;
   }
 `;
 
@@ -152,19 +164,20 @@ export const Botones = styled.button`
   margin-right: 10px;
   height: 2em;
   width: 5em;
-  background-color: transparent;
+  background-color: white;
   border: 2px solid #000;
   border-radius: 0.5em;
 `;
 
 export const Agregar = styled.button`
-  height: 2em;
+  height: 3em;
   width: 10em;
-  background-color: transparent;
+  background-color: white;
   margin-left: 15px;
   margin-right: 15px;
   border: 2px solid #000;
   border-radius: 0.5em;
+  font-style: italic;
   @media screen and (max-width: 900px) {
     margin-top: 1em;
   }
@@ -177,7 +190,24 @@ export const Plato = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  @media screen and (max-width: 500px) {
-    width: 12em;
+  @media screen and (max-width: 660px) {
+    display: none
+  }
+`;
+
+export const Plato2 = styled.div`
+  height: 30em;
+  width: 23em;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  @media screen and (max-width: 660px) {
+    height: 30em;
+    width: 23em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
   }
 `;

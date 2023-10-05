@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import pizarra from "../Img/pizarra.jpeg"
 
 export const Background = styled.div`
   background-size: cover;
@@ -16,8 +17,7 @@ export const Background = styled.div`
 `;
 
 export const Login = styled.form`
-  background-color: rgb(5, 5, 5);  
-  backdrop-filter: blur(5px);
+  background-image: url(${pizarra});
   height: 30em;
   width: 30em;
   border-radius: 1em;
@@ -41,7 +41,7 @@ export const ConTitulo = styled.div`
 export const Titulo = styled.h1`
   font-family: 'Katibeh', cursive;  
   color: #f1f1f1;
-  font-size: 1.5em;
+  font-size: 25px;
   padding: 2px;
   margin: 0;
   @media screen and ( max-width: 90vh){   
@@ -57,7 +57,7 @@ export const ConInfor = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #838181;
+  background-image: url(${pizarra});
   @media screen and ( max-width: 90vh){   
     height: 70%;
     width: 20em; 
@@ -66,6 +66,7 @@ export const ConInfor = styled.div`
 
 export const Name = styled.h3`
   color: #ffff;
+  font-size: 25px;
   @media screen and ( max-width: 90vh){   
     font-size: 0.8em;
   }
@@ -77,7 +78,8 @@ export const Infor = styled.input`
   border: 1px solid #ffff;
   background-color: transparent;
   border-radius: 5px;
-  color: #000000;
+  color: #ffffff;
+  font-size: 15px;
   @media screen and ( max-width: 90vh){   
     height: 2em;
     width: 20em; 
@@ -87,7 +89,7 @@ export const Infor = styled.input`
 export const Entrar = styled.button`
   margin-top: 2em;
   color: #ffff;
-  height: 2em;
+  height: 3em;
   width: 8em;
   border: 1px solid #ffff;
   border-radius: 1em;

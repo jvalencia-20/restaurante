@@ -1,26 +1,30 @@
 import styled from "styled-components";
 import FondoComida from "../Img/fondoComida.jpg"
+import letrero2 from "../Img/letrero2.jpg"
+
 
 export const Background = styled.div`
-    height: 100%;
+    height: 50%;
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-wrap: wrap;
 `;
 
 export const Platos = styled.div`
-    background-color: #878787ae;
     height: 35em;
     width: 55em;
-    box-shadow: 10px 10px 10px black;
+    background-image: url(${letrero2}) ;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    box-shadow: 10px 10px 25px 15px #000000;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     @media screen and (max-width: 900px) {
-    width: 40em;
+        width: 40em;
     }
     @media screen and (max-width: 660px) {
         width: 30em;
@@ -66,14 +70,15 @@ export const Container = styled.div`
     }
 `;
 
-export const Logito = styled.img`
-    height: 5em;
-`;
-
 export const NomPlato = styled.h1`
+    color: white;
+    font-style: italic; 
 `;
 
 export const Contenido = styled.h3`
+    color: white;
+    font-size: 28px;
+    font-style: italic
 `;
 
 export const ConImg = styled.div`
@@ -84,18 +89,18 @@ export const ConImg = styled.div`
     justify-content: center;
     align-items: center;
     @media screen and (max-width: 900px) {
-    width: 25em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+        width: 25em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     @media screen and (max-width: 660px) {
-    width: 20em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+        width: 20em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 `;
 
@@ -108,7 +113,6 @@ export const CajaImg = styled.div`
     margin-top: 2em;
     height: 20em;
     width: 25em;
-    background-color: blueviolet;
     @media screen and (max-width: 900px) {
         box-shadow: -2px 10px 10px black;
         border-radius: 15px;
@@ -156,19 +160,22 @@ export const Botones = styled.button`
     margin-right: 10px;
     height: 2em;
     width: 5em;
-    background-color: transparent;
+    background-color: white;
+    background-color: white;
     border: 2px solid #000;
     border-radius: 0.5em;
 `;
 
 export const Agregar = styled.button`
-    height: 2em;
+    height: 3em;
     width: 10em;
-    background-color: transparent;
+    background-color: white;
     border: 2px solid #000;
     margin-left: 15px;
     margin-right: 15px;
     border-radius: 0.5em;
+    cursor: pointer;
+    font-style: italic;
     @media screen and (max-width: 900px) {
         margin-top: 1em;
     }

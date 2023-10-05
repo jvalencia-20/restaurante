@@ -51,7 +51,6 @@ export const createAdmin = async (req, res) => {
         if (password !== confirmar_password){
             return res.status(409).send('Las contraseñas deben coincidir.');
     }
-
         const checkExistingUserQuery = 'SELECT * FROM admin WHERE nombre = ? OR correo = ?';
         const checkExistingUserValues = [nombre, correo];
         const [existingUser] = await pool.query(checkExistingUserQuery, checkExistingUserValues);
@@ -60,7 +59,6 @@ export const createAdmin = async (req, res) => {
         }
         const saltRounds = 10;
         const hashedPassword = await bcrypt.hash(password, saltRounds);
-
         const insertQuery = 'INSERT INTO admin (nombre, correo, cargo, password) VALUES (?, ?, ?, ?)';
         const insertValues = [nombre, correo, cargo, hashedPassword];
         const [result] = await pool.query(insertQuery, insertValues);
@@ -102,7 +100,6 @@ export const createProducto = async (req, res) => {
         if (!precio){
             return res.status(409).send('precio requerido.');
         }
-
         const insertQuery = 'INSERT INTO inventario (nombre_producto, categoria, presentacion, unidad, precio) VALUES (?, ?, ?, ?, ?)';
         const insertValues = [nombre_producto, categoria, presentacion, unidad, precio];
         const [result] = await pool.query(insertQuery, insertValues);

@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import Escoge from "../VentanasModal/eligeMenu";
 import Delete from "../VentanasModal/eliminaTodo";
 
-
 const Carrito = () => {
     const navigate = useNavigate()
     const [plato, setPlatos] = useState([])
@@ -93,7 +92,7 @@ const Carrito = () => {
                             <ConTitulos key={index}>
                                 <Titulos>{compra.nombre_plato}</Titulos>
                                 <Titulos>{compra.cantidad}</Titulos>
-                                <Titulos>${compra.precio}</Titulos>
+                                <Titulos><span style={{color:"#07ff07"}}>${compra.precio}</span></Titulos>
                                 <Eliminar onClick={() => eliminar(index)}><h1 style={{ margin: "0" }}>X</h1></Eliminar>
                             </ConTitulos>
                         ))) : ""}

@@ -1,0 +1,100 @@
+import styled from "styled-components";
+import pizarra from "../Img/pizarra.jpeg"
+
+export const Background = styled.div`
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    flex-direction: column;
+`;
+
+export const ContPrincipal = styled.div`
+    height: 100%;
+    background-image: url(${pizarra});
+    backdrop-filter: blur(5px);
+    box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.26);
+    border-radius: 20px;
+    @media (min-width: 768px) {
+        width: 70%;
+    }
+`;
+
+export const InputContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+`;
+
+export const Boton = styled.button`
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    &:hover{
+        background-color: #1f52e0;
+    }
+`;
+
+export const Table = styled.table`
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    background-image: url(${pizarra})
+`;
+
+export const Thead = styled.div`
+    background-color: #000;
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+`;
+
+export const Tbody = styled.div`
+    max-height: 650px;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: black;
+        border-radius: 5px;
+    }
+`;
+
+export const Tr1 = styled.tr`
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+`;
+
+export const Tr2 = styled.tr`
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+`;
+
+export const Th = styled.th`
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #000000;
+    color: white;
+    margin: 0;
+`;
+
+export const Td = styled.td`
+    padding: 10px;
+    margin: 0;
+    color: white;
+    z-index: 0;
+`;
+
+export const TdMesa = styled(Td)`
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+`;

@@ -49,7 +49,7 @@ const config = {
     <Pagina>
         <Background>
             <Receta>
-            <h1 style={{color:"white"}}>Agregar Bebidas</h1>
+                <h1 style={{color:"black"}}>Agregar Bebidas</h1>
                 <DivPrincipal>
                     <Hoja1>
                         <Div>
@@ -106,7 +106,7 @@ const config = {
                                     {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}
                                 </ContentImg>
                             <div style={{display: "flex"}}>
-                            <Entrar onClick={agregarplato}></Entrar>
+                            <Entrar onClick={agregarplato}>Guardar</Entrar>
                             <Sticker></Sticker>
                             </div>
                         </ConInfor>

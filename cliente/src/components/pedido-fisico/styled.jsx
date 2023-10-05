@@ -1,20 +1,23 @@
 import styled from "styled-components";
 import FondoComida from "../Img/fondoComida.jpg"
+import letrero2 from "../Img/letrero2.jpg"
 
 export const Background = styled.div`
-    height: 50em;
+    height: 50%;
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
 `;
 
 export const Platos = styled.div`
-    background-color: #878787ae;
     height: 35em;
     width: 55em;
-    box-shadow: 10px 10px 10px black;
+    background-image: url(${letrero2}) ;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    box-shadow: 10px 10px 25px 15px #000000;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -62,14 +65,15 @@ export const Container = styled.div`
     }
 `;
 
-export const Logito = styled.img`
-    height: 5em;
-`;
-
 export const NomPlato = styled.h1`
+    color: white;
+    font-style: italic;
 `;
 
 export const Contenido = styled.h3`
+    color: white;
+    font-size: 28px;
+    font-style: italic;
 `;
 
 export const ConImg = styled.div`
@@ -146,19 +150,24 @@ export const Botones = styled.button`
     margin-right: 10px;
     height: 2em;
     width: 5em;
-    background-color: transparent;
+    background-color: white;
     border: 2px solid #000;
     border-radius: 0.5em;
+    color: #000000;
+    cursor: pointer;
 `;
 
 export const Agregar = styled.button`
-    height: 2em;
+    height: 3em;
     width: 10em;
-    background-color: transparent;
+    background-color: white;
+    color: black;
     border: 2px solid #000;
     margin-left: 15px;
     margin-right: 15px;
     border-radius: 0.5em;
+    cursor: pointer;
+    font-style: italic;
     @media screen and (max-width: 900px) {
         margin-top: 1em;
     }

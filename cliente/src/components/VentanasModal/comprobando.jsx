@@ -24,7 +24,6 @@ const Comprobando = () => {
 
 export default Comprobando
 
-
 const Fondo = styled.div`
   position: fixed;
   top: 0;

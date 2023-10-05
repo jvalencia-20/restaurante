@@ -14,6 +14,7 @@ export const ConteCarrusel = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 3em;
 `;
 
 export const Contenedor = styled.div`
@@ -24,4 +25,13 @@ export const Contenedor = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media screen and (max-width: 1450px) {
+    width: 60em;
+  }
+  @media screen and (max-width: 1000px) {
+    width: 40em;
+  }
+  @media screen and (max-width: 700px) {
+    width: 20em;
+  }
 `;

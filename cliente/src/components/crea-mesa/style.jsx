@@ -2,7 +2,7 @@ import styled from "styled-components"
 import pizarra from "../Img/pizarra.jpeg"
 import nota from "../Img/notaadd.png"
 import cargar from "../Img/SUBIR.png"
-import guardar from "../Img/save.png"
+
 
 export const Pagina = styled.div`
     height: 100vh;
@@ -28,14 +28,14 @@ export const DivPrincipal = styled.div`
         height: 120%
     }
     @media  screen and (min-width: 1020px ) {
-    flex-direction: row;
-    justify-content: center;
-    height: 60%;
-    width: 70%;
+        flex-direction: row;
+        justify-content: center;
+        height: 60%;
+        width: 70%;
     }
     @media  screen and (max-height: 450px ) {
-    height: 200%;
-    box-shadow: none;
+        height: 200%;
+        box-shadow: none;
     }
 `;
 
@@ -56,7 +56,7 @@ export const Hoja2 = styled.form`
     justify-content: center;
     align-items: center;
     @media  screen and (min-width: 1250px ) {
-    height: 50%;
+        height: 50%;
     }
 `;
 
@@ -75,6 +75,7 @@ export const Div = styled.div`
 
 export const Name = styled.div`
     color: white;
+    font-size: 20px;
 `;
 
 export const Infor = styled.input`
@@ -87,13 +88,16 @@ export const Infor = styled.input`
 `;
 
 export const Infor2 = styled.input`
-
 `;
 
 export const Entrar = styled.div`
-    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
     width: 90px;
-    background-image: url(${guardar});
+    font-size: 28px;
+    cursor: pointer;
     background-repeat: no-repeat;
     background-size: 90%;
     background-position: center;
@@ -115,11 +119,12 @@ export const LabelImg = styled.label`
     background-position: center;
     border-radius: 40%;
     background-image:url(${cargar}) ;
+    cursor: pointer;
 `;
 
 export const ContentImg = styled.div`
     height: 300px;
-    width: 250px;
+    width: 250px;;
     background-image: url(${nota});
     background-repeat: no-repeat;
     background-size: 97%;
@@ -128,8 +133,8 @@ export const ContentImg = styled.div`
     align-items: center;
     justify-content: center;
     @media  screen and (max-height: 600px ) {
-    height: 210px;
-    width: 150px;
+        height: 210px;
+        width: 150px;
     }
 `;
 
@@ -142,9 +147,9 @@ export const ImgPlato = styled.img`
     left: 3%;
     top: -2%;
     @media  screen and (max-height: 600px ) {
-    height: 100px;
-    width: 95px;
-    left: 4%;
+        height: 100px;
+        width: 95px;
+        left: 4%;
     }
 `;
 

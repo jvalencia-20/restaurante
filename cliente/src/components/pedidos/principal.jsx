@@ -55,11 +55,10 @@ useEffect(() => {
 return (
 <>
     {enviado && <Agregado/>}
-    <Background>
+    <Background style={{width:"100%",height:"75vh"}}>
         <Platos>
             <Titulo>
                 <NomPlato>{plato.nombre_plato}</NomPlato>
-                <Logito src={logito}></Logito>
             </Titulo>
             <Container>
                 <ConImg>
@@ -70,13 +69,9 @@ return (
                     <Plato2>
                     <Contenido style={{marginLeft:"2em", marginRight:"2em", textAlign:"center"}}>Descripcion: {plato.descripcion}</Contenido>            
                     <Aumentar>
-                        <Botones
-                            onClick={restar}
-                        >-</Botones>
-                            <Contenido>{contar}</Contenido>
-                        <Botones
-                            onClick={suma}
-                        >+</Botones>
+                        <Botones onClick={restar}>-</Botones>
+                        <Contenido>{contar}</Contenido>
+                        <Botones onClick={suma}>+</Botones>
                     </Aumentar>
                     <Aumentar>
                         <Agregar onClick={() => agrega()}>Agregar a Pedido</Agregar>
@@ -90,13 +85,9 @@ return (
                 <Plato>
                     <Contenido style={{marginLeft:"2em", marginRight:"2em", textAlign:"center"}}>Descripcion: {plato.descripcion}</Contenido>            
                     <Aumentar>
-                        <Botones
-                            onClick={restar}
-                        >-</Botones>
-                            <Contenido>{contar}</Contenido>
-                        <Botones
-                            onClick={suma}
-                        >+</Botones>
+                        <Botones onClick={restar}>-</Botones>
+                        <Contenido>{contar}</Contenido>
+                        <Botones onClick={suma}>+</Botones>
                     </Aumentar>
                     <Aumentar>
                         <Agregar onClick={() => agrega()}>Agregar a Pedido</Agregar>

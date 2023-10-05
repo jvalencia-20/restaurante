@@ -1,18 +1,20 @@
 import styled from "styled-components";
 import Tabla from "../Img/letrero.jpg"
+import Fondo from "../Img/FondoMenu.jpg"
 
 export const Background = styled.div`
-    height: 100%;
-    width: 100%;
-    background-attachment: fixed;
+    height: auto;
+    background-image: url(${Fondo});
     background-repeat: no-repeat;
     background-position: center;
+    background-position: center;
+    background-size: 100% 100%;
     margin: 0; 
     padding: 0; 
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap
+    flex-direction: column;
 `;
 
 export const Container = styled.div`
@@ -21,7 +23,6 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     @media screen and (max-width: 100rem) {
-        flex-direction: column;
     }
 `;
 
@@ -33,6 +34,7 @@ export const Minibox2 = styled.div`
     justify-content: space-evenly;
     @media screen and (max-width: 112rem){
         width: 70rem;
+        margin-top: 3em;
     }
     @media screen and (max-width: 70rem){
         width: 60rem;
@@ -67,7 +69,6 @@ export const Button = styled.button`
     :hover{
         transform:scale(1.25);
     }
-
     &:active {
         animation: none; 
         transform: translateX(2px);
@@ -93,9 +94,9 @@ export const Box1 = styled.div`
     margin-left: 50px;
     font-family: 'Courgette', cursive;
     @media screen and (max-width: 30rem){
-    height: 8rem;
-    width: 19.7rem;
-    margin-right: 3rem;
+        height: 8rem;
+        width: 19.7rem;
+        margin-right: 3rem;
 }
 `;
 

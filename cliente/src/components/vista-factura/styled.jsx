@@ -74,7 +74,5 @@ export const BotonImprimir = styled.button`
     border-radius: 20px;
     font-style: italic;
     cursor: pointer;
-    &:hover{
-        background-color: #1f52e0;
-    }
+    font-size: 15px;
 `;

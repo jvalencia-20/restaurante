@@ -162,9 +162,9 @@ useEffect(()=>{
                                 <ContentImg> 
                                     {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}
                                 </ContentImg>
-                                <Link to={`/private/actualizarImgPlato/${id}`}  ><button>Cambiar Imagen</button></Link>
+                                <Link to={`/private/actualizarImgPlato/${id}`}><button style={{backgroundColor:"black",color:"white",borderRadius:"20px",cursor:"pointer",fontSize:"15px"}}>Cambiar Imagen</button></Link>
                             <div style={{display: "flex"}}>
-                                <Entrar onClick={agregarplato}></Entrar>
+                                <Entrar onClick={agregarplato}>Guardar</Entrar>
                                 <Sticker></Sticker>
                             </div>
                         </ConInfor>

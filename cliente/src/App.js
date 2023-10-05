@@ -19,7 +19,6 @@ import Factura from "./components/vista-factura/principal";
 import { Fisica } from "./components/Vista-fisica/principal";
 import { LOGOUT, PRIVATE, PUBLIC } from "./components/router/path";
 import PrincipalDashboard from "./components/vista-dashboard/Principal-Dashboard";
-import CrearProducto from "./components/agregar-inventario/agregarInventario";
 import { Inventario } from "./components/vista-inventario/principal";
 import PedidoFisica from "./components/pedido-fisico/principal";
 import BebidaFisica from "./components/bebida-fisica/principal";
@@ -43,6 +42,13 @@ import ActualizarImg from "./components/imgActualizar/img.actualizar";
 import ActualizarImgBebida from "./components/img-actualizar-bebida/img.actualizar.bebida";
 import Todo from "./components/Todo/todo";
 import { CreaMesas } from "./components/crea-mesa/mesas";
+import RegistroDomi from "./components/vista-registros-domi/principal";
+import ActualizaInfor from "./components/dashboardInformacion/mostrarInfor/TodaInfor";
+import ActualizarInformacion from "./components/dashboardInformacion/actualizarInfor/ActualizarInfor";
+import ActualizarImgInfor from "./components/dashboardInformacion/cambiarImg/cambiaImgInfor";
+import { CreaInformacion } from "./components/dashboardInformacion/crearInformacion/crearInfor";
+import RegistroDomi2 from "./components/registro-domicilio-dash/principal";
+import RegistroFactura2 from "./components/registro-fact-dash/principal";
 
 export const App = () => {
 return(
@@ -70,7 +76,6 @@ return(
                                 <Route path="creaMesas" element = {<CreaMesas/>}></Route>    
                                 <Route path="register" element = {<Crearcuenta />} />
                                 <Route path="dashboard" element = {<Dashboard />} />
-                                <Route path="crearProducto" element = {<CrearProducto />} />
                                 <Route path="crearBebida" element= {<DashboardBebida />} />
                                 <Route path="inventario" element = {<Inventario/>}/>
                                 <Route path="traerAdmin" element= {<ListarAdmin />}></Route>
@@ -82,6 +87,12 @@ return(
                                 <Route path="actualizarbebida/:id" element = {<ActualizarBebida/>}></Route>
                                 <Route path="actualizarImgPlato/:id" element={<ActualizarImg />}></Route>
                                 <Route path="actualizarImgbebida/:id" element = {<ActualizarImgBebida/>}></Route>
+                                <Route path="informate" element = {<ActualizaInfor/>}></Route>
+                                <Route path="actualizate/:id" element = {<ActualizarInformacion/>}></Route>
+                                <Route path="actualizarImgInfor/:id" element = {<ActualizarImgInfor/>}></Route>
+                                <Route path="crearInfor" element = {<CreaInformacion/>}></Route>
+                                <Route path="registro-fact2" element = {<RegistroFactura2/>}></Route>
+                                <Route path="registrosdomi2" element = {<RegistroDomi2/>}></Route>
                             </Route>
                             <Route path={LOGOUT} element = {<Logout/>}/>
                             <Route path="todofisica" element = {<TodoFisica/>}>
@@ -94,6 +105,7 @@ return(
                                 <Route path="imprimir" element = {<Imprimir/>}></Route>
                                 <Route path="imprimirdomicilio/:di" element = {<ImprimirDomicilio/>}></Route>
                                 <Route path="facturadomicilio/:di" element = {<FacturaDomicilio />} />
+                                <Route path="registrosdomi" element= {<RegistroDomi />}></Route>
                                 <Route path="recibir-orden" element = {<RecibirOrden />}></Route>
                                 <Route path="registro-fact" element = {<RegistroFactura/>}></Route>
                                 <Route path="selectfactura" element = {<SelectFactura/>}></Route>
@@ -106,3 +118,4 @@ return(
     </>
     )
 }
+

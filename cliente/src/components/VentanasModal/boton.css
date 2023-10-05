@@ -2,7 +2,7 @@
     position: relative;
     display: inline-block;
     padding: 15px 30px;
-    color: rgb(88, 88, 88);
+    color: rgb(255, 255, 255);
     letter-spacing: 3px;
     font-size: 18px;
     text-decoration: none;
@@ -11,10 +11,7 @@
 }
 
 .btn-neon:hover{
-    background: #55A5A4;
-    box-shadow: 0 0 10PX #55A5A4,0 0 40PX #55A5A4, 0 0 80PX #55A5A4;
     color: white;
-    transition-delay: 1S;
 }
 
 .btn-neon span{
@@ -68,7 +65,7 @@
     left: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(180deg,transparent,#4e45c7); 
+    background: linear-gradient(180deg,transparent,#55A5A4); 
 } 
 
 .btn-neon:hover #span4{

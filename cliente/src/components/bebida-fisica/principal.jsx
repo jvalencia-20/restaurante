@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import Axios from "axios"
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { Background, Platos, ConImg, Contenido, ImgPlato, Titulo, NomPlato, Aumentar, Botones, Agregar, Plato, Container, Logito, CajaImg } from "./styled"
-import logito from "../Img/LOgo3.png"
+import { Background, Platos, ConImg, Contenido, ImgPlato, Titulo, NomPlato, Aumentar, Botones, Agregar, Plato, Container, CajaImg } from "./styled"
+
+
 
 const BebidaFisica = () => {
     const [bebida, setBebida] = useState({});
@@ -56,7 +57,6 @@ return (
             <Platos style={{ backgroundColor: bebida.colores }}>
                 <Titulo>
                     <NomPlato>{bebida.nombre_bebida}</NomPlato>
-                    <Logito src={logito}></Logito>
                 </Titulo>
                 <Container>
                     <ConImg>
@@ -78,7 +78,7 @@ return (
                         </Aumentar>
                         <Aumentar>
                             <Agregar onClick={() => agrega()}>Agregar a Pedido</Agregar>
-                            <Link to="/private/todofisica/fisica"> <Agregar>Volver a Menu</Agregar></Link>
+                            <Link to="/private/todofisica/fisica" style={{cursor:"inherit"}}> <Agregar>Volver a Menu</Agregar></Link>
                         </Aumentar>
                         <Aumentar>
                             <Contenido>Total: ${precios}</Contenido>

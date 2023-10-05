@@ -32,8 +32,8 @@ export const Box2 = styled.div`
     overflow-x: scroll;
     overflow-y: hidden;
     &::-webkit-scrollbar-thumb {
-    background: #000000; 
-    border-radius: 10px;
+        background: #000000; 
+        border-radius: 10px;
     }
     &::-webkit-scrollbar {
         background: transparent;
@@ -76,8 +76,8 @@ export const Box3 = styled.div`
     overflow-x: scroll;
     overflow-y: hidden;
     &::-webkit-scrollbar-thumb {
-    background: #000000;
-    border-radius: 10px;
+        background: #000000;
+        border-radius: 10px;
     }
     &::-webkit-scrollbar {
         background: transparent;
@@ -129,8 +129,8 @@ export const Minibox1 = styled.button`
     background: none;
     animation: ${sinkAnimation} 0.3s ease-in-out ;
     &:active {
-    animation: none; 
-    transform: translateX(2px);
+        animation: none; 
+        transform: translateX(2px);
     }
     border: none;
     margin-left: 50px;

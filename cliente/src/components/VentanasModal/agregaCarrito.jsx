@@ -21,7 +21,7 @@ const Agregado = () => {
         </Salir>
         <Mensaje>
           <h1 style={{margin:"0"}}>
-            El Plato se agrego con exito
+            Se agrego con exito
           </h1>
         </Mensaje>
         <Exito></Exito>

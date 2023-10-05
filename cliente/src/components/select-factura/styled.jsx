@@ -52,8 +52,8 @@ export const Pedido = styled.div`
     overflow-y: scroll;
     overflow-x: hidden;
     &::-webkit-scrollbar-thumb {
-    background: #000000;
-    border-radius: 10px;
+        background: #000000;
+        border-radius: 10px;
     }
     &::-webkit-scrollbar {
         background: transparent;
@@ -70,7 +70,6 @@ export const Pedido = styled.div`
     }
     @media screen and (max-width: 600px) {
         width: 23em;
-        /* height: 40em; */
     }
 `;
 
@@ -90,6 +89,7 @@ export const Pendiente = styled.button`
     margin-left: 1em;
     margin-right: 1em;
     text-align: center;
+    cursor: pointer;
     @media screen and (max-width: 1200px) {
         width: 70%;
         flex-basis: 30%;
@@ -117,10 +117,12 @@ export const Regresar = styled.button`
     border-radius: 20px;
     font-style: italic;
     cursor: pointer;
+    font-size: 15px;
     &:hover{
         background-color: #1f52e0;
     }
 `;
+
 export const Notificacion = styled.h4`
     background-color: yellow;
     border-radius: 2em;

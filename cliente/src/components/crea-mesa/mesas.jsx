@@ -61,7 +61,7 @@ const eliminar = () => {
 
 return(
     <Pagina>
-        <h1 style={{color:"white"}}>Creacion de Mesas</h1>
+        <h1 style={{color:"black"}}>Creacion de Mesas</h1>
         <DivPrincipal>
             <Hoja1>
                 <Div style={{ height:" 3em"}}>
@@ -90,20 +90,20 @@ return(
                 <ConInfor style={{height:"480px"}}>
                     <div style={{ height:"100px", width:"100%", display:"flex", justifyContent: "center"}}>
                         <LabelImg className="btn btn-warning">
-                        <SpanImg> </SpanImg>
-                        <InforImg
-                            hidden 
-                            type="file"
-                            onChange={handleImageChange}>
-                        </InforImg>
+                            <SpanImg> </SpanImg>
+                            <InforImg
+                                hidden 
+                                type="file"
+                                onChange={handleImageChange}>
+                            </InforImg>
                         </LabelImg>
                         <Nota></Nota>
                     </div>
-                        <ContentImg>
+                        <ContentImg>fbfd
                             {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}
                         </ContentImg>
                     <div style={{display: "flex"}}>
-                    <Entrar onClick={agregarplato}></Entrar>
+                    <Entrar onClick={agregarplato}>Guardar</Entrar>
                     <Sticker></Sticker>
                     </div>
                 </ConInfor>

@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import pizarra from "../Img/pizarra.jpeg"
 import nota from "../Img/notaadd.png"
-import guardar from "../Img/save.png"
+
 
 export const Pagina = styled.div`
     height: 100vh;
@@ -41,7 +41,7 @@ export const Hoja2 = styled.form`
     justify-content: center;
     align-items: center;
     @media  screen and (min-width: 1250px ) {
-    height: 50%;
+        height: 50%;
     }
 `;
 
@@ -64,10 +64,12 @@ export const Name = styled.div`
 
 export const Infor = styled.input`
     background-color: transparent;
+    border:1px solid #ffff;
     color: white;
     border-radius: 8px;
-    height: 30px;
+    height: 50px;
     width: 20em;
+    font-size: 15px;
 `;
 
 export const Infor2 = styled.input`
@@ -76,7 +78,9 @@ export const Infor2 = styled.input`
 export const Entrar = styled.div`
     height: 50px;
     width: 90px;
-    background-image: url(${guardar});
+    font-size: 25px;
+    margin-top: 25px;
+    cursor: pointer;
     background-repeat: no-repeat;
     background-size: 90%;
     background-position: center;
@@ -93,8 +97,8 @@ export const ContentImg = styled.div`
     align-items: center;
     justify-content: center;
     @media  screen and (max-height: 600px ) {
-    height: 210px;
-    width: 150px;
+        height: 210px;
+        width: 150px;
     }
 `;
 
@@ -107,9 +111,9 @@ export const ImgPlato = styled.img`
     left: 3%;
     top: -2%;
     @media  screen and (max-height: 600px ) {
-    height: 100px;
-    width: 95px;
-    left: 4%;
+        height: 100px;
+        width: 95px;
+        left: 4%;
     }
 `;
 
@@ -135,13 +139,13 @@ export const DivPrincipal = styled.div`
         height: 120%
     }
     @media  screen and (min-width: 1020px ) {
-    flex-direction: row;
-    justify-content: center;
-    height: 60%;
-    width: 80%;
+        flex-direction: row;
+        justify-content: center;
+        height: 60%;
+        width: 80%;
     }
     @media  screen and (max-height: 450px ) {
-    height: 200%;
-    box-shadow: none;
+        height: 200%;
+        box-shadow: none;
     }
 `;

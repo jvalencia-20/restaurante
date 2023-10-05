@@ -2,7 +2,6 @@ import { useState } from "react";
 import Axios from "axios";
 import { Background, ConInfor, ConTitulo, Infor, Login, Name, Titulo, Logotipo, Div, Form, Fondo1 } from "./styled";
 import logo from "../Img/Unido.png"
-import { useNavigate } from "react-router-dom";
 import {useAuthContext} from "../context/AuthContext"
 import CryptoJS from 'crypto-js'
 
@@ -64,7 +63,7 @@ const Logini = () => {
           <Logotipo src={logo}></Logotipo>
           <Login>
             <ConTitulo>
-              <Titulo style={{filter: "drop-shadow(-15px 15px 10px black)"}}>Donde entras por una Bandeja y sales con una Paisa</Titulo>
+              <Titulo style={{filter: "drop-shadow(-15px 15px 10px black)"}}>Donde entras con hambre y sales comido</Titulo>
             </ConTitulo>
             <Form>
             <ConInfor>

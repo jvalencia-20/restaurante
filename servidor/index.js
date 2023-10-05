@@ -4,11 +4,13 @@ import cors from "cors"
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import * as path from 'path'
-
+import dotenv from 'dotenv';
+dotenv.config();
+const { FRONT_END } = process.env;
 const app = express()
 
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: FRONT_END,
     methods: 'GET,POST,PUT,DELETE',
     allowedHeaders: 'Content-Type,Authorization',
 }));

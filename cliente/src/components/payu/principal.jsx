@@ -17,12 +17,13 @@ export const Pago = ({ total, lastInsertedIdProp }) => {
     setLastInsertedId(lastInsertedIdProp);
   }, [lastInsertedIdProp]);
 
+  
   return (
     <div>
       <form method="post" action="https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/">
         <input name="merchantId" type="hidden" value="508029" />
         <input name="accountId" type="hidden" value="512321" />
-        <input name="description" type="hidden" value="PAGOS DISFRUTA.EXE" />
+        <input name="description" type="hidden" value="DISFRUTA" />
         <input name="referenceCode" type="hidden" value={referenceCode} />
         <input name="amount" type="hidden" value={amount} /> 
         <input name="tax" type="hidden" value="0" />
@@ -31,9 +32,9 @@ export const Pago = ({ total, lastInsertedIdProp }) => {
         <input name="signature" type="hidden" value={hash} />
         <input name="test" type="hidden" value="0" />
         <input name="buyerEmail" type="hidden" value="test@test.com" />
-        <input name="responseUrl" type="hidden" value="http://www.test.com/response" />
+        <input name="responseUrl" type="hidden" value="http://localhost:3000/private/todofisica/fisica" />
         <input name="confirmationUrl" type="hidden" value="http://localhost:3000/private/todofisica/fisica" />
-        <button name="Submit" type="submit" variant="" style={{ backgroundColor: "black", color: "white" }}>
+        <button name="Submit" type="submit" variant="" style={{color:"white",backgroundColor:"black",border:"solid 1px",borderRadius:"20px",fontStyle:"italic",cursor:"pointer"}}>
           PAGAR
         </button>
       </form>

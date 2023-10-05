@@ -40,7 +40,6 @@ export const ActualizarBebida = () => {
 
     const agregarbebida = (e) => {
         e.preventDefault()
-        
         const config = {
             headers: {
                 'Content-Type': 'multipart/form-data',
@@ -130,7 +129,7 @@ useEffect(()=>{
                                 autoComplete="off"
                                 value={precio}
                                 onChange={ev => setPrecio(ev.target.value)}>
-                                </Infor>
+                            </Infor>
                         </Div>   
                     </Hoja1>
                     <Hoja2>
@@ -141,9 +140,9 @@ useEffect(()=>{
                                 <ContentImg> 
                                     {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}
                                 </ContentImg>
-                                <Link to={`/private/actualizarImgbebida/${id}`} ><button>Cambiar Imagen</button></Link>
+                                <Link to={`/private/actualizarImgbebida/${id}`}><button style={{backgroundColor:"black",color:"white",borderRadius:"20px",cursor:"pointer",fontSize:"15px"}}>Cambiar Imagen</button></Link>
                             <div style={{display: "flex"}}>
-                                <Entrar onClick={agregarbebida}></Entrar>
+                                <Entrar onClick={agregarbebida}>Guardar</Entrar>
                                 <Sticker></Sticker>
                             </div>
                         </ConInfor>

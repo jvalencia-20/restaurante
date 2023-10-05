@@ -57,10 +57,14 @@ const VistaMesa = () => {
 
   return (
     <>
+      <ButtonContainer>
+        <Button onClick={handleBackToOrdenClick}>Regresar al menu</Button>
+      </ButtonContainer>
       <Container>
         {mesas.map((mesa, index) => (
-          <React.Fragment key={mesa.id}>
+          // <React.Fragment key={mesa.id} >
             <Box
+              key={mesa.id}
               style={{
                 backgroundImage: `url(${"http://localhost:3002/" + mesa.imagen_url})`,
                 backgroundSize: "contain",
@@ -73,12 +77,9 @@ const VistaMesa = () => {
                 {mesa.mesa}
               </h1>
             </Box>
-          </React.Fragment>
+          // </React.Fragment>
         ))}
       </Container>
-      <ButtonContainer>
-        <Button onClick={handleBackToOrdenClick}>Regresar al menu</Button>
-      </ButtonContainer>
       {showFactura &&  reservas > 0  ? <Factura mesa={selectedTableIndex + 1} reservas={reservas}/> : "" }
     </>
   );

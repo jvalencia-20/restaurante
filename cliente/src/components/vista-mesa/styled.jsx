@@ -1,32 +1,41 @@
 import styled from "styled-components";
-import piso from "../Img/piso.jpeg"
 
 export const Container = styled.div`    
     height: 95vh;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
-    overflow-y: auto;
-    @media (max-width: 768px) {
-        flex-direction: row;
-        align-items: flex-start; 
-        background-size: cover; 
+    &::-webkit-scrollbar-thumb {
+    background: #000000; 
+    border-radius: 10px;
+    border: 1px solid #ffff;
     }
-`;
-
-export const Salir = styled.div`
-    background-image: url(${piso});
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 3em;
-    width: 119rem;
-    display: flex;
-    justify-content: end;
-    @media (max-width: 768px) {
-        width: 100%; 
-        height: 2em; 
+    &::-webkit-scrollbar {
+        background: transparent;
+        border-radius: 10px;
+    }
+    @media (max-width: 1600px) {
+        width: 1200px;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+    @media (max-width: 1210px) {
+        width: 900px;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+    @media (max-width: 950px) {
+        width: 600px;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+    @media (max-width: 650px) {
+        width: 350px;
+        overflow-x: scroll;
+        overflow-y: hidden;
     }
 `;
 
@@ -36,9 +45,6 @@ export const Salir2 = styled.button`
     font-size: 20px;
     height: 3em;
     width: 3em;
-    @media (max-width: 768px) {
-        font-size: 16px; 
-    }
 `;
 
 export const Box = styled.button`
@@ -53,10 +59,6 @@ export const Box = styled.button`
     align-items: center;
     position: relative;
     transition: background-color 0.3s, border-color 0.5s, transform 0.3s; 
-    @media (max-width: 768px) {
-        width: calc(60% - 10px);
-        height: 15rem;
-    }
     &:hover {
         background-color: transparent; 
         border: 2px solid #ffd700; 
@@ -66,27 +68,25 @@ export const Box = styled.button`
 export const ButtonContainer = styled.div`
     display: flex;
     justify-content: center;
-    margin-top: -50px;
-    @media (max-width: 768px) {
-    margin-top: -30px; 
-}
+    margin-top: 7em;
+    margin-bottom: 2em;
 `;
 
 export const Button = styled.button`
     background-color: black;
     color: white;
     border-radius: 20px;
+    border: 1px solid #ffff;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    border: none;
     transition: background-color 0.3s, border-color 0.5s, transform 0.3s;
     font-style: italic;
-&:hover {
-    background-color: #00d;
-}
-@media (max-width: 768px) {
-    font-size: 14px; 
-    padding: 8px 16px; 
-}
+    &:hover {
+        background-color: #00d;
+    }
+    @media (max-width: 768px) {
+        font-size: 14px; 
+        padding: 8px 16px; 
+    }
 `;

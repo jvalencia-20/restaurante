@@ -215,15 +215,6 @@ export const updateImagebebida = async (imagen, id) => {
     }
 }
 
-export const informacion = async (req, res) => {
-    try {
-        const [rows] = await pool.query('SELECT * FROM informacion')
-        res.send(rows)
-    } catch (error) {
-        res.status(500).json({error: error.message})
-    }
-}
-
 export const getAllPlatos = async (req, res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM plato')

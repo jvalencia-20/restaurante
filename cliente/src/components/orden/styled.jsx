@@ -22,8 +22,8 @@ export const Container = styled.div`
   filter: drop-shadow(10px 20px 15px black);
   box-shadow: -10px 0px 10px black;
   @media screen and (max-width: 1600px) {
-  bottom: -70px;
-  left: -300px;
+    bottom: -70px;
+    left: -300px;
   }
   @media screen and (max-width: 1200px) {
     bottom: -50px;
@@ -36,10 +36,18 @@ export const Container = styled.div`
   @media screen and (max-width: 700px) {
     bottom: -50px;
     left: -200px;
+    bottom: -50px;
+    left: -200px;
   }
-  @media screen and (max-width: 500px) {
-    bottom: -300px;
-    left: -550px;
+  @media screen and (max-width: 660px) {
+    width: 24em;
+    height: 40em;
+  }
+  @media screen and (max-width: 500px){
+    width: 24em;
+    height: 40em;
+    bottom: -100px;
+    left: -530px;
   }
 `;
 
@@ -50,6 +58,9 @@ export const Titulo = styled.h1`
   border-radius: 1em 1em 0 0;
   text-align: center;
   filter: drop-shadow(7px 10px 10px black);
+  @media screen and (max-width: 660px) {
+    width: 12em;
+  }
 `;
 
 export const ConTitulos = styled.div`
@@ -64,6 +75,9 @@ export const ConTitulos = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  @media screen and (max-width: 660px) {
+      width: 24em;
+  }
 `;
 
 export const Conten = styled.div`
@@ -71,8 +85,8 @@ export const Conten = styled.div`
   overflow-y: scroll;
   overflow-x: hidden;
   &::-webkit-scrollbar-thumb {
-  background: #000000; 
-  border-radius: 10px;
+    background: #000000; 
+    border-radius: 10px;
   }
   &::-webkit-scrollbar {
     background: transparent;
@@ -81,7 +95,7 @@ export const Conten = styled.div`
 `;
 
 export const Titulos = styled.h3`
-    filter: drop-shadow(7px 10px 5px black);
+  filter: drop-shadow(7px 10px 5px black);
 `;
 
 export const Eliminar = styled.button`
