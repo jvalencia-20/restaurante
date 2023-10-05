@@ -77,14 +77,13 @@ const RecibirOrden = () => {
         getMesas();
         }, []);
 
-
     return (
         <Background>
                 <div style={{ display: 'flex', justifyContent: 'center', marginBottom:"20px" }}>
                     <Select onChange={handleMesaSeleccionada}>
-                        <option value="" style={{width:"50px"}}>Seleccione una mesa</option>
+                        <option value="" style={{width:"50px",fontSize:"18px",overflowY:"scroll"}}>Seleccione una mesa</option>
                         {mesasDisponibles.map((numeroMesa, index) => (
-                            <option key={index} value={numeroMesa.mesa} style={{fontSize:"14px"}}>
+                            <option key={index} value={numeroMesa.mesa} style={{fontSize:"20px",overflowY:"scroll"}}>
                                 Mesa {numeroMesa.mesa}
                             </option>
                         ))}
@@ -92,7 +91,7 @@ const RecibirOrden = () => {
                 </div>
             <ContPrincipal>
                 <h1 style={{ textAlign: "center", color: "white" }}>Orden</h1>
-                <BotonImprimir style={{ display: "flex", justifyContent: "center", margin: "auto",fontSize:"15px" }} onClick={() => navigate('/private/todofisica/fisica')}>Regresar</BotonImprimir>
+                <BotonImprimir style={{ display: "flex", justifyContent: "center", margin: "auto",fontSize:"15px"}} onClick={() => navigate('/private/todofisica/fisica')}>Regresar</BotonImprimir>
                 <ContFactura>
                     <table>
                         <tbody>

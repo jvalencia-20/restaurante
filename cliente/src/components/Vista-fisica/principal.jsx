@@ -4,16 +4,14 @@ import Axios from "axios"
 import tablap from "../Img/bandeja.png"
 import { Container, Box2,Box3, Container2, Minibox1} from "./Styled"
 import { useAuthContext } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
 import Comprobando from "../VentanasModal/comprobando";
 
 export const Fisica = () => {
-const [sancocho, setSancocho] = useState([])
-const [corriente, setCorriente] = useState([])
-const [bebida, setBebida] = useState([])
-const [destokenado, setDestokenado] = useState("")
-const [activo, setActivo] = useState(false)
-    const navegate = useNavigate()
+    const [sancocho, setSancocho] = useState([])
+    const [corriente, setCorriente] = useState([])
+    const [bebida, setBebida] = useState([])
+    const [destokenado, setDestokenado] = useState("")
+    const [activo, setActivo] = useState(false)
     const { token, logout } = useAuthContext();
     const [comprobar, setComprobar] = useState(true) 
     const decodeJWT= (token) => {
@@ -37,9 +35,6 @@ const [activo, setActivo] = useState(false)
     } 
 })
     .then((response) => {
-        if (response.data.cargo === "empleado" ) {
-            navegate("/private/todofisica/fisica")
-        }
         setComprobar(false)
     })
     .catch(error =>{

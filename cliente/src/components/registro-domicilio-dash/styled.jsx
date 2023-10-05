@@ -82,13 +82,15 @@ export const Th = styled.th`
     z-index: 1;
     background-color: #000000;
     color: white;
+    font-size: 18px;
     margin: 0;
 `;
 
 export const Td = styled.td`
     padding: 10px;
     margin: 0;
-    color: white;
+    color: #ffffff;
+    font-size: 18px;
     z-index: 0;
 `;
 

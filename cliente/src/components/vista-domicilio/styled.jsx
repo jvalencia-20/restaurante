@@ -121,10 +121,11 @@ export const Box5 = styled.div`
 
 export const Infor = styled.input`
     background-color: transparent;
-    color: #ffffff;
+    color: white;
     border-radius: 0.5em;
     border: 2px solid #ffff;
     height: 2.5em;
+    font-size: 18px;
 `;
 
 export const Ordenar = styled.button`
@@ -137,6 +138,7 @@ export const Ordenar = styled.button`
     height: 3.5em;
     width: 10em;
     font-style: italic;
+    cursor: pointer;
 `;
 
 export const Salir = styled.button`
@@ -149,4 +151,6 @@ export const Salir = styled.button`
     height: 3.5em;
     width: 10em;
     font-style: italic;
+    cursor: pointer;
 `;
+

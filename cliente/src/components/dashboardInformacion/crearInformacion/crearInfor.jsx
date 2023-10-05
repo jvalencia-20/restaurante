@@ -1,8 +1,6 @@
-import { Pagina, Hoja1, Hoja2, ConInfor, Infor, InforImg, Name, Entrar, Div, SpanImg, LabelImg, ContentImg, ImgPlato, Nota, DivPrincipal} from "./style";
-import { Sticker } from "./style";
+import { Pagina, Hoja1, Hoja2, ConInfor, Infor, InforImg, Name, Entrar, Div, LabelImg, ContentImg, ImgPlato, DivPrincipal} from "./style";
 import React, { useState } from 'react';
 import Axios from "axios";
-import elimina from "../../Img/delete.png"
 import { useAuthContext } from "../../context/AuthContext";
 import { Navigate, useNavigate } from "react-router-dom";
 
@@ -31,7 +29,6 @@ datos.append("titulo", titulo)
 datos.append("informacion", informacion)
 datos.append("imagen", imagen_url)
 
-
 const config = {
     headers: {
         'Content-Type': 'multipart/form-data',
@@ -46,64 +43,59 @@ const config = {
     });
 }
 
-
     return(
     <Pagina>
-            <h1 style={{color:"#000"}}>Creacion de Informes</h1>
-                <DivPrincipal>
-                    <Hoja1>
-                        <Div style={{ height:" 3em"}}>
-                            <Name>Informacion para los clientes</Name>
-                            <Div style={{width:"17em"}}></Div>
-                        </Div>
-                        <Div>
-                            <Name>Titulo:</Name>
-                            <Infor
-                                type="text"
-                                name="titulo"
-                                placeholder="titulo"
-                                autoComplete="off"
-                                value={titulo}
-                                onChange={ev => setTitulo(ev.target.value)}>
-                            </Infor>
-                        </Div>
-                        <Div>
-                            <Name>Informacion:</Name>
-                            <Infor
-                                type="text"
-                                name="informacion"
-                                placeholder="informacion"
-                                autoComplete="off"
-                                value={informacion}
-                                onChange={ev => setInformacion(ev.target.value)}
-                                style={{  height: "80px", borderRadius: "8px" }}
-                                >
-                            </Infor>
-                        </Div>
-                    </Hoja1>
-                    <Hoja2>
-                        <ConInfor style={{height:"480px"}}>
-                            <div style={{ height:"100px", width:"100%", display:"flex", justifyContent: "center"}}>
-                                <LabelImg className="btn btn-warning">
-                                <SpanImg> </SpanImg>
-                                <InforImg
-                                    hidden 
-                                    type="file"
-                                    onChange={handleImageChange}>
-                                </InforImg>
-                                </LabelImg>
-                                <Nota></Nota>
-                            </div>
-                                <ContentImg>
-                                    {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}
-                                </ContentImg>
-                            <div style={{display: "flex"}}>
-                            <Entrar onClick={agregarInformacion}>Guardar</Entrar>
-                            <Sticker></Sticker>
-                            </div>
-                        </ConInfor>
-                    </Hoja2>
-                </DivPrincipal>
+        <h1 style={{color:"#000"}}>Creacion de Informes</h1>
+        <DivPrincipal>
+            <Hoja1>
+                <Div style={{ height:" 3em"}}>
+                    <Name>Informacion para los clientes</Name>
+                    <Div style={{width:"17em"}}></Div>
+                </Div>
+                <Div>
+                    <Name>Titulo:</Name>
+                    <Infor
+                        type="text"
+                        name="titulo"
+                        placeholder="titulo"
+                        autoComplete="off"
+                        value={titulo}
+                        onChange={ev => setTitulo(ev.target.value)}>
+                    </Infor>
+                </Div>
+                <Div>
+                    <Name>Informacion:</Name>
+                    <Infor
+                        type="text"
+                        name="informacion"
+                        placeholder="informacion"
+                        autoComplete="off"
+                        value={informacion}
+                        onChange={ev => setInformacion(ev.target.value)}
+                        style={{  height: "80px", borderRadius: "8px" }}>
+                    </Infor>
+                </Div>
+            </Hoja1>
+            <Hoja2>
+                <ConInfor style={{height:"480px"}}>
+                    <div style={{ height:"100px", width:"100%", display:"flex", justifyContent: "center"}}>
+                        <LabelImg className="btn btn-warning">
+                        <InforImg
+                            hidden 
+                            type="file"
+                            onChange={handleImageChange}>
+                        </InforImg>
+                        </LabelImg>
+                    </div>
+                        <ContentImg>
+                            {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}
+                        </ContentImg>
+                    <div style={{display: "flex"}}>
+                    <Entrar onClick={agregarInformacion}>Guardar</Entrar>
+                    </div>
+                </ConInfor>
+            </Hoja2>
+        </DivPrincipal>
     </Pagina>
     )
 }

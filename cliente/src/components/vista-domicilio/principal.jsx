@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Link, useNavigate} from "react-router-dom"
+import {Link} from "react-router-dom"
 import Axios from "axios"
 import {Container, Conatiner2, Box, Box2, Container3, Box3, Box4, Infor, Ordenar, Salir, Box5} from "./styled"
 import Enviar from "../VentanasModal/envioDomicilio";
@@ -66,14 +66,12 @@ export const Domicilio = () => {
                         <Infor 
                             type="text" 
                             name="nombre"
-                            placeholder="Nombre"
                             autoComplete="off"
                             value={nombre}
                             onChange={ev => setNombre(ev.target.value)}/>
                         <Infor
                             type="text" 
                             name="direccion"
-                            placeholder="Direccion"
                             autoComplete="off"
                             value={direccion}
                             onChange={ev => setDireccion(ev.target.value)}/>

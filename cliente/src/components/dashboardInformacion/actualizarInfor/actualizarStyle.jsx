@@ -6,8 +6,8 @@ import nota from "../../Img/notaadd.png"
 export const Pagina = styled.div`
     height: 85vh;
     width: 100%;
-    /* background-color: yellow; */
 `;
+
 export const Container = styled.div`
     height: 100%;
     width: 100%;
@@ -16,11 +16,11 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
     border-radius: 8px;
-`
+`;
+
 export const DivPrincipal = styled.div`
     height: 90%;
     width: 90%;
-    /* background-color: aqua; */
     background-image: url(${pizarra});
     display: flex;
     justify-content: center; 
@@ -28,12 +28,11 @@ export const DivPrincipal = styled.div`
     border-radius: 8px;
     box-shadow: 8px 12px 9px 10px rgba(0, 0, 0, 0.75);
     position: relative;
-`
+`;
+
 export const Hoja1 = styled.form`
     height: 100%;
     width: 50%;
-    /* background-color: transparent; */
-    /* background-color: violet; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -48,11 +47,11 @@ export const Hoja2 = styled.form`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-color: blueviolet; */
     @media  screen and (min-width: 1250px ) {
     height: 50%;
     }
 `;
+
 export const Infor = styled.input`
     background-color: transparent;
     color: white;
@@ -60,6 +59,7 @@ export const Infor = styled.input`
     height: 30px;
     width: 20em;
 `;
+
 export const ConInfor = styled.div`
     height: 480px;
     width: 100%;
@@ -69,6 +69,7 @@ export const ConInfor = styled.div`
     justify-content: center;
     color: #ffffff94;
 `;
+
 export const ContentImg = styled.div`
     height: 300px;
     width: 250px;
@@ -84,6 +85,7 @@ export const ContentImg = styled.div`
     width: 150px;
     }
 `;
+
 export const ImgPlato = styled.img`
     height: 180px;
     width: 160px;
@@ -98,6 +100,7 @@ export const ImgPlato = styled.img`
     left: 4%;
     }
 `;
+
 export const Entrar = styled.div`
     height: 50px;
     width: 90px;

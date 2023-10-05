@@ -143,7 +143,7 @@ const Factura = (props) => {
                     <div style={{ marginTop: '20px', textAlign: 'right' }}>
                         <p style={{ fontWeight: 'bolder', fontSize: 'x-large', fontStyle: 'italic', margin: '0', color: "white" }}>Total: $ {total}</p>
                     </div>
-                    <Pago total={total} lastInsertedIdProp={parseInt(lastInsertedId, 10)} />
+                    {/* <Pago total={total} lastInsertedIdProp={parseInt(lastInsertedId, 10)} /> */}
                 </ResPrecios>
                     <BotonImprimir onClick={handlePrintClick}>Imprimir factura</BotonImprimir>
                         <Link to="/private/todofisica/registro-fact">

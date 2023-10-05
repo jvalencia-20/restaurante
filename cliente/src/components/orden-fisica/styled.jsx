@@ -21,16 +21,6 @@ export const Container = styled.div`
     filter: drop-shadow(10px 20px 15px black);
 `;
 
-export const Titulo = styled.h1`
-    height: 2em;
-    width: 15em;
-    margin: 0;
-    text-shadow: 3px 3px 3px black;
-    border-radius: 1em 1em 0 0;
-    text-align: center;
-    filter: drop-shadow(7px 10px 10px black);
-`;
-
 export const ConTitulos = styled.div`
     background-image: url(${fondo});
     background-size: cover;

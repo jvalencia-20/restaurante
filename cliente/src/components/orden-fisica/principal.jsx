@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Container, Titulo, ConTitulos, Titulos, Eliminar, Pedir, Conten } from "./styled";
+import { Container, ConTitulos, Titulos, Eliminar, Pedir, Conten } from "./styled";
 import { Link, useNavigate } from "react-router-dom";   
 
 

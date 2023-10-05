@@ -67,18 +67,12 @@ const FacturaDomicilio = () => {
                 fecha_domi: fechaActual,
             };
         });
-    
-        console.log("Enviando datos al servidor:", dataRegistrosDomicilio); 
-    
         try {
             const responseRegistrosDomicilio = await Axios.post(
                 `${process.env.REACT_APP_PRIMERO_UNO}/api/reg_domi`,
                 { table: "registros_domicilio", rows: dataRegistrosDomicilio }
             );
-    
             if (responseRegistrosDomicilio.status === 200) {
-                console.log("Datos de domicilio agregados exitosamente a registros_domicilio.");
-    
                 Navegate(`/private/todofisica/registrosdomi`);
             } else {
                 console.error("Error al agregar datos de domicilio a registros_domicilio.");
@@ -87,7 +81,6 @@ const FacturaDomicilio = () => {
             console.error("Error al comunicarse con el servidor:", error);
         }
     };
-
     const fechaActual = moment().format('YYYY-MM-DD HH:mm:ss'); 
 
     return (

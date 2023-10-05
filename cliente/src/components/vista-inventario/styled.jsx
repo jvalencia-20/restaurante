@@ -30,7 +30,6 @@ export const Button = styled.button`
     color: white;
     cursor: pointer;
     transition: background-color 0.3s;
-
     &:hover {
         background-color: #0f0f10;
     }
@@ -51,7 +50,6 @@ export const Input = styled.input`
     color: white;
     background-color: transparent;
     margin-bottom: 10px;
-
     &:focus {
         outline: none;
     }
@@ -110,7 +108,6 @@ export const Th = styled.th`
     border: 1px solid black;
     font-size: 25px;
 `;
-
 
 export const Td = styled.td`
     border: 1px groove black;

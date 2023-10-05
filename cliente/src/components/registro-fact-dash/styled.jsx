@@ -57,7 +57,6 @@ export const Tbody = styled.div`
     &::-webkit-scrollbar {
         width: 5px;
     }
-
     &::-webkit-scrollbar-thumb {
         background-color: black;
         border-radius: 5px;
@@ -80,6 +79,7 @@ export const Th = styled.th`
     position: sticky;
     top: 0;
     z-index: 1;
+    font-size: 18px;
     background-color: #000000;
     color: white;
     margin: 0;
@@ -89,6 +89,7 @@ export const Td = styled.td`
     padding: 10px;
     margin: 0;
     color: white;
+    font-size: 18px;
     z-index: 0;
 `;
 

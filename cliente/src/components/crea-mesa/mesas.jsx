@@ -1,5 +1,4 @@
-import { Pagina, Hoja1, Hoja2, ConInfor, Infor, InforImg, Name, Entrar, Div, SpanImg, LabelImg, ContentImg, ImgPlato, Nota, DivPrincipal} from "./style";
-import { Sticker } from "./style";
+import { Pagina, Hoja1, Hoja2, ConInfor, Infor, InforImg, Name, Entrar, Div, SpanImg, LabelImg, ContentImg, ImgPlato,  DivPrincipal} from "./style";
 import React, { useState, useEffect } from 'react';
 import Axios from "axios";
 import elimina from "../Img/delete.png"
@@ -97,14 +96,12 @@ return(
                                 onChange={handleImageChange}>
                             </InforImg>
                         </LabelImg>
-                        <Nota></Nota>
                     </div>
                         <ContentImg>fbfd
                             {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}
                         </ContentImg>
                     <div style={{display: "flex"}}>
                     <Entrar onClick={agregarplato}>Guardar</Entrar>
-                    <Sticker></Sticker>
                     </div>
                 </ConInfor>
             </Hoja2>

@@ -62,7 +62,6 @@ const VistaMesa = () => {
       </ButtonContainer>
       <Container>
         {mesas.map((mesa, index) => (
-          // <React.Fragment key={mesa.id} >
             <Box
               key={mesa.id}
               style={{
@@ -77,8 +76,7 @@ const VistaMesa = () => {
                 {mesa.mesa}
               </h1>
             </Box>
-          // </React.Fragment>
-        ))}
+          ))}
       </Container>
       {showFactura &&  reservas > 0  ? <Factura mesa={selectedTableIndex + 1} reservas={reservas}/> : "" }
     </>

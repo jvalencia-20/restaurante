@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Button, Form, Input, Textarea, Actualizar, Cancelar, Eliminar, Editar, Label, Cajatabla, Table, Th, Td, Contenedor, Tr } from './styled';
 import Swal from "sweetalert2"
-import { Fade, Slide } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
 import { useAuthContext } from "../context/AuthContext"
 
 export const Inventario = () => {
@@ -14,8 +14,6 @@ export const Inventario = () => {
     const [platos, setPlatos] = useState([]);
     const [editar, setEditar] = useState(false);
     const [id, setId] = useState();
-
-
     const guardar = (event) => {
         event.preventDefault();
         axios.post(`${process.env.REACT_APP_PRIMERO_UNO}/api/productos`, {
@@ -32,7 +30,6 @@ export const Inventario = () => {
                 icon: 'success',
                 timer: 1000,
             })
-
         }).catch(error => {
             if (error.response.status === 404) {
                 Swal.fire({
@@ -83,7 +80,6 @@ export const Inventario = () => {
                 html: "<i>Se actualizó el plato!!</i>",
                 icon: 'success',
                 timer: 1000,
-
             });
         }).catch((error) => {
             if (error.response) {
@@ -138,7 +134,6 @@ export const Inventario = () => {
                 axios.delete(`${process.env.REACT_APP_PRIMERO_UNO}/api/elimina-p/${val.id_producto}`).then(() => {
                     getProductos()
                     limpiarCampos()
-
                     Swal.fire({
                         icon: 'success',
                         title: 'Eliminado!',
@@ -146,7 +141,6 @@ export const Inventario = () => {
                         showConfirmButton: false,
                         timer: 2000
                     })
-
                 }).catch(function (error) {
                     Swal.fire({
                         icon: 'error',
@@ -157,7 +151,6 @@ export const Inventario = () => {
             }
         })
     }
-
     //aqui limpio los campos cuando le de actualizar
     const limpiarCampos = () => {
         setNombre('');
@@ -165,7 +158,6 @@ export const Inventario = () => {
         setUnidad('');
         setPrecio('');
         setEditar(false);
-
     }
     //defino una funcion para editar cada plato
     const editarProducto = (val) => {
@@ -179,9 +171,7 @@ export const Inventario = () => {
 
     const handlePrecioChange = (event) => {
         const inputValue = event.target.value;
-
         const longitudMaxima = 12;
-
         if (inputValue.length <= longitudMaxima) {
             setPrecio(inputValue);
         }
@@ -189,9 +179,7 @@ export const Inventario = () => {
 
     const handleUnidadChange = (event) => {
         const inputValue = event.target.value;
-
         const longitudMaxima = 12;
-
         if (inputValue.length <= longitudMaxima) {
             setUnidad(inputValue)
         }
@@ -242,10 +230,10 @@ export const Inventario = () => {
                                     onChange={handlePrecioChange}/>
                             </Label>
                         </>
-                    ) : (
+                        ) : (
                         <>
                             <Label>
-                                <Fade style={{ fontFeatureSettings: 'Courier New, Courier, monospace', color: 'white', textShadow: '1px 1px 1px black', fontSize: '20px' }}>Nombre producto:</Fade>
+                                <Fade style={{ fontFeatureSettings: 'Courier New, Courier, monospace', color: 'white', textShadow: '1px 1px 1px black', fontSize: '25px' }}>Nombre producto:</Fade>
                                 <Input
                                     type="text"
                                     value={nombre}
@@ -257,7 +245,7 @@ export const Inventario = () => {
                                     onChange={e => setNombre(e.target.value)}/>
                             </Label>
                             <Label>
-                                <Fade style={{ fontFeatureSettings: 'Courier New, Courier, monospace', color: 'white', textShadow: '1px 1px 1px black', fontSize: '20px' }}>presentacion:</Fade>
+                                <Fade style={{ fontFeatureSettings: 'Courier New, Courier, monospace', color: 'white', textShadow: '1px 1px 1px black', fontSize: '25px' }}>presentacion:</Fade>
                                 <Textarea
                                     type="text"
                                     cols={1}
@@ -269,7 +257,7 @@ export const Inventario = () => {
                                     placeholder='Añade los presentacion'
                                     className="form-control"
                                     onChange={e => setPresentacion(e.target.value)}/>
-                                <Fade style={{ fontFeatureSettings: 'Courier New, Courier, monospace', color: 'white', textShadow: '1px 1px 1px black', fontSize: '20px' }}>unidad:</Fade>
+                                <Fade style={{ fontFeatureSettings: 'Courier New, Courier, monospace', color: 'white', textShadow: '1px 1px 1px black', fontSize: '25px' }}>unidad:</Fade>
                                 <Input
                                     type="number"
                                     min={1}
@@ -282,7 +270,7 @@ export const Inventario = () => {
                                     required/>
                             </Label>
                             <Label>
-                                <Fade style={{ fontFeatureSettings: 'Courier New, Courier, monospace', color: 'white', textShadow: '1px 1px 1px black', fontSize: '20px' }}>
+                                <Fade style={{ fontFeatureSettings: 'Courier New, Courier, monospace', color: 'white', textShadow: '1px 1px 1px black', fontSize: '25px' }}>
                                     precio producto:
                                 </Fade>
                                 <Input
@@ -337,15 +325,13 @@ export const Inventario = () => {
                                                     onClick={() => {
                                                         editarProducto(val, id);
                                                     }}
-                                                    className="btn btn-info"
-                                                >
+                                                    className="btn btn-info">
                                                     Editar
                                                 </Editar>
                                                 <Eliminar
                                                     type="button"
                                                     onClick={() => { borrarProductos(val) }}
-                                                    className="btn btn-danger"
-                                                >
+                                                    className="btn btn-danger">
                                                     Eliminar
                                                 </Eliminar>
                                             </div>

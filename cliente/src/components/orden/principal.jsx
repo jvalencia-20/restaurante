@@ -92,7 +92,7 @@ const Carrito = () => {
                             <ConTitulos key={index}>
                                 <Titulos>{compra.nombre_plato}</Titulos>
                                 <Titulos>{compra.cantidad}</Titulos>
-                                <Titulos><span style={{color:"#07ff07"}}>${compra.precio}</span></Titulos>
+                                <Titulos><span style={{color:"#000000"}}>${compra.precio}</span></Titulos>
                                 <Eliminar onClick={() => eliminar(index)}><h1 style={{ margin: "0" }}>X</h1></Eliminar>
                             </ConTitulos>
                         ))) : ""}

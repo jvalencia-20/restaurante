@@ -10,8 +10,6 @@ const RegistroDomi = () => {
     const [filtros, setFiltros] = useState({ fecha: null });
     const [totalPrecios, setTotalPrecios] = useState(0);
     const [error, setError] = useState("");
-
-
     const cargarRegistros = async () => {
         try {
             const response = await axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/reg_domi`, {
@@ -52,7 +50,7 @@ const RegistroDomi = () => {
     };
     
     const handleBackToMenuPrincipal = async () => {
-        navigate('/private/todofisica/fisica');
+        navigate('/private/todofisica/facturadomicilio/:id');
     };
 
     return (
@@ -98,7 +96,7 @@ const RegistroDomi = () => {
                 <Boton style={{ marginTop: "20px" }}>Regresar al menú</Boton>
             </Link>
             <Boton style={{ marginTop: "20px" }} onClick={handlePrintClick}>Imprimir factura</Boton>
-            <Boton style={{ marginTop: "20px" }} onClick={handleBackToMenuPrincipal}>Volver al menu principal</Boton>
+            <Boton style={{ marginTop: "20px" }} onClick={handleBackToMenuPrincipal}>Regresar a la factura</Boton>
         </Background>
     );
 };

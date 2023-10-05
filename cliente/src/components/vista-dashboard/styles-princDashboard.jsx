@@ -168,7 +168,7 @@ export const Boton = styled.button`
         border: none;
         background-color: transparent;
         text-align: start;
-        font-size: 15px;
+        font-size: 19px;
         font-weight: bold;
         cursor: pointer
     }

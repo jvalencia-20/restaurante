@@ -11,7 +11,6 @@ const RegistroDomi2 = () => {
     const [totalPrecios, setTotalPrecios] = useState(0);
     const [error, setError] = useState("");
 
-
     const cargarRegistros = async () => {
         try {
             const response = await axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/reg_domi`, {

@@ -59,7 +59,7 @@ const Logini = () => {
   return (
     <>
       <Background>
-        <Fondo1 >
+        <Fondo1>
           <Logotipo src={logo}></Logotipo>
           <Login>
             <ConTitulo>

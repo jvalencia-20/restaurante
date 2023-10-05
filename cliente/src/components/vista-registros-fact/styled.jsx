@@ -80,6 +80,7 @@ export const Td = styled.td`
     padding: 10px;
     margin: 0;
     color: white;
+    font-size: 18px;
     z-index: 0;
 `;
 

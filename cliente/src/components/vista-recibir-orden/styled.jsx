@@ -85,10 +85,12 @@ export const BotonImprimir = styled.button`
 `;
 
 export const Select = styled.select`
-    width: 10rem;
+    width: 15rem;
     height: 30px;
     color: white;
     background-color: black;
     border: solid 1px;
     font-style: italic;
+    font-size: 15px;
+    overflow-y: scroll;
 `;

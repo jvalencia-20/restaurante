@@ -42,6 +42,9 @@ export const createAdmin = async (req, res) => {
         if (!nombre) {
             return res.status(409).send('Nombre de usuario requerido.');
         }
+        if (nombre.length < 0) {
+            return res.status(409).send('Nombre de usuario requerido.');
+        }
         if (!correo) {
             return res.status(409).send('Correo requerido.');
         }

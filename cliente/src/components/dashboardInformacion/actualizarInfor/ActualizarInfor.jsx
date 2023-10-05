@@ -107,8 +107,7 @@ const ActualizarInformacion = () => {
                 placeholder="Titulo"
                 autoComplete="off"
                 value={titulo}
-                onChange={ev => setTitulo(ev.target.value)}
-              >
+                onChange={ev => setTitulo(ev.target.value)}>
               </Infor>
             </div>
             <div>
@@ -122,8 +121,7 @@ const ActualizarInformacion = () => {
                 cols="40"
                 value={informacion}
                 onChange={ev => setInformacion(ev.target.value)}
-                style={{  height: "80px", borderRadius: "8px" }}
-              >
+                style={{  height: "80px", borderRadius: "8px" }}>
               </Infor>
             </div>
           </Hoja1>

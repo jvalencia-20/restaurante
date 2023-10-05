@@ -78,11 +78,11 @@ return (
                 <Link to="/private/traerAdmin" style={{cursor:"inherit",marginBottom:"15px", width:"100%"}}><Boton>👨‍💼 Administradores</Boton></Link>
                 <Link to="/private/creaMesas" style={{cursor:"inherit",marginBottom:"15px"}}><Boton>🪵 Crear Mesa</Boton></Link>
                 <Link to="/private/traerPlato" style={{cursor:"inherit",marginBottom:"15px"}}><Boton>🥗 Platos</Boton></Link>
-                <Link to="/private/informate" style={{cursor:"inherit",marginBottom:"15px"}}><Boton>🗒️ Informacion</Boton></Link>
                 <Link to="/private/traerBebida" style={{cursor:"inherit",marginBottom:"15px"}}><Boton>🍸 Bebidas</Boton></Link>
+                <Link to="/private/informate" style={{cursor:"inherit",marginBottom:"15px"}}><Boton>🗒️ Informacion</Boton></Link>
                 <Link to="/private/inventario" style={{cursor:"inherit",marginBottom:"15px"}}><Boton>📚 Inventario</Boton></Link>
                 <Link to="/private/registrosdomi2" style={{cursor:"inherit",marginBottom:"15px"}}><Boton>🛵 Registro domicilio</Boton></Link>
-                <Link to="/private/registro-fact2" style={{cursor:"inherit",marginBottom:"15px" }}><Boton> 📋 Registro factura</Boton></Link>
+                <Link to="/private/registro-fact2" style={{cursor:"inherit",marginBottom:"15px" }}><Boton> 📋 Registro fisico</Boton></Link>
             </CajaNav>      
             <ContainerMain >
                 <Outlet />

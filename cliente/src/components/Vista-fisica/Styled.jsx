@@ -127,6 +127,7 @@ export const Minibox1 = styled.button`
     justify-content: space-evenly;
     color: white;
     background: none;
+    font-style: italic;
     animation: ${sinkAnimation} 0.3s ease-in-out ;
     &:active {
         animation: none; 

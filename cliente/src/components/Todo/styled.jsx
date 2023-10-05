@@ -82,7 +82,6 @@ export const Box1 = styled.div`
     width: 30rem;
     font-size: 40px;
     display: flex;
-    cursor: pointer;
     justify-content: center;
     align-items: center;
     background-image: url(${Tabla});

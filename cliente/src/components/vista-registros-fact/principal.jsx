@@ -11,7 +11,6 @@ const RegistroFactura = () => {
     const [totalPrecios, setTotalPrecios] = useState(0);
     const [error, setError] = useState("");
     const [lastAssignedIdMesa, setLastAssignedIdMesa] = useState(null); 
-
     const cargarRegistros = async () => {
         try {
             let url = `${process.env.REACT_APP_PRIMERO_UNO}/api/registro`;

@@ -85,10 +85,6 @@ export const Infor = styled.input`
     border-radius: 8px;
     height: 40px;
     width: 20em;
-
-`;
-
-export const Infor2 = styled.input`
 `;
 
 export const Entrar = styled.div`
@@ -104,9 +100,6 @@ export const Entrar = styled.div`
 export const InforImg = styled.input`
     border: none;
     font-family: 'Indie Flower', cursive;
-`;
-
-export const SpanImg = styled.span`
 `;
 
 export const LabelImg = styled.label`
@@ -148,14 +141,5 @@ export const ImgPlato = styled.img`
     width: 95px;
     left: 4%;
     }
-`;
-
-export const Nota = styled.div`
-`;
-
-export const Sticker = styled.div`
-`;
-
-export const Sticker2 = styled.div`
 `;
 

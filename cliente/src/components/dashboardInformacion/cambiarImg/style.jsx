@@ -15,7 +15,6 @@ export const Fondo = styled.div`
 `;
 
 export const Container = styled.div`
-    // background-color:  #000;
     background-image: url(${pizarra});
     position: absolute;
     z-index: 0;
@@ -47,8 +46,8 @@ export const Salida = styled.button`
     width: 4em;
     margin: 1em;
     color: white;
-&:hover{
-    color: #ffffff6a;
+    &:hover{
+        color: #ffffff6a;
     };
 `;
 
@@ -62,7 +61,6 @@ export const Mensaje = styled.div`
 `;
 
 export const Form = styled.div`
-    // background-color: #000;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -89,9 +87,9 @@ export const Infor = styled.input`
     background-color: transparent;
     border-radius: 5px;
     color: #12011d;
-@media screen and ( max-width: 90vh){   
-    height: 2em;
-    width: 20em; 
+    @media screen and ( max-width: 90vh){   
+        height: 2em;
+        width: 20em; 
 }
 `;
 

@@ -13,6 +13,7 @@ const Crearcuenta = () => {
   const [confirmarContraseña, setconfirmarContraseña] = useState("")
   const { token } = useAuthContext();
   const [mensajito, setMensajito] = useState("") 
+  const [advertencia,setAdvertencia] = useState("")
 
   const cargos = ["admin", "empleado"]
   const handleCargoSeleccionada = (event) => {
@@ -22,6 +23,26 @@ const Crearcuenta = () => {
 
   const agregarusuario = (e) => {
     e.preventDefault()
+    const caracteresSospechosos = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\]/.test(usuario);    
+    if (caracteresSospechosos) {
+      setAdvertencia('Los campos contienen caracteres sospechosos.');
+      return;
+    }
+    const caracteresSospechosos2 = /[!#$%^&*()_+{}\[\]:;<>,?~\\]/.test(correo);    
+    if (caracteresSospechosos2) {
+      setAdvertencia('Los campos contienen caracteres sospechosos.');
+      return;
+    }
+    const caracteresSospechosos3 = /[ ]/.test(contraseña);    
+    if (caracteresSospechosos3) {
+      setAdvertencia('Los campos contienen caracteres sospechosos.');
+      return;
+    }
+    const caracteresSospechosos4 = /[ ]/.test(confirmarContraseña);    
+    if (caracteresSospechosos4) {
+      setAdvertencia('Los campos contienen caracteres sospechosos.');
+      return;
+    }
     Axios.post(`${process.env.REACT_APP_PRIMERO_UNO}/api/createadmin`, {
       nombre: usuario,
       correo: correo,
@@ -103,15 +124,14 @@ const Crearcuenta = () => {
               onChange={ev => setCorreo(ev.target.value)}>
             </Infor>
             <Name>Cargo</Name>
-            <select style={{backgroundColor:"#00000015",color:"rgb(105,105,105)",borderRadius:"5px",width:"22rem",height:"5rem",fontSize:"18px", border:"1px solid #ffff"}}
+            <select style={{backgroundColor:"#00000015",color:"rgb(255, 255, 255)",borderRadius:"5px",width:"22rem",height:"5rem",fontSize:"18px", border:"1px solid #ffff"}}
               onChange={handleCargoSeleccionada}>
-              <option value="" style={{backgroundColor:"#000", color:"rgb(131,144,135)"}}>Selecciona el cargo</option>
+              <option value="" style={{backgroundColor:"#000", color:"rgb(255, 255, 255)"}}>Selecciona el cargo</option>
               {cargos.map((cargo, index)=>(
                 <option key={index} value={cargo} style={{backgroundColor:"#000", color:"#ffff"}}>
                     {cargo}
                 </option>
               ))}
-
             </select>
             <Name>Contraseña</Name>
             <Infor
@@ -133,6 +153,7 @@ const Crearcuenta = () => {
             </Infor>
             <Entrar onClick={agregarusuario}>Registrate</Entrar>
             <p style={{color:"white"}}>{mensajito}</p>
+            <h4 style={{color: "white", margin:"none"}}>{advertencia}</h4>
           </ConInfor>
         </Login>
       </Background>

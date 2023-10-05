@@ -134,8 +134,7 @@ useEffect(()=>{
                     </Hoja1>
                     <Hoja2>
                         <ConInfor style={{height:"480px"}}>
-                            <div style={{ height:"100px", width:"100%", display:"flex", justifyContent: "center"}}>
-                            </div>
+                            <div style={{ height:"100px", width:"100%", display:"flex", justifyContent: "center"}}></div>
                                 <p style={{margin: "none", fontSize:"20px"}}>Imagen Actual</p>
                                 <ContentImg> 
                                     {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}

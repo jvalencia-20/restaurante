@@ -17,7 +17,6 @@ export const Pago = ({ total, lastInsertedIdProp }) => {
     setLastInsertedId(lastInsertedIdProp);
   }, [lastInsertedIdProp]);
 
-  
   return (
     <div>
       <form method="post" action="https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/">

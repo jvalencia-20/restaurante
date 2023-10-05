@@ -152,13 +152,3 @@ export const ImgPlato = styled.img`
         left: 4%;
     }
 `;
-
-export const Nota = styled.div`
-`;
-
-export const Sticker = styled.div`
-`;
-
-export const Sticker2 = styled.div`
-`;
-
