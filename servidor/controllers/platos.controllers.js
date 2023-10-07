@@ -215,14 +215,14 @@ export const updateImagebebida = async (imagen, id) => {
     }
 }
 
-export const getAllPlatos = async (req, res) => {
-    try {
-        const [rows] = await pool.query('SELECT * FROM plato')
-        res.send(rows)
-    } catch (error) {
-        res.status(500).json({error: error.message})
-    }
-}
+// export const getAllPlatos = async (req, res) => {
+//     try {
+//         const [rows] = await pool.query('SELECT * FROM plato')
+//         res.send(rows)
+//     } catch (error) {
+//         res.status(500).json({error: error.message})
+//     }
+// }
 
 export const createBebida = async (nombre_bebida, descripcion, precio, imagePath) => {
     try {

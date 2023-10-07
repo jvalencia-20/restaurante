@@ -11,15 +11,11 @@ export const Background = styled.div`
 
 export const ContPrincipal = styled.div`
     border: solid 1px;
-    width: 70%;
+    width: 100%;
     height: 71%;
     background-color: rgba(05, 05, 05, .5);  
     backdrop-filter: blur(5px);
     box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.26);
-    border-radius: 20px;
-    @media (min-width: 768px) {
-        width: 50%;
-    }
 `;
 
 export const InputContainer = styled.div`
@@ -44,7 +40,7 @@ export const Table = styled.table`
     border-collapse: collapse;
 `;
 
-export const Thead = styled.div`
+export const Thead = styled.thead`
     background-color: #000;
     width: 100%;
     border-radius: 20px 20px 0 0;
@@ -52,7 +48,15 @@ export const Thead = styled.div`
 
 export const Tbody = styled.div`
     height: 620px;
+    width: 100vh;
     overflow-y: scroll;
+        &::-webkit-scrollbar-thumb {
+        background: #000000; 
+    }
+    &::-webkit-scrollbar {
+        background: transparent;
+        border-radius: 10px;
+    }
 `;
 
 export const Tr1 = styled.tr`
@@ -74,6 +78,7 @@ export const Th = styled.th`
     background-color: #000000;
     color: white;
     margin: 0;
+    margin-right: 38px;
 `;
 
 export const Td = styled.td`
@@ -82,6 +87,7 @@ export const Td = styled.td`
     color: white;
     font-size: 18px;
     z-index: 0;
+    margin-right: 18px;
 `;
 
 export const TdMesa = styled(Td)`

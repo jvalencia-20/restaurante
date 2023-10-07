@@ -59,7 +59,7 @@ const enviar = () => {
               <h1>Borrar</h1>
             </div>
             {informacion.map((infor, index) => (
-              <Contendiv>
+              <Contendiv key={index}>
                 <DivFilas>
                 <h2>{infor.Titulo}</h2>
                 <div style={{

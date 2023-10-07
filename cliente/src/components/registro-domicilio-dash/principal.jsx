@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import moment from "moment";
-import { Background, ContPrincipal, InputContainer, Boton, Table, Thead, Tbody, Tr1, Tr2, Th, Td } from "./styled";
+import { Background, ContPrincipal, InputContainer, Boton, Table, Tbody, Tr1, Tr2, Th, Td, Thead } from "./styled";
 import { Link, useNavigate } from "react-router-dom";
 
 const RegistroDomi2 = () => {
@@ -59,7 +59,7 @@ const RegistroDomi2 = () => {
             <div>
                 <InputContainer>
                     <label style={{color: "white"}}>Fecha:</label>
-                    <input type="date" name="fecha" value={filtros.fecha || ""} onChange={handleFiltroChange} />
+                    <input type="date" name="fecha" value={filtros.fecha || ""} onChange={handleFiltroChange} style={{marginRight:"50px"}} />
                 </InputContainer>
                 <InputContainer>
                     <Boton onClick={borrarFiltros}>Borrar Filtros</Boton>
@@ -68,15 +68,19 @@ const RegistroDomi2 = () => {
             <ContPrincipal>
                 <Table>
                     <Thead>
-                        <Tr1>
-                            <Th>Nombre </Th>
-                            <Th>Producto</Th>
-                            <Th>Cantidad</Th>
-                            <Th>Precio</Th>
-                            <Th>Dirección</Th>
-                            <Th>Fecha</Th>
-                        </Tr1>
+                        <Tbody>
+                            <Tr1>
+                                <Th>Nombre </Th>
+                                <Th>Producto</Th>
+                                <Th>Cantidad</Th>
+                                <Th>Precio</Th>
+                                <Th>Dirección</Th>
+                                <Th>Fecha</Th>
+                            </Tr1>
+                        </Tbody>
                     </Thead>
+                </Table>
+                <Table>
                     <Tbody>
                         {facturas.map((factura) => (
                             <Tr2 key={factura.ID}>

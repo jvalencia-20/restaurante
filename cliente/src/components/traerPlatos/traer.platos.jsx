@@ -25,7 +25,11 @@ export const TraerPlatos = () => {
         Platos()
     },)
     const eliminarProducto = (id_plato) => {
-        Axios.delete(`${process.env.REACT_APP_PRIMERO_UNO}/api/elimina/${id_plato}`)
+        Axios.delete(`${process.env.REACT_APP_PRIMERO_UNO}/api/elimina/${id_plato}`,{
+            headers: {
+            Authorization: token
+        }  
+        })
             .then((response) => {
                 Platos()
                     ;

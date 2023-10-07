@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`    
-    height: 95vh;
+    height: 55vh;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
+    overflow-x: scroll;
     &::-webkit-scrollbar-thumb {
     background: #000000; 
     border-radius: 10px;
@@ -48,8 +49,8 @@ export const Salir2 = styled.button`
 `;
 
 export const Box = styled.button`
-    width: 20rem;
-    height: 20rem;
+    width: 15rem;
+    height: 15rem;
     margin: 5px;
     background-color: rgba(15, 15, 15, 0.37);
     box-shadow: -10px 15px 15px 0px;

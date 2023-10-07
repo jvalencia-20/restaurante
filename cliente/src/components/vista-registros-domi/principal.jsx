@@ -37,20 +37,16 @@ const RegistroDomi = () => {
         }));
         setError("");
     };
-    
+
     const borrarFiltros = () => {
         setFiltros((prevFiltros) => ({
             ...prevFiltros,
             fecha: null,
         }));
     };
-
-    const handlePrintClick = () => {
-        window.print();
-    };
     
     const handleBackToMenuPrincipal = async () => {
-        navigate('/private/todofisica/facturadomicilio/:id');
+        navigate('/private/todofisica/selectfactura');
     };
 
     return (
@@ -58,7 +54,7 @@ const RegistroDomi = () => {
             <div>
                 <InputContainer>
                     <label style={{color: "white"}}>Fecha:</label>
-                    <input type="date" name="fecha" value={filtros.fecha || ""} onChange={handleFiltroChange} />
+                    <input type="date" name="fecha" value={filtros.fecha || ""} onChange={handleFiltroChange} style={{marginRight:"50px"}} />
                 </InputContainer>
                 <InputContainer>
                     <Boton onClick={borrarFiltros}>Borrar Filtros</Boton>
@@ -89,13 +85,12 @@ const RegistroDomi = () => {
                         ))}
                     </Tbody>
                 </Table>
-                {error && <p>{error}</p>}
+                {error && <span>{error}</span>}
             </ContPrincipal>
-            <p style={{ color: "white", fontSize: "20px" }}>Total en ventas: ${totalPrecios}</p>
+            <span style={{ color: "white", fontSize: "20px" }}>Total en ventas: ${totalPrecios}</span>
             <Link to="/private/todofisica/fisica">
                 <Boton style={{ marginTop: "20px" }}>Regresar al menú</Boton>
             </Link>
-            <Boton style={{ marginTop: "20px" }} onClick={handlePrintClick}>Imprimir factura</Boton>
             <Boton style={{ marginTop: "20px" }} onClick={handleBackToMenuPrincipal}>Regresar a la factura</Boton>
         </Background>
     );

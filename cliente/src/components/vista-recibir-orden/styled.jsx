@@ -13,7 +13,7 @@ export const Background = styled.div`
 export const ContPrincipal = styled.div`
     border: solid 1px;
     width: 40%;
-    height: 80%;
+    height: 85%;
     background-color: rgba(05, 05, 05, .5);  
     backdrop-filter: blur(10px);
     box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.26);
@@ -85,7 +85,7 @@ export const BotonImprimir = styled.button`
 `;
 
 export const Select = styled.select`
-    width: 15rem;
+    width: 20rem;
     height: 30px;
     color: white;
     background-color: black;
@@ -93,4 +93,18 @@ export const Select = styled.select`
     font-style: italic;
     font-size: 15px;
     overflow-y: scroll;
+        &::-webkit-scrollbar-thumb {
+    background: transparent; 
+    border-radius: 10px;
+    }
+    &::-webkit-scrollbar {
+        background: transparent;
+        border-radius: 10px;
+    }
+`;
+
+export const Option = styled.option`
+    width: 18rem;
+    height: 5rem;
+    font-size: 20x;
 `;

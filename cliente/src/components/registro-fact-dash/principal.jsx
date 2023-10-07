@@ -2,16 +2,15 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import moment from "moment";
 import { Background, ContPrincipal, InputContainer, Boton, Table, Thead, Tbody, Tr1, Tr2, Th, Td, TdMesa } from "./styled";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const RegistroFactura2 = () => {
+const RegistroFactura = () => {
     const navigate = useNavigate()
     const [facturas, setFacturas] = useState([]);
     const [filtros, setFiltros] = useState({ mesa: null, fecha: null });
     const [totalPrecios, setTotalPrecios] = useState(0);
     const [error, setError] = useState("");
     const [lastAssignedIdMesa, setLastAssignedIdMesa] = useState(null); 
-
     const cargarRegistros = async () => {
         try {
             let url = `${process.env.REACT_APP_PRIMERO_UNO}/api/registro`;
@@ -74,6 +73,7 @@ const RegistroFactura2 = () => {
                 </InputContainer>
             </div>
             <ContPrincipal>
+                
                 <Table>
                     <Thead>
                         <Tr1>
@@ -98,18 +98,9 @@ const RegistroFactura2 = () => {
                 </Table>
                 {error && <p>{error}</p>}
             </ContPrincipal>
-            <p style={{ color: "black", fontSize: "20px" }}>Total en ventas: ${totalPrecios}</p>
+            <span style={{ color: "black", fontSize: "20px" }}>Total en ventas: ${totalPrecios}</span>
         </Background>
     );
 };
 
-
-
-
-
-
-
-
-
-
-export default RegistroFactura2;
+export default RegistroFactura;

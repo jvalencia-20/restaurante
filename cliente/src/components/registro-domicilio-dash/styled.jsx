@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import pizarra from "../Img/pizarra.jpeg"
+import pizzara from "../Img/pizarra.jpeg"
 
 export const Background = styled.div`
-    height: 100%;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -11,14 +11,14 @@ export const Background = styled.div`
 `;
 
 export const ContPrincipal = styled.div`
-    height: 100%;
-    background-image: url(${pizarra});
+    background-image: url(${pizzara});
+    border: solid 1px;
+    width: 65%;
+    height: 71%;
+    background-color: rgba(05, 05, 05, .5);  
     backdrop-filter: blur(5px);
     box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.26);
     border-radius: 20px;
-    @media (min-width: 768px) {
-        width: 70%;
-    }
 `;
 
 export const InputContainer = styled.div`
@@ -42,7 +42,6 @@ export const Table = styled.table`
     width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
-    background-image: url(${pizarra})
 `;
 
 export const Thead = styled.div`
@@ -52,19 +51,12 @@ export const Thead = styled.div`
 `;
 
 export const Tbody = styled.div`
-    max-height: 650px;
-    overflow-y: scroll;
-    &::-webkit-scrollbar {
-        width: 5px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background-color: black;
-        border-radius: 5px;
-    }
+    max-height: 620px;
+    overflow-y: auto;
 `;
 
 export const Tr1 = styled.tr`
+    /* width: 100%; */
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -82,16 +74,17 @@ export const Th = styled.th`
     z-index: 1;
     background-color: #000000;
     color: white;
-    font-size: 18px;
     margin: 0;
+    margin-right: 38px;
 `;
 
 export const Td = styled.td`
     padding: 10px;
     margin: 0;
-    color: #ffffff;
+    color: white;
     font-size: 18px;
     z-index: 0;
+    margin-right: 10px;
 `;
 
 export const TdMesa = styled(Td)`

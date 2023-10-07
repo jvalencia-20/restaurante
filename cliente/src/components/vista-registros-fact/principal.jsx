@@ -73,6 +73,7 @@ const RegistroFactura = () => {
                 </InputContainer>
             </div>
             <ContPrincipal>
+                
                 <Table>
                     <Thead>
                         <Tr1>
@@ -97,7 +98,7 @@ const RegistroFactura = () => {
                 </Table>
                 {error && <p>{error}</p>}
             </ContPrincipal>
-            <p style={{ color: "white", fontSize: "20px" }}>Total en ventas: ${totalPrecios}</p>
+            <span style={{ color: "white", fontSize: "20px" }}>Total en ventas: ${totalPrecios}</span>
             <Link to="/private/todofisica/fisica">
                 <Boton style={{ marginTop: "20px" }}>Regresar al menú</Boton>
             </Link>

@@ -50,6 +50,15 @@ export const Dashboard = () => {
             });
     }
 
+    //esta es la funcion para evitar que se introduzca la e o cualquier letra
+    const notLetters = (event) => {
+        if (event.key === 'e' || event.key === 'E') {
+            event.preventDefault()
+            
+        }
+    }
+    
+
 return (
     <Pagina>
         <Background>
@@ -85,17 +94,19 @@ return (
                         <Div>
                             <Name>Ingrese el precio:</Name>
                             <Infor
-                                type="text"
+                                type="number"
+
                                 name="precio"
                                 placeholder="Precio"
                                 autoComplete="off"
                                 value={precio}
+                                onKeyDown={notLetters}
                                 onChange={ev => setPrecio(ev.target.value)}>
                             </Infor>
                         </Div>
                         <Div>
                             <Name>Ingrese el tipo de plato:</Name>
-                            <select style={{backgroundColor:"#00000015",color:"rgb(105,105,105)",borderRadius:"10px",width:"17.1rem",height:"3rem",fontSize:"14px", border:"1px solid #ffff"}}
+                            <select style={{backgroundColor:"#00000015",color:"rgb(255, 255, 255)",borderRadius:"10px",width:"17.1rem",height:"3rem",fontSize:"14px", border:"1px solid #ffff"}}
                                 onChange={handleCargoSeleccionada}>
                                 <option value="" style={{backgroundColor:"black"}}>El tipo de Plato</option>
                                 {Tipos.map((tipo, index)=>(

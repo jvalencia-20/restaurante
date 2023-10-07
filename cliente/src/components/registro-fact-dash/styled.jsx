@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import pizarra from "../Img/pizarra.jpeg"
+import pizzara from "../Img/pizarra.jpeg"
 
 export const Background = styled.div`
     height: 100%;
@@ -11,15 +11,13 @@ export const Background = styled.div`
 `;
 
 export const ContPrincipal = styled.div`
+    background-image: url(${pizzara});
+    border: solid 1px;
     width: 70%;
     height: 71%;
     background-color: rgba(05, 05, 05, .5);  
     backdrop-filter: blur(5px);
     box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.26);
-    border-radius: 20px;
-    @media (min-width: 768px) {
-        width: 50%;
-    }
 `;
 
 export const InputContainer = styled.div`
@@ -42,24 +40,22 @@ export const Boton = styled.button`
 export const Table = styled.table`
     width: 100%;
     border-collapse: collapse;
-    background-image: url(${pizarra})
 `;
 
-export const Thead = styled.div`
+export const Thead = styled.thead`
     background-color: #000;
-    width: 100%;
-    border-radius: 20px 20px 0 0;
 `;
 
 export const Tbody = styled.div`
-    height: 530px;
+    height: 536px;
+    width: 100%;
     overflow-y: scroll;
-    &::-webkit-scrollbar {
-        width: 5px;
+        &::-webkit-scrollbar-thumb {
+        background: #000000; 
     }
-    &::-webkit-scrollbar-thumb {
-        background-color: black;
-        border-radius: 5px;
+    &::-webkit-scrollbar {
+        background: transparent;
+        border-radius: 10px;
     }
 `;
 
@@ -79,10 +75,11 @@ export const Th = styled.th`
     position: sticky;
     top: 0;
     z-index: 1;
-    font-size: 18px;
     background-color: #000000;
     color: white;
     margin: 0;
+    margin-right: 38px;
+
 `;
 
 export const Td = styled.td`
@@ -91,6 +88,7 @@ export const Td = styled.td`
     color: white;
     font-size: 18px;
     z-index: 0;
+    margin-right: 18px;
 `;
 
 export const TdMesa = styled(Td)`

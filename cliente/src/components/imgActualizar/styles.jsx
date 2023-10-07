@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import pizarra from "../Img/pizarra.jpeg"
 
 export const Fondo = styled.div`
     position: fixed;
@@ -14,7 +15,7 @@ export const Fondo = styled.div`
 `;
 
 export const Container = styled.div`
-    background-color:  #000000;
+    background-image: url(${pizarra});
     position: absolute;
     z-index: 0;
     height: 33em;
@@ -63,10 +64,10 @@ export const Mensaje = styled.div`
 `;
 
 export const Form = styled.div`
-    background-color: #c8c7c9;
-    background-size: contain;
+    background-image: url(${pizarra});
+    /* background-size: contain;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center; */
     height: 19em;
     width: 30em;
     display: flex;

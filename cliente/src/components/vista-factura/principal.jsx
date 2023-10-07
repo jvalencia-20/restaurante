@@ -141,7 +141,7 @@ const Factura = (props) => {
                 </ContFactura>
                 <ResPrecios>
                     <div style={{ marginTop: '20px', textAlign: 'right' }}>
-                        <p style={{ fontWeight: 'bolder', fontSize: 'x-large', fontStyle: 'italic', margin: '0', color: "white" }}>Total: $ {total}</p>
+                        <span style={{ fontWeight: 'bolder', fontSize: 'x-large', fontStyle: 'italic', margin: '0', color: "white" }}>Total: $ {total}</span>
                     </div>
                     {/* <Pago total={total} lastInsertedIdProp={parseInt(lastInsertedId, 10)} /> */}
                 </ResPrecios>

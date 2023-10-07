@@ -76,6 +76,7 @@ export const Th = styled.th`
     background-color: #000000;
     color: white;
     margin: 0;
+    margin-right: 60px;
 `;
 
 export const Td = styled.td`
@@ -84,6 +85,7 @@ export const Td = styled.td`
     color: white;
     font-size: 18px;
     z-index: 0;
+    margin-right: 10px;
 `;
 
 export const TdMesa = styled(Td)`

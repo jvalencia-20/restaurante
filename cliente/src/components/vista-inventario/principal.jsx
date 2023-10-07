@@ -66,7 +66,7 @@ export const Inventario = () => {
     //aqui traigo la ruta para actualizar los platos 
     const actualizarProducto = () => {
 
-        axios.patch(`${process.env.REACT_APP_PRIMERO_UNO}/api/actualiza-p/${id}`, {
+        axios.put(`${process.env.REACT_APP_PRIMERO_UNO}/api/actualiza-p/${id}`, {
             nombre: nombre,
             presentacion: presentacion,
             unidad: unidad,
@@ -198,7 +198,7 @@ export const Inventario = () => {
                                     value={nombre}
                                     maxLength={20}
                                     name="nombre"
-                                    autocomplete='off'
+                                    autoComplete='off'
                                     placeholder='Crea un nombre unico..'
                                     className='form-control'
                                     onChange={e => setNombre(e.target.value)}/>
@@ -239,7 +239,7 @@ export const Inventario = () => {
                                     value={nombre}
                                     maxLength={20}
                                     name="nombre"
-                                    autocomplete='off'
+                                    autoComplete='off'
                                     placeholder='Crea un nombre unico..'
                                     className='form-control'
                                     onChange={e => setNombre(e.target.value)}/>
@@ -253,7 +253,7 @@ export const Inventario = () => {
                                     name="presentacion"
                                     maxLength={20}
                                     value={presentacion}
-                                    autocomplete='off'
+                                    autoComplete='off'
                                     placeholder='Añade los presentacion'
                                     className="form-control"
                                     onChange={e => setPresentacion(e.target.value)}/>
@@ -278,7 +278,7 @@ export const Inventario = () => {
                                     value={precio}
                                     min={1}
                                     name="precio"
-                                    autocomplete='off'
+                                    autoComplete='off'
                                     className="form-control"
                                     placeholder='Que precio tiene?'
                                     onChange={handlePrecioChange}/>
@@ -300,7 +300,7 @@ export const Inventario = () => {
                     )}
                 </Form>
                 <Cajatabla>
-                    <Table class="table table-striped">
+                    <Table className="table table-striped">
                         <thead>
                             <Tr>
                                 <Th>nombre</Th>
@@ -319,7 +319,7 @@ export const Inventario = () => {
                                         <Td>{val.unidad}</Td>
                                         <Td>${val.precio}</Td>
                                         <Td>
-                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                            <div className="btn-group" role="group" aria-label="Basic example">
                                                 <Editar
                                                     type="button"
                                                     onClick={() => {

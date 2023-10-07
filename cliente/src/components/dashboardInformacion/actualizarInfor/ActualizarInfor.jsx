@@ -128,7 +128,7 @@ const ActualizarInformacion = () => {
           <Hoja2>
             <ConInfor>
               <div style={{ height:"100px", width:"100%", display:"flex", justifyContent: "center"}}></div>
-              <p style={{margin: "none", fontSize:"20px"}}>Imagen Actual</p>
+              <span style={{margin: "none", fontSize:"20px"}}>Imagen Actual</span>
               <ContentImg>
                 {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}
               </ContentImg>

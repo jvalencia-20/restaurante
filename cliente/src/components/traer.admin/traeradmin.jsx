@@ -24,7 +24,11 @@ export const ListarAdmin = () => {
         })
     }
     const eliminarAdmin = (id_admin) => {
-        Axios.delete(`${process.env.REACT_APP_PRIMERO_UNO}/api/deleteadmin/${id_admin}`)
+        Axios.delete(`${process.env.REACT_APP_PRIMERO_UNO}/api/deleteadmin/${id_admin}`,{
+            headers: {
+            Authorization: token
+        }  
+        })
             .then((response) => {
             clientes()
             window.location.reload()

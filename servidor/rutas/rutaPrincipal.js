@@ -8,7 +8,7 @@ import { fileURLToPath } from "url";
 import express from "express";
 import jwt from 'jsonwebtoken';
 import { getAllRegistros, getRegistro, createNew, updateRegistro, delete1, deleteAllRegistro, getRegistrosPorFecha, getRegistrosPorMesaYFecha, getRegistrosPorMesa, obtenerUltimoId } from "../controllers/factura_reg.controllers.js"
-import { getAllPlatos } from "../controllers/platos.controllers.js";
+// import { getAllPlatos } from "../controllers/platos.controllers.js";
 import { getMesa, createMesa, deleteOrdenPorMesa } from "../controllers/mesa.controller.js";
 import { getMesas,crearMesas,eliminarMesas,updateMesas } from "../controllers/mesas.controller.js";
 import { deleteDomi, getAllDomicilios, newDomicilio, updateDomi, getDomi } from "../controllers/reg_domi.controller.js";
@@ -64,7 +64,7 @@ router.post('/createadmin', verificarToken, createAdmin) //Ruta para crear uno
 router.put('/actualizarcontrasena/:id', verificarToken, actualizarContraseñaAdmin)
 router.post('/login', confirmar)
 router.put('/admin/:id', verificarToken, updateAdmin) //Ruta para actualizar
-router.delete('/deleteadmin/:id', deleteAdmin) //Ruta para eliminar uno
+router.delete('/deleteadmin/:id', verificarToken, deleteAdmin) //Ruta para eliminar uno
 
 //tabla inventario producto.
 
@@ -73,7 +73,7 @@ router.post('/createproducto', verificarToken, createProducto)
 
 
 
-router.delete('/eliminarbebida/:id', deleteBebida)
+router.delete('/eliminarbebida/:id', verificarToken ,deleteBebida)
 
 //Tabla plato
 
@@ -91,7 +91,7 @@ router.post('/crearplato', upload.single("imagen"), async (req, res) => {
     }
 });
 
-router.get('/allPlatos', getAllPlatos)
+// router.get('/allPlatos', getAllPlatos)
 
 expressApp.use('/public', express.static(join(CURRENT_DIR,'../uploads')))
 
@@ -119,7 +119,6 @@ router.put('/actualizaImgInfor/:id', upload.single("imagen"), async (req, res) =
         const {id} = req.params;
         const imagen = req.file.filename;
         const result = await updateImgInfor(imagen, id);
-        console.log(imagen, id, 'hola');
         res.status(200).json({
             message: 'Creación exitosa 🎉',
             result

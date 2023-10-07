@@ -65,7 +65,7 @@ const VistaMesa = () => {
             <Box
               key={mesa.id}
               style={{
-                backgroundImage: `url(${"http://localhost:3002/" + mesa.imagen_url})`,
+                backgroundImage: `url(${`${process.env.REACT_APP_PRIMERO_UNO}/` + mesa.imagen_url})`,
                 backgroundSize: "contain",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",

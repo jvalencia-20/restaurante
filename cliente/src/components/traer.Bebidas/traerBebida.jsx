@@ -25,7 +25,11 @@ export const TraerBebidas = () => {
         Bebidas()
     },)
     const eliminarProducto = (id_bebida) => {
-        Axios.delete(`${process.env.REACT_APP_PRIMERO_UNO}/api/eliminarbebida/${id_bebida}`)
+        Axios.delete(`${process.env.REACT_APP_PRIMERO_UNO}/api/eliminarbebida/${id_bebida}`,{
+            headers: {
+            Authorization: token
+        }  
+        })
             .then((response) => {
                 Bebidas()
                     ;
