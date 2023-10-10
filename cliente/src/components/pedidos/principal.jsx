@@ -55,7 +55,7 @@ useEffect(() => {
 return (
 <>
     {enviado && <Agregado/>}
-    <Background style={{width:"100%",height:"75vh"}}>
+    <Background >
         <Platos>
             <Titulo>
                 <NomPlato>{plato.nombre_plato}</NomPlato>

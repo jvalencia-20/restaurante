@@ -8,6 +8,13 @@ import "../../App.css"
 import { useAuthContext } from "../context/AuthContext"
 import Paila from "../VentanasModal/paila";
 import Comprobando from "../VentanasModal/comprobando";
+import {FaUsers} from "react-icons/fa"
+import {MdOutlineTableRestaurant} from "react-icons/md"
+import {GiHotMeal} from "react-icons/gi"
+import {GiDrinkMe} from "react-icons/gi"
+import {FaClipboardList} from "react-icons/fa"
+import {MdFormatListBulletedAdd} from "react-icons/md"
+import {PiListMagnifyingGlassFill} from "react-icons/pi"
 
 function PrincipalDashboard() {
     const navegate = useNavigate()
@@ -75,14 +82,14 @@ return (
                 </Header>
             </ContainerHeader>
             <CajaNav>
-                <Link to="/private/traerAdmin" style={{cursor:"inherit",marginBottom:"15px", width:"100%"}}><Boton>👨‍💼 Administradores</Boton></Link>
-                <Link to="/private/creaMesas" style={{cursor:"inherit",marginBottom:"15px"}}><Boton>🪵 Crear Mesa</Boton></Link>
-                <Link to="/private/traerPlato" style={{cursor:"inherit",marginBottom:"15px"}}><Boton>🥗 Platos</Boton></Link>
-                <Link to="/private/traerBebida" style={{cursor:"inherit",marginBottom:"15px"}}><Boton>🍸 Bebidas</Boton></Link>
-                <Link to="/private/informate" style={{cursor:"inherit",marginBottom:"15px"}}><Boton>🗒️ Informacion</Boton></Link>
-                <Link to="/private/inventario" style={{cursor:"inherit",marginBottom:"15px"}}><Boton>📚 Inventario</Boton></Link>
-                <Link to="/private/registrosdomi2" style={{cursor:"inherit",marginBottom:"15px"}}><Boton>🛵 Registro domicilio</Boton></Link>
-                <Link to="/private/registro-fact2" style={{cursor:"inherit",marginBottom:"15px" }}><Boton> 📋 Registro fisico</Boton></Link>
+                <Link to="/private/traerAdmin" style={{cursor:"inherit",marginBottom:"15px", width:"100%"}}><Boton><FaUsers/> Administradores</Boton></Link>
+                <Link to="/private/creaMesas" style={{cursor:"inherit",marginBottom:"15px"}}><Boton><MdOutlineTableRestaurant/> Crear Mesa</Boton></Link>
+                <Link to="/private/traerPlato" style={{cursor:"inherit",marginBottom:"15px"}}><Boton><GiHotMeal/> Platos</Boton></Link>
+                <Link to="/private/traerBebida" style={{cursor:"inherit",marginBottom:"15px"}}><Boton><GiDrinkMe/> Bebidas</Boton></Link>
+                <Link to="/private/informate" style={{cursor:"inherit",marginBottom:"15px"}}><Boton><FaClipboardList/> Informacion</Boton></Link>
+                <Link to="/private/inventario" style={{cursor:"inherit",marginBottom:"15px"}}><Boton><MdFormatListBulletedAdd/> Inventario</Boton></Link>
+                <Link to="/private/registrosdomi2" style={{cursor:"inherit",marginBottom:"15px"}}><Boton><PiListMagnifyingGlassFill/> Registro domicilio</Boton></Link>
+                <Link to="/private/registro-fact2" style={{cursor:"inherit",marginBottom:"15px" }}><Boton><PiListMagnifyingGlassFill/> Registro fisico</Boton></Link>
             </CajaNav>      
             <ContainerMain >
                 <Outlet />

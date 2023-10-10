@@ -7,6 +7,8 @@ export const Background = styled.div`
     height: 100%;
     width: 100%;
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
 `;
 
@@ -160,7 +162,6 @@ export const Botones = styled.button`
     margin-right: 10px;
     height: 2em;
     width: 5em;
-    background-color: white;
     background-color: white;
     border: 2px solid #000;
     border-radius: 0.5em;
