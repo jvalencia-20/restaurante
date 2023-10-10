@@ -82,7 +82,7 @@ return (
                 </Header>
             </ContainerHeader>
             <CajaNav>
-                <Link to="/private/traerAdmin" style={{cursor:"inherit",marginBottom:"15px", width:"100%"}}><Boton><FaUsers/> Administradores</Boton></Link>
+                <Link to="/private/traerAdmin" style={{cursor:"inherit",marginBottom:"15px", width:"100%"}}><Boton><FaUsers/> Usuarios</Boton></Link>
                 <Link to="/private/creaMesas" style={{cursor:"inherit",marginBottom:"15px"}}><Boton><MdOutlineTableRestaurant/> Crear Mesa</Boton></Link>
                 <Link to="/private/traerPlato" style={{cursor:"inherit",marginBottom:"15px"}}><Boton><GiHotMeal/> Platos</Boton></Link>
                 <Link to="/private/traerBebida" style={{cursor:"inherit",marginBottom:"15px"}}><Boton><GiDrinkMe/> Bebidas</Boton></Link>
