@@ -6,6 +6,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { Contenedor, Main, Tabla, Thead,Editar, Tr, Th, Tbody, Td, Borrar } from "./styles";
 import dedo from "../Img/aqui1.jpg"
 import dedo2 from "../Img/aqui2.jpg"
+import {FaUserCog} from "react-icons/fa"
+import {FiUserX} from "react-icons/fi"
+import {FiUserPlus} from "react-icons/fi"
 
 export const ListarAdmin = () => {
     const Navegate = useNavigate()
@@ -49,9 +52,9 @@ export const ListarAdmin = () => {
             <Main>
                 <div>
                     <h1 style={{color:"black",justifyContent:"center",margin:"0"}}>Listado de usuarios</h1>
-                    <div onClick={enviar} style={{display:"flex", alignItems:"center", justifyContent:"center",cursor:"pointer",backgroundColor:"Red"}}>
+                    <div onClick={enviar} style={{display:"flex", alignItems:"center", justifyContent:"center",cursor:"pointer"}}>
                         <img src={dedo} style={{height:"3em", borderRadius:"1em 0 0 1em"}}/>
-                        <button style={{height:"2.7em", backgroundColor:"rgb(51,51,51)", color:"white", border:"none",cursor:"pointer",width:"100%",fontSize:"18px"}}>Crear Usuario</button>
+                        <button style={{height:"2.7em", backgroundColor:"rgb(51,51,51)", color:"white", border:"none",cursor:"pointer",width:"100%",fontSize:"18px"}}><FiUserPlus/> Crear Usuario</button>
                         <img src={dedo2} style={{height:"3em", borderRadius:" 0 1em 1em 0 "}}/>
                     </div>
                 </div>
@@ -75,11 +78,11 @@ export const ListarAdmin = () => {
                                 <Td>
                                     <Link to={`/private/actualizaradmin/${val.id_admin}`}>
                                         <Editar>
-                                            Editar
+                                            <FaUserCog/> Editar
                                         </Editar>
                                     </Link>
                                     <Borrar onClick={() => eliminarAdmin(val.id_admin)}>
-                                        Borrar 
+                                        <FiUserX/> Borrar 
                                     </Borrar>
                                 </Td>
                             </Tr>  

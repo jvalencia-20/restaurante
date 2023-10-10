@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import pizarra from "../../Img/pizarra.jpeg"
-import borrar from "../../Img/borrar.png"
+import "../../../App.css"
 
 export const Container = styled.div`
     height: 85vh;
@@ -24,12 +23,11 @@ export const SubContainer = styled.div`
 
 export const InforTodo = styled.div`
     height: 100%;
-    width: 90%;
-    background-image: url(${pizarra});
+    width: 80%;
+    background-color: var(--color-negro);
     display: flex;
     flex-direction: column;
-    border-radius: 8px;
-    box-shadow: 8px 12px 9px 10px rgba(0, 0, 0, 0.75);
+    border-radius: 0 0  8px 8px ;
     position: relative;
     overflow-y: auto;
     overflow-x: hidden;
@@ -60,30 +58,26 @@ export const DivFilas = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    border: 1px solid #fff;
 `;
 
 export const Borrar = styled.button`
-    width: 70px;
-    height: 70px;
-    background-image: url(${borrar});
-    background-repeat: no-repeat;
-    background-size: 96%;
-    background-position: center;
-    background-color: transparent;
+    width: 130px;
+    height: 3em;
+    color: #ffff;
+    background-color: var(--color-azul);
     border: none;
-    &:hover{
-        rotate: 30deg;
-        cursor: pointer;
-    }
+    border-radius: 5px;
+    font-size:18px;
+    cursor: pointer;
 `;
 
 export const Editar = styled.button`
     border: none;
-    width: 80px;
-    height: 45px;
-    background-color: black;
+    width: 130px;
+    height: 3em;
+    background-color: var(--color-azul);
     color: white;
-    border-radius:20px;
+    border-radius: 5px;
     cursor: pointer;
+    font-size:18px;
 `;

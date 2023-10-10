@@ -143,17 +143,7 @@ useEffect(()=>{
                                 onChange={ev => setPrecio(ev.target.value)}>
                             </Infor>
                         </Div>   
-                        <Div>
-                            <Name>Ingrese el tipo de plato:</Name>
-                            <Infor
-                                type="text"
-                                name="tipoPlato"
-                                placeholder="tipo del plato"
-                                autoComplete="off"
-                                value={tipoPlato}
-                                onChange={ev => setTipoPlato(ev.target.value)}>  
-                            </Infor>
-                        </Div>   
+
                     </Hoja1>
                     <Hoja2>
                         <ConInfor style={{height:"480px"}}>
@@ -162,11 +152,12 @@ useEffect(()=>{
                                 <ContentImg> 
                                     {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}
                                 </ContentImg>
-                                <Link to={`/private/actualizarImgPlato/${id}`}><button style={{backgroundColor:"black",color:"white",borderRadius:"20px",cursor:"pointer",fontSize:"15px"}}>Cambiar Imagen</button></Link>
-                            <div style={{display: "flex"}}>
+                                <div style={{display:"flex", justifyContent:"space-evenly", width:"300px"}}>                               
+                                <Link to={`/private/actualizarImgPlato/${id}`}>
+                                    <button style={{height:"3em", backgroundColor:"var(--color-azul)", color:"white", border:"none",cursor:"pointer", borderRadius:"5px", width:"150px", fontSize:"18px"}}>Cambiar Imagen</button>
+                                </Link>
                                 <Entrar onClick={agregarplato}>Guardar</Entrar>
-                                <Sticker></Sticker>
-                            </div>
+                                </div>
                         </ConInfor>
                     </Hoja2>
                 </DivPrincipal>

@@ -2,7 +2,7 @@ import styled from "styled-components"
 import pizarra from "../../Img/pizarra.jpeg"
 import nota from "../../Img/notaadd.png"
 import cargar from "../../Img/SUBIR.png"
-
+import "../../../App.css"
 
 export const Pagina = styled.div`
     height: 100vh;
@@ -16,14 +16,12 @@ export const Pagina = styled.div`
 export const DivPrincipal = styled.div`
     height: 90%;
     width: 80%;
-    background-color: aqua;
-    background-image: url(${pizarra});
+    background-color: var(--color-negro);
     display: flex;
     flex-direction: column;
     justify-content: center; 
     align-items: center;
     border-radius: 8px;
-    box-shadow: 8px 12px 9px 10px rgba(0, 0, 0, 0.75);
     position: relative;
     @media  screen and (max-width: 670px ) {
         height: 120%

@@ -3,8 +3,7 @@ import Axios from "axios"
 import { Link, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../context/AuthContext";
 import { Container, Contendiv, DivFilas, InforTodo, SubContainer, Borrar, Editar } from "./TodaStyle";
-import dedo from "../../Img/aqui1.jpg"
-import dedo2 from "../../Img/aqui2.jpg"
+
 
 const ActualizaInfor = () => {
   const Navegate = useNavigate()
@@ -43,21 +42,18 @@ const enviar = () => {
     <Container>
       <SubContainer>
         <div style={{display:"flex"}}>
-          <h1 style={{color:"#000"}}>Toda la Informacion</h1>
+          <h1 style={{color:"#000", fontSize:"40px"}}>Toda la Informacion</h1>
           <div onClick={enviar} style={{display:"flex", alignItems:"center", justifyContent:"center", marginLeft:"4em", cursor:"pointer"}}>
-            <img src={dedo} style={{height:"4em", borderRadius:"1em 0 0 1em"}}/>
-            <button style={{height:"4.8em", backgroundColor:"rgb(51,51,51)", color:"white", border:"none", cursor:"pointer"}}>Crear Informacion</button>
-            <img src={dedo2} style={{height:"4em", borderRadius:" 0 1em 1em 0 "}}/>
+            <button style={{height:"3em", backgroundColor:"var(--color-azul)", color:"white", border:"none",cursor:"pointer", borderRadius:"5px", width:"150px", fontSize:"18px"}}>Crear Informacion</button>
           </div>
         </div>
+        <div style={{display:"flex", justifyContent:"space-evenly", margin:"0", color:"#ffff", backgroundColor:"var(--color-negro)", width:"80%"}}>
+          <h2>Titulo</h2>
+          <h2>Imagen</h2>
+          <h2 style={{width:"400px"}}>Acciones</h2>
+        </div>        
         <InforTodo>
           <div style={{position: "relative", top:"9%"}}>
-            <div style={{display:"flex", justifyContent:"space-evenly", margin:"0", color:"#ffff"}}>
-              <h1>Titulo</h1>
-              <h1>Imagen</h1>
-              <h1>Editar</h1>
-              <h1>Borrar</h1>
-            </div>
             {informacion.map((infor, index) => (
               <Contendiv key={index}>
                 <DivFilas>
@@ -68,10 +64,12 @@ const enviar = () => {
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   }}></div>
+                  <div style={{display:"flex", justifyContent:"space-evenly", width:"300px"}}>
                   <Link to={`/private/actualizate/${infor.id_informacion}`}>
-                    <Editar>editar</Editar>
+                    <Editar>Editar</Editar>
                   </Link>
-                  <Borrar onClick={() => eliminarProducto(infor.id_informacion)} />
+                  <Borrar onClick={() => eliminarProducto(infor.id_informacion)}>Eliminar</Borrar>
+                  </div>
                 </DivFilas>
               </Contendiv>
             ))}

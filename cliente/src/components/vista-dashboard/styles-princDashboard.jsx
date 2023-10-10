@@ -78,7 +78,6 @@ export const Header = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 6px;
-    background-image: url(${pizarra});
 `;
 
 export const ContainerHeader = styled.div`
@@ -99,7 +98,6 @@ export const CajaNav = styled.div`
     display: flex;
     grid-area: navbar1;
     border-radius: 5px;
-    background-image: url(${pizarra});
     @media  screen and (min-width: 1000px ) {
         flex-direction: column;
         font-size: 13px;
@@ -133,7 +131,6 @@ export const ContainerMenu = styled.div`
     flex-direction: column;
     align-items: center;
     overflow-y: scroll;
-    background-image: url(${pizarra});
     &::-webkit-scrollbar-thumb {
         background: var(--color-blanco); 
         border-radius: 10px;

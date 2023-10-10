@@ -76,10 +76,14 @@ export const Infor = styled.input`
 export const Infor2 = styled.input`
 `;
 
-export const Entrar = styled.div`
-    height: 50px;
-    width: 90px;
-    font-size: 25px;
+export const Entrar = styled.button`
+    width: 130px;
+    height: 3em;
+    color: #ffff;
+    background-color: var(--color-azul);
+    border: none;
+    border-radius: 5px;
+    font-size:18px;
     cursor: pointer;
 `;
 
@@ -145,8 +149,7 @@ export const Sticker2 = styled.div`
 export const DivPrincipal = styled.div`
     height: 90%;
     width: 90%;
-    background-color: aqua;
-    background-image: url(${pizarra});
+    background-color: var(--color-negro);
     display: flex;
     flex-direction: column;
     justify-content: center; 
