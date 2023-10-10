@@ -71,11 +71,11 @@ return (
                     <CajaLogo >
                         <h1>Bienvenido {user} </h1>
                     </CajaLogo>
-                    <div style={{fontSize:"20px"}}><Link to={LOGOUT}><Boton style={{height:"80px",width:"200px", color:"var(--color-blanco)",fontSize:"20px",}}>🔚Cerrar sesión</Boton></Link></div>
+                    <div style={{fontSize:"20px"}}><Link to={LOGOUT}><Boton style={{height:"80px",width:"200px", color:"var(--color-blanco)",fontSize:"20px"}}>Cerrar sesión</Boton></Link></div>
                 </Header>
             </ContainerHeader>
             <CajaNav>
-                <Link to="/private/traerAdmin" style={{cursor:"inherit",marginBottom:"15px", width:"100%"}}><Boton>👨‍💼 Administradores</Boton></Link>
+                <Link to="/private/traerAdmin" style={{cursor:"inherit",marginBottom:"15px", width:"100%"}}><Boton>👨‍💼 Usuarios</Boton></Link>
                 <Link to="/private/creaMesas" style={{cursor:"inherit",marginBottom:"15px"}}><Boton>🪵 Crear Mesa</Boton></Link>
                 <Link to="/private/traerPlato" style={{cursor:"inherit",marginBottom:"15px"}}><Boton>🥗 Platos</Boton></Link>
                 <Link to="/private/traerBebida" style={{cursor:"inherit",marginBottom:"15px"}}><Boton>🍸 Bebidas</Boton></Link>

@@ -4,10 +4,8 @@ import letrero2 from "../Img/letrero2.jpg"
 
 
 export const Background = styled.div`
-    height: 100%;
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+    height: 100%;
 `;
 
 export const Platos = styled.div`
@@ -126,7 +124,6 @@ export const CajaImg = styled.div`
         margin-top: 2em;
         width: 16em;
     }
-
 `;
 
 export const ImgPlato = styled.img`
@@ -193,6 +190,7 @@ export const Plato = styled.div`
         display: none
     }
 `;
+
 export const Plato2 = styled.div`
     height: 30em;
     width: 23em;

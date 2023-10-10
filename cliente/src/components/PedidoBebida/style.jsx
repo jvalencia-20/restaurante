@@ -18,12 +18,12 @@ export const Platos = styled.div`
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-    background-image: url(${letrero2}) ;
-    background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.9;
-    box-shadow: 10px 10px 25px 15px #000000;
+  background-image: url(${letrero2}) ;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+  box-shadow: 10px 10px 25px 15px #000000;
   @media screen and (max-width: 900px) {
     width: 40em;
   }

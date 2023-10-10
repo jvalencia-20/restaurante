@@ -47,14 +47,14 @@ export const ListarAdmin = () => {
     return(
         <Contenedor>
             <Main>
-                <div style={{display:"flex", width:"100%"}}>
-                    <h2 style={{color:"black"}}>Listado de Admin</h2>
-                    <div onClick={enviar} style={{display:"flex", alignItems:"center", justifyContent:"center", marginLeft:"2em",cursor:"pointer"}}>
+                <div>
+                    <h1 style={{color:"black",justifyContent:"center",margin:"0"}}>Listado de usuarios</h1>
+                    <div onClick={enviar} style={{display:"flex", alignItems:"center", justifyContent:"center",cursor:"pointer"}}>
                         <img src={dedo} style={{height:"3em", borderRadius:"1em 0 0 1em"}}/>
-                        <button style={{height:"3.6em", backgroundColor:"rgb(51,51,51)", color:"white", border:"none",cursor:"pointer"}}>Crear Usuario</button>
+                        <button style={{height:"2.7em", backgroundColor:"rgb(51,51,51)", color:"white", border:"none",cursor:"pointer",width:"100%",fontSize:"18px"}}>Crear Usuario</button>
                         <img src={dedo2} style={{height:"3em", borderRadius:" 0 1em 1em 0 "}}/>
                     </div>
-                    </div>
+                </div>
                 <Tabla>
                     <Thead>
                         <Tr>
