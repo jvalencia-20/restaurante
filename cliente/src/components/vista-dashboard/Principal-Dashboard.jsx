@@ -78,7 +78,7 @@ return (
                     <CajaLogo >
                         <h1>Bienvenido {user} </h1>
                     </CajaLogo>
-                    <div style={{fontSize:"20px"}}><Link to={LOGOUT}><Boton style={{height:"80px",width:"200px", color:"var(--color-blanco)",fontSize:"20px",}}>🔚Cerrar sesión</Boton></Link></div>
+                    <div style={{fontSize:"20px"}}><Link to={LOGOUT}><Boton style={{height:"80px",width:"200px", color:"var(--color-blanco)",fontSize:"20px"}}>Cerrar sesión</Boton></Link></div>
                 </Header>
             </ContainerHeader>
             <CajaNav>

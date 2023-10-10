@@ -24,7 +24,6 @@ export const Platos = styled.div`
     background-repeat: no-repeat;
     opacity: 0.9;
     box-shadow: 10px 10px 25px 15px #000000;
-    
     @media screen and (max-width: 768px) {
         height: auto;
         width: 90%;

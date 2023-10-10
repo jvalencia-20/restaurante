@@ -161,6 +161,12 @@ export const Boton = styled.button`
     border-radius: 8px;
     background-color: transparent;
     border: none;
+    /* &:hover{
+        background-color: #ff0000;
+        box-shadow: 0 0 10PX red,0 0 40PX red, 0 0 80PX red;
+        color: white;
+        text-shadow: 0 0 10PX white,0 0 40PX white, 0 0 80PX white;
+    } */
     @media  screen and (min-width: 1000px ) {
         height: 50px;
         width:100%;
