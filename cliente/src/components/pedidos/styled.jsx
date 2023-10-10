@@ -4,7 +4,7 @@ import letrero2 from "../Img/letrero2.jpg"
 
 
 export const Background = styled.div`
-    height: 50%;
+    height: 100%;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -28,7 +28,7 @@ export const Platos = styled.div`
     }
     @media screen and (max-width: 660px) {
         width: 30em;
-        height: 54em;
+        height: 50em;
     }    
     @media screen and (max-width: 500px) {
         width: 22em;
@@ -164,6 +164,7 @@ export const Botones = styled.button`
     background-color: white;
     border: 2px solid #000;
     border-radius: 0.5em;
+    cursor: pointer;
 `;
 
 export const Agregar = styled.button`

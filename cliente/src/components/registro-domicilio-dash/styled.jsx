@@ -2,7 +2,7 @@ import styled from "styled-components";
 import pizzara from "../Img/pizarra.jpeg"
 
 export const Background = styled.div`
-    height: 100vh;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -18,7 +18,6 @@ export const ContPrincipal = styled.div`
     background-color: rgba(05, 05, 05, .5);  
     backdrop-filter: blur(5px);
     box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.26);
-    border-radius: 20px;
 `;
 
 export const InputContainer = styled.div`
@@ -56,7 +55,6 @@ export const Tbody = styled.div`
 `;
 
 export const Tr1 = styled.tr`
-    /* width: 100%; */
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;

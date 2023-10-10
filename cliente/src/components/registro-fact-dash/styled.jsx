@@ -13,7 +13,7 @@ export const Background = styled.div`
 export const ContPrincipal = styled.div`
     background-image: url(${pizzara});
     border: solid 1px;
-    width: 70%;
+    width: 65%;
     height: 71%;
     background-color: rgba(05, 05, 05, .5);  
     backdrop-filter: blur(5px);
@@ -40,6 +40,7 @@ export const Boton = styled.button`
 export const Table = styled.table`
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;
 `;
 
 export const Thead = styled.thead`
@@ -48,9 +49,8 @@ export const Thead = styled.thead`
 
 export const Tbody = styled.div`
     height: 536px;
-    width: 100%;
     overflow-y: scroll;
-        &::-webkit-scrollbar-thumb {
+    &::-webkit-scrollbar-thumb {
         background: #000000; 
     }
     &::-webkit-scrollbar {

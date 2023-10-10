@@ -63,7 +63,7 @@ const Logini = () => {
           <Logotipo src={logo}></Logotipo>
           <Login>
             <ConTitulo>
-              <Titulo style={{filter: "drop-shadow(-15px 15px 10px black)"}}>Donde entras con hambre y sales comido</Titulo>
+              <Titulo style={{filter: "drop-shadow(-15px 15px 10px black)"}}>Donde entras por una bandeja y sales con una paisa</Titulo>
             </ConTitulo>
             <Form>
             <ConInfor>

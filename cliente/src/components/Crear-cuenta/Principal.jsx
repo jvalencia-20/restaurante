@@ -33,16 +33,6 @@ const Crearcuenta = () => {
       setAdvertencia('Los campos contienen caracteres sospechosos.');
       return;
     }
-    const caracteresSospechosos3 = /[ ]/.test(contraseña);    
-    if (caracteresSospechosos3) {
-      setAdvertencia('Los campos contienen caracteres sospechosos.');
-      return;
-    }
-    const caracteresSospechosos4 = /[ ]/.test(confirmarContraseña);    
-    if (caracteresSospechosos4) {
-      setAdvertencia('Los campos contienen caracteres sospechosos.');
-      return;
-    }
     Axios.post(`${process.env.REACT_APP_PRIMERO_UNO}/api/createadmin`, {
       nombre: usuario,
       correo: correo,
@@ -56,7 +46,7 @@ const Crearcuenta = () => {
     })
       .then(({ data }) => {
         alert("usuario registrado")
-        redireccionarALogin()
+        navigate("/private/traerAdmin");
       })
       .catch(error => {
         if (error.response) {
@@ -92,10 +82,9 @@ const Crearcuenta = () => {
                 setMensajito("Ocurrió un error en la solicitud.");
               }
       });
+      
     }
-  const redireccionarALogin = () => {
-    navigate("/login");
-  };
+
 
   return (
     <>

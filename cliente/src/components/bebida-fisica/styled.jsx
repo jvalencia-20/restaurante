@@ -120,6 +120,7 @@ export const Botones = styled.button`
     background-color: white;
     border: 2px solid #000;
     border-radius: 0.5em;
+    cursor: pointer;
 `;
 
 export const Agregar = styled.button`
@@ -131,6 +132,7 @@ export const Agregar = styled.button`
     border: 2px solid #000;
     border-radius: 0.5em;
     font-style: italic;
+    cursor: pointer;
 `;
 
 export const Plato = styled.div`

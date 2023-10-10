@@ -95,7 +95,6 @@ return (
                             <Name>Ingrese el precio:</Name>
                             <Infor
                                 type="number"
-
                                 name="precio"
                                 placeholder="Precio"
                                 autoComplete="off"
@@ -108,9 +107,9 @@ return (
                             <Name>Ingrese el tipo de plato:</Name>
                             <select style={{backgroundColor:"#00000015",color:"rgb(255, 255, 255)",borderRadius:"10px",width:"17.1rem",height:"3rem",fontSize:"14px", border:"1px solid #ffff"}}
                                 onChange={handleCargoSeleccionada}>
-                                <option value="" style={{backgroundColor:"black"}}>El tipo de Plato</option>
+                                <option value="" style={{backgroundColor:"black",fontSize:"14px"}}>El tipo de Plato</option>
                                 {Tipos.map((tipo, index)=>(
-                                    <option key={index} value={tipo} style={{backgroundColor:"black"}}>
+                                    <option key={index} value={tipo} style={{backgroundColor:"black",fontSize:"14px"}}>
                                         {tipo}
                                     </option>
                                 ))}

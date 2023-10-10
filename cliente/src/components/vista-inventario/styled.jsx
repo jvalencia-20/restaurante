@@ -102,9 +102,8 @@ export const Tr = styled.tr`
 
 export const Th = styled.th`
     text-align: center;
-    background-color: #e7840b;
+    background-color: #807E7E;
     height: 2em;
-    text-shadow: 1px 1px 1px black;
     border: 1px solid black;
     font-size: 25px;
 `;
