@@ -80,7 +80,7 @@ export const ListarAdmin = () => {
         <Contenedor>
             <Main>
                 <div style={{display:"flex", alignItems:"center", height:"100px"}}>
-                    <h1 style={{color:"black",justifyContent:"center",margin:"0"}}>Listado de usuarios</h1>
+                    <h1 style={{color:"black",justifyContent:"center",margin:"0",}}>Listado de usuarios</h1>
                     <div onClick={enviar} style={{display:"flex", alignItems:"center", justifyContent:"center", marginLeft:"4em",cursor:"pointer"}}>
                         <button style={{height:"3em", backgroundColor:"var(--color-azul)", color:"white", border:"none",cursor:"pointer", borderRadius:"5px", width:"150px", fontSize:"18px"}}><FiUserPlus/> Crear Usuario</button>
                     </div>
