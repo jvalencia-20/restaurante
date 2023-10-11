@@ -49,23 +49,23 @@ const enviar = () => {
         </div>
         <div style={{display:"flex", justifyContent:"space-evenly", margin:"0", color:"#ffff", backgroundColor:"var(--color-negro)", width:"80%"}}>
           <h2>Titulo</h2>
-          <h2>Imagen</h2>
-          <h2 style={{width:"400px"}}>Acciones</h2>
+          <h2 >Imagen</h2>
+          <h2>Acciones</h2>
         </div>        
         <InforTodo>
           <div style={{position: "relative", top:"9%"}}>
             {informacion.map((infor, index) => (
               <Contendiv key={index}>
                 <DivFilas>
-                <h2>{infor.Titulo}</h2>
-                <ContentImg style={{
-                  backgroundImage: `url(${process.env.REACT_APP_PRIMERO_UNO}/${infor.imagen})` 
-                  }}></ContentImg>
+                  <h2>{infor.Titulo}</h2>
+                  <ContentImg style={{
+                    backgroundImage: `url(${process.env.REACT_APP_PRIMERO_UNO}/${infor.imagen})`}}> 
+                  </ContentImg>
                   <div style={{display:"flex", justifyContent:"space-evenly", width:"300px"}}>
-                  <Link to={`/private/actualizate/${infor.id_informacion}`}>
-                    <Editar>Editar</Editar>
-                  </Link>
-                  <Borrar onClick={() => eliminarProducto(infor.id_informacion)}>Eliminar</Borrar>
+                    <Link to={`/private/actualizate/${infor.id_informacion}`}>
+                      <Editar>Editar</Editar>
+                    </Link>
+                    <Borrar onClick={() => eliminarProducto(infor.id_informacion)}>Eliminar</Borrar>
                   </div>
                 </DivFilas>
               </Contendiv>

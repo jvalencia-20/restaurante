@@ -98,7 +98,7 @@ export const ListarAdmin = () => {
                         {
                             cliente.map((val, index)=>(
                                 
-                            <Tr  key={index} style={{ backgroundColor: index % 2 === 0 ? 'white' : '#c7ba453c' }} >
+                            <Tr  key={index} style={{ backgroundColor: index % 2 === 0 ? 'white' : '' }} >
                                 <Td>{val.nombre}</Td>
                                 <Td>{val.correo}</Td>
                                 <Td>{val.cargo}</Td>

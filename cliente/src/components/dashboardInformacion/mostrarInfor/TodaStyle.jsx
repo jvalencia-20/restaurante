@@ -78,7 +78,7 @@ export const DivFilas = styled.div`
 `;
 
 export const Borrar = styled.button`
-    width: 130px;
+    width: 100px;
     height: 3em;
     color: #ffff;
     background-color: var(--color-azul);
@@ -90,7 +90,7 @@ export const Borrar = styled.button`
 
 export const Editar = styled.button`
     border: none;
-    width: 130px;
+    width: 100px;
     height: 3em;
     background-color: var(--color-azul);
     color: white;
