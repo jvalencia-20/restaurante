@@ -22,11 +22,19 @@ export const Receta = styled.div`
 `;
 
 export const ContentImg = styled.div`
-    height: 230px;
-    width: 220px;
+    height: 200px;
+    width: 200px;
+    background-color: #acacac6e;
+    background-repeat: no-repeat;
+    background-size: 97%;
+    background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
+    @media  screen and (max-height: 600px ) {
+        height: 210px;
+        width: 150px;
+    }
 `;
 
 export const ImgPlato = styled.img`

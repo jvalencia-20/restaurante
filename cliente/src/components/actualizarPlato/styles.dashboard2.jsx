@@ -1,6 +1,4 @@
 import styled from "styled-components"
-import pizarra from "../Img/pizarra.jpeg"
-import nota from "../Img/notaadd.png"
 import "../../App.css"
 
 export const Pagina = styled.div`
@@ -87,15 +85,16 @@ export const Entrar = styled.button`
 `;
 
 export const ContentImg = styled.div`
-    height: 300px;
-    width: 250px;
-    background-image: url(${nota});
+    height: 200px;
+    width: 200px;
+    background-color: #acacac6e;
     background-repeat: no-repeat;
     background-size: 97%;
     background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 30px;
     @media  screen and (max-height: 600px ) {
         height: 210px;
         width: 150px;

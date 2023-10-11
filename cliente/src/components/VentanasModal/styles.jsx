@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import "../../App.css"
 
 export const Fondo = styled.div`
     position: fixed;
@@ -14,7 +15,7 @@ export const Fondo = styled.div`
 `;
 
 export const Container = styled.div`
-    background-color:  #000000;
+    background-color: var(--color-negro);
     position: absolute;
     z-index: 0;
     height: 33em;
@@ -35,7 +36,7 @@ export const Salir = styled.div`
 `;
 
 export const Salida = styled.button`
-    background-color: #141414;
+    background-color: red;
     background-size: cover;
     background-position: center;
     margin-bottom: 50em;
@@ -46,10 +47,7 @@ export const Salida = styled.button`
     margin: 1em;
     color: #ffffff6a;
     &:hover{
-        background-color: #ff0000;
-        box-shadow: 0 0 10PX red,0 0 40PX red, 0 0 80PX red;
         color: white;
-        text-shadow: 0 0 10PX white,0 0 40PX white, 0 0 80PX white;
     };
 `;
 
@@ -60,11 +58,9 @@ export const Mensaje = styled.div`
     align-items: center;
     justify-content: center;
     color: #ffffff;
-    text-shadow: 0 0 10PX #ffffff,0 0 40PX #ffffff, 0 0 80PX #ffffff;
 `;
 
 export const Form = styled.div`
-    background-color: #c8c7c9;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -90,17 +86,20 @@ export const Infor = styled.input`
     border: 1px solid #ffff;
     background-color: transparent;
     border-radius: 5px;
-    color: #12011d;
+    color: #ffffff;
     @media screen and ( max-width: 90vh){   
         height: 2em;
         width: 20em; 
 }
 `;
 
-export const Div = styled.div`
-    width: 13em;
-    height: 6em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+export const Div = styled.button`
+    width: 130px;
+    height: 3em;
+    color: #ffff;
+    background-color: var(--color-azul);
+    border: none;
+    border-radius: 5px;
+    font-size:18px;
+    cursor: pointer;
 `;

@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import nota from "../Img/notaadd.png"
 import cargar from "../Img/SUBIR.png"
 import "../../App.css"
 
@@ -81,6 +80,7 @@ export const Infor = styled.input`
     background-color: transparent;
     color: white;
     border-radius: 8px;
+    border: 1px solid #ffff;
     height: 30px;
     width: 20em;
     margin-top: 2em;
@@ -116,6 +116,7 @@ export const Eliminar = styled.div`
 export const InforImg = styled.input`
     border: none;
     font-family: 'Indie Flower', cursive;
+    border: 1px solid #ffff;
 `;
 
 export const SpanImg = styled.span`
@@ -133,15 +134,16 @@ export const LabelImg = styled.label`
 `;
 
 export const ContentImg = styled.div`
-    height: 300px;
-    width: 250px;;
-    background-image: url(${nota});
+    height: 200px;
+    width: 200px;
+    background-color: #acacac6e;
     background-repeat: no-repeat;
     background-size: 97%;
     background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 30px;
     @media  screen and (max-height: 600px ) {
         height: 210px;
         width: 150px;

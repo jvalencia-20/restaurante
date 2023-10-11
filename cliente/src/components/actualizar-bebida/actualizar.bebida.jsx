@@ -1,5 +1,4 @@
 import { Pagina, Background, Receta, Hoja1, Hoja2, ConInfor, Infor, Name, Entrar, Div, ContentImg, ImgPlato,DivPrincipal} from "./styles.dashboard2"
-import { Sticker } from "./styles.dashboard2";
 import React, { useEffect, useState } from 'react';
 import Axios from "axios";
 import { useNavigate, useParams, Link } from "react-router-dom";
@@ -133,16 +132,15 @@ useEffect(()=>{
                         </Div>   
                     </Hoja1>
                     <Hoja2>
-                        <ConInfor style={{height:"480px"}}>
-                            <div style={{ height:"100px", width:"100%", display:"flex", justifyContent: "center"}}></div>
+                        <ConInfor >
                                 <p style={{margin: "none", fontSize:"20px"}}>Imagen Actual</p>
                                 <ContentImg> 
                                     {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}
                                 </ContentImg>
-                                <Link to={`/private/actualizarImgbebida/${id}`}><button style={{backgroundColor:"black",color:"white",borderRadius:"20px",cursor:"pointer",fontSize:"15px"}}>Cambiar Imagen</button></Link>
-                            <div style={{display: "flex"}}>
+                            <div style={{display:"flex", justifyContent:"space-evenly", width:"300px"}}>
+                                <Link to={`/private/actualizarImgbebida/${id}`}>
+                                    <button style={{height:"3em", backgroundColor:"var(--color-azul)", color:"white", border:"none",cursor:"pointer", borderRadius:"5px", width:"150px", fontSize:"18px"}}>Cambiar Imagen</button></Link>
                                 <Entrar onClick={agregarbebida}>Guardar</Entrar>
-                                <Sticker></Sticker>
                             </div>
                         </ConInfor>
                     </Hoja2>

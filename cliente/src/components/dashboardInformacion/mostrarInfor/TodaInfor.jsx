@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import Axios from "axios"
 import { Link, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../context/AuthContext";
-import { Container, Contendiv, DivFilas, InforTodo, SubContainer, Borrar, Editar } from "./TodaStyle";
+import { Container, Contendiv, DivFilas, InforTodo, SubContainer, Borrar, Editar, ContentImg } from "./TodaStyle";
 
 
 const ActualizaInfor = () => {
@@ -58,12 +58,9 @@ const enviar = () => {
               <Contendiv key={index}>
                 <DivFilas>
                 <h2>{infor.Titulo}</h2>
-                <div style={{
-                  backgroundImage: `url(${process.env.REACT_APP_PRIMERO_UNO}/${infor.imagen})`, 
-                  width:"200px", height:"200px",
-                  backgroundSize: "contain",
-                  backgroundRepeat: "no-repeat",
-                  }}></div>
+                <ContentImg style={{
+                  backgroundImage: `url(${process.env.REACT_APP_PRIMERO_UNO}/${infor.imagen})` 
+                  }}></ContentImg>
                   <div style={{display:"flex", justifyContent:"space-evenly", width:"300px"}}>
                   <Link to={`/private/actualizate/${infor.id_informacion}`}>
                     <Editar>Editar</Editar>

@@ -52,6 +52,22 @@ export const Contendiv = styled.div`
     color: white;
 `;
 
+export const ContentImg = styled.div`
+    height: 200px;
+    width: 200px;
+    background-color: #acacac6e;
+    background-repeat: no-repeat;
+    background-size: 97%;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    @media  screen and (max-height: 600px ) {
+        height: 210px;
+        width: 150px;
+    }
+`;
 export const DivFilas = styled.div`
     width:100%;
     height: 240px;

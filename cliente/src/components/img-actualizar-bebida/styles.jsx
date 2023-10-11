@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import pizarra from "../Img/pizarra.jpeg"
 
 export const Fondo = styled.div`
     position: fixed;
@@ -15,7 +14,7 @@ export const Fondo = styled.div`
 `;
 
 export const Container = styled.div`
-    background-image: url(${pizarra});
+    background-color: var(--color-negro);
     position: absolute;
     z-index: 0;
     height: 33em;
@@ -25,7 +24,6 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    filter: drop-shadow(6px 15px 8px black);
 `;
 
 export const Salir = styled.div`
@@ -36,7 +34,6 @@ export const Salir = styled.div`
 `;
 
 export const Salida = styled.button`
-    background-color: #141414;
     background-size: cover;
     background-position: center;
     margin-bottom: 50em;
@@ -46,11 +43,10 @@ export const Salida = styled.button`
     width: 4em;
     margin: 1em;
     color: #ffffff6a;
+    background-color: #ff0000;
     &:hover{
-        background-color: #ff0000;
-        box-shadow: 0 0 10PX red,0 0 40PX red, 0 0 80PX red;
+        
         color: white;
-        text-shadow: 0 0 10PX white,0 0 40PX white, 0 0 80PX white;
     };
 `;
 
@@ -64,7 +60,6 @@ export const Mensaje = styled.div`
 `;
 
 export const Form = styled.div`
-    background-image: url(${pizarra});
     height: 19em;
     width: 30em;
     display: flex;
@@ -81,12 +76,15 @@ export const ConInfor = styled.div`
     justify-content: space-around; 
 `;
 
-export const Div = styled.div`
-    width: 13em;
-    height: 6em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+export const Div = styled.button`
+    border: none;
+    width: 130px;
+    height: 3em;
+    background-color: var(--color-azul);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size:18px;
+    color: white;
 `;
 
 export const InforImg = styled.input`
@@ -97,25 +95,15 @@ export const InforImg = styled.input`
 export const SpanImg = styled.span`
 `;
 
-export const LabelImg = styled.label`
-    height: 50px;
-    width: 85px;
-    background-repeat: no-repeat;
-    background-size: 89%;
-    background-position: center;
-    border-radius: 8%;
-    background-color: #000000 ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-    font-weight: bold;
-    color: #7c7b7b;
-    &:hover{
-        color: white;
-        background: #000000;
-        box-shadow: 0 0 10PX #000000,0 0 40PX #000000, 0 0 80PX #000000;
-    }
+export const LabelImg = styled.button`
+    border: none;
+    width: 130px;
+    height: 3em;
+    background-color: var(--color-azul);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size:18px;
+    color: white;
 `;
 
 export const ContentImg = styled.div`

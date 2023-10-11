@@ -106,14 +106,8 @@ return (
                     onChange={ev => setConfirmPassword(ev.target.value)}/>
             </ConInfor>
         </Form>     
-            <Div>
-                <a onClick={actualizarusuario} style={{fontWeight:"bold"}} href="#" class="btn-neon">
-                    <span id="span1"></span>
-                    <span id="span2"></span>
-                    <span id="span3"></span>
-                    <span id="span4"></span>
-                    ACTUALIZAR
-                </a>
+            <Div onClick={actualizarusuario}>
+                ACTUALIZAR
             </Div>
     </Container>
 </Fondo>      

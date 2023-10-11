@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import pizarra from "../Img/pizarra.jpeg"
+import "../../App.css"
 
 export const Background = styled.div`
   background-size: cover;
@@ -17,11 +18,10 @@ export const Background = styled.div`
 `;
 
 export const Login = styled.form`
-  background-image: url(${pizarra});
+  background-color: var(--color-negro);
   height: 30em;
   width: 30em;
   border-radius: 1em;
-  box-shadow: 10px 10px 10px  black;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -57,7 +57,6 @@ export const ConInfor = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url(${pizarra});
   @media screen and ( max-width: 90vh){   
     height: 70%;
     width: 20em; 
@@ -87,11 +86,12 @@ export const Infor = styled.input`
 `;
 
 export const Entrar = styled.button`
-  margin-top: 2em;
-  color: #ffff;
-  height: 3em;
-  width: 8em;
-  border: 1px solid #ffff;
-  border-radius: 1em;
-  background-color: transparent;
+    border: none;
+    width: 130px;
+    height: 3em;
+    background-color: var(--color-azul);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size:18px;
 `;

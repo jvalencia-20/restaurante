@@ -107,7 +107,6 @@ const config = {
                                 </ContentImg>
                             <div style={{display: "flex"}}>
                             <Entrar onClick={agregarplato}>Guardar</Entrar>
-                            <Sticker></Sticker>
                             </div>
                         </ConInfor>
                     </Hoja2>
