@@ -1,9 +1,8 @@
 import styled from "styled-components"
-import pizarra from "../Img/pizarra.jpeg"
-import borrar from "../Img/borrar.png"
 import "../../App.css"
 
 export const Pagina = styled.div`
+    font-family: var(--tipo-letra);
     height: 100vh;
     width: 100%;
 `;

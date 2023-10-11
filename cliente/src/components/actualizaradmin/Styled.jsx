@@ -3,6 +3,7 @@ import pizarra from "../Img/pizarra.jpeg"
 import "../../App.css"
 
 export const Background = styled.div`
+  font-family: var(--tipo-letra);
   background-size: cover;
   height: 100%;
   width: 100%;
@@ -39,7 +40,6 @@ export const ConTitulo = styled.div`
 `;
 
 export const Titulo = styled.h1`
-  font-family: 'Katibeh', cursive;  
   color: #f1f1f1;
   font-size: 25px;
   padding: 2px;

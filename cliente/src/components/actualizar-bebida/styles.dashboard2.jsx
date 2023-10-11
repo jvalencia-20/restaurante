@@ -3,6 +3,7 @@ import "../../App.css"
 
 
 export const Pagina = styled.div`
+    font-family: var(--tipo-letra);
     height: 100vh;
     width: 100%;
 `;

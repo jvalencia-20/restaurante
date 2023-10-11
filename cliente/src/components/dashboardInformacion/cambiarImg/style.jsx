@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Fondo = styled.div`
+    font-family: var(--tipo-letra);
     position: fixed;
     top: 0;
     left: 0;

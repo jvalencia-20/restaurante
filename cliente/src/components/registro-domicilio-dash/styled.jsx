@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const Background = styled.div`
+    font-family: var(--tipo-letra);
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     flex-direction: column;
 `;
 

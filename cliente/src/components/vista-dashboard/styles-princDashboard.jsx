@@ -4,6 +4,7 @@ import pizarra from "../Img/pizarra.jpeg"
 import {RxExit} from "react-icons/rx"
 
 export const Body = styled.div`
+    font-family: var(--tipo-letra);
     width: 100%;
     height: 100vh;
     display: flex;

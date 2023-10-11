@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../context/AuthContext";
+import FileUploadIcon from '@mui/icons-material/FileUpload';
 
 export const Dashboard = () => {
     const [selectedImage, setSelectedImage] = useState(null);
@@ -119,14 +120,14 @@ return (
                     <Hoja2>
                         <ConInfor style={{ height: "480px" }}>
                             <div style={{ height: "100px", width: "100%", display: "flex", justifyContent: "center" }}>
-                                <LabelImg className="btn btn-warning">
-                                    <SpanImg> </SpanImg>
-                                    <InforImg
-                                        hidden
-                                        type="file"
-                                        onChange={handleImageChange}>
-                                    </InforImg>
-                                </LabelImg>
+                            <LabelImg className="btn btn-warning">
+                                <FileUploadIcon style={{fontSize:"80px"}}/>
+                                <InforImg
+                                    hidden 
+                                    type="file"
+                                    onChange={handleImageChange}>
+                                </InforImg>
+                            </LabelImg>
                                 <Nota></Nota>
                             </div>
                             <ContentImg>

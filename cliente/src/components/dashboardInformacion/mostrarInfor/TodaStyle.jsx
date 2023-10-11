@@ -2,6 +2,7 @@ import styled from "styled-components";
 import "../../../App.css"
 
 export const Container = styled.div`
+    font-family: var(--tipo-letra);
     height: 85vh;
     width: 100%;
     display: flex;

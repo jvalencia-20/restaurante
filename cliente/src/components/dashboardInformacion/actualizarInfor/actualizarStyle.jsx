@@ -3,6 +3,7 @@ import nota from "../../Img/notaadd.png"
 import "../../../App.css"
 
 export const Pagina = styled.div`
+    font-family: var(--tipo-letra);
     height: 85vh;
     width: 100%;
 `;
