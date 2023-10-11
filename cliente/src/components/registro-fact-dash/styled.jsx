@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import pizzara from "../Img/pizarra.jpeg"
 
 export const Background = styled.div`
     height: 100%;
@@ -11,13 +10,11 @@ export const Background = styled.div`
 `;
 
 export const ContPrincipal = styled.div`
-    background-image: url(${pizzara});
+    background-color: var(--color-negro);
     border: solid 1px;
     width: 65%;
     height: 71%;
-    background-color: rgba(05, 05, 05, .5);  
     backdrop-filter: blur(5px);
-    box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.26);
 `;
 
 export const InputContainer = styled.div`
@@ -28,13 +25,14 @@ export const InputContainer = styled.div`
 `;
 
 export const Boton = styled.button`
-    border-radius: 20px;
-    background-color: black;
-    color: white;
+    border: none;
+    width: 130px;
+    height: 3em;
+    background-color: var(--color-azul);
+    border-radius: 5px;
     cursor: pointer;
-    &:hover{
-        background-color: #1f52e0;
-    }
+    font-size:18px;
+    color: white;
 `;
 
 export const Table = styled.table`
