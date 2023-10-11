@@ -112,12 +112,15 @@ export const InforImg = styled.input`
 export const SpanImg = styled.span`
 `;
 
-export const LabelImg = styled.button`
+export const LabelImg = styled.label`
     border: none;
     width: 130px;
     height: 3em;
     background-color: var(--color-azul);
     border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     font-size:18px;
     color: white;

@@ -1,7 +1,6 @@
 import { Pagina, Hoja1, Hoja2, ConInfor, Infor, InforImg, Name, Entrar, Div, LabelImg, ContentImg, ImgPlato,  DivPrincipal, Eliminar} from "./style";
 import React, { useState, useEffect } from 'react';
 import Axios from "axios";
-import elimina from "../Img/delete.png"
 import { useAuthContext } from "../context/AuthContext";
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 
