@@ -97,7 +97,7 @@ return(
                             </InforImg>
                         </LabelImg>
                     </div>
-                        <ContentImg>fbfd
+                        <ContentImg>
                             {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}
                         </ContentImg>
                     <div style={{display: "flex"}}>

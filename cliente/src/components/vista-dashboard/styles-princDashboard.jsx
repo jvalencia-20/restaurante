@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import "../../App.css"
 import pizarra from "../Img/pizarra.jpeg"
+import {RxExit} from "react-icons/rx"
 
 export const Body = styled.div`
     width: 100%;
@@ -161,12 +162,6 @@ export const Boton = styled.button`
     border-radius: 8px;
     background-color: transparent;
     border: none;
-    /* &:hover{
-        background-color: #ff0000;
-        box-shadow: 0 0 10PX red,0 0 40PX red, 0 0 80PX red;
-        color: white;
-        text-shadow: 0 0 10PX white,0 0 40PX white, 0 0 80PX white;
-    } */
     @media  screen and (min-width: 1000px ) {
         height: 50px;
         width:100%;
@@ -179,3 +174,30 @@ export const Boton = styled.button`
         cursor: pointer
     }
 `;
+
+export const CerrarSesion = styled.button`
+    height: 50px;
+    font-size: 20px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 22px;
+`;
+
+export const Icon = styled.div`
+    height: 45px;
+    width: 45px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover{
+        background-color: red;
+    }
+`;
+

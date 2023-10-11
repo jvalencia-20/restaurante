@@ -73,6 +73,7 @@ export const Th = styled.th`
     color: white;
     margin: 0;
     margin-right: 60px;
+    font-size: 20px;
 `;
 
 export const Td = styled.td`
@@ -82,6 +83,7 @@ export const Td = styled.td`
     font-size: 18px;
     z-index: 0;
     margin-right: 10px;
+    font-size: 20px;
 `;
 
 export const TdMesa = styled(Td)`

@@ -185,6 +185,13 @@ export const Inventario = () => {
         }
     };
 
+    const handleKey = (event) => {
+        let tecla = event.key
+        if(['e','.',',','-','+'].includes(tecla)) {
+            event.preventDefault();
+        }
+    }
+
     return (
         <>
             <Contenedor>
@@ -210,6 +217,7 @@ export const Inventario = () => {
                                     min={1}
                                     name="unidad"
                                     value={unidad}
+                                    onKeyDown={handleKey}
                                     placeholder='Que unidad tiene?'
                                     className="form-control"
                                     accept="unidad/*"
@@ -224,6 +232,7 @@ export const Inventario = () => {
                                     type="number"
                                     value={precio}
                                     min={1}
+                                    onKeyDown={handleKey}
                                     name="precio"
                                     className="form-control"
                                     placeholder='Que precio tiene?'
@@ -263,6 +272,7 @@ export const Inventario = () => {
                                     min={1}
                                     name="unidad"
                                     value={unidad}
+                                    onKeyDown={handleKey}
                                     placeholder='Que unidad tiene?'
                                     className="form-control"
                                     accept="unidad/*"
@@ -277,6 +287,7 @@ export const Inventario = () => {
                                     type="number"
                                     value={precio}
                                     min={1}
+                                    onKeyDown={handleKey}
                                     name="precio"
                                     autoComplete='off'
                                     className="form-control"

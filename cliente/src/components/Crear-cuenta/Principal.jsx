@@ -3,6 +3,7 @@ import Axios from "axios"
 import { Background, ConInfor, ConTitulo, Entrar, Infor, Login, Name, Titulo } from "./Styled";
 import { useNavigate } from "react-router-dom"
 import { useAuthContext } from "../context/AuthContext";
+import Swal from "sweetalert2";
 
 const Crearcuenta = () => {
   const navigate = useNavigate()
@@ -44,8 +45,14 @@ const Crearcuenta = () => {
         Authorization: token
       }
     })
-      .then(({ data }) => {
-        alert("usuario registrado")
+      .then(({data}) => {
+        console.log(data);  
+        Swal.fire({
+          icon:'success',
+          title:'Wow!',
+          html:`Se ha creado la cuenta para <b>${usuario}</b>`,
+          timer:2000
+      });
         navigate("/private/traerAdmin");
       })
       .catch(error => {

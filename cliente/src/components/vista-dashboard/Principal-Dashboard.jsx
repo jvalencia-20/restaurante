@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Outlet, useLocation } from "react-router-dom";
-import {Body, Container, Header, ContainerHeader, Boton, CajaNav, CajaLogo, ContainerMain, ContainerMenu } from "./styles-princDashboard"
+import {Body, Container, Header, ContainerHeader, Boton, CajaNav, CajaLogo, ContainerMain, ContainerMenu, CerrarSesion, Icon } from "./styles-princDashboard"
 import { LOGOUT } from "../router/path";
 import Axios from "axios"
 import "../../App.css"
@@ -15,6 +15,7 @@ import {GiDrinkMe} from "react-icons/gi"
 import {FaClipboardList} from "react-icons/fa"
 import {MdFormatListBulletedAdd} from "react-icons/md"
 import {PiListMagnifyingGlassFill} from "react-icons/pi"
+import {RxExit} from "react-icons/rx"
 
 function PrincipalDashboard() {
     const navegate = useNavigate()
@@ -78,7 +79,7 @@ return (
                     <CajaLogo >
                         <h1>Bienvenido {user} </h1>
                     </CajaLogo>
-                    <div style={{fontSize:"20px"}}><Link to={LOGOUT}><Boton style={{height:"80px",width:"200px", color:"var(--color-blanco)",fontSize:"20px"}}>Cerrar sesión</Boton></Link></div>
+                    <div style={{fontSize:"20px"}}><Link to={LOGOUT} style={{textDecoration:"none",}}><CerrarSesion><Icon><RxExit style={{fontSize:"32px",color:"white"}}></RxExit></Icon>Cerrar sesion</CerrarSesion></Link></div>
                 </Header>
             </ContainerHeader>
             <CajaNav>

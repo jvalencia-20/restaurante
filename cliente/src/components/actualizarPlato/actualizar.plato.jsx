@@ -100,6 +100,23 @@ const config = {
 useEffect(()=>{
     BuscarPlato()
 },[])
+
+
+const handleKey = (event) => {
+    let tecla = event.key
+    if (['e',',','.','-','+','*'].includes(tecla)) {
+        event.preventDefault();
+    }
+}
+
+
+const longitudInput = (event)=> {
+    const inputValue = event.target.value
+    const longitudMaxima = 15
+    if (inputValue.length <= longitudMaxima) {
+        setPrecio(inputValue)
+    }
+}
     return(
     <Pagina>
         <Background>
@@ -135,12 +152,14 @@ useEffect(()=>{
                         <Div>
                             <Name>Ingrese el precio:</Name>
                             <Infor
-                                type="text"
+                                type="number"
+                                min={1}
+                                onKeyDown={handleKey}
                                 name="precio"
                                 placeholder="Precio"
                                 autoComplete="off"
                                 value={precio}
-                                onChange={ev => setPrecio(ev.target.value)}>
+                                onChange={longitudInput}>
                             </Infor>
                         </Div>   
                         <Div>
