@@ -16,7 +16,8 @@ body,html{
 :root{
   /* variables de estilo global para los colores del proyecto */
   /* colores dashboard */
-  --color-negro: rgb(28, 28, 28);
+  --color-negro: rgb(124, 122, 122);
+  --color-azul: rgb(52,131,250);
   --color-blanco: rgb(255, 255, 255);
   --color-amarillo: -1px 1px 7px 1px rgba(148, 148, 148, 0.625);
   --color-amarilloHover: 0 0 10PX #8b8b8b,0 0 40PX #8b8b8b, 0 0 80PX #8b8b8b;

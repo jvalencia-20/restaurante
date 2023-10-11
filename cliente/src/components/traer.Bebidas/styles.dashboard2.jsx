@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import pizarra from "../Img/pizarra.jpeg"
-import nota from "../Img/notaadd.png"
 import borrar from "../Img/borrar.png"
+import "../../App.css"
 
 export const Pagina = styled.div`
     height: 100vh;
@@ -26,10 +26,6 @@ export const Receta = styled.div`
 export const ContentImg = styled.div`
     height: 230px;
     width: 220px;
-    background-image: url(${nota});
-    background-repeat: no-repeat;
-    background-size: 97%;
-    background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,12 +44,10 @@ export const ImgPlato = styled.img`
 export const DivPrincipal = styled.div`
     height: 100%;
     width: 90%;
-    background-color: aqua;
-    background-image: url(${pizarra});
+    background-color: var(--color-negro);
     display: flex;
     flex-direction: column;
-    border-radius: 8px;
-    box-shadow: 8px 12px 9px 10px rgba(0, 0, 0, 0.75);
+    border-radius: 0 0  8px 8px ;
     position: relative;
     overflow-y: auto;
     &::-webkit-scrollbar-thumb {
@@ -88,18 +82,14 @@ export const Contendiv = styled.div`
 `;
 
 export const Borrar = styled.button`
-    width: 80px;
-    height: 80px;
-    background-image: url(${borrar});
-    background-repeat: no-repeat;
-    background-size: 96%;
-    background-position: center;
-    background-color: transparent;
+    width: 130px;
+    height: 3em;
+    color: #ffff;
+    background-color: var(--color-azul);
     border: none;
-    &:hover{
-        rotate: 30deg;
-        cursor: pointer;
-    }
+    border-radius: 5px;
+    font-size:18px;
+    cursor: pointer;
 `;
 
 export const DivFilas = styled.div`
@@ -113,10 +103,11 @@ export const DivFilas = styled.div`
 
 export const Editar = styled.button`
     border: none;
-    width: 80px;
-    height: 45px;
-    background-color: black;
+    width: 130px;
+    height: 3em;
+    background-color: var(--color-azul);
     color: white;
-    border-radius:20px;
+    border-radius: 5px;
     cursor: pointer;
+    font-size:18px;
 `;

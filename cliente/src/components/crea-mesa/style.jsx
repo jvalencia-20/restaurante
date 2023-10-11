@@ -1,7 +1,7 @@
 import styled from "styled-components"
-import pizarra from "../Img/pizarra.jpeg"
 import nota from "../Img/notaadd.png"
 import cargar from "../Img/SUBIR.png"
+import "../../App.css"
 
 
 export const Pagina = styled.div`
@@ -16,13 +16,12 @@ export const Pagina = styled.div`
 export const DivPrincipal = styled.div`
     height: 90%;
     width: 80%;
-    background-image: url(${pizarra});
+    background-color: var(--color-negro);
     display: flex;
     flex-direction: column;
     justify-content: center; 
     align-items: center;
     border-radius: 8px;
-    box-shadow: 8px 12px 9px 10px rgba(0, 0, 0, 0.75);
     position: relative;
     @media  screen and (max-width: 670px ) {
         height: 120%
@@ -90,7 +89,18 @@ export const Infor = styled.input`
 export const Infor2 = styled.input`
 `;
 
-export const Entrar = styled.div`
+export const Entrar = styled.button`
+    width: 130px;
+    height: 3em;
+    color: #ffff;
+    background-color: var(--color-azul);
+    border: none;
+    border-radius: 5px;
+    font-size:18px;
+    cursor: pointer;
+`;
+
+export const Eliminar = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;

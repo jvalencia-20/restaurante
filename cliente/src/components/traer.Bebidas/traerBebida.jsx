@@ -1,10 +1,10 @@
 import { Pagina, Editar, Background, Receta, DivPrincipal, Contendiv, Borrar, ContentImg, ImgPlato, DivFilas } from "./styles.dashboard2"
 import React, { useState, useEffect } from 'react';
 import Axios from "axios";
+import "../../App.css"
 import { useAuthContext } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
-import dedo from "../Img/aqui1.jpg"
-import dedo2 from "../Img/aqui2.jpg"
+
 
 export const TraerBebidas = () => {
     const Navegate = useNavigate()
@@ -45,21 +45,18 @@ export const TraerBebidas = () => {
             <Background>
                 <Receta>
                     <div style={{display:"flex"}}>
-                        <h1 style={{ color: "black"}}>Bebidas</h1>
+                        <h1 style={{ color: "black", fontSize:"40px"}}>Bebidas</h1>
                         <div onClick={enviar} style={{display:"flex", alignItems:"center", justifyContent:"center", marginLeft:"4em",cursor:"pointer"}}>
-                            <img src={dedo} style={{height:"4em", borderRadius:"1em 0 0 1em"}}/>
-                            <button style={{height:"4.8em", backgroundColor:"rgb(51,51,51)", color:"white", border:"none",cursor:"pointer"}}>Agregar Plato</button>
-                            <img src={dedo2} style={{height:"4em", borderRadius:" 0 1em 1em 0 "}}/>
+                            <button style={{height:"3em", backgroundColor:"var(--color-azul)", color:"white", border:"none",cursor:"pointer", borderRadius:"5px", width:"150px", fontSize:"18px"}}>Agregar Bebida</button>
                         </div>
+                    </div>
+                    <div style={{display:"flex", justifyContent:"space-evenly", margin:"0", color:"#ffff", backgroundColor:"var(--color-negro)", width:"80%"}}>
+                                <h2>Nombre Bedida</h2>
+                                <h2>Imagen</h2>
+                                <h2 style={{width:"400px"}}>Acciones</h2>
                     </div>
                     <DivPrincipal >
                         <div style={{ position: "relative", top: "9%" }}>
-                            <div style={{display:"flex", justifyContent:"space-evenly", margin:"0", color:"#ffff"}}>
-                                <h1>Nombre Bebida</h1>
-                                <h1>Imagen</h1>
-                                <h1>Editar</h1>
-                                <h1>Borrar</h1>
-                            </div>
                             {bebida.map((val, index) => (
                                     <Contendiv key={index}>
                                         <DivFilas>
@@ -67,10 +64,12 @@ export const TraerBebidas = () => {
                                             <ContentImg>
                                                 <ImgPlato src={`${process.env.REACT_APP_PRIMERO_UNO}/` + val.imagen} alt={val.nombre_bebida}></ImgPlato>
                                             </ContentImg>
+                                            <div style={{display:"flex", justifyContent:"space-evenly", width:"300px"}}>
                                             <Link to={`/private/actualizarBebida/${val.id_bebida}`}>
-                                                <Editar>editar</Editar>
+                                                <Editar>Editar</Editar>
                                             </Link>
-                                            <Borrar onClick={() => eliminarProducto(val.id_bebida)} />
+                                            <Borrar onClick={() => eliminarProducto(val.id_bebida)}>Eliminar</Borrar>
+                                            </div>
                                         </DivFilas>
                                     </Contendiv>
                                 ))

@@ -1,4 +1,4 @@
-import { Pagina, Hoja1, Hoja2, ConInfor, Infor, InforImg, Name, Entrar, Div, SpanImg, LabelImg, ContentImg, ImgPlato,  DivPrincipal} from "./style";
+import { Pagina, Hoja1, Hoja2, ConInfor, Infor, InforImg, Name, Entrar, Div, SpanImg, LabelImg, ContentImg, ImgPlato,  DivPrincipal, Eliminar} from "./style";
 import React, { useState, useEffect } from 'react';
 import Axios from "axios";
 import elimina from "../Img/delete.png"
@@ -81,8 +81,8 @@ return(
                 <Div style={{ height:" 3em"}}>
                 </Div>
                 <Div>
-                <Name>Elimina mesas</Name>
-                    <Entrar onClick={eliminar} style={{backgroundImage:`url(${elimina})`, height:"100px", width:"110px"}}></Entrar>
+                <Name>Elimina mesa</Name>
+                    <Eliminar onClick={eliminar} style={{backgroundImage:`url(${elimina})`, height:"100px", width:"110px"}}></Eliminar>
                 </Div>
             </Hoja1>
             <Hoja2>

@@ -45,8 +45,7 @@ const Crearcuenta = () => {
         Authorization: token
       }
     })
-      .then(({data}) => {
-        console.log(data);  
+      .then(({data}) => {  
         Swal.fire({
           icon:'success',
           title:'Wow!',
