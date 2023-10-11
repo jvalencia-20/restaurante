@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Contenedor = styled.div`
+    font-family: var(--tipo-letra);
     background-color: #f3f3f3;
     display: flex;
     justify-content: center;

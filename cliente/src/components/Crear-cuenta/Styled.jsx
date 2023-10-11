@@ -2,6 +2,7 @@ import styled from "styled-components"
 import "../../App.css"
 
 export const Background = styled.div`
+  font-family: var(--tipo-letra);
   height: 100%;
   width: 100%;
   display: flex;
@@ -39,7 +40,6 @@ export const ConTitulo = styled.div`
 `;
 
 export const Titulo = styled.h1`
-  font-family: 'Katibeh', cursive;  
   color: #f1f1f1;
   font-size: 1.5em;
   padding: 2px;

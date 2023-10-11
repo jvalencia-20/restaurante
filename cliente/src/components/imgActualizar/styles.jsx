@@ -3,6 +3,7 @@ import pizarra from "../Img/pizarra.jpeg"
 import "../../App.css"
 
 export const Fondo = styled.div`
+    font-family: var(--tipo-letra);
     position: fixed;
     top: 0;
     left: 0;

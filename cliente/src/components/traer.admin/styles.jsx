@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Contenedor = styled.div`
+    font-family: var(--tipo-letra);
     width: 100%;
     height: 100%;
     display : flex;
@@ -71,5 +72,6 @@ export const Editar = styled.button`
 `;
 
 export const Titulo = styled.h1`
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--tipo-letra);
+
 `;

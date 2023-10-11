@@ -1,9 +1,9 @@
 import { Pagina, Background, Receta, Hoja1, Hoja2, ConInfor, Infor, InforImg, Name, Entrar, Div, SpanImg, LabelImg, ContentImg, ImgPlato, Nota, DivPrincipal} from "./styles.dashboard2"
-import { Sticker } from "./styles.dashboard2";
 import React, { useState } from 'react';
 import Axios from "axios";
 import { useAuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import FileUploadIcon from '@mui/icons-material/FileUpload';
 
 export const DashboardBebida = () => {
     const navigate = useNavigate()
@@ -92,14 +92,14 @@ const config = {
                     <Hoja2>
                         <ConInfor style={{height:"480px"}}>
                             <div style={{ height:"100px", width:"100%", display:"flex", justifyContent: "center"}}>
-                                <LabelImg className="btn btn-warning">
-                                <SpanImg> </SpanImg>
+                            <LabelImg className="btn btn-warning">
+                            <FileUploadIcon style={{fontSize:"80px"}}/>
                                 <InforImg
                                     hidden 
                                     type="file"
                                     onChange={handleImageChange}>
                                 </InforImg>
-                                </LabelImg>
+                            </LabelImg>
                                 <Nota></Nota>
                             </div>
                                 <ContentImg>

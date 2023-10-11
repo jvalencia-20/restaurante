@@ -3,10 +3,11 @@ import { pool } from "../db.js";
 export const getMesa = async (req, res) => {
     try {
         const id_mesa = parseInt(req.params.id)
-        const query = `
-            SELECT * FROM orden
-            WHERE id_mesa = ?
-        `;
+        // const query = `
+        //     SELECT * FROM orden
+        //     WHERE id_mesa = ?
+        // `;
+        const query = "SELECT producto, SUM(cantidad) AS cantidad, SUM(precio) AS precio FROM orden WHERE id_mesa = ? GROUP BY producto"
         const [rows] = await pool.query(query, [id_mesa]);
         res.json(rows);
     } catch (error) {

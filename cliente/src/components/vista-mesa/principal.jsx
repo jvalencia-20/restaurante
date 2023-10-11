@@ -46,7 +46,7 @@ const VistaMesa = () => {
   };  
 
   const getMesas = () => {
-    axios.get("http://localhost:3002/api/mesas").then((response) => {
+    axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/mesas`).then((response) => {
       setMesas(response.data);
     });
   };

@@ -2,7 +2,8 @@ import { Pagina, Hoja1, Hoja2, ConInfor, Infor, InforImg, Name, Entrar, Div, Lab
 import React, { useState } from 'react';
 import Axios from "axios";
 import { useAuthContext } from "../../context/AuthContext";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import FileUploadIcon from '@mui/icons-material/FileUpload';
 
 export const CreaInformacion = () => {
     const navigate = useNavigate()
@@ -79,13 +80,14 @@ const config = {
             <Hoja2>
                 <ConInfor style={{height:"480px"}}>
                     <div style={{ height:"100px", width:"100%", display:"flex", justifyContent: "center"}}>
-                        <LabelImg className="btn btn-warning">
+                    <LabelImg className="btn btn-warning">
+                        <FileUploadIcon style={{fontSize:"80px"}}/>
                         <InforImg
                             hidden 
                             type="file"
                             onChange={handleImageChange}>
                         </InforImg>
-                        </LabelImg>
+                    </LabelImg>
                     </div>
                         <ContentImg>
                             {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}

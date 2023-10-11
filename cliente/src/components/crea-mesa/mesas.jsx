@@ -1,8 +1,9 @@
-import { Pagina, Hoja1, Hoja2, ConInfor, Infor, InforImg, Name, Entrar, Div, SpanImg, LabelImg, ContentImg, ImgPlato,  DivPrincipal, Eliminar} from "./style";
+import { Pagina, Hoja1, Hoja2, ConInfor, Infor, InforImg, Name, Entrar, Div, LabelImg, ContentImg, ImgPlato,  DivPrincipal, Eliminar} from "./style";
 import React, { useState, useEffect } from 'react';
 import Axios from "axios";
 import elimina from "../Img/delete.png"
 import { useAuthContext } from "../context/AuthContext";
+import FileUploadIcon from '@mui/icons-material/FileUpload';
 
 export const CreaMesas = () => {
     const {token} = useAuthContext()
@@ -89,7 +90,7 @@ return(
                 <ConInfor style={{height:"480px"}}>
                     <div style={{ height:"100px", width:"100%", display:"flex", justifyContent: "center"}}>
                         <LabelImg className="btn btn-warning">
-                            <SpanImg> </SpanImg>
+                            <FileUploadIcon style={{fontSize:"80px"}}/>
                             <InforImg
                                 hidden 
                                 type="file"

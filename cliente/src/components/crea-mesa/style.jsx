@@ -1,9 +1,9 @@
 import styled from "styled-components"
-import cargar from "../Img/SUBIR.png"
 import "../../App.css"
 
 
 export const Pagina = styled.div`
+    font-family: var(--tipo-letra);
     height: 100vh;
     width: 100%;
     display: flex;
@@ -125,11 +125,7 @@ export const SpanImg = styled.span`
 export const LabelImg = styled.label`
     height: 80px;
     width: 85px;
-    background-repeat: no-repeat;
-    background-size: 89%;
-    background-position: center;
     border-radius: 40%;
-    background-image:url(${cargar}) ;
     cursor: pointer;
 `;
 

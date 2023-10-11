@@ -4,6 +4,7 @@ import letrero2 from "../Img/letrero2.jpg"
 
 
 export const Background = styled.div`
+    font-family: var(--tipo-letra);
     height: 50rem;
     display: flex;
     align-items: center;
