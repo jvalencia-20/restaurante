@@ -113,7 +113,7 @@ export const ListarAdmin = () => {
                                             <FaUserCog/> Editar
                                         </Editar>
                                     </Link>
-                                    <Borrar onClick={() => eliminarAdmin(val.id_admin)}>
+                                    <Borrar onClick={() => eliminarAdmin(val.id_admin, val.nombre)}>
                                         Borrar 
                                     </Borrar>
                                 </Td>

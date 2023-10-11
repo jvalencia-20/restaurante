@@ -11,7 +11,7 @@ const x = CLAVE
 
 export const getAdmin = async (req, res) => {
     try {
-        const [rows] = await pool.query('SELECT id_admin, nombre, correo, cargo  FROM admin')
+        const [rows] = await pool.query('SELECT id_admin, nombre, correo, cargo  FROM admin ORDER BY nombre')
         res.json(rows)
     } catch (error) {
         res.status(500).json({ error: error.message });
