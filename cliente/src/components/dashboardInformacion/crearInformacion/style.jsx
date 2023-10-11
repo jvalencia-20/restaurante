@@ -1,6 +1,5 @@
 import styled from "styled-components"
-import pizarra from "../../Img/pizarra.jpeg"
-import nota from "../../Img/notaadd.png"
+
 import cargar from "../../Img/SUBIR.png"
 import "../../../App.css"
 
@@ -80,19 +79,21 @@ export const Name = styled.div`
 export const Infor = styled.input`
     background-color: transparent;
     color: white;
+    border: 1px solid #ffff;
     border-radius: 8px;
     height: 40px;
     width: 20em;
 `;
 
-export const Entrar = styled.div`
-    height: 50px;
-    width: 90px;
-    font-size: 25px;
-    background-repeat: no-repeat;
-    background-size: 90%;
-    background-position: center;
+export const Entrar = styled.button`
+    border: none;
+    width: 130px;
+    height: 3em;
+    background-color: var(--color-azul);
+    border-radius: 5px;
     cursor: pointer;
+    font-size:18px;
+    color: white;
 `;
 
 export const InforImg = styled.input`
@@ -111,18 +112,19 @@ export const LabelImg = styled.label`
 `;
 
 export const ContentImg = styled.div`
-    height: 300px;
-    width: 250px;
-    background-image: url(${nota});
+    height: 200px;
+    width: 200px;
+    background-color: #acacac6e;
     background-repeat: no-repeat;
     background-size: 97%;
     background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 30px;
     @media  screen and (max-height: 600px ) {
-    height: 210px;
-    width: 150px;
+        height: 210px;
+        width: 150px;
     }
 `;
 

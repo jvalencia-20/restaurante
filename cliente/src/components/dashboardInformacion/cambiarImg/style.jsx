@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import pizarra from "../../Img/pizarra.jpeg"
 
 export const Fondo = styled.div`
     position: fixed;
@@ -15,7 +14,7 @@ export const Fondo = styled.div`
 `;
 
 export const Container = styled.div`
-    background-image: url(${pizarra});
+    background-color: var(--color-negro);
     position: absolute;
     z-index: 0;
     height: 33em;
@@ -36,7 +35,7 @@ export const Salir = styled.div`
 `;
 
 export const Salida = styled.button`
-    background-color: #141414;
+    background-color: #ff0000;
     background-size: cover;
     background-position: center;
     margin-bottom: 50em;
@@ -93,12 +92,15 @@ export const Infor = styled.input`
 }
 `;
 
-export const Div = styled.div`
-    width: 13em;
-    height: 6em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+export const Div = styled.button`
+    border: none;
+    width: 130px;
+    height: 3em;
+    background-color: var(--color-azul);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size:18px;
+    color: white;
 `;
 
 export const InforImg = styled.input`
@@ -109,24 +111,15 @@ export const InforImg = styled.input`
 export const SpanImg = styled.span`
 `;
 
-export const LabelImg = styled.label`
-    height: 50px;
-    width: 85px;
-    background-repeat: no-repeat;
-    background-size: 89%;
-    background-position: center;
-    border-radius: 8%;
-    // background-color: #12011d ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-    font-weight: bold;
+export const LabelImg = styled.button`
+    border: none;
+    width: 130px;
+    height: 3em;
+    background-color: var(--color-azul);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size:18px;
     color: white;
-    &:hover{
-        color: #7c7b7b;
-        // background: #A945C7;
-    }
 `;
 
 export const ContentImg = styled.div`

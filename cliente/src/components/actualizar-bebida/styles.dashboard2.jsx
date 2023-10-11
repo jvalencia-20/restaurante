@@ -1,6 +1,5 @@
 import styled from "styled-components"
-import pizarra from "../Img/pizarra.jpeg"
-import nota from "../Img/notaadd.png"
+import "../../App.css"
 
 
 export const Pagina = styled.div`
@@ -41,7 +40,7 @@ export const Hoja2 = styled.form`
     justify-content: center;
     align-items: center;
     @media  screen and (min-width: 1250px ) {
-        height: 50%;
+        height: 80%;
     }
 `;
 
@@ -75,27 +74,28 @@ export const Infor = styled.input`
 export const Infor2 = styled.input`
 `;
 
-export const Entrar = styled.div`
-    height: 50px;
-    width: 90px;
-    font-size: 25px;
-    margin-top: 25px;
+export const Entrar = styled.button`
+    border: none;
+    width: 130px;
+    height: 3em;
+    background-color: var(--color-azul);
+    color: white;
+    border-radius: 5px;
     cursor: pointer;
-    background-repeat: no-repeat;
-    background-size: 90%;
-    background-position: center;
+    font-size:18px;
 `;
 
 export const ContentImg = styled.div`
-    height: 300px;
-    width: 250px;
-    background-image: url(${nota});
+    height: 200px;
+    width: 200px;
+    background-color: #acacac6e;
     background-repeat: no-repeat;
     background-size: 97%;
     background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 30px;
     @media  screen and (max-height: 600px ) {
         height: 210px;
         width: 150px;
@@ -126,14 +126,12 @@ export const Sticker2 = styled.div`
 export const DivPrincipal = styled.div`
     height: 90%;
     width: 90%;
-    background-color: aqua;
-    background-image: url(${pizarra});
+    background-color: var(--color-negro);
     display: flex;
     flex-direction: column;
     justify-content: center; 
     align-items: center;
-    border-radius: 8px;
-    box-shadow: 8px 12px 9px 10px rgba(0, 0, 0, 0.75);
+    border-radius: 0 0  8px 8px ;
     position: relative;
     @media  screen and (max-width: 670px ) {
         height: 120%

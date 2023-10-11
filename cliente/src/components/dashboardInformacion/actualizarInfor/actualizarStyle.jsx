@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import pizarra from "../../Img/pizarra.jpeg"
 import nota from "../../Img/notaadd.png"
-
+import "../../../App.css"
 
 export const Pagina = styled.div`
     height: 85vh;
@@ -21,13 +20,26 @@ export const Container = styled.div`
 export const DivPrincipal = styled.div`
     height: 90%;
     width: 90%;
-    background-image: url(${pizarra});
+    background-color: var(--color-negro);
     display: flex;
     justify-content: center; 
     align-items: center;
     border-radius: 8px;
-    box-shadow: 8px 12px 9px 10px rgba(0, 0, 0, 0.75);
     position: relative;
+    @media  screen and (max-width: 670px ) {
+        height: 120%
+    }
+    @media  screen and (min-width: 1020px ) {
+        flex-direction: row;
+        justify-content: center;
+        height: 60%;
+        width: 80%;
+    }
+    @media  screen and (max-height: 450px ) {
+        height: 100%;
+        width: 70%;
+        box-shadow: none;
+    }
 `;
 
 export const Hoja1 = styled.form`
@@ -56,6 +68,7 @@ export const Infor = styled.input`
     background-color: transparent;
     color: white;
     border-radius: 8px;
+    border: 1px solid #ffff;
     height: 30px;
     width: 20em;
 `;
@@ -71,18 +84,19 @@ export const ConInfor = styled.div`
 `;
 
 export const ContentImg = styled.div`
-    height: 300px;
-    width: 250px;
-    background-image: url(${nota});
+    height: 200px;
+    width: 200px;
+    background-color: #acacac6e;
     background-repeat: no-repeat;
     background-size: 97%;
     background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 30px;
     @media  screen and (max-height: 600px ) {
-    height: 210px;
-    width: 150px;
+        height: 210px;
+        width: 150px;
     }
 `;
 
@@ -101,12 +115,13 @@ export const ImgPlato = styled.img`
     }
 `;
 
-export const Entrar = styled.div`
-    height: 50px;
-    width: 90px;
-    font-size: 25px;
-    margin-top: 20px;
-    background-repeat: no-repeat;
-    background-size: 90%;
-    background-position: center;
+export const Entrar = styled.button`
+    border: none;
+    width: 130px;
+    height: 3em;
+    background-color: var(--color-azul);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size:18px;
 `;

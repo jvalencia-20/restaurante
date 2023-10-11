@@ -132,8 +132,10 @@ const ActualizarInformacion = () => {
               <ContentImg>
                 {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}
               </ContentImg>
-              <Link to={`/private/actualizarImgInfor/${id}`}><button style={{backgroundColor:"black",color:"white",borderRadius:"20px",cursor:"pointer",width:"5rem"}}>Cambiar Imagen</button></Link>
-              <div>
+              <div style={{display:"flex", justifyContent:"space-evenly", width:"300px"}}>
+              <Link to={`/private/actualizarImgInfor/${id}`}>
+                <button style={{height:"3em", backgroundColor:"var(--color-azul)", color:"white", border:"none",cursor:"pointer", borderRadius:"5px", width:"150px", fontSize:"18px"}}>Cambiar Imagen</button>
+              </Link>
                 <Entrar onClick={actualiza}> Guardar</Entrar>
               </div>
             </ConInfor>

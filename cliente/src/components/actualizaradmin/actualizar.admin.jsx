@@ -110,8 +110,10 @@ const actualizarusuario = (e) => {
               onChange={ev => setCorreo(ev.target.value)}>
             </Infor>
           </ConInfor>
-          <Entrar style={{height:"40px"}} onClick={actualizarContraseña}>Actualizar Contraseña</Entrar>
+          <div style={{display:"flex", justifyContent:"space-evenly", width:"300px", marginTop:"40px"}}>
+            <Entrar onClick={actualizarContraseña}>Actualizar Contraseña</Entrar>
             <Entrar onClick={actualizarusuario}>Actualizar</Entrar>
+          </div>
         </Login>
       </Background>
     </>

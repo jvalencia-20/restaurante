@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import pizarra from "../Img/pizarra.jpeg"
 
 export const Contenedor = styled.div`
     background-color: #f3f3f3;
@@ -11,28 +10,23 @@ export const Contenedor = styled.div`
 `;
 
 export const Form = styled.form`
+    background-color: var(--color-negro);
     width: 24em;
     height: 35rem;
     padding: 20px;
-    background-image: url(${pizarra});
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     margin: 20px;
 `;
 
 export const Button = styled.button`
-    width: 10em;
-    padding: 15px;
-    font-size: 18px;
-    background-color: #131415;
     border: none;
+    width: 150px;
+    height: 3em;
+    background-color: var(--color-azul);
     border-radius: 5px;
-    color: white;
     cursor: pointer;
-    transition: background-color 0.3s;
-    &:hover {
-        background-color: #0f0f10;
-    }
+    font-size:18px;
+    color: white;
 `;
 
 export const Label = styled.label`

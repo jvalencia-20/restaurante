@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import pizarra from "../Img/pizarra.jpeg"
+import "../../App.css"
 
 export const Background = styled.div`
   height: 100%;
@@ -16,17 +16,15 @@ export const Background = styled.div`
 `;
 
 export const Login = styled.form`
-  background-image: url(${pizarra});
+  background-color: var(--color-negro);
   backdrop-filter: blur(5px);
   height: 95%;
   width: 30em;
   border-radius: 1em;
-  box-shadow: 10px 10px 10px  black;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: solid;
   @media screen and ( max-width: 90vh){
     height: 80%;
     width: 20em; 
