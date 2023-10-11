@@ -82,8 +82,7 @@ return(
                 <Div style={{ height:" 3em"}}>
                 </Div>
                 <Div>
-                <Name>Elimina mesa</Name>
-                    <Eliminar onClick={eliminar} style={{backgroundImage:`url(${elimina})`, height:"100px", width:"110px"}}></Eliminar>
+                    <Eliminar onClick={eliminar}>Elimina mesa</Eliminar>
                 </Div>
             </Hoja1>
             <Hoja2>
