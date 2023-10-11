@@ -100,17 +100,15 @@ export const Entrar = styled.button`
     cursor: pointer;
 `;
 
-export const Eliminar = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
-    width: 90px;
-    font-size: 28px;
+export const Eliminar = styled.button   `
+    width: 130px;
+    height: 3em;
+    color: #ffff;
+    background-color: var(--color-azul);
+    border: none;
+    border-radius: 5px;
+    font-size:18px;
     cursor: pointer;
-    background-repeat: no-repeat;
-    background-size: 90%;
-    background-position: center;
 `;
 
 export const InforImg = styled.input`
