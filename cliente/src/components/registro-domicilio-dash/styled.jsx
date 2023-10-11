@@ -44,7 +44,6 @@ export const Table = styled.table`
 export const Thead = styled.div`
     background-color: #000;
     width: 100%;
-    border-radius: 20px 20px 0 0;
 `;
 
 export const Tbody = styled.div`
