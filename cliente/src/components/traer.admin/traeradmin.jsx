@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Axios from "axios";
 import { useAuthContext } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
-import { Contenedor, Main, Tabla, Thead,Editar, Tr, Th, Tbody, Td, Borrar } from "./styles";
+import { Contenedor, Main, Tabla, Thead,Editar, Tr, Th, Tbody, Td, Borrar,Titulo } from "./styles";
 import {FaUserCog} from "react-icons/fa"
 import {FiUserPlus} from "react-icons/fi"
 import Swal from "sweetalert2"
@@ -80,7 +80,7 @@ export const ListarAdmin = () => {
         <Contenedor>
             <Main>
                 <div style={{display:"flex", alignItems:"center", height:"100px"}}>
-                    <h1 style={{color:"black",justifyContent:"center",margin:"0",}}>Listado de usuarios</h1>
+                    <Titulo style={{color:"black",justifyContent:"center",margin:"0",fontFamily:""}}>Listado de usuario</Titulo>
                     <div onClick={enviar} style={{display:"flex", alignItems:"center", justifyContent:"center", marginLeft:"4em",cursor:"pointer"}}>
                         <button style={{height:"3em", backgroundColor:"var(--color-azul)", color:"white", border:"none",cursor:"pointer", borderRadius:"5px", width:"150px", fontSize:"18px"}}><FiUserPlus/> Crear Usuario</button>
                     </div>

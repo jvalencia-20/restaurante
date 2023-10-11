@@ -70,3 +70,6 @@ export const Editar = styled.button`
     margin-left: 5px;
 `;
 
+export const Titulo = styled.h1`
+    font-family: Arial, Helvetica, sans-serif;
+`;
