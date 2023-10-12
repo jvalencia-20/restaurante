@@ -47,7 +47,7 @@ const Informacion = () => {
                 <h3 style={{fontSize:"1.5em",filter: "drop-shadow(-5px 5px 1px #000000)"}}>{infor.noticia}</h3>
                 <div style={{
                   backgroundImage: `url(${process.env.REACT_APP_PRIMERO_UNO}/${infor.imagen})`, 
-                  width:"420px", height:"400px",
+                  width:"420px", height:"300px",
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   borderRadius: "2em"
