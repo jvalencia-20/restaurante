@@ -66,6 +66,7 @@ return (
         <Minibox3>
           <h2 style={{WebkitTextStroke:"1.1px black",fontWeight:"bold",textShadow:"5px 5px 5px black",filter: "drop-shadow(-0px 0px 0px black)", fontSize:"29px", margin:"0"}}>Contactanos</h2>
           <h2 style={{WebkitTextStroke:"1.1px black",fontWeight:"bold",textShadow:"5px 5px 5px black",filter: "drop-shadow(-0px 0px 0px black)", fontSize:"29px", margin:"0"}}>Pide tu Domicilio Ya</h2>
+          <a target="_blank" rel="noreferrer" style={{textDecoration:"none"}}><span style={{fontSize:"20px", color:"white", textDecoration:"none"}}>324 6025482</span></a>
           <a target="_blank" rel="noreferrer" style={{textDecoration:"none"}}><span style={{fontSize:"20px", color:"white", textDecoration:"none"}}>320 5847516</span></a>
           <span></span>
           <span></span>          
