@@ -45,6 +45,7 @@ export const Input = styled.input`
     color: white;
     background-color: transparent;
     margin-bottom: 10px;
+    font-family: Arial, Helvetica, sans-serif;
     &:focus {
         outline: none;
     }

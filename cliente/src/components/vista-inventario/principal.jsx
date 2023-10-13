@@ -211,6 +211,20 @@ export const Inventario = () => {
                                     onChange={e => setNombre(e.target.value)}/>
                             </Label>
                             <Label>
+                            <Fade style={{ fontFeatureSettings: 'Courier New, Courier, monospace', color: 'white', textShadow: '1px 1px 1px black', fontSize: '25px' }}>presentacion:</Fade>
+                                <Textarea
+                                    type="text"
+                                    cols={1}
+                                    rows={1}
+                                    name="presentacion"
+                                    maxLength={20}
+                                    value={presentacion}
+                                    autoComplete='off'
+                                    placeholder='Añade los presentacion'
+                                    className="form-control"
+                                    onChange={e => setPresentacion(e.target.value)}/>
+                            </Label>
+                            <Label>
                                 <Fade style={{ fontFeatureSettings: 'Courier New, Courier, monospace', color: 'white', textShadow: '1px 1px 1px black', fontSize: '20px' }}>unidad:</Fade>
                                 <Input
                                     type="number"
