@@ -88,7 +88,7 @@ return (
                         </ContentImg>
                     </ConInfor>
                 </Form>     
-                <Div>
+                <Div onClick={actualizarusuario}>
                     ACTUALIZAR IMG
                 </Div>
         </Container>

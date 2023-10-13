@@ -152,7 +152,6 @@ export const CajaLogo = styled.div`
 
 export const Boton = styled.button`
     height: 100%;
-    margin: 10px;
     width:100px;
     margin-top: 10px;
     color: var(--color-blanco);

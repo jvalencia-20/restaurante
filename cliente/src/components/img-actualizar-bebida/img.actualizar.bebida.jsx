@@ -90,8 +90,8 @@ return (
                     ACTUALIZAR IMG
                 </Div>
         </Container>
-    </Fondo>      
-</div>
-)
+    </Fondo>                        
+</div>  
+)                                                                                   
 }
 export default ActualizarImgBebida;
