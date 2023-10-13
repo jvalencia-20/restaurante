@@ -38,7 +38,7 @@ export const InforTodo = styled.div`
     }
     &::-webkit-scrollbar {
         background: transparent;
-        border-radius: 10px;
+        border-radius: 6px;
     }
 `;
 

@@ -49,7 +49,7 @@ const enviar = () => {
         </div>
         <div style={{display:"flex", justifyContent:"space-evenly", margin:"0", color:"#ffff", backgroundColor:"var(--color-negro)", width:"80%"}}>
           <h2>Titulo</h2>
-          <h2 >Imagen</h2>
+          <h2>Imagen</h2>
           <h2>Acciones</h2>
         </div>        
         <InforTodo>

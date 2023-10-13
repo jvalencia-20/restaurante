@@ -19,7 +19,7 @@ const handleImageChange = (event) => {
     }
 };
 
-const actualizarusuario = (e) => {
+const actualizarBebida = (e) => {
 e.preventDefault()
 
 const datos = new FormData();
@@ -33,6 +33,7 @@ Axios.put(`${process.env.REACT_APP_PRIMERO_UNO}/api/actualizarImgbebida/${id}`, 
 })
 .then(({data})=>{
     alert("imagen Actualizada")
+    navigate("/private/traerBebida")
 })
 .catch(error => {
     if (error.response) {
@@ -85,7 +86,7 @@ return (
                     </ContentImg>
                 </ConInfor>
             </Form>     
-                <Div>
+                <Div onClick={actualizarBebida}>
                     ACTUALIZAR IMG
                 </Div>
         </Container>

@@ -29,8 +29,8 @@ export const Box2 = styled.div`
     cursor: pointer;
     align-items: center;
     font-size: 20px;
-    overflow-x: scroll;
-    overflow-y: hidden;
+    overflow-x: scroll; 
+    overflow-y: hidden; 
     &::-webkit-scrollbar-thumb {
         background: #000000; 
         border-radius: 10px;
@@ -38,6 +38,7 @@ export const Box2 = styled.div`
     &::-webkit-scrollbar {
         background: transparent;
         border-radius: 10px;
+        width: 20px;
     }
     @media screen and (max-width: 1850px) {
         width: 1650px;

@@ -101,6 +101,7 @@ export const Th = styled.th`
     height: 2em;
     border: 1px solid black;
     font-size: 25px;
+    color: white;
 `;
 
 export const Td = styled.td`

@@ -44,21 +44,16 @@ export const newDomicilio = async (req, res) => {
         
         for (const registro of dataRegistrosDomicilio) {
             const { nombre_cliente, producto, cantidad, precio, direccion, fecha_domi } = registro;
-
             const [rows] = await pool.query(
                 'INSERT INTO registros_domicilio (nombre_cliente, producto, cantidad, precio, direccion, fecha_domi) VALUES (?, ?, ?, ?, ?, ?)',
                 [nombre_cliente, producto, cantidad, precio, direccion, fecha_domi]
             );
         }
-
         res.status(200).json({ message: 'Datos de domicilio agregados exitosamente a registros_domicilio.' });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 };
-
-
-
 
 export const updateDomi = async (req, res) => {
     try {

@@ -59,28 +59,19 @@ export const ListarAdmin = () => {
                 });
             }
         })
-            // .then((response) => {
-            // clientes()
-            // window.location.reload()
-            // ;
-            // })
-        //     .catch(error => {
-        //     console.error("Error al eliminar el producto:", error);
-        // });
     }    
     useEffect(() => {
         clientes()
     },[])
-
-
     const enviar = () => {
         Navegate("/private/register")
         }
+
     return(
         <Contenedor>
             <Main>
                 <div style={{display:"flex", alignItems:"center", height:"100px"}}>
-                    <Titulo style={{color:"black",justifyContent:"center",margin:"0",fontFamily:""}}>Listado de usuario</Titulo>
+                    <Titulo style={{color:"black",justifyContent:"center",margin:"0"}}>Listado de usuario</Titulo>
                     <div onClick={enviar} style={{display:"flex", alignItems:"center", justifyContent:"center", marginLeft:"4em",cursor:"pointer"}}>
                         <button style={{height:"3em", backgroundColor:"var(--color-azul)", color:"white", border:"none",cursor:"pointer", borderRadius:"5px", width:"150px", fontSize:"18px"}}><FiUserPlus/> Crear Usuario</button>
                     </div>
@@ -91,7 +82,7 @@ export const ListarAdmin = () => {
                             <Th>NOMBRE USUARIO</Th>
                             <Th>CORREO</Th>
                             <Th>CARGO</Th>
-                            <Th>ACCION</Th>
+                            <Th>ACCIONES</Th>
                         </Tr>
                     </Thead>
                     <Tbody style={{backgroundColor:"white"}}>
