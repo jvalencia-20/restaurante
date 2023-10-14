@@ -62,25 +62,25 @@ export const ActualizarBebida = () => {
                     if (error.response.status === 409) {
                     const errorMessage = error.response.data;
                     switch (errorMessage) {
-                        case 'Nombre del Plato requerido.':
-                    break;
+                    case 'Nombre del Plato requerido.':
+                        break;
                     case 'descripcion requerida.':
-                    break;
+                        break;
                     case 'Precio Requerido.':
-                    break;
+                        break;
                     case 'Imagen Requerida':
-                    break;
+                        break;
                     case 'Tipo de plato  requerido.':
-                    break;
+                        break;
                     default:
-                    break;
+                        break;
                 }
                     } else {
                     alert("Ocurrió un error en el registro.");
-                }
-                }  else {
-                    alert("Ocurrió un error en la solicitud.");
-                }
+                    }
+                    } else {
+                        alert("Ocurrió un error en la solicitud.");
+                    }
                 });
         }
 
@@ -91,7 +91,7 @@ useEffect(()=>{
     <Pagina>
         <Background>
             <Receta>
-            <h1 style={{color:"white"}}>Actualizar Bebida</h1>
+                <h1 style={{color:"white"}}>Actualizar Bebida</h1>
                 <DivPrincipal>
                     <Hoja1>
                         <Div>
@@ -132,7 +132,7 @@ useEffect(()=>{
                         </Div>   
                     </Hoja1>
                     <Hoja2>
-                        <ConInfor >
+                        <ConInfor>
                                 <p style={{margin: "none", fontSize:"20px"}}>Imagen Actual</p>
                                 <ContentImg> 
                                     {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}

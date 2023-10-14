@@ -62,16 +62,16 @@ const actualizarusuario = (e) => {
             break;
           case 'Nombre de usuario o correo ya existente.':
             break;
-            case 'Las contraseñas deben coincidir.':
+          case 'Las contraseñas deben coincidir.':
             break;
           default:
             break;
           }
           } else {
-        alert("Ocurrió un error en la actualizacion.");
-          }
-          } else {
-        alert("Ocurrió un error en la solicitud.");
+          alert("Ocurrió un error en la actualizacion.");
+            }
+            } else {
+          alert("Ocurrió un error en la solicitud.");
     }
   });
 }
