@@ -131,7 +131,7 @@ export const confirmar = async (req, res) => {
         if (rows.length > 0) {
         const compassword = await bcrypt.compare(password2, rows[0].password);
         const accesToken = jwt.sign({id: rows[0].id_admin}, SECRET, {
-            expiresIn: "2h",
+            expiresIn: "8h",
         });
         if(compassword){
             res.status(200).json(
@@ -214,3 +214,4 @@ export const deleteAdmin = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 }
+

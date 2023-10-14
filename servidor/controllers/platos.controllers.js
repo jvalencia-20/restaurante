@@ -84,8 +84,6 @@ export const PlatosCorriente = async (req, res) => {
 }
 
 export const createPlato = async (nombre_plato, descripcion, precio, imagePath, tipo_plato) => {
-
-    console.log(tipo_plato)
     if (!nombre_plato) {
         return res.status(409).send('Nombre del Plato requerido.');
     }

@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import cargar from "../../Img/SUBIR.png"
 import "../../../App.css"
 
 export const Pagina = styled.div`

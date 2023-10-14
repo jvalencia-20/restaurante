@@ -54,6 +54,7 @@ export const Tbody = styled.div`
     &::-webkit-scrollbar {
         background: transparent;
         border-radius: 10px;
+        width: 6px;
     }
 `;
 

@@ -42,7 +42,7 @@ useEffect(()=>{
 return(
 <Container>
     <Container2>
-        <h1 style={{WebkitTextStroke:"1.1px black",fontWeight:"bold",textShadow:"5px 5px 5px black", color:"#ffffff", marginLeft:"3em", filter: "drop-shadow(-10px 25px 15px black)"}}>SANCOCHOS</h1>
+        <h1 style={{WebkitTextStroke:"1.1px black", color:"#ffffff", marginLeft:"3em", filter: "drop-shadow(-10px 25px 15px black)",}}>SANCOCHOS</h1>
         <Box2>
             {sancocho.map((comida, index)=>
             <Link to={`/pedido/${comida.id_plato}`} key={index} style={{textDecoration:"none",cursor:"inherit"}}> 

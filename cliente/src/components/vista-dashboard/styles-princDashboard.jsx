@@ -1,7 +1,5 @@
 import styled from "styled-components"
 import "../../App.css"
-import pizarra from "../Img/pizarra.jpeg"
-import {RxExit} from "react-icons/rx"
 
 export const Body = styled.div`
     font-family: var(--tipo-letra);
@@ -56,19 +54,19 @@ export const Container = styled.div`
             "header header" 100px
             "navbar1 navbar1" 50px
             "sidebar1 main1" auto
-        /
+            /
             200px auto;
-        transition: 1s ease
+            transition: 1s ease
     }
     @media  screen and (min-width: 1000px ) {
         width: 100%;
         right: auto;
         grid-template:
-        "header  header header"   100px
-        "navbar1 main1    sidebar1" auto
-    /
-        220px     auto       220px;
-    transition-duration: 1s ease
+            "header  header header"   100px
+            "navbar1 main1    sidebar1" auto
+            /
+            220px     auto       220px;
+            transition-duration: 1s ease
     }
 `;
 
@@ -152,7 +150,6 @@ export const CajaLogo = styled.div`
 
 export const Boton = styled.button`
     height: 100%;
-    margin: 10px;
     width:100px;
     margin-top: 10px;
     color: var(--color-blanco);

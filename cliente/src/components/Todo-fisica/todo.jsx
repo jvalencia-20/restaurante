@@ -3,8 +3,7 @@ import {Outlet, useNavigate} from "react-router-dom"
 import { useState, useEffect, useRef } from "react";
 import { HiOutlineShoppingCart, } from "react-icons/hi"
 import { Container, Minibox2, Button, Notificacion, Box1, Background } from "./styled";
-import { Link } from "react-router-dom";
-import fondo from "../Img/FondoInfor.jpg"
+import { Link } from "react-router-dom"
 import CarritoFisica from "../orden-fisica/principal";
 import { LOGOUT } from "../router/path";
 
@@ -12,7 +11,6 @@ const TodoFisica = () => {
     const [activo, setActivo] = useState(false)
     const [notificacion, setNotificacion] = useState(0)
     const [platos, setPlatos] = useState([])
-    const navigate = useNavigate()
     useEffect(() => {
     const plato = JSON.parse(localStorage.getItem("platico"));
     if (Array.isArray(plato)) {

@@ -60,10 +60,12 @@ export const DivPrincipal = styled.div`
     &::-webkit-scrollbar-thumb {
         background: #000000; 
         border-radius: 10px;
+        width: 5px;
     }
     &::-webkit-scrollbar {
         background: transparent;
         border-radius: 10px;
+        width: 6px;
     }
     @media  screen and (max-width: 670px ) {
     }

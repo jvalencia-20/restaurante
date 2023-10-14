@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Contenedor, Main, Tabla, Thead,Editar, Tr, Th, Tbody, Td, Borrar,Titulo } from "./styles";
 import {FaUserCog} from "react-icons/fa"
 import {FiUserPlus} from "react-icons/fi"
+import {FiUserX} from "react-icons/fi"
 import Swal from "sweetalert2"
 
 export const ListarAdmin = () => {
@@ -59,28 +60,19 @@ export const ListarAdmin = () => {
                 });
             }
         })
-            // .then((response) => {
-            // clientes()
-            // window.location.reload()
-            // ;
-            // })
-        //     .catch(error => {
-        //     console.error("Error al eliminar el producto:", error);
-        // });
     }    
     useEffect(() => {
         clientes()
     },[])
-
-
     const enviar = () => {
         Navegate("/private/register")
         }
+
     return(
         <Contenedor>
             <Main>
                 <div style={{display:"flex", alignItems:"center", height:"100px"}}>
-                    <Titulo style={{color:"black",justifyContent:"center",margin:"0",fontFamily:""}}>Listado de usuario</Titulo>
+                    <Titulo style={{color:"black",justifyContent:"center",margin:"0"}}>Listado de usuario</Titulo>
                     <div onClick={enviar} style={{display:"flex", alignItems:"center", justifyContent:"center", marginLeft:"4em",cursor:"pointer"}}>
                         <button style={{height:"3em", backgroundColor:"var(--color-azul)", color:"white", border:"none",cursor:"pointer", borderRadius:"5px", width:"150px", fontSize:"18px"}}><FiUserPlus/> Crear Usuario</button>
                     </div>
@@ -91,14 +83,12 @@ export const ListarAdmin = () => {
                             <Th>NOMBRE USUARIO</Th>
                             <Th>CORREO</Th>
                             <Th>CARGO</Th>
-                            <Th>ACCION</Th>
+                            <Th>ACCIONES</Th>
                         </Tr>
                     </Thead>
                     <Tbody style={{backgroundColor:"white"}}>
-                        {
-                            cliente.map((val, index)=>(
-                                
-                            <Tr  key={index} style={{ backgroundColor: index % 2 === 0 ? 'white' : '#c7ba453c' }} >
+                        {cliente.map((val, index)=>(    
+                            <Tr  key={index} style={{ backgroundColor: index % 2 === 0 ? 'white' : 'silver' }} >
                                 <Td>{val.nombre}</Td>
                                 <Td>{val.correo}</Td>
                                 <Td>{val.cargo}</Td>
@@ -109,12 +99,11 @@ export const ListarAdmin = () => {
                                         </Editar>
                                     </Link>
                                     <Borrar onClick={() => eliminarAdmin(val.id_admin, val.nombre)}>
-                                        Borrar 
+                                        <FiUserX/> Borrar 
                                     </Borrar>
                                 </Td>
                             </Tr>  
-                            ))
-                        }
+                        ))}
                     </Tbody>
                 </Tabla>
             </Main>

@@ -86,7 +86,7 @@ const ActualizarInformacion = () => {
                 alert("Ocurrió un error en la solicitud.");
                 }
                 });
-    }
+                }
     useEffect(()=>{
       BuscarInfor()
     },[])

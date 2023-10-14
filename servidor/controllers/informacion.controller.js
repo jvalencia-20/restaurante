@@ -35,12 +35,13 @@ try {
     if (rows.length === 0) {
         res.status(404).json({ error: 'infor no encontrado' });
     } else {
-        res.json(rows[0]); // Acceder al primer resultado en la matriz
+        res.json(rows[0]); 
     }
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 };
+
 export const updateInfor = async(req,res) => {
 try {
     const {id} = req.params;
