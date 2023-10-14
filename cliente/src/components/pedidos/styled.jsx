@@ -79,7 +79,10 @@ export const NomPlato = styled.h1`
 export const Contenido = styled.h3`
     color: white;
     font-size: 28px;
-    font-style: italic
+    font-style: italic;
+    @media screen and (max-width: 660px) {
+        font-size: 20px;
+    }
 `;
 
 export const ConImg = styled.div`
@@ -177,7 +180,11 @@ export const Agregar = styled.button`
     cursor: pointer;
     font-style: italic;
     @media screen and (max-width: 900px) {
-        margin-top: 1em;
+    margin-top: 1em;
+    height: 2em;
+    width: 10em;
+    background-color: white;
+    border: 2px solid #000;
     }
 `;
 

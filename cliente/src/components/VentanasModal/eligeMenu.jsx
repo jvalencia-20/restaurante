@@ -45,6 +45,10 @@ const Container = styled.div`
   width: 30em;
   border-radius: 2em;
   filter: drop-shadow(6px 15px 8px black);
+  @media screen and (max-width: 900px) {
+    height: 20em;
+    width: 23em;
+    }
 `;
 
 const Salir = styled.div`
@@ -52,6 +56,9 @@ const Salir = styled.div`
   width: 30em;
   display: flex;
   justify-content: end;
+  @media screen and (max-width: 900px) {
+    width: 23em;
+    }
 `;
 
 const Salida = styled.button`
@@ -72,6 +79,9 @@ const Mensaje = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media screen and (max-width: 900px) {
+    width: 23em;
+    }
 `;
 
 const Exito = styled.div`
@@ -84,4 +94,8 @@ const Exito = styled.div`
   display: flex;
   align-items: center;
   justify-content: end;
+  @media screen and (max-width: 900px) {
+    height: 10em;
+    width: 23em;
+    }
 `;
