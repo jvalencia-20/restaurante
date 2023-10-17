@@ -5,23 +5,25 @@ moment.tz.setDefault('America/Bogota');
 
 export const getAllDomicilios = async (req, res) => {
     try {
-        const { fecha } = req.query;
-        
+        const { fecha, nombre } = req.query;
         let query = 'SELECT * FROM registros_domicilio';
-        
+        const queryParams = [];
         if (fecha) {
-            query += ` WHERE DATE(fecha_domi) = ?`;
+            query += `WHERE DATE(fecha_domi) = ?`;
+            queryParams.push(fecha);
         }
-        
+        if (nombre) {
+            query += `${fecha ? ' AND' : ' WHERE'} nombre_cliente LIKE ?`;
+            queryParams.push(`%${nombre}%`);
+        }
         query += ' ORDER BY fecha_domi DESC';
-        
-        const [rows] = await pool.query(query, [fecha]);
+        const [rows] = await pool.query(query, queryParams);
         res.json(rows);
     } catch (error) {
         console.error("Error en getAllDomicilios:", error);
         res.status(500).json({ error: error.message });
     }
-}
+};
 
 export const getRegistrosNombre = async (req, res) => {
     try {
@@ -55,7 +57,7 @@ export const getDomi = async (req, res) => {
 export const newDomicilio = async (req, res) => {
     try {
         const dataRegistrosDomicilio = req.body.rows; 
-        
+
         for (const registro of dataRegistrosDomicilio) {
             const { nombre_cliente, producto, cantidad, precio, direccion, fecha_domi } = registro;
             const [rows] = await pool.query(
