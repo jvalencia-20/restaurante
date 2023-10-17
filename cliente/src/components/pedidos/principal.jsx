@@ -3,7 +3,6 @@ import Axios from "axios"
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { Background, Platos, ConImg, Contenido, ImgPlato, Titulo, NomPlato, Aumentar, Botones, Agregar, Plato, Container, Logito, CajaImg, Plato2 } from "./styled"
-import logito from "../Img/LOgo3.png"
 import Agregado from "../VentanasModal/agregaCarrito"
 
 const Pedidos = () => {
