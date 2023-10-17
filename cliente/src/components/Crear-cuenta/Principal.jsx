@@ -15,10 +15,9 @@ const Crearcuenta = () => {
   const { token } = useAuthContext();
   const [mensajito, setMensajito] = useState("") 
   const [advertencia,setAdvertencia] = useState("")
-
   const cargos = ["admin", "empleado"]
   const handleCargoSeleccionada = (event) => {
-    const cargoSelect = event.target.value;
+  const cargoSelect = event.target.value;
     setCargo(cargoSelect);
 };
 
@@ -74,7 +73,7 @@ const Crearcuenta = () => {
               case 'Nombre de usuario o correo ya existente.':
                 setMensajito("Nombre de usuario o correo ya existente.");
                 break;
-                case 'Las contraseñas deben coincidir.':
+              case 'Las contraseñas deben coincidir.':
                   setMensajito("Verifique que las contraseñas sean iguales.");
                   break;
               default:
@@ -90,7 +89,6 @@ const Crearcuenta = () => {
       });
       
     }
-
 
   return (
     <>

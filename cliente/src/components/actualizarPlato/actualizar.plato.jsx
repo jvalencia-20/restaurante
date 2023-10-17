@@ -1,5 +1,4 @@
 import { Pagina, Background, Receta, Hoja1, Hoja2, ConInfor, Infor, Name, Entrar, Div, ContentImg, ImgPlato, DivPrincipal} from "./styles.dashboard2"
-import { Sticker } from "./styles.dashboard2";
 import React, { useEffect, useState } from 'react';
 import Axios from "axios";
 import { useNavigate, useParams, Link } from "react-router-dom";
@@ -109,7 +108,6 @@ const handleKey = (event) => {
     }
 }
 
-
 const longitudInput = (event)=> {
     const inputValue = event.target.value
     const longitudMaxima = 15
@@ -117,11 +115,12 @@ const longitudInput = (event)=> {
         setPrecio(inputValue)
     }
 }
-    return(
+
+return(
     <Pagina>
         <Background>
             <Receta>
-            <h1 style={{color:"white"}}>Actualizar Platos</h1>
+                <h1 style={{color:"white"}}>Actualizar Platos</h1>
                 <DivPrincipal>
                     <Hoja1>
                         <Div>
@@ -162,20 +161,19 @@ const longitudInput = (event)=> {
                                 onChange={longitudInput}>
                             </Infor>
                         </Div>   
-
                     </Hoja1>
                     <Hoja2>
-                        <ConInfor >
-                                <p style={{margin: "none", fontSize:"20px"}}>Imagen Actual</p>
-                                <ContentImg> 
-                                    {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}
-                                </ContentImg>
-                                <div style={{display:"flex", justifyContent:"space-evenly", width:"300px"}}>                               
-                                <Link to={`/private/actualizarImgPlato/${id}`}>
-                                    <button style={{height:"3em", backgroundColor:"var(--color-azul)", color:"white", border:"none",cursor:"pointer", borderRadius:"5px", width:"150px", fontSize:"18px"}}>Cambiar Imagen</button>
-                                </Link>
-                                <Entrar onClick={agregarplato}>Guardar</Entrar>
-                                </div>
+                        <ConInfor>
+                            <p style={{margin: "none", fontSize:"20px"}}>Imagen Actual</p>
+                            <ContentImg> 
+                                {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}
+                            </ContentImg>
+                            <div style={{display:"flex", justifyContent:"space-evenly", width:"300px"}}>                               
+                            <Link to={`/private/actualizarImgPlato/${id}`}>
+                                <button style={{height:"3em", backgroundColor:"var(--color-azul)", color:"white", border:"none",cursor:"pointer", borderRadius:"5px", width:"150px", fontSize:"18px"}}>Cambiar Imagen</button>
+                            </Link>
+                            <Entrar onClick={agregarplato}>Guardar</Entrar>
+                            </div>
                         </ConInfor>
                     </Hoja2>
                 </DivPrincipal>

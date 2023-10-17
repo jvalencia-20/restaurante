@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { Background, Platos, ConImg, Contenido, ImgPlato, Titulo, NomPlato, Aumentar, Botones, Agregar, Plato, Container, CajaImg } from "./styled"
 
-
-
 const BebidaFisica = () => {
     const [bebida, setBebida] = useState({});
     const [contar, setContar] = useState(1)
@@ -68,13 +66,9 @@ return (
                     <Plato>
                         <Contenido style={{ marginLeft: "2em", marginRight: "2em", textAlign: "center" }}>Descripcion: {bebida.descripcion}</Contenido>
                         <Aumentar>
-                            <Botones
-                                onClick={restar}
-                            >-</Botones>
+                            <Botones onClick={restar}>-</Botones>
                             <Contenido>{contar}</Contenido>
-                            <Botones
-                                onClick={suma}
-                            >+</Botones>
+                            <Botones onClick={suma}>+</Botones>
                         </Aumentar>
                         <Aumentar>
                             <Agregar onClick={() => agrega()}>Agregar a Pedido</Agregar>

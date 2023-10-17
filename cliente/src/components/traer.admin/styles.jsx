@@ -43,9 +43,8 @@ export const Tbody = styled.tbody`
 `;
 
 export const Td = styled.td`
-    padding: 5px 10px;
-    text-align: start;
-    font-size: 22px;
+    text-align: center;
+    font-size: 20px;
     border: 1px solid black;
 `;
 

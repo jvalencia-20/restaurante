@@ -83,10 +83,10 @@ export const ActualizarBebida = () => {
                     }
                 });
         }
-
 useEffect(()=>{
     BuscarBebida()
 },[])
+
     return(
     <Pagina>
         <Background>
@@ -133,10 +133,10 @@ useEffect(()=>{
                     </Hoja1>
                     <Hoja2>
                         <ConInfor>
-                                <p style={{margin: "none", fontSize:"20px"}}>Imagen Actual</p>
-                                <ContentImg> 
-                                    {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}
-                                </ContentImg>
+                            <p style={{margin: "none", fontSize:"20px"}}>Imagen Actual</p>
+                            <ContentImg> 
+                                {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}
+                            </ContentImg>
                             <div style={{display:"flex", justifyContent:"space-evenly", width:"300px"}}>
                                 <Link to={`/private/actualizarImgbebida/${id}`}>
                                     <button style={{height:"3em", backgroundColor:"var(--color-azul)", color:"white", border:"none",cursor:"pointer", borderRadius:"5px", width:"150px", fontSize:"18px"}}>Cambiar Imagen</button></Link>

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import pizarra from "../Img/pizarra.jpeg"
 import "../../App.css"
 
 export const Fondo = styled.div`

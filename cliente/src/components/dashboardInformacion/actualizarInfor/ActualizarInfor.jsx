@@ -9,7 +9,6 @@ const ActualizarInformacion = () => {
   const [titulo, setTitulo] = useState("")
   const [informacion, setInformacion] = useState("")
   const [imgEnv, setImgEnv] = useState("")
-
   const navigate = useNavigate()
   const { token } = useAuthContext();
   const { id } = useParams();
@@ -36,16 +35,12 @@ const ActualizarInformacion = () => {
         setImgEnv(file);
     }
 };
-
-
   const actualiza = (e) => {
     e.preventDefault()
-    
     const datos = {
         titulo,
         informacion,
     }
-    
     const config = {
         headers: {
             'Content-Type': 'multipart/form-data',
@@ -68,14 +63,14 @@ const ActualizarInformacion = () => {
                 if (error.response.status === 409) {
                 const errorMessage = error.response.data;
                 switch (errorMessage) {
-                    case 'titulo requerido.':
-                break;
+                case 'titulo requerido.':
+                  break;
                 case 'descripcion requerida.':
-                break;
+                  break;
                 case 'Precio Requerido.':
-                break;
+                  break;
                 case 'Imagen Requerida':
-                break;
+                  break;
                 default:
                 break;
                 }
@@ -90,8 +85,6 @@ const ActualizarInformacion = () => {
     useEffect(()=>{
       BuscarInfor()
     },[])
-  
-  
 
   return (
     <Pagina>
@@ -133,9 +126,9 @@ const ActualizarInformacion = () => {
                 {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}
               </ContentImg>
               <div style={{display:"flex", justifyContent:"space-evenly", width:"300px"}}>
-              <Link to={`/private/actualizarImgInfor/${id}`}>
-                <button style={{height:"3em", backgroundColor:"var(--color-azul)", color:"white", border:"none",cursor:"pointer", borderRadius:"5px", width:"150px", fontSize:"18px"}}>Cambiar Imagen</button>
-              </Link>
+                <Link to={`/private/actualizarImgInfor/${id}`}>
+                  <button style={{height:"3em", backgroundColor:"var(--color-azul)", color:"white", border:"none",cursor:"pointer", borderRadius:"5px", width:"150px", fontSize:"18px"}}>Cambiar Imagen</button>
+                </Link>
                 <Entrar onClick={actualiza}> Guardar</Entrar>
               </div>
             </ConInfor>

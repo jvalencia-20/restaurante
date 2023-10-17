@@ -92,21 +92,21 @@ const config = {
                     <Hoja2>
                         <ConInfor style={{height:"480px"}}>
                             <div style={{ height:"100px", width:"100%", display:"flex", justifyContent: "center"}}>
-                            <LabelImg className="btn btn-warning">
-                            <FileUploadIcon style={{fontSize:"80px"}}/>
-                                <InforImg
-                                    hidden 
-                                    type="file"
-                                    onChange={handleImageChange}>
-                                </InforImg>
-                            </LabelImg>
+                                <LabelImg className="btn btn-warning">
+                                <FileUploadIcon style={{fontSize:"80px"}}/>
+                                    <InforImg
+                                        hidden 
+                                        type="file"
+                                        onChange={handleImageChange}>
+                                    </InforImg>
+                                </LabelImg>
                                 <Nota></Nota>
                             </div>
                                 <ContentImg>
                                     {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}
                                 </ContentImg>
                             <div style={{display: "flex"}}>
-                            <Entrar onClick={agregarplato}>Guardar</Entrar>
+                                <Entrar onClick={agregarplato}>Guardar</Entrar>
                             </div>
                         </ConInfor>
                     </Hoja2>

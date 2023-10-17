@@ -1,4 +1,4 @@
-import { Pagina, Background, Receta, Hoja1, Hoja2, ConInfor, Infor, InforImg, Name, Entrar, Div, SpanImg, LabelImg, ContentImg, ImgPlato, Nota, DivPrincipal } from "./stylesDashboard"
+import { Pagina, Background, Receta, Hoja1, Hoja2, ConInfor, Infor, InforImg, Name, Entrar, Div, LabelImg, ContentImg, ImgPlato, DivPrincipal } from "./stylesDashboard"
 import { Sticker } from "./stylesDashboard";
 import React, { useState } from 'react';
 import Axios from "axios";
@@ -55,16 +55,14 @@ export const Dashboard = () => {
     const notLetters = (event) => {
         if (event.key === 'e' || event.key === 'E') {
             event.preventDefault()
-            
         }
     }
-    
 
 return (
     <Pagina>
         <Background>
             <Receta>
-            <h1 style={{color:"black"}}>Agregar Platos</h1>
+                <h1 style={{color:"black"}}>Agregar Platos</h1>
                 <DivPrincipal>
                     <Hoja1>
                         <Div>
@@ -120,22 +118,21 @@ return (
                     <Hoja2>
                         <ConInfor style={{ height: "480px" }}>
                             <div style={{ height: "100px", width: "100%", display: "flex", justifyContent: "center" }}>
-                            <LabelImg className="btn btn-warning">
-                                <FileUploadIcon style={{fontSize:"80px"}}/>
-                                <InforImg
-                                    hidden 
-                                    type="file"
-                                    onChange={handleImageChange}>
-                                </InforImg>
-                            </LabelImg>
-                                <Nota></Nota>
+                                <LabelImg className="btn btn-warning">
+                                    <FileUploadIcon style={{fontSize:"80px"}}/>
+                                    <InforImg
+                                        hidden 
+                                        type="file"
+                                        onChange={handleImageChange}>
+                                    </InforImg>
+                                </LabelImg>
                             </div>
                             <ContentImg>
                                 {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}
                             </ContentImg>
                             <div style={{ display: "flex" }}>
-                                <Entrar onClick={agregarplato}>Guardar</Entrar>
-                                <Sticker></Sticker>
+                            <Entrar onClick={agregarplato}>Guardar</Entrar>
+                            <Sticker></Sticker>
                             </div>
                         </ConInfor>
                     </Hoja2>

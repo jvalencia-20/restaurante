@@ -59,33 +59,33 @@ return(
                     <Routes>
                         <Route path={PUBLIC} element = {<PublicRoute />}>
                             <Route element = {<Todo/>}> 
-                                <Route index />
+                                <Route index/>
                                 <Route path="/menu" element = {<PrincipalConnect/>}/>
-                                <Route path="/pedido/:id" element = {<Pedidos />}></Route> 
+                                <Route path="/pedido/:id" element = {<Pedidos/>}></Route> 
                                 <Route path="/pedidoBebida/:id" element = {<PedidosBe/>}></Route>
                                 <Route path="/informacion" element = {<Informacion/>}></Route>
                             </Route>
-                                <Route path="/ordenes" element = {<Carrito />}></Route> 
+                                <Route path="/ordenes" element = {<Carrito/>}></Route> 
                                 <Route path="/domicilio" element = {<Domicilio/>}></Route>
                                 <Route path= "/mesa" element = {<VistaMesa/>}></Route>
                                 <Route path="/login" element = {<Logini/>}></Route>     
                         </Route>
                         <Route path={PRIVATE} element = {<PrivateRoute/>}>
-                            <Route element = {<PrincipalDashboard />}>
-                                <Route index /> 
+                            <Route element = {<PrincipalDashboard/>}>
+                                <Route index/> 
                                 <Route path="creaMesas" element = {<CreaMesas/>}></Route>    
-                                <Route path="register" element = {<Crearcuenta />} />
-                                <Route path="dashboard" element = {<Dashboard />} />
-                                <Route path="crearBebida" element= {<DashboardBebida />} />
+                                <Route path="register" element = {<Crearcuenta/>}/>
+                                <Route path="dashboard" element = {<Dashboard/>}/>
+                                <Route path="crearBebida" element = {<DashboardBebida/>}/>
                                 <Route path="inventario" element = {<Inventario/>}/>
-                                <Route path="traerAdmin" element= {<ListarAdmin />}></Route>
-                                <Route path="traerBebida" element= {<TraerBebidas />}></Route>
-                                <Route path="traerPlato" element = {<TraerPlatos/>}></Route>
-                                <Route path="actualizaradmin/:id" element={<ActualizarUser />}></Route>
-                                <Route path="actualizarContraseña/:id" element={<ActualizarContraseña />}></Route>
-                                <Route path="actualizarPlato/:id" element={<ActualizarPlato />}></Route>
+                                <Route path="traerAdmin" element = {<ListarAdmin/>}></Route>
+                                <Route path="traerBebida" element = {<TraerBebidas/>}></Route>
+                                <Route path="traerPlato" element  = {<TraerPlatos/>}></Route>
+                                <Route path="actualizaradmin/:id" element = {<ActualizarUser/>}></Route>
+                                <Route path="actualizarContraseña/:id" element = {<ActualizarContraseña/>}></Route>
+                                <Route path="actualizarPlato/:id" element = {<ActualizarPlato/>}></Route>
                                 <Route path="actualizarbebida/:id" element = {<ActualizarBebida/>}></Route>
-                                <Route path="actualizarImgPlato/:id" element={<ActualizarImg />}></Route>
+                                <Route path="actualizarImgPlato/:id" element={<ActualizarImg/>}></Route>
                                 <Route path="actualizarImgbebida/:id" element = {<ActualizarImgBebida/>}></Route>
                                 <Route path="informate" element = {<ActualizaInfor/>}></Route>
                                 <Route path="actualizate/:id" element = {<ActualizarInformacion/>}></Route>
@@ -96,17 +96,17 @@ return(
                             </Route>
                             <Route path={LOGOUT} element = {<Logout/>}/>
                             <Route path="todofisica" element = {<TodoFisica/>}>
-                                <Route path="fisica" element = {<Fisica/>} />
-                                <Route path="pedidofisica/:id" element = {<PedidoFisica/>} />
-                                <Route path="bebidafisica/:id" element = {<BebidaFisica/>} />
-                                <Route path="carritofisica" element = {<CarritoFisica/>} />
+                                <Route path="fisica" element = {<Fisica/>}/>
+                                <Route path="pedidofisica/:id" element = {<PedidoFisica/>}/>
+                                <Route path="bebidafisica/:id" element = {<BebidaFisica/>}/>
+                                <Route path="carritofisica" element = {<CarritoFisica/>}/>
                                 <Route path= "mesa" element = {<VistaMesa/>}></Route>
-                                <Route path="factura/:id" element = {<Factura />}/>
+                                <Route path="factura/:id" element = {<Factura/>}/>
                                 <Route path="imprimir" element = {<Imprimir/>}></Route>
                                 <Route path="imprimirdomicilio/:di" element = {<ImprimirDomicilio/>}></Route>
-                                <Route path="facturadomicilio/:di" element = {<FacturaDomicilio />} />
-                                <Route path="registrosdomi" element= {<RegistroDomi />}></Route>
-                                <Route path="recibir-orden" element = {<RecibirOrden />}></Route>
+                                <Route path="facturadomicilio/:di" element = {<FacturaDomicilio/>}/>
+                                <Route path="registrosdomi" element = {<RegistroDomi/>}></Route>
+                                <Route path="recibir-orden" element = {<RecibirOrden/>}></Route>
                                 <Route path="registro-fact" element = {<RegistroFactura/>}></Route>
                                 <Route path="selectfactura" element = {<SelectFactura/>}></Route>
                             </Route>

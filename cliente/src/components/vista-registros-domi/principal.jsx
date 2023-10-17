@@ -44,7 +44,6 @@ const RegistroDomi = () => {
             fecha: null,
         }));
     };
-    
     const handleBackToMenuPrincipal = async () => {
         navigate('/private/todofisica/selectfactura');
     };
@@ -89,9 +88,9 @@ const RegistroDomi = () => {
             </ContPrincipal>
             <span style={{ color: "white", fontSize: "20px" }}>Total en ventas: ${totalPrecios}</span>
             <Link to="/private/todofisica/fisica">
-                <Boton style={{ marginTop: "20px" }}>Regresar al menú</Boton>
+                <Boton style={{ marginTop: "20px",fontSize:"15px" }}>Regresar al menú</Boton>
             </Link>
-            <Boton style={{ marginTop: "20px" }} onClick={handleBackToMenuPrincipal}>Regresar a la factura</Boton>
+            <Boton style={{ marginTop: "20px",fontSize:"15px" }} onClick={handleBackToMenuPrincipal}>Regresar a la factura</Boton>
         </Background>
     );
 };

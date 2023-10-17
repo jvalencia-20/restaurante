@@ -7,7 +7,7 @@ export const getMesa = async (req, res) => {
         //     SELECT * FROM orden
         //     WHERE id_mesa = ?
         // `;
-        const query = "SELECT producto, SUM(cantidad) AS cantidad, SUM(precio) AS precio FROM orden WHERE id_mesa = ? GROUP BY producto"
+        const query = "SELECT producto, SUM(cantidad) AS cantidad, SUM(precio) AS precio, id_orden, id_mesa FROM orden WHERE id_mesa = ? GROUP BY producto"
         const [rows] = await pool.query(query, [id_mesa]);
         res.json(rows);
     } catch (error) {

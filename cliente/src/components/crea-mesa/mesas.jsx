@@ -79,8 +79,6 @@ return(
                     </Infor>
                 </Div>
                 <Div style={{ height:" 3em"}}>
-                </Div>
-                <Div>
                     <Eliminar onClick={eliminar}>Elimina mesa</Eliminar>
                 </Div>
             </Hoja1>
@@ -96,11 +94,11 @@ return(
                             </InforImg>
                         </LabelImg>
                     </div>
-                        <ContentImg>
-                            {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}
-                        </ContentImg>
+                    <ContentImg>
+                        {selectedImage && <ImgPlato src={selectedImage} alt="Seleccionada" />}
+                    </ContentImg>
                     <div style={{display: "flex"}}>
-                    <Entrar onClick={agregarplato}>Guardar</Entrar>
+                        <Entrar onClick={agregarplato}>Guardar</Entrar>
                     </div>
                 </ConInfor>
             </Hoja2>

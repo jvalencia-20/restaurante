@@ -108,8 +108,8 @@ export const Th = styled.th`
 export const Td = styled.td`
     border: 1px groove black;
     color: black;
-    padding: 3px;  
-    font-size: 25px;
+    /* padding: 3px;   */
+    font-size: 23px;
 `;
 
 export const Actualizar = styled.button`
@@ -135,10 +135,10 @@ export const Cancelar = styled.button`
 `;
 
 export const Editar = styled.button`
-    background-color: #080909;
-    color: white;
+    background-color: #ffffff;
+    color: #000000;
     border-radius: 5px;
-    border: none;
+    border: 1px solid #000000;
     width: 6em;
     height: 2em;
     margin: 1px;
@@ -154,4 +154,5 @@ export const Eliminar = styled.button`
     height: 2em;
     margin: 1px;
     cursor: pointer;
+    margin-left: 5px;
 `;

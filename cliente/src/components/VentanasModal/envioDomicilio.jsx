@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Envio from "../Img/delivery-monomoro.gif"
+import Envio from "../Img/muve.gif"
 import Finalizar from "../Img/cross-logo.gif"
 import { Link, useNavigate } from "react-router-dom";
 
@@ -9,7 +9,7 @@ const Enviar = () => {
   const navigate = useNavigate()
   setTimeout(() => {
     navigate("/menu")
-  }, 1000);
+  }, 2000);
   return (
     <div>
       <Fondo>
@@ -93,5 +93,4 @@ const Exito = styled.div`
   display: flex;
   align-items: center;
   justify-content: end;
-  filter: drop-shadow(6px 5px 8px black);  
 `;

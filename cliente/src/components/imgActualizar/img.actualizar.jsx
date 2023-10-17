@@ -50,8 +50,8 @@ Axios.put(`${process.env.REACT_APP_PRIMERO_UNO}/api/actualizarImgPlato/${id}`, d
             }
             } else {
         alert("Ocurrió un error en la actualizacion.");
-        }
-        } else {
+            }
+            } else {
         alert("Ocurrió un error en la solicitud.");
         }
 });

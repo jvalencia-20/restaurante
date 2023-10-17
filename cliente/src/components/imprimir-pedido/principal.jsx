@@ -4,6 +4,7 @@ import { Background, ContPrincipal, ContFactura, ResPrecios, ContBoton, BotonImp
 import mesaFunctions from "../vista-mesa/mesa.services/mesa.services";
 import { useDataState } from "../vista-mesa/data.context/data.state.context";
 import axios from "axios";
+import "../../App.css"
 
 const Imprimir = ({ mesa }) => {
     const navigate = useNavigate()
@@ -62,7 +63,6 @@ const Imprimir = ({ mesa }) => {
         <Background>
             <ContPrincipal>
                 <h1 style={{ textAlign: "center" , color:"white" }}>imprimir pedido</h1>
-                
                 <ContFactura>
                     <table>
                         <thead>

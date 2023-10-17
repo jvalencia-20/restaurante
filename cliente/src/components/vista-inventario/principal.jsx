@@ -338,7 +338,7 @@ export const Inventario = () => {
                         <tbody>
                             {platos.map((val) => {
                                 return (
-                                    <tr key={val.id_producto}>
+                                    <tr key={val.id_producto} style={{ backgroundColor: val.id_producto % 2 === 0 ? 'silver' : 'white' }}>
                                         <Td>{val.nombre}</Td>
                                         <Td>{val.presentacion}</Td>
                                         <Td>{val.unidad}</Td>

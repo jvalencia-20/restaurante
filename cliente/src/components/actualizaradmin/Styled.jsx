@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import pizarra from "../Img/pizarra.jpeg"
 import "../../App.css"
 
 export const Background = styled.div`
@@ -86,12 +85,12 @@ export const Infor = styled.input`
 `;
 
 export const Entrar = styled.button`
-    border: none;
-    width: 130px;
-    height: 3em;
-    background-color: var(--color-azul);
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size:18px;
+  border: none;
+  width: 130px;
+  height: 3em;
+  background-color: var(--color-azul);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size:18px;
 `;

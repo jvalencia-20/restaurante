@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import nota from "../../Img/notaadd.png"
 import "../../../App.css"
 
 export const Pagina = styled.div`
@@ -61,7 +60,7 @@ export const Hoja2 = styled.form`
     justify-content: center;
     align-items: center;
     @media  screen and (min-width: 1250px ) {
-    height: 50%;
+        height: 50%;
     }
 `;
 
@@ -110,9 +109,9 @@ export const ImgPlato = styled.img`
     left: 3%;
     top: -2%;
     @media  screen and (max-height: 600px ) {
-    height: 100px;
-    width: 95px;
-    left: 4%;
+        height: 100px;
+        width: 95px;
+        left: 4%;
     }
 `;
 

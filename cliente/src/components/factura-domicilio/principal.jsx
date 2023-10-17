@@ -44,19 +44,18 @@ const FacturaDomicilio = () => {
     useEffect(() => {
         Domicilios()
     }, [])
+
     const envia = () => {
         const parametro = di;
         const parametroCodificado = encodeURIComponent(parametro);
         Navegate(`/private/todofisica/imprimirdomicilio/${parametroCodificado}`)
     }
     const { di } = useParams();
-
     const enviarDatosARegistrosDomicilio = async () => {
         const dataDomicilio = {
             table: "domicilio",
             rows: filteredReservas,
         };
-    
         const dataRegistrosDomicilio = dataDomicilio.rows.map((domicilio) => {
             return {
                 nombre_cliente: domicilio.nombre_cliente,

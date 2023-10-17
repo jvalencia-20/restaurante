@@ -83,7 +83,7 @@ const actualizarusuario = (e) => {
   }
 
   return (
-    <>
+  <>
     {activo && <ActualizarContraseña />}
       <Background>
         <Login>
@@ -116,7 +116,7 @@ const actualizarusuario = (e) => {
           </div>
         </Login>
       </Background>
-    </>
+  </>
   );
 }
 

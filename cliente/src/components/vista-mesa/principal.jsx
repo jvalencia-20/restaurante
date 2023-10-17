@@ -78,7 +78,7 @@ const VistaMesa = () => {
             </Box>
           ))}
       </Container>
-      {showFactura &&  reservas > 0  ? <Factura mesa={selectedTableIndex + 1} reservas={reservas}/> : "" }
+      {/* {showFactura &&  reservas > 0  ? <Factura mesa={selectedTableIndex + 1} reservas={reservas}/> : "" } */}
     </>
   );
 };

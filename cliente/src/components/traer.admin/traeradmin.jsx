@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Contenedor, Main, Tabla, Thead,Editar, Tr, Th, Tbody, Td, Borrar,Titulo } from "./styles";
 import {FaUserCog} from "react-icons/fa"
 import {FiUserPlus} from "react-icons/fi"
+import {FiUserX} from "react-icons/fi"
 import Swal from "sweetalert2"
 
 export const ListarAdmin = () => {
@@ -100,12 +101,11 @@ export const ListarAdmin = () => {
                                         </Editar>
                                     </Link>
                                     <Borrar onClick={() => eliminarAdmin(val.id_admin, val.nombre)}>
-                                        Borrar 
+                                        <FiUserX/> Borrar 
                                     </Borrar>
                                 </Td>
                             </Tr>  
-                            ))
-                        }
+                        ))}
                     </Tbody>
                 </Tabla>
             </Main>

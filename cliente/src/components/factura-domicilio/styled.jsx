@@ -52,7 +52,6 @@ export const ContFactura = styled.div`
             margin-bottom: 10px;
         }
     }
-    
 `;
 
 export const ResPrecios = styled.div`

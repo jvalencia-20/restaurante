@@ -100,9 +100,9 @@ const RegistroFactura = () => {
             </ContPrincipal>
             <span style={{ color: "white", fontSize: "20px" }}>Total en ventas: ${totalPrecios}</span>
             <Link to="/private/todofisica/fisica">
-                <Boton style={{ marginTop: "20px" }}>Regresar al menú</Boton>
+                <Boton style={{ marginTop: "20px",fontSize:"15px" }}>Regresar al menú</Boton>
             </Link>
-            <Boton style={{ marginTop: "20px" }} onClick={handleBackToLastAssigned}>Volver a la última factura asignada</Boton>
+            <Boton style={{ marginTop: "20px",fontSize:"15px" }} onClick={handleBackToLastAssigned}>Volver a la última factura asignada</Boton>
         </Background>
     );
 };

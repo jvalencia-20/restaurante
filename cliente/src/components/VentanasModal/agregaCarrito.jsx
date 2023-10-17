@@ -7,7 +7,6 @@ import { Link, useNavigate } from "react-router-dom";
 const Agregado = () => {
   const navigate = useNavigate()
   setTimeout(() => {
-    navigate("/menu")
     window.location.reload(); 
   }, 1000);
   return (

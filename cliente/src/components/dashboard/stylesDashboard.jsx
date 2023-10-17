@@ -89,9 +89,6 @@ export const InforImg = styled.input`
     border: none;
 `;
 
-export const SpanImg = styled.span`
-`;
-
 export const LabelImg = styled.label`
     height: 80px;
     width: 85px;
@@ -131,8 +128,6 @@ export const ImgPlato = styled.img`
     }
 `;
 
-export const Nota = styled.div`
-`;
 
 export const Sticker = styled.div`
 `;
@@ -155,13 +150,13 @@ export const DivPrincipal = styled.div`
         height: 120%
     }
     @media  screen and (min-width: 1020px ) {
-    flex-direction: row;
-    justify-content: center;
-    height: 60%;
-    width: 80%;
+        flex-direction: row;
+        justify-content: center;
+        height: 60%;
+        width: 80%;
     }
     @media  screen and (max-height: 450px ) {
-    height: 200%;
-    box-shadow: none;
+        height: 200%;
+        box-shadow: none;
     }
 `;
