@@ -103,6 +103,7 @@ export const Eliminar = styled.button   `
     width: 130px;
     height: 3em;
     color: #ffff;
+    margin-top: 0px;
     background-color: var(--color-azul);
     border: none;
     border-radius: 5px;

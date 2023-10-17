@@ -23,6 +23,20 @@ export const getAllDomicilios = async (req, res) => {
     }
 }
 
+export const getRegistrosNombre = async (req, res) => {
+    try {
+        const { nombre } = req.params;
+        const idnombre = (nombre);
+        if (isNaN(idnombre)) {
+            return res.status(400).json({ error: "debe ser un nombre valido" });
+        }
+        const [rows] = await pool.query('SELECT * FROM registros_domicilio WHERE nombre_cliente = ? ORDER BY fecha_factura DESC', [idnombre]);
+        res.json(rows);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
 export const getDomi = async (req, res) => {
     try {
         const { id } = req.params

@@ -11,7 +11,7 @@ import { getAllRegistros, getRegistro, createNew, updateRegistro, delete1, delet
 // import { getAllPlatos } from "../controllers/platos.controllers.js";
 import { getMesa, createMesa, deleteOrdenPorMesa } from "../controllers/mesa.controller.js";
 import { getMesas,crearMesas,eliminarMesas,updateMesas } from "../controllers/mesas.controller.js";
-import { deleteDomi, getAllDomicilios, newDomicilio, updateDomi, getDomi } from "../controllers/reg_domi.controller.js";
+import { deleteDomi, getAllDomicilios, newDomicilio, updateDomi, getDomi, getRegistrosNombre } from "../controllers/reg_domi.controller.js";
 import { crearInformacion, deleteInformacion, informacion, obtenerInformacion, updateImgInfor, updateInfor } from "../controllers/informacion.controller.js";
 import {getProductos,getProducto,deleteProducto,updateProducto,createProductos} from "../controllers/producto.controllers.js";
 import dotenv from 'dotenv';
@@ -176,6 +176,7 @@ router.get('/domicilio/:di', getDomicilio); //ruta para obtener un domicilio por
 router.delete('/quitar/:di', deleteDomicilio); //ruta para eliminar domicilio
 
 
+
 router.get('/registro', getAllRegistros)
 router.get('/registro/:id', getRegistro)
 router.get('/registro/por-mesa/:mesa', getRegistrosPorMesa)
@@ -188,6 +189,7 @@ router.delete('/registro/:id', delete1)
 router.delete('/delete', deleteAllRegistro)
 
 router.get('/reg_domi', getAllDomicilios)
+router.get('/reg_domi/nombre', getRegistrosNombre)
 router.get('/reg_domi/:id', getDomi)
 router.post('/reg_domi', newDomicilio)
 router.patch('/reg_domi/:id', updateDomi)

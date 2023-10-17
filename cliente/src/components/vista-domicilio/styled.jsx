@@ -121,7 +121,7 @@ export const Box5 = styled.div`
 
 export const Infor = styled.input`
     background-color: transparent;
-    color: white;
+    color: #000000;
     border-radius: 0.5em;
     border: 2px solid #ffff;
     height: 2.5em;

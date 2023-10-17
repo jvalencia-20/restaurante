@@ -13,7 +13,7 @@ const Pedidos = () => {
     const precioUnitarios = plato.precio
     const [precios, setPrecios] = useState([])
     const suma = () => {
-    if(contar < 20){
+    if(contar < 100){
         setContar(contar + 1)
         setPrecios(precios + precioUnitarios)
     }  

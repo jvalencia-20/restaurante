@@ -7,13 +7,13 @@ import { Link, useNavigate } from "react-router-dom";
 const RegistroDomi = () => {
     const navigate = useNavigate()
     const [facturas, setFacturas] = useState([]);
-    const [filtros, setFiltros] = useState({ fecha: null });
+    const [filtros, setFiltros] = useState({nombre:null, fecha: null });
     const [totalPrecios, setTotalPrecios] = useState(0);
     const [error, setError] = useState("");
     const cargarRegistros = async () => {
         try {
             const response = await axios.get(`${process.env.REACT_APP_PRIMERO_UNO}/api/reg_domi`, {
-                params: { fecha: filtros.fecha }
+                params: { fecha: filtros.fecha, nombre: filtros.nombre }
             });
             const total = response.data.reduce((accumulator, factura) => {
                 return accumulator + parseFloat(factura.precio)
@@ -52,6 +52,8 @@ const RegistroDomi = () => {
         <Background>
             <div>
                 <InputContainer>
+                    <label style={{color:"white"}}>nombre:</label>
+                    <input type="text" name="nombre" value={filtros.nombre || ""} onChange={handleFiltroChange} style={{marginRight:"50px"}}></input>
                     <label style={{color: "white"}}>Fecha:</label>
                     <input type="date" name="fecha" value={filtros.fecha || ""} onChange={handleFiltroChange} style={{marginRight:"50px"}} />
                 </InputContainer>

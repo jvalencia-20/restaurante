@@ -123,6 +123,21 @@ export const getRegistrosPorMesa = async (req, res) => {
     }
 };
 
+export const getRegistrosNombre = async (req, res) => {
+    try {
+        const { mesa } = req.params;
+        const idMesa = parseInt(mesa, 10);
+        if (isNaN(idMesa)) {
+            return res.status(400).json({ error: "La mesa debe ser un número válido" });
+        }
+        const [rows] = await pool.query('SELECT * FROM registros_fact WHERE id_mesa = ? ORDER BY fecha_factura DESC', [idMesa]);
+        res.json(rows);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+
 export const getRegistrosPorFecha = async (req, res) => {
     try {
         const { fecha } = req.params;

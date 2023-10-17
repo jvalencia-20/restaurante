@@ -2,7 +2,6 @@ import styled from "styled-components";
 import FondoComida from "../Img/fondoComida.jpg"
 import letrero2 from "../Img/letrero2.jpg"
 
-
 export const Background = styled.div`
     width: 100%;
     display: flex;
